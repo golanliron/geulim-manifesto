@@ -97,11 +97,32 @@
 
         .hero .subtitle {
             font-family: 'Heebo', sans-serif;
-            font-size: 20px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.8);
-            letter-spacing: 2px;
-            margin-bottom: 36px;
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        .hero .subtitle-deco {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+        .hero .subtitle-deco-line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+        .hero .subtitle-deco-line.right {
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+        .hero .subtitle-deco-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: 0.7;
         }
 
         .hero .tagline {
@@ -670,7 +691,14 @@
 
         <div class="hero-divider"></div>
 
-        <div class="subtitle">קהילה ירושלמית של בית ספר גאולים</div>
+        <div class="subtitle">קהילת ההורים הירושלמית</div>
+        <div class="subtitle-deco">
+            <div class="subtitle-deco-line"></div>
+            <div class="subtitle-deco-dot"></div>
+            <div class="subtitle-deco-dot"></div>
+            <div class="subtitle-deco-dot"></div>
+            <div class="subtitle-deco-line right"></div>
+        </div>
 
         <div class="tagline">
             צריך כפר שלם כדי לגדל ילד.<br>
