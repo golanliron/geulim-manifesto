@@ -71,12 +71,20 @@
 
         .hero h1 {
             font-family: 'Frank Ruhl Libre', serif;
-            font-size: 88px;
+            font-size: 118px;
             font-weight: 900;
-            color: white;
             line-height: 1;
-            margin-bottom: 20px;
-            letter-spacing: 6px;
+            margin-bottom: 22px;
+            letter-spacing: 12px;
+            background: linear-gradient(160deg, #ffffff 0%, #F0D88A 45%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 24px rgba(201,165,76,0.25));
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 72px; letter-spacing: 6px; }
         }
 
         .hero-divider {
@@ -628,7 +636,7 @@
 
         <div class="hero-divider"></div>
 
-        <div class="subtitle">קהילת ההורים של בית ספר גאולים</div>
+        <div class="subtitle">קהילה ירושלמית של בית ספר גאולים</div>
 
         <div class="tagline">
             צריך כפר שלם כדי לגדל ילד.<br>
@@ -637,80 +645,112 @@
 
     </div>
 
-    <!-- Jerusalem skyline illustration -->
-    <svg class="hero-jerusalem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 190" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <g fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Background hill fill -->
-        <path fill="rgba(255,255,255,0.03)" stroke="none" d="M0 190 Q250 162 450 168 Q650 174 700 160 Q850 148 1050 165 Q1250 178 1400 162 L1400 190 Z"/>
-        <!-- City wall with battlements -->
-        <path d="M100 162
-          L160 162 L160 148 L175 148 L175 162
-          L210 162 L210 148 L225 148 L225 162
-          L260 162 L260 148 L275 148 L275 162
-          L310 162 L310 148 L325 148 L325 162
-          L360 162 L360 148 L375 148 L375 162
-          L415 162 L415 148 L430 148 L430 162
-          L465 162 L465 148 L480 148 L480 162
-          L515 162 L515 148 L530 148 L530 162
-          L565 162 L565 148 L580 148 L580 162
-          L615 162 L615 148 L630 148 L630 162
-          L665 162 L665 148 L680 148 L680 162
-          L720 162 L720 148 L735 148 L735 162
-          L770 162 L770 148 L785 148 L785 162
-          L820 162 L820 148 L835 148 L835 162
-          L870 162 L870 148 L885 148 L885 162
-          L920 162 L920 148 L935 148 L935 162
-          L970 162 L970 148 L985 148 L985 162
-          L1020 162 L1020 148 L1035 148 L1035 162
-          L1070 162 L1070 148 L1085 148 L1085 162
-          L1120 162 L1120 148 L1135 148 L1135 162
-          L1175 162 L1175 148 L1190 148 L1190 162
-          L1240 162"/>
-        <!-- Tower of David (left) -->
-        <rect x="335" y="104" width="44" height="58"/>
-        <path d="M335 104 L335 95 L340 95 L340 88 L347 88 L347 95 L354 95 L354 88 L361 88 L361 95 L368 95 L368 88 L375 88 L375 95 L379 95 L379 104"/>
-        <line x1="357" y1="88" x2="357" y2="70"/>
-        <path d="M357 70 L373 77 L357 83"/>
-        <!-- Minaret 1 -->
-        <path d="M448 162 L448 92 L460 92 L460 162"/>
-        <line x1="443" y1="92" x2="465" y2="92"/>
-        <path d="M448 92 C448 80 454 74 454 72 C454 74 460 80 460 92"/>
-        <line x1="454" y1="70" x2="454" y2="60"/>
-        <!-- Gate arch -->
-        <path d="M546 162 L546 136 C546 122 558 116 558 116 L582 116 C594 116 598 128 598 136 L598 162"/>
-        <path d="M552 135 C552 126 558 122 564 122 C570 122 580 126 580 135"/>
-        <!-- DOME OF THE ROCK — centerpiece -->
-        <path d="M628 162 L628 153 L638 153 L638 146 L762 146 L762 153 L772 153 L772 162"/>
-        <rect x="658" y="120" width="84" height="26"/>
-        <path d="M658 120 C658 92 700 78 700 76 C700 78 742 92 742 120"/>
-        <rect x="668" y="128" width="10" height="12"/>
-        <rect x="695" y="128" width="10" height="12"/>
-        <rect x="722" y="128" width="10" height="12"/>
-        <circle cx="700" cy="74" r="3"/>
-        <line x1="700" y1="71" x2="700" y2="62"/>
-        <path d="M695 61 C695 55 700 52 700 52 C700 52 705 55 705 61"/>
-        <!-- Al-Aqsa -->
-        <rect x="806" y="144" width="54" height="18"/>
-        <path d="M806 144 C806 126 833 118 833 116 C833 118 860 126 860 144"/>
-        <!-- Minaret 2 -->
-        <path d="M890 162 L890 86 L902 86 L902 162"/>
-        <line x1="885" y1="86" x2="907" y2="86"/>
-        <path d="M890 86 C890 74 896 68 896 66 C896 68 902 74 902 86"/>
-        <line x1="896" y1="64" x2="896" y2="54"/>
-        <!-- Church of Holy Sepulchre -->
-        <rect x="958" y="136" width="54" height="26"/>
-        <path d="M958 136 C958 118 985 110 985 108 C985 110 1012 118 1012 136"/>
-        <line x1="985" y1="108" x2="985" y2="96"/>
-        <line x1="978" y1="103" x2="992" y2="103"/>
-        <!-- Small right tower -->
-        <rect x="1062" y="118" width="34" height="44"/>
-        <path d="M1062 118 L1062 110 L1067 110 L1067 103 L1073 103 L1073 110 L1079 110 L1079 103 L1085 103 L1085 110 L1090 110 L1090 103 L1096 103 L1096 118"/>
-        <!-- Cypress trees -->
-        <path d="M290 162 C287 148 283 133 287 119 C290 108 299 102 299 102 C299 102 308 108 311 119 C315 133 311 148 308 162"/>
-        <path d="M505 162 C502 149 499 136 503 124 C506 114 513 109 513 109 C513 109 520 114 523 124 C527 136 524 149 521 162"/>
-        <path d="M1148 162 C1145 149 1142 136 1146 123 C1149 113 1156 108 1156 108 C1156 108 1163 113 1166 123 C1170 136 1167 149 1164 162"/>
-        <path d="M1210 162 C1207 150 1205 139 1208 128 C1211 118 1218 114 1218 114 C1218 114 1225 118 1228 128 C1231 139 1229 150 1226 162"/>
-      </g>
+    <!-- Jerusalem walls illustration -->
+    <svg class="hero-jerusalem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 175" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <style>
+          .jw { fill:none; stroke:rgba(255,255,255,0.11); stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+          .jw-f { stroke:rgba(255,255,255,0.08); stroke-width:1.1; fill:rgba(255,255,255,0.04); }
+        </style>
+      </defs>
+
+      <!-- Wall body fill -->
+      <rect class="jw-f" x="50" y="128" width="1300" height="47"/>
+
+      <!-- Stone courses (horizontal) -->
+      <line class="jw" x1="50" y1="142" x2="1350" y2="142"/>
+      <line class="jw" x1="50" y1="157" x2="1350" y2="157"/>
+
+      <!-- Stone joints course 1 (y=128–142) -->
+      <line class="jw" x1="115" y1="128" x2="115" y2="142"/> <line class="jw" x1="185" y1="128" x2="185" y2="142"/>
+      <line class="jw" x1="252" y1="128" x2="252" y2="142"/> <line class="jw" x1="318" y1="128" x2="318" y2="142"/>
+      <line class="jw" x1="385" y1="128" x2="385" y2="142"/> <line class="jw" x1="452" y1="128" x2="452" y2="142"/>
+      <line class="jw" x1="518" y1="128" x2="518" y2="142"/> <line class="jw" x1="585" y1="128" x2="585" y2="142"/>
+      <!-- gap for gate x=615–785 -->
+      <line class="jw" x1="820" y1="128" x2="820" y2="142"/> <line class="jw" x1="888" y1="128" x2="888" y2="142"/>
+      <line class="jw" x1="955" y1="128" x2="955" y2="142"/> <line class="jw" x1="1022" y1="128" x2="1022" y2="142"/>
+      <line class="jw" x1="1090" y1="128" x2="1090" y2="142"/> <line class="jw" x1="1157" y1="128" x2="1157" y2="142"/>
+      <line class="jw" x1="1225" y1="128" x2="1225" y2="142"/> <line class="jw" x1="1292" y1="128" x2="1292" y2="142"/>
+
+      <!-- Stone joints course 2 (y=142–157, offset) -->
+      <line class="jw" x1="82" y1="142" x2="82" y2="157"/>   <line class="jw" x1="150" y1="142" x2="150" y2="157"/>
+      <line class="jw" x1="218" y1="142" x2="218" y2="157"/> <line class="jw" x1="285" y1="142" x2="285" y2="157"/>
+      <line class="jw" x1="352" y1="142" x2="352" y2="157"/> <line class="jw" x1="420" y1="142" x2="420" y2="157"/>
+      <line class="jw" x1="487" y1="142" x2="487" y2="157"/> <line class="jw" x1="554" y1="142" x2="554" y2="157"/>
+      <!-- gap for gate -->
+      <line class="jw" x1="802" y1="142" x2="802" y2="157"/> <line class="jw" x1="870" y1="142" x2="870" y2="157"/>
+      <line class="jw" x1="938" y1="142" x2="938" y2="157"/> <line class="jw" x1="1006" y1="142" x2="1006" y2="157"/>
+      <line class="jw" x1="1074" y1="142" x2="1074" y2="157"/> <line class="jw" x1="1142" y1="142" x2="1142" y2="157"/>
+      <line class="jw" x1="1210" y1="142" x2="1210" y2="157"/> <line class="jw" x1="1278" y1="142" x2="1278" y2="157"/>
+
+      <!-- Crenellations on wall top — segment 1: x=50–125 -->
+      <path class="jw" d="M50 128 L50 112 L68 112 L68 128 L86 128 L86 112 L104 112 L104 128"/>
+      <!-- segment 2: x=190–330 -->
+      <path class="jw" d="M190 128 L190 112 L208 112 L208 128 L226 128 L226 112 L244 112 L244 128 L262 128 L262 112 L280 112 L280 128 L298 128 L298 112 L316 112 L316 128"/>
+      <!-- segment 3: x=395–525 -->
+      <path class="jw" d="M395 128 L395 112 L413 112 L413 128 L431 128 L431 112 L449 112 L449 128 L467 128 L467 112 L485 112 L485 128 L503 128 L503 112 L521 112 L521 128"/>
+      <!-- segment 4: x=530–610 -->
+      <path class="jw" d="M530 128 L530 112 L548 112 L548 128 L566 128 L566 112 L584 112 L584 128 L602 128 L602 112 L610 112 L610 128"/>
+      <!-- segment 5: x=790–900 -->
+      <path class="jw" d="M790 128 L790 112 L808 112 L808 128 L826 128 L826 112 L844 112 L844 128 L862 128 L862 112 L880 112 L880 128"/>
+      <!-- segment 6: x=905–1010 -->
+      <path class="jw" d="M905 128 L905 112 L923 112 L923 128 L941 128 L941 112 L959 112 L959 128 L977 128 L977 112 L995 112 L995 128"/>
+      <!-- segment 7: x=1015–1130 -->
+      <path class="jw" d="M1015 128 L1015 112 L1033 112 L1033 128 L1051 128 L1051 112 L1069 112 L1069 128 L1087 128 L1087 112 L1105 112 L1105 128 L1123 128"/>
+      <!-- segment 8: x=1200–1350 -->
+      <path class="jw" d="M1200 128 L1200 112 L1218 112 L1218 128 L1236 128 L1236 112 L1254 112 L1254 128 L1272 128 L1272 112 L1290 112 L1290 128 L1308 128 L1308 112 L1326 112 L1326 128 L1350 128"/>
+
+      <!-- TOWER A (x=125–190) -->
+      <rect class="jw-f" x="123" y="82" width="69" height="93"/>
+      <line class="jw" x1="123" y1="102" x2="192" y2="102"/>
+      <line class="jw" x1="123" y1="116" x2="192" y2="116"/>
+      <line class="jw" x1="158" y1="82" x2="158" y2="102"/>
+      <path class="jw" d="M123 82 L123 66 L141 66 L141 82 M150 82 L150 66 L168 66 L168 82 M177 82 L177 66 L192 66 L192 82"/>
+      <!-- arrow slit -->
+      <path class="jw" d="M155 107 L155 120 M152 113 L158 113"/>
+
+      <!-- TOWER B (x=330–395) -->
+      <rect class="jw-f" x="328" y="78" width="69" height="97"/>
+      <line class="jw" x1="328" y1="98" x2="397" y2="98"/>
+      <line class="jw" x1="328" y1="113" x2="397" y2="113"/>
+      <line class="jw" x1="363" y1="78" x2="363" y2="98"/>
+      <path class="jw" d="M328 78 L328 62 L346 62 L346 78 M355 78 L355 62 L373 62 L373 78 M382 78 L382 62 L397 62 L397 78"/>
+      <path class="jw" d="M360 103 L360 116 M357 109 L363 109"/>
+
+      <!-- GATE TOWER — Damascus style (x=610–790, wider) -->
+      <rect class="jw-f" x="608" y="64" width="184" height="111"/>
+      <!-- stone courses on gate tower -->
+      <line class="jw" x1="608" y1="84" x2="792" y2="84"/>
+      <line class="jw" x1="608" y1="100" x2="792" y2="100"/>
+      <line class="jw" x1="608" y1="116" x2="792" y2="116"/>
+      <!-- vertical joints -->
+      <line class="jw" x1="660" y1="84" x2="660" y2="100"/>  <line class="jw" x1="720" y1="84" x2="720" y2="100"/>  <line class="jw" x1="745" y1="84" x2="745" y2="100"/>
+      <line class="jw" x1="645" y1="100" x2="645" y2="116"/> <line class="jw" x1="705" y1="100" x2="705" y2="116"/> <line class="jw" x1="760" y1="100" x2="760" y2="116"/>
+      <!-- Gate tower crenellations (prominent) -->
+      <path class="jw" d="M608 64 L608 46 L628 46 L628 64 M638 64 L638 46 L658 46 L658 64 M668 64 L668 46 L688 46 L688 64 M698 64 L698 46 L718 46 L718 64 M728 64 L728 46 L748 46 L748 64 M758 64 L758 46 L778 46 L778 64 M788 64 L788 46 L792 46 L792 64"/>
+      <!-- Central pointed arch (main gate) -->
+      <path class="jw" d="M655 175 L655 140 C655 122 700 114 700 112 C700 114 745 122 745 140 L745 175"/>
+      <!-- Left small arch -->
+      <path class="jw" d="M618 175 L618 150 C618 140 628 136 634 136 C640 136 648 140 648 150 L648 175"/>
+      <!-- Right small arch -->
+      <path class="jw" d="M752 175 L752 150 C752 140 760 136 766 136 C772 136 782 140 782 150 L782 175"/>
+      <!-- Decorative course above arches -->
+      <line class="jw" x1="610" y1="136" x2="790" y2="136"/>
+
+      <!-- TOWER D (x=900–965) -->
+      <rect class="jw-f" x="898" y="82" width="69" height="93"/>
+      <line class="jw" x1="898" y1="102" x2="967" y2="102"/>
+      <line class="jw" x1="898" y1="116" x2="967" y2="116"/>
+      <line class="jw" x1="933" y1="82" x2="933" y2="102"/>
+      <path class="jw" d="M898 82 L898 66 L916 66 L916 82 M925 82 L925 66 L943 66 L943 82 M952 82 L952 66 L967 66 L967 82"/>
+      <path class="jw" d="M930 107 L930 120 M927 113 L933 113"/>
+
+      <!-- TOWER E (x=1130–1200) -->
+      <rect class="jw-f" x="1128" y="78" width="74" height="97"/>
+      <line class="jw" x1="1128" y1="98" x2="1202" y2="98"/>
+      <line class="jw" x1="1128" y1="113" x2="1202" y2="113"/>
+      <line class="jw" x1="1165" y1="78" x2="1165" y2="98"/>
+      <path class="jw" d="M1128 78 L1128 62 L1146 62 L1146 78 M1155 78 L1155 62 L1173 62 L1173 78 M1182 78 L1182 62 L1200 62 L1200 78"/>
     </svg>
 </header>
 
@@ -718,15 +758,15 @@
 <section id="about">
     <div class="container">
         <div class="section-label">מי אנחנו</div>
-        <h2>גְּאוּלָה — הכפר של המשפחות שלנו</h2>
+        <h2>גְּאוּלָה — הכפר של המשפחות</h2>
         <p class="lead">
-            גְּאוּלָה היא קהילת הורים שנולדה מתוך אמונה פשוטה: ילדים גדלים טוב יותר כשיש סביבם כפר. מעגל של משפחות שרואות אחת את השנייה, תומכות אחת בשנייה, ובונות יחד משהו שגדול מהסכום של חלקיו.
+            גְּאוּלָה קמה מתוך צורך אמיתי: לתחושת קהילת הורים חינוכית — תומכת, שותפה ומעורבת בחיי בית הספר. מתוך רצון כן לתת מעצמנו, להשפיע ולתרום — לבית הספר, ולחברה הישראלית כולה.
         </p>
         <p class="lead">
-            הקהילה פועלת סביב כיתה ב' בבית ספר גאולים בשכונת בקעה, ירושלים. היא מבוססת על מחקר מתחומי קהילה חינוכית, שותפות הורים ומנהיגות צעירה, ומתורגמת לפעולה מעשית לאורך כל שנת הלימודים.
+            גְּאוּלָה היא גם מודלינג. ילדים שרואים הורים פועלים מתוך ערכים — גדלים להיות אזרחים בעלי יכולת מנהיגותית וראיית האחר. הפעולה שלנו היא גם חינוך.
         </p>
         <p class="lead">
-            תחושת קהילה נשענת על ארבעה יסודות: <strong>חברות</strong> (הרגשה שאני שייך), <strong>השפעה</strong> (שיש לי קול), <strong>מילוי צרכים</strong> (שהקהילה נותנת ערך אמיתי) ו<strong>קשר רגשי משותף</strong> (חוויות שעברנו יחד). גְּאוּלָה מטפחת את כל הארבעה.
+            הקהילה פועלת סביב כיתה ב' בבית ספר גאולים בשכונת בקעה, ירושלים. תחושת קהילה נשענת על ארבעה יסודות: <strong>שייכות</strong>, <strong>השפעה</strong>, <strong>מילוי צרכים</strong> ו<strong>קשר רגשי משותף</strong>. גְּאוּלָה מטפחת את כל הארבעה.
         </p>
 
         <div class="quote-block">
@@ -835,10 +875,10 @@
             <div class="principle-num">4</div>
             <div class="principle-content">
                 <h3>נתינה, אחריות וחסד</h3>
-                <p>קהילה נבנית סביב ערכים שמקבלים ביטוי בפעולה ממשית. "תיקון הלב" הוא המעגל שבו אנחנו דואגות אחת לשנייה ומלמדות את הילדים שנתינה היא כוח. הילדים שותפים בפעולות הנתינה, לא רק עדים אליהן.</p>
+                <p>קהילה נבנית סביב ערכים שמקבלים ביטוי בפעולה ממשית. "חסד" הוא המעגל שבו אנחנו דואגות אחת לשנייה ומלמדות את הילדים שנתינה היא כוח. הילדים שותפים בפעולות הנתינה, לא רק עדים אליהן.</p>
                 <p class="sub">יוזמות חסד לאורך השנה, בתוך הכיתה ומחוצה לה, שהופכות לחלק מהזהות שלנו כקהילה.</p>
                 <ul class="practice-list">
-                    <li>צוות "תיקון הלב" ייעודי</li>
+                    <li>צוות "חסד" ייעודי</li>
                     <li>תמיכה במשפחות בעתות צורך</li>
                     <li>שילוב הילדים בפעולות נתינה</li>
                     <li>יוזמות חסד עונתיות</li>
