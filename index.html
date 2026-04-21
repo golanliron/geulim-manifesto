@@ -132,6 +132,55 @@
             font-weight: 300;
         }
 
+        /* ===== HERO ACROSTIC STRIP ===== */
+        .hero-acrostic {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-top: 36px;
+            padding: 16px 36px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 100px;
+            border: 1px solid rgba(201,165,76,0.25);
+        }
+        .ha-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            padding: 0 26px;
+        }
+        .ha-letter {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(160deg, #F0D88A 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .ha-word {
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .ha-sep {
+            width: 1px;
+            height: 38px;
+            background: rgba(201,165,76,0.25);
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .hero-acrostic { padding: 12px 18px; }
+            .ha-item { padding: 0 14px; }
+            .ha-letter { font-size: 26px; }
+            .ha-word { font-size: 9px; }
+        }
+
         /* ===== JERUSALEM SKYLINE ===== */
         .hero-jerusalem {
             position: absolute;
@@ -450,30 +499,37 @@
             display: flex;
             justify-content: center;
             gap: 0;
-            margin: 48px 0 12px;
+            margin: 56px 0 16px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+            border-radius: 24px;
+            padding: 44px 16px;
+            border: 1px solid rgba(201,165,76,0.2);
         }
         .geulah-reveal-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 18px;
-            border-right: 1px solid var(--border);
+            padding: 0 32px;
+            border-right: 1px solid rgba(201,165,76,0.2);
             text-align: center;
+            gap: 8px;
         }
         .geulah-reveal-item:last-child { border-right: none; }
         .geulah-reveal-letter {
             font-family: 'Frank Ruhl Libre', serif;
-            font-size: 40px;
+            font-size: 64px;
             font-weight: 900;
-            color: var(--navy);
             line-height: 1;
-            margin-bottom: 6px;
+            background: linear-gradient(160deg, #F0D88A 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .geulah-reveal-word {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 1px;
         }
         .geulah-reveal-caption {
             text-align: center;
@@ -703,6 +759,16 @@
         <div class="tagline">
             צריך כפר שלם כדי לגדל ילד.<br>
             יחד נבנה את הכפר הזה.
+        </div>
+
+        <div class="hero-acrostic">
+            <div class="ha-item"><span class="ha-letter">גְּ</span><span class="ha-word">גדילה</span></div>
+            <span class="ha-sep"></span>
+            <div class="ha-item"><span class="ha-letter">אוּ</span><span class="ha-word">אחריות</span></div>
+            <span class="ha-sep"></span>
+            <div class="ha-item"><span class="ha-letter">לָ</span><span class="ha-word">לב</span></div>
+            <span class="ha-sep"></span>
+            <div class="ha-item"><span class="ha-letter">ה</span><span class="ha-word">הכלה</span></div>
         </div>
 
     </div>
@@ -1212,7 +1278,7 @@
             </div>
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">אוּ</div>
-                <div class="geulah-reveal-word">אחריות · ועשייה</div>
+                <div class="geulah-reveal-word">אחריות</div>
             </div>
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">לָ</div>
