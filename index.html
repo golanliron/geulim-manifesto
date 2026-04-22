@@ -84,11 +84,17 @@
         }
 
         .hero-divider {
-            width: 52px;
-            height: 2px;
-            background: var(--gold);
+            display: flex;
+            justify-content: center;
+            gap: 8px;
             margin: 0 auto 20px;
-            border-radius: 2px;
+        }
+        .hero-divider-arch {
+            width: 26px;
+            height: 17px;
+            border: 1.5px solid rgba(201,165,76,0.55);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
 
         .hero .subtitle {
@@ -190,9 +196,33 @@
         section { padding: 72px 0; }
         section + section { border-top: 1px solid var(--border); }
 
+        /* ===== ARCH MOTIF — repeating design element ===== */
+        .arch-motif {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .arch-motif svg { display: block; }
+
+        /* Auto-arch before every section label */
         .section-label {
             font-size: 12px; font-weight: 700; letter-spacing: 3px;
             color: var(--gold); margin-bottom: 14px; text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+        }
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 20px;
+            border: 1.5px solid rgba(201,165,76,0.5);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            margin-bottom: 10px;
         }
 
         h2 {
@@ -226,16 +256,28 @@
         /* ===== QUOTE ===== */
         .quote-block {
             background: var(--navy);
-            padding: 32px 36px;
+            padding: 40px 36px 32px;
             margin: 40px 0;
             border-radius: 12px;
             position: relative;
+            border-top: 3px solid rgba(201,165,76,0.35);
         }
         .quote-block::before {
             content: '';
             position: absolute;
+            top: -22px; left: 50%; transform: translateX(-50%);
+            width: 40px;
+            height: 26px;
+            border: 1.8px solid rgba(201,165,76,0.6);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            background: var(--navy);
+        }
+        .quote-block::after {
+            content: '';
+            position: absolute;
             top: 0; right: 0; width: 4px; height: 100%;
-            background: var(--gold);
+            background: linear-gradient(to bottom, var(--gold), rgba(201,165,76,0.2));
             border-radius: 0 12px 12px 0;
         }
         .quote-block p {
@@ -741,7 +783,13 @@
 
         <h1>גְּאוּלָה</h1>
 
-        <div class="hero-divider"></div>
+        <div class="hero-divider">
+            <div class="hero-divider-arch"></div>
+            <div class="hero-divider-arch"></div>
+            <div class="hero-divider-arch"></div>
+            <div class="hero-divider-arch"></div>
+            <div class="hero-divider-arch"></div>
+        </div>
 
         <div class="subtitle">קהילת ההורים הירושלמית של בית ספר גאולים</div>
         <div class="subtitle-deco">
