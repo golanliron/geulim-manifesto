@@ -535,30 +535,84 @@
             border-radius: 50%;
         }
 
-        /* Gantt teaser */
-        .gantt-teaser {
+        /* ===== CALENDAR ===== */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .cal-card {
+            background: var(--warm-white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 20px;
+            transition: all 0.2s;
+        }
+        .cal-card:hover { border-color: var(--gold); }
+        .cal-month {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .cal-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .cal-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .calendar-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== ROUTINES ===== */
+        .routines-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .routine-card {
+            background: linear-gradient(135deg, #FFFDF4 0%, var(--warm-white) 100%);
+            border: 1px solid rgba(201,165,76,0.22);
+            border-radius: 14px;
+            padding: 24px 22px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .routine-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
             background: var(--navy);
-            border-radius: 16px;
-            padding: 32px 36px;
-            margin-top: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 24px;
+            justify-content: center;
+            font-size: 20px;
         }
-        .gantt-teaser .icon-box { flex-shrink: 0; background: rgba(201,165,76,0.12); }
-        .gantt-teaser .icon-box svg { stroke: var(--gold); }
-        .gantt-teaser h4 { font-size: 18px; font-weight: 700; color: white; margin-bottom: 4px; }
-        .gantt-teaser p { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0; }
-        .gantt-badge {
-            margin-right: auto;
-            background: rgba(201,165,76,0.15);
-            border: 1px solid rgba(201,165,76,0.35);
-            border-radius: 100px;
-            padding: 5px 16px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--gold);
-            white-space: nowrap;
+        .routine-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .routine-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .routines-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -699,6 +753,7 @@
         <li><a href="#pillars">המודל</a></li>
         <li><a href="#plan">תוכנית הפתיחה</a></li>
         <li><a href="#teams">הצוותים</a></li>
+        <li><a href="#calendar">לוח שנה</a></li>
         <li><a href="#charter">אמנת הקשב</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
@@ -711,6 +766,7 @@
     <a href="#pillars" onclick="closeMenu()">המודל</a>
     <a href="#plan" onclick="closeMenu()">תוכנית הפתיחה</a>
     <a href="#teams" onclick="closeMenu()">הצוותים</a>
+    <a href="#calendar" onclick="closeMenu()">לוח שנה</a>
     <a href="#charter" onclick="closeMenu()">אמנת הקשב</a>
 </div>
 
@@ -1025,6 +1081,92 @@
         </div>
 
 
+    </div>
+</section>
+
+<!-- ===== CALENDAR ===== -->
+<section id="calendar">
+    <div class="container">
+        <div class="section-label">לוח שנה</div>
+        <h2>השנה שלנו — תשפ"ז</h2>
+        <p>אירועים, סדירויות ופעילויות לאורך כל השנה.</p>
+
+        <h3 style="margin-top: 32px;">אירועים ופעילויות</h3>
+        <div class="calendar-grid">
+            <div class="cal-card">
+                <div class="cal-month">אלול — תחילת שנה</div>
+                <h4>צביעת הכיתה וקישוט</h4>
+                <p>ההורים מכינים כיתה שמרגישה כמו בית. פעולת חיבור ראשונה.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">תשרי</div>
+                <h4>אירוע סוכות משפחתי</h4>
+                <p>פעילות משפחות ראשונה של השנה. הכרות, שיחה, חיבור.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">כסלו</div>
+                <h4>טיטול עששיות בחנוכה</h4>
+                <p>משפחות הכיתה יוצאות יחד לטיטול עששיות בשכונה. חנוכה של קהילה.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">שבט</div>
+                <h4>הכר את השכונה ואת בית הספר שלך</h4>
+                <p>סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות, הכרת השכנים.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">אדר</div>
+                <h4>פורים — תחפושות ומשלוחי מנות</h4>
+                <p>פעילות פורים כיתתית, משלוחי מנות משותפים בין המשפחות.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">ניסן</div>
+                <h4>פסח — סדר כיתתי</h4>
+                <p>אירוע פסח של הכיתה, הורים וילדים יחד.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">אייר — סיוון</div>
+                <h4>פיקניק סוף שנה ואלבום דיגיטלי</h4>
+                <p>סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום דיגיטלי לכל משפחה.</p>
+            </div>
+            <div class="cal-card">
+                <div class="cal-month">כל השנה</div>
+                <h4>לוח הזנה כיתתי</h4>
+                <p>סידור ארוחות עשר מגוונות ובריאות. כל שבוע משפחה אחרת אחראית.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 40px;">סדירויות של התלמידים</h3>
+        <p>תפקידים קבועים שמלמדים אחריות, נתינה ושייכות.</p>
+        <div class="routines-grid">
+            <div class="routine-card">
+                <div class="routine-icon">🧹</div>
+                <div>
+                    <h4>תורנות כיתה וניקיון</h4>
+                    <p>כל שבוע זוג תלמידים אחראי על סדר וניקיון הכיתה.</p>
+                </div>
+            </div>
+            <div class="routine-card">
+                <div class="routine-icon">🤝</div>
+                <div>
+                    <h4>תורנות חבר</h4>
+                    <p>דאגה לחברים בהפסקה: מי יושב לבד, מי צריך חברה, מי חדש.</p>
+                </div>
+            </div>
+            <div class="routine-card">
+                <div class="routine-icon">📖</div>
+                <div>
+                    <h4>תורנות ספרייה</h4>
+                    <p>אחריות על פינת הספרים: סידור, המלצות, השאלה מסודרת.</p>
+                </div>
+            </div>
+            <div class="routine-card">
+                <div class="routine-icon">🌱</div>
+                <div>
+                    <h4>תורנות טבע</h4>
+                    <p>טיפול בצמחים בכיתה, השקייה, תצפיות על גידול.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
