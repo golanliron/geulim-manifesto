@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גְּאוּלָה — קהילת הורים לתרבות ומנהיגות</title>
+    <title>גְּאוּלָה — כיתה חברתית · כיתה ב' · גאולים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -196,7 +196,7 @@
         section { padding: 72px 0; }
         section + section { border-top: 1px solid var(--border); }
 
-        /* ===== ARCH MOTIF — repeating design element ===== */
+        /* ===== ARCH MOTIF ===== */
         .arch-motif {
             display: flex;
             justify-content: center;
@@ -205,7 +205,6 @@
         }
         .arch-motif svg { display: block; }
 
-        /* Auto-arch before every section label */
         .section-label {
             font-size: 12px; font-weight: 700; letter-spacing: 3px;
             color: var(--gold); margin-bottom: 14px; text-transform: uppercase;
@@ -390,7 +389,6 @@
         @media (max-width: 768px) {
             .values-grid { grid-template-columns: repeat(2, 1fr); }
             .value-card { height: 160px; }
-            /* on mobile tap = flip */
             .value-card.flipped .vc-inner { transform: rotateY(180deg); }
             .value-card:hover .vc-inner { transform: none; }
         }
@@ -448,22 +446,6 @@
         @media (max-width: 768px) {
             .leadership-grid { grid-template-columns: 1fr; }
         }
-
-        /* ===== SEASONS ===== */
-        .seasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0; }
-
-        .season {
-            background: var(--warm-white);
-            border-radius: 16px;
-            padding: 28px 18px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-        .season h3 { font-family: 'Frank Ruhl Libre', serif; font-size: 21px; margin-bottom: 12px; color: var(--navy); }
-        .season-line { width: 32px; height: 3px; border-radius: 2px; margin: 0 auto 14px; }
-        .season ul { list-style: none; padding: 0; }
-        .season li { font-size: 13px; color: var(--text-light); padding: 4px 0; border-bottom: 1px solid var(--border); }
-        .season li:last-child { border-bottom: none; }
 
         /* ===== ACTION SECTION ===== */
         .action-card {
@@ -577,6 +559,82 @@
             font-style: italic;
         }
 
+        /* ===== CHARTER (Amana) ===== */
+        .charter-section {
+            background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+            color: white;
+            padding: 72px 40px;
+        }
+        .charter-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,165,76,0.25);
+            border-radius: 20px;
+            padding: 48px 40px;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .charter-card h2 {
+            color: white;
+            font-family: 'Frank Ruhl Libre', serif;
+            margin-bottom: 12px;
+        }
+        .charter-card .charter-subtitle {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 28px;
+            font-weight: 500;
+        }
+        .charter-card .charter-text {
+            font-size: 18px;
+            line-height: 2;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 24px;
+            text-align: right;
+        }
+        .charter-card .charter-commitment {
+            background: rgba(201,165,76,0.1);
+            border: 1px solid rgba(201,165,76,0.3);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 28px 0 0;
+            text-align: right;
+        }
+        .charter-card .charter-commitment h4 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 20px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .charter-card .charter-commitment p {
+            font-size: 15px;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.75);
+            margin: 0;
+        }
+        .charter-items {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0;
+            text-align: right;
+        }
+        .charter-items li {
+            font-size: 15px;
+            color: rgba(255,255,255,0.75);
+            padding: 8px 20px 8px 0;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .charter-items li:last-child { border-bottom: none; }
+        .charter-items li::before {
+            content: '';
+            position: absolute;
+            right: 0; top: 16px;
+            width: 8px; height: 8px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+        }
+
         /* Gantt teaser */
         .gantt-teaser {
             background: var(--navy);
@@ -611,6 +669,7 @@
             .geulah-reveal-letter { font-size: 30px; }
             .gantt-teaser { flex-direction: column; gap: 16px; align-items: flex-start; }
             .gantt-badge { margin-right: 0; }
+            .charter-card { padding: 32px 24px; }
         }
 
         /* ===== CLOSING ===== */
@@ -621,7 +680,6 @@
         /* ===== FOOTER ===== */
         footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: rgba(27,42,74,0.03); }
 
-        /* ===== MOBILE ===== */
         /* ===== NAV ===== */
         nav {
             position: sticky;
@@ -722,19 +780,19 @@
 
             .pillars { grid-template-columns: 1fr; }
             .values-grid { grid-template-columns: 1fr; }
-            .seasons { grid-template-columns: repeat(2, 1fr); }
             .principle { flex-direction: column; gap: 14px; }
             .practice-list { grid-template-columns: 1fr; }
             h2 { font-size: 27px; }
             .container { padding: 0 20px; }
             section { padding: 48px 0; }
             .dark-section { padding: 48px 20px; }
+            .charter-section { padding: 48px 20px; }
         }
 
         @media print {
-            .hero, .dark-section { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .hero, .dark-section, .charter-section { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             body { font-size: 13px; }
-            .pillar, .principle, .season { break-inside: avoid; }
+            .pillar, .principle { break-inside: avoid; }
         }
     </style>
 </head>
@@ -744,11 +802,11 @@
 <nav>
     <a href="#" class="nav-brand">גְּאוּלָה</a>
     <ul class="nav-links">
-        <li><a href="#about">מי אנחנו</a></li>
-        <li><a href="#pillars">שלושת המעגלים</a></li>
-        <li><a href="#principles">העקרונות</a></li>
-        <li><a href="#values">הערכים</a></li>
-        <li><a href="#action">הקהילה בפעולה</a></li>
+        <li><a href="#about">מה זה</a></li>
+        <li><a href="#pillars">למה</a></li>
+        <li><a href="#teams">הצוותים</a></li>
+        <li><a href="#charter">אמנת הקשב</a></li>
+        <li><a href="#bridge">גשר</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
         <span></span><span></span><span></span>
@@ -756,11 +814,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMenu()">מי אנחנו</a>
-    <a href="#pillars" onclick="closeMenu()">שלושת המעגלים</a>
-    <a href="#principles" onclick="closeMenu()">העקרונות</a>
-    <a href="#values" onclick="closeMenu()">הערכים</a>
-    <a href="#action" onclick="closeMenu()">הקהילה בפעולה</a>
+    <a href="#about" onclick="closeMenu()">מה זה</a>
+    <a href="#pillars" onclick="closeMenu()">למה</a>
+    <a href="#teams" onclick="closeMenu()">הצוותים</a>
+    <a href="#charter" onclick="closeMenu()">אמנת הקשב</a>
+    <a href="#bridge" onclick="closeMenu()">גשר</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -779,7 +837,7 @@
             </svg>
         </div>
 
-        <div class="hero-badge">בית ספר גאולים · בקעה, ירושלים · תשפ"ז</div>
+        <div class="hero-badge">בית ספר גאולים · כיתה ב' · בקעה, ירושלים · תשפ"ז</div>
 
         <h1>גְּאוּלָה</h1>
 
@@ -791,7 +849,7 @@
             <div class="hero-divider-arch"></div>
         </div>
 
-        <div class="subtitle">קהילת ההורים הירושלמית של בית ספר גאולים</div>
+        <div class="subtitle">כיתה חברתית · כיתה ב' · גאולים</div>
         <div class="subtitle-deco">
             <div class="subtitle-deco-line"></div>
             <div class="subtitle-deco-dot"></div>
@@ -801,8 +859,8 @@
         </div>
 
         <div class="tagline">
-            צריך כפר שלם כדי לגדל ילד.<br>
-            יחד נבנה את הכפר הזה.
+            מפזרים אחריות כדי שאף אחד לא ישחק.<br>
+            כדי שהמחנכת תוכל לראות כל ילד.
         </div>
 
     </div>
@@ -817,33 +875,24 @@
           .jw-s{ fill:none; stroke:rgba(255,255,255,0.09); stroke-width:1; }
         </style>
       </defs>
-
-      <!-- MAIN WALL BODY — continuous from edge to edge -->
       <rect class="jw-f" x="0" y="128" width="1400" height="52"/>
-      <!-- Wall stone courses -->
       <line class="jw-s" x1="0" y1="143" x2="1400" y2="143"/>
       <line class="jw-s" x1="0" y1="157" x2="1400" y2="157"/>
       <line class="jw-s" x1="0" y1="170" x2="1400" y2="170"/>
-      <!-- Wall vertical joints course 1 (between towers) -->
       <line class="jw-s" x1="254" y1="128" x2="254" y2="143"/> <line class="jw-s" x1="316" y1="128" x2="316" y2="143"/>
       <line class="jw-s" x1="500" y1="128" x2="500" y2="143"/>
       <line class="jw-s" x1="872" y1="128" x2="872" y2="143"/> <line class="jw-s" x1="930" y1="128" x2="930" y2="143"/> <line class="jw-s" x1="980" y1="128" x2="980" y2="143"/>
       <line class="jw-s" x1="1102" y1="128" x2="1102" y2="143"/> <line class="jw-s" x1="1160" y1="128" x2="1160" y2="143"/>
-      <!-- Wall vertical joints course 2 (offset) -->
       <line class="jw-s" x1="224" y1="143" x2="224" y2="157"/> <line class="jw-s" x1="284" y1="143" x2="284" y2="157"/> <line class="jw-s" x1="346" y1="143" x2="346" y2="157"/>
       <line class="jw-s" x1="476" y1="143" x2="476" y2="157"/> <line class="jw-s" x1="522" y1="143" x2="522" y2="157"/>
       <line class="jw-s" x1="856" y1="143" x2="856" y2="157"/> <line class="jw-s" x1="908" y1="143" x2="908" y2="157"/> <line class="jw-s" x1="958" y1="143" x2="958" y2="157"/>
       <line class="jw-s" x1="1088" y1="143" x2="1088" y2="157"/> <line class="jw-s" x1="1144" y1="143" x2="1144" y2="157"/> <line class="jw-s" x1="1198" y1="143" x2="1198" y2="157"/>
-
-      <!-- CRENELLATIONS on main wall (between towers) -->
       <path class="jw" d="M0 128 L0 114 L14 114 L14 128 M28 128 L28 114 L42 114 L42 128 M56 128 L56 114 L66 114 L66 128"/>
       <path class="jw" d="M222 128 L222 114 L236 114 L236 128 M250 128 L250 114 L264 114 L264 128 M278 128 L278 114 L292 114 L292 128 M306 128 L306 114 L320 114 L320 128 M334 128 L334 114 L348 114 L348 128 M362 128 L362 114 L372 114 L372 128"/>
       <path class="jw" d="M466 128 L466 114 L480 114 L480 128 M494 128 L494 114 L508 114 L508 128 M522 128 L522 114 L536 114 L536 128"/>
       <path class="jw" d="M856 128 L856 114 L870 114 L870 128 M884 128 L884 114 L898 114 L898 128 M912 128 L912 114 L926 114 L926 128 M940 128 L940 114 L954 114 L954 128 M968 128 L968 114 L982 114 L982 128"/>
       <path class="jw" d="M1096 128 L1096 114 L1110 114 L1110 128 M1124 128 L1124 114 L1138 114 L1138 128 M1152 128 L1152 114 L1166 114 L1166 128 M1180 128 L1180 114 L1194 114 L1194 128 M1208 128 L1208 114 L1222 114 L1222 128"/>
       <path class="jw" d="M1374 128 L1374 114 L1388 114 L1388 128"/>
-
-      <!-- ===== TOWER A — wide bastion, left ===== -->
       <rect class="jw-t" x="64" y="74" width="160" height="106"/>
       <line class="jw-s" x1="64" y1="94" x2="224" y2="94"/>
       <line class="jw-s" x1="64" y1="110" x2="224" y2="110"/>
@@ -852,88 +901,58 @@
       <line class="jw-s" x1="96" y1="94" x2="96" y2="110"/> <line class="jw-s" x1="150" y1="94" x2="150" y2="110"/> <line class="jw-s" x1="202" y1="94" x2="202" y2="110"/>
       <line class="jw-s" x1="110" y1="110" x2="110" y2="124"/> <line class="jw-s" x1="168" y1="110" x2="168" y2="124"/>
       <path class="jw" d="M64 74 L64 58 L80 58 L80 74 M96 74 L96 58 L112 58 L112 74 M128 74 L128 58 L144 58 L144 74 M160 74 L160 58 L176 58 L176 74 M192 74 L192 58 L208 58 L208 74"/>
-      <path class="jw" d="M143 100 L143 116"/>
-
-      <!-- ===== TOWER B ===== -->
       <rect class="jw-t" x="370" y="84" width="98" height="96"/>
       <line class="jw-s" x1="370" y1="102" x2="468" y2="102"/>
       <line class="jw-s" x1="370" y1="118" x2="468" y2="118"/>
-      <line class="jw-s" x1="370" y1="126" x2="468" y2="126"/>
       <line class="jw-s" x1="414" y1="84" x2="414" y2="102"/> <line class="jw-s" x1="452" y1="84" x2="452" y2="102"/>
-      <line class="jw-s" x1="392" y1="102" x2="392" y2="118"/> <line class="jw-s" x1="438" y1="102" x2="438" y2="118"/>
       <path class="jw" d="M370 84 L370 68 L386 68 L386 84 M402 84 L402 68 L418 68 L418 84 M434 84 L434 68 L450 68 L450 84 M466 84 L466 68 L468 68 L468 84"/>
-      <path class="jw" d="M416 106 L416 120"/>
-
-      <!-- ===== DAMASCUS GATE COMPLEX — central main landmark ===== -->
-      <!-- Full bastion face (wide, lower than flanking towers) -->
       <rect class="jw-t" x="542" y="46" width="316" height="134"/>
-      <!-- Bastion stone courses -->
       <line class="jw-s" x1="542" y1="68" x2="858" y2="68"/>
       <line class="jw-s" x1="542" y1="88" x2="858" y2="88"/>
       <line class="jw-s" x1="542" y1="106" x2="858" y2="106"/>
       <line class="jw-s" x1="542" y1="124" x2="858" y2="124"/>
-      <!-- Vertical joints (alternating courses) -->
       <line class="jw-s" x1="606" y1="46" x2="606" y2="68"/> <line class="jw-s" x1="670" y1="46" x2="670" y2="68"/> <line class="jw-s" x1="730" y1="46" x2="730" y2="68"/> <line class="jw-s" x1="796" y1="46" x2="796" y2="68"/>
       <line class="jw-s" x1="576" y1="68" x2="576" y2="88"/> <line class="jw-s" x1="638" y1="68" x2="638" y2="88"/> <line class="jw-s" x1="698" y1="68" x2="698" y2="88"/> <line class="jw-s" x1="756" y1="68" x2="756" y2="88"/> <line class="jw-s" x1="820" y1="68" x2="820" y2="88"/>
-      <line class="jw-s" x1="596" y1="88" x2="596" y2="106"/> <line class="jw-s" x1="654" y1="88" x2="654" y2="106"/> <line class="jw-s" x1="716" y1="88" x2="716" y2="106"/> <line class="jw-s" x1="776" y1="88" x2="776" y2="106"/> <line class="jw-s" x1="838" y1="88" x2="838" y2="106"/>
-      <!-- TWO FLANKING TOWERS (vertical dividers — makes it clearly Damascus Gate) -->
       <line class="jw" x1="620" y1="46" x2="620" y2="180"/>
       <line class="jw" x1="780" y1="46" x2="780" y2="180"/>
-      <!-- Dense prominent crenellations at top -->
       <path class="jw" d="M542 46 L542 28 L562 28 L562 46 M580 46 L580 28 L600 28 L600 46 M618 46 L618 28 L638 28 L638 46 M656 46 L656 28 L676 28 L676 46 M694 46 L694 28 L714 28 L714 46 M732 46 L732 28 L752 28 L752 46 M770 46 L770 28 L790 28 L790 46 M808 46 L808 28 L828 28 L828 46 M846 46 L846 28 L858 28 L858 46"/>
-      <!-- Main POINTED ARCH — central gate opening -->
       <path class="jw" d="M645 180 L645 152 C645 129 700 118 700 115 C700 118 755 129 755 152 L755 180"/>
-      <!-- Left smaller pointed arch -->
       <path class="jw" d="M556 180 L556 160 C556 149 565 144 572 144 C579 144 588 149 588 160 L588 180"/>
-      <!-- Right smaller pointed arch -->
       <path class="jw" d="M812 180 L812 160 C812 149 821 144 828 144 C835 144 844 149 844 160 L844 180"/>
-      <!-- Lintel / horizontal course above arches -->
       <line class="jw" x1="542" y1="144" x2="858" y2="144"/>
-      <!-- Decorative niches on tower faces -->
       <path class="jw" d="M570 83 L570 70 C570 65 575 63 578 63 C581 63 586 65 586 70 L586 83"/>
       <path class="jw" d="M814 83 L814 70 C814 65 819 63 822 63 C825 63 830 65 830 70 L830 83"/>
-
-      <!-- ===== TOWER C ===== -->
       <rect class="jw-t" x="992" y="82" width="102" height="98"/>
       <line class="jw-s" x1="992" y1="100" x2="1094" y2="100"/>
       <line class="jw-s" x1="992" y1="116" x2="1094" y2="116"/>
-      <line class="jw-s" x1="992" y1="126" x2="1094" y2="126"/>
       <line class="jw-s" x1="1036" y1="82" x2="1036" y2="100"/> <line class="jw-s" x1="1076" y1="82" x2="1076" y2="100"/>
-      <line class="jw-s" x1="1014" y1="100" x2="1014" y2="116"/> <line class="jw-s" x1="1056" y1="100" x2="1056" y2="116"/>
       <path class="jw" d="M992 82 L992 66 L1008 66 L1008 82 M1024 82 L1024 66 L1040 66 L1040 82 M1056 82 L1056 66 L1072 66 L1072 82 M1088 82 L1088 66 L1094 66 L1094 82"/>
-      <path class="jw" d="M1040 104 L1040 118"/>
-
-      <!-- ===== TOWER D — wide bastion, right ===== -->
       <rect class="jw-t" x="1224" y="76" width="152" height="104"/>
       <line class="jw-s" x1="1224" y1="94" x2="1376" y2="94"/>
       <line class="jw-s" x1="1224" y1="110" x2="1376" y2="110"/>
       <line class="jw-s" x1="1224" y1="126" x2="1376" y2="126"/>
       <line class="jw-s" x1="1274" y1="76" x2="1274" y2="94"/> <line class="jw-s" x1="1328" y1="76" x2="1328" y2="94"/>
-      <line class="jw-s" x1="1250" y1="94" x2="1250" y2="110"/> <line class="jw-s" x1="1304" y1="94" x2="1304" y2="110"/> <line class="jw-s" x1="1356" y1="94" x2="1356" y2="110"/>
-      <line class="jw-s" x1="1262" y1="110" x2="1262" y2="126"/> <line class="jw-s" x1="1318" y1="110" x2="1318" y2="126"/>
       <path class="jw" d="M1224 76 L1224 60 L1240 60 L1240 76 M1256 76 L1256 60 L1272 60 L1272 76 M1288 76 L1288 60 L1304 60 L1304 76 M1320 76 L1320 60 L1336 60 L1336 76 M1352 76 L1352 60 L1368 60 L1368 76"/>
-      <path class="jw" d="M1296 99 L1296 114"/>
     </svg>
 </header>
 
-<!-- ===== WHY ===== -->
+<!-- ===== ABOUT ===== -->
 <section id="about">
     <div class="container">
-        <div class="section-label">מי אנחנו</div>
-        <h2>גְּאוּלָה — הכפר של המשפחות</h2>
+        <div class="section-label">מה זה כיתה חברתית</div>
+        <h2>לא ועד הורים. כיתה חברתית.</h2>
         <p class="lead">
-            גְּאוּלָה קמה מתוך צורך אמיתי: לתחושת קהילת הורים חינוכית — תומכת, שותפה ומעורבת בחיי בית הספר. מתוך רצון כן לתת מעצמנו, להשפיע ולתרום — לבית הספר, ולחברה הישראלית כולה.
+            גְּאוּלָה היא מודל של כיתה חברתית לכיתה ב' בבית ספר גאולים, שכונת בקעה, ירושלים. הרעיון פשוט: לפזר את המעורבות בין כל ההורים, כך שאף אחד לא נשחק ואף אחד לא נשכח.
         </p>
         <p class="lead">
-            גְּאוּלָה היא גם מודלינג. ילדים שרואים הורים פועלים מתוך ערכים — גדלים להיות אזרחים בעלי יכולת מנהיגותית וראיית האחר. הפעולה שלנו היא גם חינוך.
+            המטרה המרכזית: <strong>לאפשר למחנכת לראות כל ילד באופן הוליסטי.</strong> כשהורים לוקחים על עצמם את הלוגיסטיקה, את התיעוד, את התיאום ואת העטיפה החברתית, המחנכת משתחררת לעשות את מה שהיא יודעת הכי טוב: להתבונן בכל ילד, לזהות צרכים, ולהגיב מתוך מקום שלם.
         </p>
         <p class="lead">
-            הקהילה פועלת סביב כיתה ב' בבית ספר גאולים בשכונת בקעה, ירושלים. תחושת קהילה נשענת על ארבעה יסודות: <strong>שייכות</strong>, <strong>השפעה</strong>, <strong>מילוי צרכים</strong> ו<strong>קשר רגשי משותף</strong>. גְּאוּלָה מטפחת את כל הארבעה.
+            פיזור מעורבות מונע שחיקה. במקום שלוש אמהות שעושות הכל ונגמרות באמצע השנה, כל הורה לוקח תפקיד קטן ומוגדר. כולם בפנים, כולם תורמים, אף אחד לא קורס.
         </p>
 
         <div class="quote-block">
-            <p>דרוש כפר שלם כדי לגדל ילד.</p>
-            <span class="source">פתגם אפריקאי</span>
+            <p>כשכל הורה לוקח חתיכה קטנה, אף אחד לא נושא לבד. וכשאף אחד לא נושא לבד, כולם נשארים.</p>
         </div>
 
     </div>
@@ -942,377 +961,167 @@
 <!-- ===== THREE PILLARS ===== -->
 <section id="pillars">
     <div class="container">
-        <div class="section-label">שלושת המעגלים</div>
-        <h2>כפר · שורשים · מנהיגות</h2>
-        <p>שלושה מעגלים שנשענים אחד על השני ומגדירים את הזהות הייחודית שלנו כקהילה.</p>
+        <div class="section-label">למה כיתה חברתית</div>
+        <h2>ראייה · פיזור · שותפות</h2>
+        <p>שלושה עקרונות שמנחים את הכיתה החברתית ומבדילים אותה מוועד הורים רגיל.</p>
 
         <div class="pillars">
             <div class="pillar">
                 <div class="icon-box icon-box-center">
-                    <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M10 9h4"/></svg>
-                </div>
-                <h3>כפר</h3>
-                <div class="pillar-q">"מי לידי?"</div>
-                <p>ערבות הדדית ותמיכה מעשית. המחקר מראה שקהילות חזקות נבנות על "מחוברות" (Connectedness): שילוב של אמון הדדי, הסתמכות עצמית ואחריות משותפת. הכפר שלנו הוא הרשת שתופסת כל משפחה, בשגרה ובמשבר.</p>
-            </div>
-            <div class="pillar">
-                <div class="icon-box icon-box-center">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c-4-3-8-6-8-11a8 8 0 0116 0c0 5-4 8-8 11z"/><circle cx="12" cy="11" r="3"/></svg>
-                </div>
-                <h3>שורשים</h3>
-                <div class="pillar-q">"מאיפה אני?"</div>
-                <p>לכל ילד יש סיפור, מורשת ומשפחה. השורשים הם הזהות האישית של כל תלמיד — העדה, השפה, הסיפור המשפחתי. הקהילה שלנו מעניקה לכל ילד מרחב לדעת מאיפה הוא בא, ולהביא את עצמו בגאווה.</p>
-            </div>
-            <div class="pillar">
-                <div class="icon-box icon-box-center">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
-                </div>
-                <h3>מנהיגות</h3>
-                <div class="pillar-q">"לאן אני הולך?"</div>
-                <p>מנהיגות בגיל היסודי נלמדת דרך התנסות מעשית: לקחת אחריות, להוביל יוזמה, לפתור בעיה בצוות. אנחנו מתרגמות את ערך המנהיגות מרמת בית הספר לרמת הכיתה, הבית והמשפחה.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== PRINCIPLES ===== -->
-<section id="principles">
-    <div class="container">
-        <div class="section-label">העקרונות שלנו</div>
-        <h2>איך גְּאוּלָה פועלת</h2>
-        <p>חמישה עקרונות שמנחים כל החלטה, כל פעילות וכל אינטראקציה בקהילה. מבוססים על מחקר בתחומי שותפות הורים, קהילות לומדות ופדגוגיה קהילתית.</p>
-
-        <div class="principle">
-            <div class="principle-num">1</div>
-            <div class="principle-content">
-                <h3>שייכות ותחושת בית</h3>
-                <p>כל ילד נראה, כל משפחה שייכת. קהילה מתחילה בתחושה אמיתית שמישהו שם לב אליך, שיש מקום שמחכה לך. המחקר מצביע על כך שתחושת שייכות (Belonging) היא הבסיס ליכולת של ילדים ומבוגרים לצמוח, ללמוד ולהתפתח.</p>
-                <p class="sub">אנחנו מייצרות מרחב שבו כל משפחה מרגישה שהיא חלק מהסיפור, מהרגע הראשון של השנה ועד היום האחרון.</p>
-                <ul class="practice-list">
-                    <li>מפגש היכרות עמוק בתחילת שנה</li>
-                    <li>פיקניקים משפחתיים עונתיים</li>
-                    <li>ציון ימי הולדת ואירועים משפחתיים</li>
-                    <li>לוח שנה קהילתי משותף</li>
-                    <li>קבלת פנים למשפחות חדשות</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="principle">
-            <div class="principle-num">2</div>
-            <div class="principle-content">
-                <h3>שיח פתוח ומכבד</h3>
-                <p>קהילה בריאה נשענת על שיח שמאפשר מורכבות, הקשבה וכנות. אנחנו יוצרות "מרחב משחקי" שבו אנשים באים כפי שהם, משתפים בחופשיות, ויודעים שהם יתקבלו גם כשהם חושבים אחרת. בלי תוויות, בלי שיפוטיות.</p>
-                <p class="sub">כשמגדירים מראש את כללי הדיבור, אפשר לנהל שיחות אמיתיות גם על נושאים מורכבים. ראיית הטוב (רפ"ב) היא ברירת המחדל שלנו.</p>
-                <ul class="practice-list">
-                    <li>כללי שיח מוסכמים ומתעדכנים</li>
-                    <li>מעגלי שיחה בקבוצות קטנות</li>
-                    <li>ראיית הטוב כברירת מחדל</li>
-                    <li>הקשבה לפני תגובה</li>
-                    <li>תיווך רגיש של קונפליקטים</li>
-                    <li>שיתוף גם בקשיים, לא רק בהצלחות</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="principle">
-            <div class="principle-num">3</div>
-            <div class="principle-content">
-                <h3>מעורבות מתוך בחירה</h3>
-                <p>קהילה רחבה שפועלת מתוך שותפות אמיתית, בגישת "שום דבר עלינו בלעדינו". כל הורה תורם מהכישורים והתשוקה שלו, במינון שמתאים לו. כולם מוזמנים, כולם יכולים להשפיע, כולם חלק מהתהליך.</p>
-                <p class="sub">במקום וועד מצומצם שמחליט על כולם, אנחנו בונות מבנה של צוותים ייעודיים. מנהיגות מבוזרת שמאפשרת לכל אחד להוביל בתחום שלו.</p>
-                <ul class="practice-list">
-                    <li>צוותים ייעודיים לפי תחומי עניין</li>
-                    <li>שקיפות מלאה בהחלטות ויוזמות</li>
-                    <li>חלוקת אחריות גמישה ומתחלפת</li>
-                    <li>מקום לכל אחד, במינון שמתאים לו</li>
-                    <li>תיעוד ושיתוף של מה שקורה</li>
-                    <li>הזמנה פתוחה להצטרף בכל שלב</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="principle">
-            <div class="principle-num">4</div>
-            <div class="principle-content">
-                <h3>נתינה, אחריות וחסד</h3>
-                <p>קהילה נבנית סביב ערכים שמקבלים ביטוי בפעולה ממשית. "חסד" הוא המעגל שבו אנחנו דואגות אחת לשנייה ומלמדות את הילדים שנתינה היא כוח. הילדים שותפים בפעולות הנתינה, לא רק עדים אליהן.</p>
-                <p class="sub">יוזמות חסד לאורך השנה, בתוך הכיתה ומחוצה לה, שהופכות לחלק מהזהות שלנו כקהילה.</p>
-                <ul class="practice-list">
-                    <li>צוות "חסד" ייעודי</li>
-                    <li>תמיכה במשפחות בעתות צורך</li>
-                    <li>שילוב הילדים בפעולות נתינה</li>
-                    <li>יוזמות חסד עונתיות</li>
-                    <li>פרויקטים חברתיים משותפים</li>
-                    <li>התנדבות בקהילה הרחבה</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="principle">
-            <div class="principle-num">5</div>
-            <div class="principle-content">
-                <h3>מסורות שנוצרות יחד</h3>
-                <p>קהילה חזקה נבנית מחוויות חוזרות שיוצרות זהות משותפת. המחקר מראה שסדירויות ומסורות (Rituals) הן הכלי המרכזי לבניית תחושת שייכות, הן אצל ילדים והן אצל מבוגרים. כל עונה מביאה הזדמנות לחזק את הקשר ולהעמיק את השייכות.</p>
-                <p class="sub">הסדירויות שלנו הן השלד שמחזיק את הקהילה לאורך כל השנה. הן חוזרות, מתעדכנות, ועם הזמן נהיות "שלנו".</p>
-                <ul class="practice-list">
-                    <li>קבלת שבת כיתתית</li>
-                    <li>מפגשים עונתיים קבועים</li>
-                    <li>פעילות משפחות בטבע</li>
-                    <li>אירועים שחוזרים כל שנה</li>
-                    <li>טקסי מעבר ורגעים מסמנים</li>
-                    <li>תיעוד וזיכרון משותף</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== VALUES ===== -->
-<section id="values">
-    <div class="container">
-        <div class="section-label">הערכים שלנו</div>
-        <h2>מה מנחה את גְּאוּלָה</h2>
-        <p>ששה ערכים שמשפיעים על כל החלטה, כל פעילות וכל שיחה. הבסיס שעליו הקהילה עומדת.</p>
-
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0112 0v2"/></svg></div>
-                        <h4>האדם כתכלית</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>האדם כתכלית</h4>
-                        <p>כל ילד הוא עולם מלא. אנחנו רואות כל אחד כפי שהוא ויוצרות מרחב שבו הוא יכול לצמוח בדרך שלו. הילד הוא ריבוני, אוטונומי ובעל ערך בפני עצמו.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></div>
-                        <h4>חשיבה עצמאית</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>חשיבה עצמאית</h4>
-                        <p>לעודד שאלות, סקרנות וגילוי. "הזכות והאומץ לשאול, לדעת, לבקר, להטיל ספק, לבחור." ילדים שלומדים לחשוב בעצמם הופכים למבוגרים שיודעים לבחור.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-                        <h4>ערבות הדדית</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>ערבות הדדית</h4>
-                        <p>כשמשפחה צריכה עזרה, כולנו שם. "והחוט המשולש לא במהרה ינתק." ערבות הדדית היא הרשת הבלתי נראית שתופסת כל אחד מאיתנו כשצריך.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-                        <h4>מגוון כעושר</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>מגוון כעושר</h4>
-                        <p>מקום לכל סיפור, לכל רקע, לכל דרך חשיבה. הגיוון שבינינו הוא מה שהופך אותנו לקהילה עשירה. חיבור לתרבויות, לשפות ורעיונות, תוך שמירה על זהות ברורה.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-                        <h4>אותנטיות</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>אותנטיות</h4>
-                        <p>להרשות לעצמנו להיות כפי שאנחנו. לשתף גם ברגעים הקשים. הקשבה לסיפור האישי הופכת כל אחד לאדם שלם, ומפחיתה סטיגמות שמונעות חיבור אמיתי.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="value-card">
-                <div class="vc-inner">
-                    <div class="vc-front">
-                        <div class="icon-box icon-box-gold"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                        <h4>עשייה</h4>
-                    </div>
-                    <div class="vc-back">
-                        <h4>עשייה</h4>
-                        <p>ערכים מקבלים משמעות כשהם הופכים למעשים. הצלחת הקהילה נמדדת בילדים שמרגישים שייכים, בהורים שמרגישים פחות לבד, במשפחות שתומכות אחת בשנייה.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== LEADERSHIP - DARK ===== -->
-<div class="dark-section">
-    <div class="container">
-        <div class="section-label">מנהיגות בשטח</div>
-        <h2>מנהיגות שמתחילה בקטן</h2>
-        <p class="lead" style="max-width: 640px; margin: 0 auto 36px;">
-            מנהיגות היא דרך חיים. היא מתחילה ברגע שבו ילד לוקח אחריות על משהו קטן ומגלה שהוא יכול להשפיע. פיתוח מנהיגות בגיל היסודי נתפס במחקר כמרכיב קריטי בעיצוב האישיות ובהכנה לחיים בחברה.
-        </p>
-
-        <div class="leadership-grid">
-            <div class="dark-card">
-                <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0112 0v2"/></svg>
                 </div>
-                <h4>מנהיגות של ילדים</h4>
-                <p>הילדים שותפים לתכנון ולעשייה. הם מובילים יוזמות, פותרים בעיות בצוות, מתנסים במשחקים קבוצתיים וסדנאות גיבוש. מנהיגות צעירה נלמדת דרך חוויה, לא מהרצאות.</p>
+                <h3>ראייה הוליסטית</h3>
+                <div class="pillar-q">"כל ילד נראה"</div>
+                <p>כשהמחנכת לא עמוסה בלוגיסטיקה, היא יכולה להתבונן בכל ילד: מה הוא צריך, איך הוא מרגיש, מה קורה לו מחוץ לכיתה. ההורים מפנים לה את המרחב הזה.</p>
             </div>
-            <div class="dark-card">
-                <div class="icon-box icon-box-dark">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
-                </div>
-                <h4>מנהיגות של הורים</h4>
-                <p>כל הורה מנהיג בתחום שלו. מנהיגות מבוזרת שנותנת לכל אחד להוביל ממקום של חוזקה. כשכולם מנהיגים במקומם — הקהילה חזקה מסכום חלקיה.</p>
-            </div>
-            <div class="dark-card">
-                <div class="icon-box icon-box-dark">
+            <div class="pillar">
+                <div class="icon-box icon-box-center">
                     <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                 </div>
-                <h4>שותפות עם בית הספר</h4>
-                <p>אנחנו ובית הספר באותו הצד. שותפות פדגוגית אמיתית — לא "ועד שמגיש כיבוד", אלא קהילה שמכבדת את האוטונומיה המקצועית של הצוות ופועלת לצידו.</p>
+                <h3>פיזור מעורבות</h3>
+                <div class="pillar-q">"אף אחד לא נשחק"</div>
+                <p>במקום ועד של שלושה שעושים הכל, יש שבעה צוותים קטנים. כל הורה בוחר צוות אחד. תפקיד מוגדר, מינון שמתאים, רוטציה לאורך השנה. אחריות מתחלקת, אנרגיה נשמרת.</p>
             </div>
-            <div class="dark-card">
-                <div class="icon-box icon-box-dark">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <div class="pillar">
+                <div class="icon-box icon-box-center">
+                    <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M10 9h4"/></svg>
                 </div>
-                <h4>מעורבות בקהילה הרחבה</h4>
-                <p>הקהילה מתחילה בכיתה ומתרחבת החוצה. פרויקטים חברתיים, התנדבות, חיבור לשכונה ולעיר. מודלינג של אזרחות פעילה שהילדים רואים, חווים, ונושאים איתם.</p>
+                <h3>שותפות עם המחנכת</h3>
+                <div class="pillar-q">"באותו הצד"</div>
+                <p>הכיתה החברתית לא מחליפה את בית הספר. היא עובדת לצד המחנכת, בתיאום מלא. ההורים מרימים את מה שמסביב כדי שהמרכז יהיה חופשי לחינוך.</p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ===== ACTION / SEDIRUYOT ===== -->
-<section id="action">
+<!-- ===== TEAMS ===== -->
+<section id="teams">
     <div class="container">
-        <div class="section-label">הקהילה בפעולה</div>
-        <h2>הסדירויות שלנו — שבעה מעגלי פעולה</h2>
-        <p>הקהילה חיה דרך סדירויות. לא רק ערכים — גם מבנים, תפקידים ומסגרות שחוזרות, מתבגרות ונהיות "שלנו".</p>
+        <div class="section-label">שבעת הצוותים</div>
+        <h2>כל הורה בוחר צוות אחד</h2>
+        <p>שבעה צוותים, שבע אחריויות ברורות. כל הורה נכנס לצוות שמתאים לו. רוטציה כל חצי שנה למי שרוצה להחליף. אף תפקיד לא גדול מדי, אף אחד לא נשאר בחוץ.</p>
 
-        <!-- ג -->
+        <!-- שיירה -->
         <div class="action-card">
             <div class="action-letter">ג</div>
             <div class="action-body">
-                <span class="action-tag">גדילה</span>
-                <h3>מועצת מנהיגות — במקום ועד כיתה</h3>
-                <p>ילדי הכיתה בוחרים תפקידי מנהיגות אמיתיים. לא רק נציגות — אחריות. "שגריר קהילה", "ראש צוות ספרייה", "מנהיג תורנות", "כתב המחלקה". המועצה נפגשת אחת לחודש עם נציגי ההורים ועם המחנכת. בסוף השנה — "יום מנהיגות": שעתיים שבהן הילדים מנהלים את הכיתה לבד.</p>
+                <span class="action-tag">גלגלים</span>
+                <h3>שיירה — תיאום טרמפים והסעות</h3>
+                <p>צוות שמתאם הסעות לפעילויות, טיולים ואירועים. מנהל קבוצת טרמפים, מחבר בין הורים שגרים קרוב, דואג שאף ילד לא נשאר בלי הסעה. פשוט, מעשי, חוסך לכולם כאב ראש.</p>
                 <ul class="action-bullets">
-                    <li>בחירות דמוקרטיות לתפקידים</li>
-                    <li>פגישה חודשית עם ההורים</li>
-                    <li>פרויקט יוזמה שנתי</li>
-                    <li>יום מנהיגות בסוף השנה</li>
+                    <li>קבוצת טרמפים ביום טיול</li>
+                    <li>חיבור שכנים לנסיעה משותפת</li>
+                    <li>תיאום הסעות לפעילויות אחה"צ</li>
+                    <li>פתרון מקרי חירום</li>
                 </ul>
             </div>
         </div>
 
-        <!-- א -->
+        <!-- עדשה -->
         <div class="action-card">
             <div class="action-letter">א</div>
             <div class="action-body">
-                <span class="action-tag">אחריות</span>
-                <h3>תורנות הילדים — הם בעלי הבית</h3>
-                <p>כל שבוע מסתובבת "כרטיסיית אחריות" לתלמיד אחר. לכל תפקיד יש תג ומשמעות: אחריות ניקיון הכיתה, ניהול הספרייה, "שגריר בריאות" — מתקשר לחברים חולים, "מקבל פנים" — ילד שמברך כל אחד בכניסה בבוקר. ילד שנושא אחריות — גדל.</p>
+                <span class="action-tag">אלבום</span>
+                <h3>עדשה — תיעוד וצילום</h3>
+                <p>צוות שמתעד את הרגעים החברתיים של הכיתה: מסיבות, טיולים, אירועים, רגעי יומיום. דואג שיהיה זיכרון, שהתמונות ישותפו, ושכל ילד ייראה באלבום. יוצר אלבום דיגיטלי שנתי שנשאר לכולם.</p>
                 <ul class="action-bullets">
-                    <li>תגי תפקיד שבועיים</li>
-                    <li>שגריר בריאות — מתקשר לחולים</li>
-                    <li>מקבל פנים בפתח הכיתה</li>
-                    <li>ספרן כיתתי מתחלף</li>
-                    <li>אחריות ניקיון וסביבה</li>
+                    <li>צילום כל אירוע חברתי</li>
+                    <li>שיתוף תמונות מסודר להורים</li>
+                    <li>אלבום דיגיטלי של סוף שנה</li>
+                    <li>וידוא שכל ילד מיוצג</li>
                 </ul>
             </div>
         </div>
 
-        <!-- ו -->
+        <!-- שופר -->
         <div class="action-card">
             <div class="action-letter">ו</div>
             <div class="action-body">
-                <span class="action-tag">ועשייה</span>
-                <h3>תיקון עולם — מעגל ההורים הנותנים</h3>
-                <p>קבוצת הורים שנפגשת פעם בחודש ובוחרת פרויקט נתינה: אוכל לנזקקים, ביקור קשישים, ניקיון שכונה, גינה קהילתית בבית הספר. הילדים לא רק שומעים עליו — הם שם. בסוף השנה: ערב "חגיגת נתינה" שבו כל הכיתה מציגה מה שעשתה יחד.</p>
+                <span class="action-tag">ועדכון</span>
+                <h3>שופר — עדכון הורים</h3>
+                <p>צוות שמנהל את זרימת המידע להורים. לא עוד 50 הודעות בקבוצה. שופר מרכז את העדכונים החשובים, שולח סיכום שבועי מסודר, ומוודא שכולם יודעים מה קורה ומתי. סדר במקום רעש.</p>
                 <ul class="action-bullets">
-                    <li>פגישה חודשית + בחירת פרויקט</li>
-                    <li>ילדים לצד הוריהם בשטח</li>
-                    <li>חיבור לארגונים בשכונה</li>
-                    <li>ערב חגיגת נתינה בסוף השנה</li>
+                    <li>סיכום שבועי קצר ומסודר</li>
+                    <li>תזכורות לפני אירועים</li>
+                    <li>ריכוז עדכונים מהמחנכת</li>
+                    <li>ניהול קבוצת וואטסאפ שקטה ויעילה</li>
                 </ul>
             </div>
         </div>
 
-        <!-- ל -->
+        <!-- מעטפת -->
         <div class="action-card">
             <div class="action-letter">ל</div>
             <div class="action-body">
                 <span class="action-tag">לב</span>
-                <h3>צוות Well-Being — החיישן של הקהילה</h3>
-                <p>ליבת הורים שמייצרים "חיישן" קהילתי רגיש: יודעים מה קורה, פועלים בשקט ובכבוד. משפחה בקושי, מורה שעייפה, ילד שנזקק לחברה — הצוות שם. "סל ברוכים הבאים" למשפחות חדשות, עזרה מאורגנת בעת מחלה, תיאום חגיגות שלא שוכחים.</p>
+                <h3>מעטפת — מתנות, חגים וצוות חינוכי</h3>
+                <p>צוות שדואג לעטיפה האנושית: מתנות למחנכת ולצוות החינוכי באירועים ובחגים, ארגון הפתעות לילדים בימי הולדת, תיאום חגיגות כיתתיות. הלב הרך של הכיתה החברתית.</p>
                 <ul class="action-bullets">
-                    <li>3–4 הורים מתחלפים (רוטציה)</li>
-                    <li>סל ברוכים הבאים למשפחות חדשות</li>
-                    <li>רשת עזרה בעת מחלה</li>
-                    <li>ימי הולדת ורגעים שלא שוכחים</li>
-                    <li>קשב שקט ורגיש לאורך השנה</li>
+                    <li>מתנה למחנכת ולסייעת בחגים</li>
+                    <li>ארגון חגיגות ימי הולדת</li>
+                    <li>סוף שנה ואירועים מיוחדים</li>
+                    <li>גיוס תקציב קטן ושקוף</li>
                 </ul>
             </div>
         </div>
 
-        <!-- ה -->
+        <!-- ידיים -->
         <div class="action-card">
             <div class="action-letter">ה</div>
             <div class="action-body">
-                <span class="action-tag">הכלה</span>
-                <h3>שולחן גְּאוּלָה — ארוחה שהיא קהילה</h3>
-                <p>פעם בחודש — שולחן גדול. כל משפחה מביאה משהו מהמטבח שלה, מהתרבות שלה, מהסיפור שלה. ארוחה שהיא גם שיחה — שיתוף מורשת, חיבור בין שורשים שונים, ובניית קהילה מפסיפס אנושי עשיר. פתוח לכולם, נגיש לכולם.</p>
+                <span class="action-tag">הרמה</span>
+                <h3>ידיים — עזרה לוגיסטית</h3>
+                <p>צוות שעוזר כשצריך ידיים בשטח: סידור כיתה לפני אירוע, העברת ציוד, עזרה בהכנות לטיול, תיאום עם בית הספר ברמה הלוגיסטית. הצוות שפשוט בא ועושה.</p>
                 <ul class="action-bullets">
-                    <li>ארוחה חודשית — כל משפחה מביאה</li>
-                    <li>נגיש, אינפורמלי, חם</li>
-                    <li>פתוח גם לסבתות וסבים</li>
+                    <li>הכנת כיתה לאירועים</li>
+                    <li>העברת ציוד וחומרים</li>
+                    <li>ליווי טיולים כשצריך מבוגרים</li>
+                    <li>כל מה שצריך ידיים — הם שם</li>
                 </ul>
             </div>
         </div>
 
-        <!-- עיתון -->
+        <!-- יוזמה -->
         <div class="action-card">
-            <div class="action-letter" style="font-size: 28px; width: 72px;">📰</div>
+            <div class="action-letter" style="font-size: 30px;">+</div>
             <div class="action-body">
-                <span class="action-tag">קול הקהילה</span>
-                <h3>עיתון גְּאוּלָה — המגזין שלנו</h3>
-                <p>עיתון קהילתי שיוצא פעם בשליש שנה (3 גיליונות בשנה). ילדים כותבים, ילדים מראיינים, הורים מספרים. כל גיליון מתעד את הקהילה — מה קרה, מה עשינו, מי אנחנו. מגזין שנשמר ומצטבר לזיכרון קהילתי חי.</p>
+                <span class="action-tag">יוזמה</span>
+                <h3>מעגלים — פעילויות, סדנאות ויוזמות</h3>
+                <p>צוות שמארגן את הפעילויות החברתיות מחוץ לשגרת הלימודים: סדנאות הורים, מפגשי משפחות, פיקניקים עונתיים, יוזמות קהילתיות בשכונה. מי שיש לו רעיון — כאן המקום להוציא אותו לפועל.</p>
                 <ul class="action-bullets">
-                    <li>3 גיליונות בשנה (סתיו, חורף, אביב)</li>
-                    <li>עורכים ילדים + כתבים ילדים</li>
-                    <li>ריאיון הורה חדש בכל גיליון</li>
-                    <li>סיפורי מורשת, תמונות, ציורים</li>
-                    <li>גיליון דיגיטלי + גיליון מודפס</li>
+                    <li>פעילות משפחות אחת לחודש</li>
+                    <li>סדנאות להורים ולילדים</li>
+                    <li>יוזמות קהילתיות בשכונה</li>
+                    <li>חיבור למשאבים מקומיים</li>
                 </ul>
             </div>
         </div>
 
-        <!-- גאולה reveal -->
+        <!-- גשר -->
+        <div class="action-card" id="bridge">
+            <div class="action-letter">~</div>
+            <div class="action-body">
+                <span class="action-tag">חיבור</span>
+                <h3>גשר — קשר עם המקבילה ואימוץ שכבת א'</h3>
+                <p>צוות שיוצר חיבור עם הכיתה המקבילה ומוביל אימוץ של כיתה א'. פעילויות משותפות בין הכיתות, חניכת ילדי א' על ידי ילדי ב', שיתוף פעולה עם הורי המקבילה. ביחד השכבה חזקה יותר.</p>
+                <ul class="action-bullets">
+                    <li>פעילות שכבתית משותפת</li>
+                    <li>ילדי ב' מאמצים ילדי א'</li>
+                    <li>שיתוף רעיונות עם הורי המקבילה</li>
+                    <li>טקס מעבר בסוף השנה</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- GEULAH reveal -->
         <div class="geulah-reveal">
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">גְּ</div>
-                <div class="geulah-reveal-word">גדילה</div>
+                <div class="geulah-reveal-word">גלגלים</div>
             </div>
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">אוּ</div>
-                <div class="geulah-reveal-word">אחריות</div>
+                <div class="geulah-reveal-word">אלבום</div>
             </div>
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">לָ</div>
@@ -1320,43 +1129,66 @@
             </div>
             <div class="geulah-reveal-item">
                 <div class="geulah-reveal-letter">ה</div>
-                <div class="geulah-reveal-word">הכלה</div>
+                <div class="geulah-reveal-word">הרמה</div>
             </div>
         </div>
-        <p class="geulah-reveal-caption">הסדירויות שלנו הן לא רק פעולות — הן האותיות שמרכיבות יחד את <strong>גְּאוּלָה</strong></p>
+        <p class="geulah-reveal-caption">הצוותים שלנו הם לא רק תפקידים, הם האותיות שמרכיבות יחד את <strong>גְּאוּלָה</strong></p>
 
-        <!-- Gantt teaser -->
-        <div class="gantt-teaser">
-            <div class="icon-box icon-box-gold">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h2M8 17h4M14 14h3"/></svg>
-            </div>
-            <div>
-                <h4>לוח שנה תשפ"ז — גאנט מפורט</h4>
-                <p>תאריכים, אחראיות, פעילויות ואבני דרך לכל אורך שנת הלימודים. בבנייה.</p>
-            </div>
-            <span class="gantt-badge">בקרוב</span>
-        </div>
     </div>
 </section>
+
+<!-- ===== AMANA HAKESHEV ===== -->
+<div class="charter-section" id="charter">
+    <div class="container">
+        <div class="charter-card">
+            <div class="section-label" style="align-items: center;">אמנה</div>
+            <h2>אמנת הקשב</h2>
+            <div class="charter-subtitle">התחייבות של כל חבר בכיתה החברתית</div>
+
+            <div class="charter-text">
+                אנחנו, הורי כיתה ב' בבית ספר גאולים, מתחייבים לא לרכוש סמארטפונים לילדינו בגיל הזה. לא מתוך פחד מטכנולוגיה, אלא מתוך בחירה מודעת: לתת לילדים שלנו ילדות של עיניים בעיניים, של משחק חופשי, של שעמום פורה ושל נוכחות מלאה.
+            </div>
+
+            <div class="charter-commitment">
+                <h4>ההתחייבות שלנו</h4>
+                <ul class="charter-items">
+                    <li>לא נרכוש סמארטפון לילד/ה בגיל בית ספר יסודי</li>
+                    <li>נעדיף טלפון בסיסי (כשר) לצורכי תקשורת</li>
+                    <li>נגביל זמני מסך משותפים בבית ונשתף בדילמות</li>
+                    <li>נתמוך אחד בשני כשהילדים לוחצים "אבל לכולם יש"</li>
+                    <li>נהיה דוגמה אישית בשימוש מושכל במסכים</li>
+                </ul>
+            </div>
+
+            <div class="charter-commitment" style="margin-top: 16px;">
+                <h4>למה דווקא עכשיו</h4>
+                <p>המחקר ברור: חשיפה מוקדמת לסמארטפון פוגעת בקשב, בשינה, במיומנויות חברתיות ובדימוי עצמי. כיתה ב' היא גיל שבו ילדים עדיין יכולים לבנות יחסים מפנים-אל-פנים, ללמוד להשתעמם, ולפתח דמיון. כשכולנו מתחייבים יחד, אף ילד לא מרגיש שהוא לבד בזה.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- ===== CLOSING ===== -->
 <div class="dark-section closing" style="padding: 80px 40px;">
     <div class="container">
         <h2 style="font-size: 44px; margin-bottom: 16px; font-family: 'Secular One', 'Heebo', sans-serif; letter-spacing: 3px;">גְּאוּלָה</h2>
         <p style="max-width: 540px; margin: 0 auto; font-size: 18px; line-height: 1.85; color: rgba(255,255,255,0.7);">
-            קהילת ההורים של בית ספר גאולים.
+            כיתה חברתית · כיתה ב' · גאולים
+        </p>
+        <p style="max-width: 540px; margin: 8px auto 0; font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.45);">
+            מפזרים אחריות. מונעים שחיקה. רואים כל ילד.
         </p>
         <div class="gold-line"></div>
         <div class="sign-date">
             בית ספר גאולים · בקעה, ירושלים<br>
-            כיתה ב' · תשפ"ז · 2026–2027
+            כיתה ב' · תשפ"ז · 2026-2027
         </div>
     </div>
 </div>
 
 <!-- Footer -->
 <footer>
-    <p>מניפסט זה נכתב על בסיס מחקר בתחומי קהילה חינוכית, שותפות הורים ומנהיגות צעירה.<br>מקורות: McMillan & Chavis (1986), אבני ראשה, שרביט, NAEYC, מודל קהילה מיטיבה.</p>
+    <p>כיתה חברתית גְּאוּלָה · כיתה ב' · בית ספר גאולים · שכונת בקעה, ירושלים</p>
 </footer>
 
 <script>
@@ -1373,14 +1205,12 @@
         mobileMenu.classList.remove('open');
     }
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
             closeMenu();
         }
     });
 
-    // Mobile flip cards — tap to flip
     if ('ontouchstart' in window) {
         document.querySelectorAll('.value-card').forEach(card => {
             card.addEventListener('click', () => card.classList.toggle('flipped'));
