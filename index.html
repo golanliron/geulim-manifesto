@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גאולי — הכיתה החברתית של כיתה ב' גאולים</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&display=swap" rel="stylesheet">
+    <title>גְּאוּלִי · הכיתה החברתית של כיתה ב' גאולים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #1B2A4A;
@@ -34,7 +34,7 @@
         .hero {
             background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
             color: white;
-            padding: 90px 40px 80px;
+            padding: 24px 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -55,7 +55,7 @@
             margin: 0 auto;
         }
 
-        .hero-logo { margin-bottom: 28px; }
+        .hero-logo { margin-bottom: 12px; }
 
         .hero-badge {
             display: inline-block;
@@ -65,23 +65,28 @@
             font-size: 13px;
             font-weight: 500;
             color: var(--gold);
-            margin-bottom: 28px;
+            margin-bottom: 14px;
             letter-spacing: 1.5px;
         }
 
         .hero h1 {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-size: 118px;
+            font-family: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
+            font-size: 64px;
             font-weight: 900;
-            line-height: 1;
-            margin-bottom: 22px;
-            letter-spacing: 12px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: 0;
             color: #ffffff;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 72px; letter-spacing: 6px; }
+            .hero h1 { font-size: 44px; }
         }
+
+        /* ===== TAB PAGES ===== */
+        .tab-page { display: none; }
+        .tab-page.active { display: block; }
+        .nav-links a.active, .mobile-menu a.active { color: var(--gold); }
 
         .hero-divider {
             display: flex;
@@ -103,14 +108,14 @@
             font-weight: 400;
             color: rgba(255,255,255,0.85);
             letter-spacing: 3px;
-            margin-bottom: 12px;
+            margin-bottom: 6px;
         }
         .hero .subtitle-deco {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 32px;
+            margin-bottom: 10px;
         }
         .hero .subtitle-deco-line {
             width: 40px;
@@ -654,6 +659,12 @@
             color: white;
             letter-spacing: 2px;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo {
+            opacity: 0.7;
         }
 
         .nav-links {
@@ -727,8 +738,8 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
-            .hero { padding: 64px 24px 56px; }
-            .hero h1 { font-size: 56px; letter-spacing: 4px; }
+            .hero { padding: 32px 20px 24px; }
+            .hero h1 { font-size: 40px; letter-spacing: 2px; }
             .hero .subtitle { font-size: 16px; letter-spacing: 1px; }
 
             .pillars { grid-template-columns: 1fr; }
@@ -817,14 +828,24 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <a href="#" class="nav-brand">גאולי</a>
+    <a href="#" class="nav-brand">
+        <svg class="nav-logo" width="28" height="28" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="66" height="66" rx="16" stroke="rgba(201,165,76,0.6)" stroke-width="2"/>
+            <g transform="translate(36,35)">
+                <path d="M0 18 L0 0" stroke="#C9A54C" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M0 6 C-4 2 -13 1 -14 -8 C-5 -5 -1 -1 0 4" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M0 1 C4 -3 13 -6 16 -14 C7 -10 1 -4 0 1" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M0 -3 C-2 -9 0 -17 5 -21 C3 -13 1 -7 0 -3" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+        </svg>
+        גְּאוּלִי
+    </a>
     <ul class="nav-links">
-        <li><a href="#letter">הפנייה</a></li>
-        <li><a href="#vision">החזון</a></li>
-        <li><a href="#teams">הצוותים</a></li>
-        <li><a href="#calendar">לוח שנה</a></li>
-        <li><a href="#charter">אמנת הקשב</a></li>
-        <li><a href="#sign">חתמי</a></li>
+        <li><a href="#" data-tab="letter" class="active">הפנייה</a></li>
+        <li><a href="#" data-tab="vision">החזון</a></li>
+        <li><a href="#" data-tab="teams">הצוותים</a></li>
+        <li><a href="#" data-tab="calendar">לוח שנה</a></li>
+        <li><a href="#" data-tab="charter">אמנת הקשב</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
         <span></span><span></span><span></span>
@@ -832,12 +853,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#letter" onclick="closeMenu()">הפנייה</a>
-    <a href="#vision" onclick="closeMenu()">החזון</a>
-    <a href="#teams" onclick="closeMenu()">הצוותים</a>
-    <a href="#calendar" onclick="closeMenu()">לוח שנה</a>
-    <a href="#charter" onclick="closeMenu()">אמנת הקשב</a>
-    <a href="#sign" onclick="closeMenu()">חתמי</a>
+    <a href="#" data-tab="letter" class="active" onclick="closeMenu()">הפנייה</a>
+    <a href="#" data-tab="vision" onclick="closeMenu()">החזון</a>
+    <a href="#" data-tab="teams" onclick="closeMenu()">הצוותים</a>
+    <a href="#" data-tab="calendar" onclick="closeMenu()">לוח שנה</a>
+    <a href="#" data-tab="charter" onclick="closeMenu()">אמנת הקשב</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -858,7 +878,7 @@
 
         <div class="hero-badge">בית ספר גאולים · כיתה ב' · בקעה, ירושלים · תשפ"ז</div>
 
-        <h1>גאולי</h1>
+        <h1>גְּאוּלִי</h1>
 
         <div class="hero-divider">
             <div class="hero-divider-arch"></div>
@@ -878,12 +898,15 @@
         </div>
 
         <div class="tagline">
-            דרוש כפר שלם כדי לגדל ילד.
+            הורי ילדי א'2 בונים יחד כיתה ב'2 חדשה. מתוך חזון, שיתוף וקהילה.
         </div>
 
     </div>
 
 </header>
+
+<!-- TAB: הפנייה -->
+<div class="tab-page active" id="page-letter">
 
 <!-- ===== ABOUT ===== -->
 <section id="about">
@@ -916,14 +939,78 @@
         </div>
 
         <div class="letter-body">
-            <p>אנחנו, <strong>החתומות מטה</strong>, הורי ילדי כיתה א'2 בבית ספר גאולים, שלמדו במסלול נביעה, המעוניינות בשנה הבאה להקים כיתה חדשה — כיתה ב'2.</p>
-            <p>לאחר שנה שלא היתה פשוטה עבורנו — שנה של חוסר יציבות ואי-ודאות לגבי המשך הדרך — הגענו להבנה כי מסלול נביעה עובר למתחם אחר, ולנו נותרה ההחלטה האם להפריד את ילדינו מחבריהם לכיתה.</p>
+            <p>אנחנו, <strong>החתומות מטה</strong>, הורי ילדי כיתה א'2 בבית ספר גאולים, שלמדו במסלול נביעה, המעוניינות בשנה הבאה להקים כיתה חדשה, כיתה ב'2.</p>
+            <p>לאחר שנה שלא היתה פשוטה עבורנו, שנה של חוסר יציבות ואי-ודאות לגבי המשך הדרך, הגענו להבנה כי מסלול נביעה עובר למתחם אחר, ולנו נותרה ההחלטה האם להפריד את ילדינו מחבריהם לכיתה.</p>
             <p>לאחר חשיבה מעמיקה, <span class="mark"><strong>החלטנו כי את הערכתנו ומעשינו נרצה לתת לבית ספר גאולים.</strong></span></p>
-            <p>יחד עם זאת, ההווי החברתי וההווי הקהילתי שחווינו במסלול נביעה היו לרוחנו מאוד. לכן, <strong>בקשתנו היא לא להשתלב בכיתה הקיימת (כיתה ב'1), אלא להקים כיתה ב'2 חדשה</strong> — כיתה שתיבנה מלכתחילה מתוך חזון משותף, יחד עם הורים נוספים שירצו לקחת חלק בבנייה של קהילה חינוכית-חברתית.</p>
-            <p>אנחנו מעוניינות <strong>לייצר אקלים חברתי משותף עם ההורים והצוות הפדגוגי</strong>, לתת מעצמנו לכיתה ולקהילת בית הספר, ולקחת חלק פעיל בהנהגת הכיתה — מתוך תקווה ליצור רוח חדשה ומרעננת בבית ספר גאולים.</p>
+            <p>יחד עם זאת, ההווי החברתי וההווי הקהילתי שחווינו במסלול נביעה היו לרוחנו מאוד. לכן, <strong>בקשתנו היא לא להשתלב בכיתה הקיימת (כיתה ב'1), אלא להקים כיתה ב'2 חדשה</strong>, כיתה שתיבנה מלכתחילה מתוך חזון משותף, יחד עם הורים נוספים שירצו לקחת חלק בבנייה של קהילה חינוכית-חברתית.</p>
+            <p>אנחנו מעוניינות <strong>לייצר אקלים חברתי משותף עם ההורים והצוות הפדגוגי</strong>, לתת מעצמנו לכיתה ולקהילת בית הספר, ולקחת חלק פעיל בהנהגת הכיתה, מתוך תקווה ליצור רוח חדשה ומרעננת בבית ספר גאולים.</p>
         </div>
     </div>
 </section>
+
+<!-- Sign Form inside letter tab -->
+<section id="sign-inline">
+    <div class="container">
+        <div class="form-card">
+            <h3>חתמי על הפנייה</h3>
+            <p class="form-sub">הצטרפי אלינו · יחד נבנה את גאולי</p>
+            <form id="signFormInline" onsubmit="return handleSign(event)">
+                <div class="field">
+                    <label><span class="req">*</span> שם מלא</label>
+                    <input type="text" name="parentName" placeholder="השם שלך" required>
+                </div>
+                <div class="field-row">
+                    <div class="field">
+                        <label>שם הילד/ה</label>
+                        <input type="text" name="childName" placeholder="שם הילד/ה">
+                    </div>
+                    <div class="field">
+                        <label>טלפון</label>
+                        <input type="tel" name="phone" placeholder="050-0000000">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>מילה אישית (רשות)</label>
+                    <textarea name="message" placeholder="אני רוצה להיות שנה הבאה בכיתה ב׳2 כיתה חדשה עבור הילד/ה שלי" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn-sign">חותמת על הפנייה</button>
+            </form>
+            <div class="success-box" id="successMsgInline">
+                <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <h4>החתימה נקלטה</h4>
+                <p>תודה שהצטרפת לגאולי. יחד נבנה קהילה.</p>
+            </div>
+        </div>
+        <div class="share-row">
+            <button class="share-btn" onclick="copyLink()">
+                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                העתיקי קישור
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Signatures inside letter tab -->
+<section id="signatures-inline">
+    <div class="container">
+        <div class="sigs-top">
+            <div>
+                <div class="section-label">החתומות</div>
+                <h3 style="margin-bottom:0">הקהילה שנבנית</h3>
+            </div>
+            <div class="sig-counter">
+                <div class="num" id="sigCountInline">0</div>
+                <div class="lbl">חתמו</div>
+            </div>
+        </div>
+        <div id="signaturesListInline"><div class="loading">טוען חתימות...</div></div>
+    </div>
+</section>
+
+</div><!-- /page-letter -->
+
+<!-- TAB: החזון -->
+<div class="tab-page" id="page-vision">
 
 <!-- ===== VISION ===== -->
 <section id="vision">
@@ -937,11 +1024,11 @@
             </div>
             <div class="vision-item">
                 <div class="vi-num">2</div>
-                <div class="vi-text">לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong> — גאולי</div>
+                <div class="vi-text">לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong> · גאולי</div>
             </div>
             <div class="vision-item">
                 <div class="vi-num">3</div>
-                <div class="vi-text">לאמץ את <strong>אמנת הקשב</strong> — מרחב ללא טלפונים חכמים, המעודד נוכחות וקשרים אמיתיים</div>
+                <div class="vi-text">לאמץ את <strong>אמנת הקשב</strong> · מרחב ללא טלפונים חכמים, המעודד נוכחות וקשרים אמיתיים</div>
             </div>
             <div class="vision-item">
                 <div class="vi-num">4</div>
@@ -959,7 +1046,7 @@
 <section id="pillars">
     <div class="container">
         <div class="section-label">העקרונות שלנו</div>
-        <h2>מודל שמ"ש — שיתוף · מהפכת קשב · שקיפות</h2>
+        <h2>מודל שמ"ש · שיתוף · מהפכת קשב · שקיפות</h2>
         <p>שלושה עקרונות שמנחים את הכיתה החברתית ומבדילים אותה מוועד הורים רגיל.</p>
 
         <div class="pillars">
@@ -1001,7 +1088,7 @@
         <div class="principle">
             <div class="principle-num">1</div>
             <div class="principle-content">
-                <h3>סקר הורים — מי אנחנו</h3>
+                <h3>סקר הורים · מי אנחנו</h3>
                 <p>טופס קצר שכל הורה ממלא: מי אני, מה אני יכול/ה לתרום, ואיזה צוות מתאים לי.</p>
                 <ul class="practice-list">
                     <li>שם, טלפון, כתובת</li>
@@ -1057,6 +1144,11 @@
     </div>
 </section>
 
+</div><!-- /page-vision -->
+
+<!-- TAB: הצוותים -->
+<div class="tab-page" id="page-teams">
+
 <!-- ===== TEAMS ===== -->
 <section id="teams">
     <div class="container">
@@ -1066,10 +1158,10 @@
 
         <!-- שופר -->
         <div class="action-card">
-            <div class="action-letter">🔔</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">עדכון</span>
-                <h3>שופר — עדכון הורים</h3>
+                <h3>שופר · עדכון הורים</h3>
                 <p>ריכוז עדכונים, סיכום שבועי מסודר, תזכורות לפני אירועים. סדר ובהירות.</p>
                 <ul class="action-bullets">
                     <li>סיכום שבועי קצר ומסודר</li>
@@ -1081,10 +1173,10 @@
 
         <!-- מעטפת -->
         <div class="action-card">
-            <div class="action-letter">🤍</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">לב</span>
-                <h3>מעטפת — שימור הצוות החינוכי</h3>
+                <h3>מעטפת · שימור הצוות החינוכי</h3>
                 <p>לוח ימי הולדת לצוות, איגרות ברכה, מכתבי תודה. איש קשר לכל מורה מקצועי. מתנות בחגים. מורה שמרגישה שרואים אותה רואה את הילדים שלנו אחרת.</p>
                 <ul class="action-bullets">
                     <li>לוח ימי הולדת של הצוות בכיתה</li>
@@ -1097,10 +1189,10 @@
 
         <!-- יוזמה -->
         <div class="action-card">
-            <div class="action-letter">🎯</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">יוזמה</span>
-                <h3>מעגלים — פעילויות ויוזמות</h3>
+                <h3>מעגלים · פעילויות ויוזמות</h3>
                 <p>סדנאות הורים, מפגשי משפחות, פיקניקים עונתיים, יוזמות קהילתיות בשכונה.</p>
                 <ul class="action-bullets">
                     <li>פעילות משפחות אחת לחודש</li>
@@ -1112,10 +1204,10 @@
 
         <!-- ימי הולדת -->
         <div class="action-card">
-            <div class="action-letter">🕊️</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-8-6-8-11a8 8 0 0 1 16 0c0 5-4 8-8 11z"/><circle cx="12" cy="11" r="3"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">שינוי</span>
-                <h3>אימפקט — שינוי חברתי והתנדבות</h3>
+                <h3>אימפקט · שינוי חברתי והתנדבות</h3>
                 <p>צוות שמוביל שינוי חברתי, יוזם פעילויות התנדבות ונתינה עם הילדים. ביום ההולדת הכיתתי, הילד מוביל פעולת נתינה עם כל הכיתה.</p>
                 <ul class="action-bullets">
                     <li>יוזמות התנדבות כיתתיות</li>
@@ -1128,10 +1220,10 @@
 
         <!-- קופה -->
         <div class="action-card">
-            <div class="action-letter">🪙</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">קופה</span>
-                <h3>קופה כיתתית — תקציב משותף</h3>
+                <h3>קופה כיתתית · תקציב משותף</h3>
                 <p>סכום קבוע בתחילת השנה, כל שקל מתועד ופתוח. ממומנים: מתנות לצוות, פעילויות, חומרים, הפתעות.</p>
                 <ul class="action-bullets">
                     <li>סכום שנתי קבוע ושווה לכל משפחה</li>
@@ -1143,10 +1235,10 @@
 
         <!-- גשר -->
         <div class="action-card" id="bridge">
-            <div class="action-letter">🔗</div>
+            <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div class="action-body">
                 <span class="action-tag">חיבור</span>
-                <h3>גשר — המקבילה ואימוץ שכבת א'</h3>
+                <h3>גשר · המקבילה ואימוץ שכבת א'</h3>
                 <p>חיבור עם הכיתה המקבילה, פעילויות משותפות, חניכת ילדי א' על ידי ילדי ב'.</p>
                 <ul class="action-bullets">
                     <li>פעילות שכבתית משותפת</li>
@@ -1160,70 +1252,75 @@
     </div>
 </section>
 
+</div><!-- /page-teams -->
+
+<!-- TAB: לוח שנה -->
+<div class="tab-page" id="page-calendar">
+
 <!-- ===== CALENDAR ===== -->
 <section id="calendar">
     <div class="container">
         <div class="section-label">לוח שנה</div>
-        <h2>השנה שלנו — תשפ"ז</h2>
+        <h2>השנה שלנו · תשפ"ז</h2>
         <p>אירועים, סדירויות ופעילויות לאורך כל השנה.</p>
 
         <div class="calendar-timeline">
             <!-- August -->
             <div class="cal-month-block">
-                <div class="cal-month-header">August</div>
+                <div class="cal-month-header">אוגוסט</div>
                 <ul class="cal-items">
-                    <li><strong>פיקניק היכרות עם המחנכת</strong> — מפגש ראשון של כל המשפחות. הכרות, שיחה, חיבור.</li>
-                    <li><strong>הכנת הכיתה</strong> — צביעה, קישוטים, סידור פינות. כיתה שמרגישה כמו בית.</li>
-                    <li><strong>סקר הורים ומורים מקצועיים</strong> — מיפוי יכולות, צרכים, בחירת צוותים.</li>
-                    <li><strong>תמונות וזיכרון</strong> — איסוף תמונות תלמידים וצוות מקצועי.</li>
-                    <li><strong>מתנות קטנות לצוות</strong> — מתנת פתיחה למחנכת, לסייעת ולמורות. מתחילים עם נתינה.</li>
-                    <li><strong>הכנת שירונים</strong> — שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</li>
+                    <li><strong>פיקניק היכרות עם המחנכת</strong> ·מפגש ראשון של כל המשפחות. הכרות, שיחה, חיבור.</li>
+                    <li><strong>הכנת הכיתה</strong> ·צביעה, קישוטים, סידור פינות. כיתה שמרגישה כמו בית.</li>
+                    <li><strong>סקר הורים ומורים מקצועיים</strong> ·מיפוי יכולות, צרכים, בחירת צוותים.</li>
+                    <li><strong>תמונות וזיכרון</strong> ·איסוף תמונות תלמידים וצוות מקצועי.</li>
+                    <li><strong>מתנות קטנות לצוות</strong> ·מתנת פתיחה למחנכת, לסייעת ולמורות. מתחילים עם נתינה.</li>
+                    <li><strong>הכנת שירונים</strong> ·שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</li>
                 </ul>
             </div>
             <!-- September -->
             <div class="cal-month-block">
-                <div class="cal-month-header">September</div>
+                <div class="cal-month-header">ספטמבר</div>
                 <ul class="cal-items">
-                    <li><strong>טקס תחילת שנה ואימוץ כיתה א'</strong> — דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</li>
-                    <li><strong>ראש השנה — ברכות ושתילה</strong> — ברכות שנה טובה למורים. שתילה משותפת במרחב ציבורי.</li>
-                    <li><strong>אירוע סוכות משפחתי</strong> — פעילות משפחות ראשונה של השנה.</li>
-                    <li><strong>טיול משפחות בשישי</strong> — הליכה, טבע, חיבור בין המשפחות.</li>
+                    <li><strong>טקס תחילת שנה ואימוץ כיתה א'</strong> ·דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</li>
+                    <li><strong>ראש השנה ·ברכות ושתילה</strong> ·ברכות שנה טובה למורים. שתילה משותפת במרחב ציבורי.</li>
+                    <li><strong>אירוע סוכות משפחתי</strong> ·פעילות משפחות ראשונה של השנה.</li>
+                    <li><strong>טיול משפחות בשישי</strong> ·הליכה, טבע, חיבור בין המשפחות.</li>
                 </ul>
             </div>
             <!-- December -->
             <div class="cal-month-block">
-                <div class="cal-month-header">December</div>
+                <div class="cal-month-header">דצמבר</div>
                 <ul class="cal-items">
-                    <li><strong>טיול עששיות בחנוכה</strong> — משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה.</li>
+                    <li><strong>טיול עששיות בחנוכה</strong> ·משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה.</li>
                 </ul>
             </div>
             <!-- January–February -->
             <div class="cal-month-block">
-                <div class="cal-month-header">January — February</div>
+                <div class="cal-month-header">ינואר · פברואר</div>
                 <ul class="cal-items">
-                    <li><strong>הכר את השכונה ואת בית הספר שלך</strong> — סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות.</li>
-                    <li><strong>מחצית — פעילות עם הילדים</strong> — פעילות מיוחדת של ההורים עם ילדי הכיתה.</li>
+                    <li><strong>הכר את השכונה ואת בית הספר שלך</strong> ·סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות.</li>
+                    <li><strong>מחצית ·פעילות עם הילדים</strong> ·פעילות מיוחדת של ההורים עם ילדי הכיתה.</li>
                 </ul>
             </div>
             <!-- March -->
             <div class="cal-month-block">
-                <div class="cal-month-header">March</div>
+                <div class="cal-month-header">מרץ</div>
                 <ul class="cal-items">
-                    <li><strong>פורים — תחפושות ומשלוחי מנות</strong> — פעילות פורים כיתתית, משלוחי מנות משותפים.</li>
+                    <li><strong>פורים ·תחפושות ומשלוחי מנות</strong> ·פעילות פורים כיתתית, משלוחי מנות משותפים.</li>
                 </ul>
             </div>
             <!-- April -->
             <div class="cal-month-block">
-                <div class="cal-month-header">April</div>
+                <div class="cal-month-header">אפריל</div>
                 <ul class="cal-items">
-                    <li><strong>פסח — סדר כיתתי</strong> — אירוע פסח של הכיתה, הורים וילדים יחד.</li>
+                    <li><strong>פסח ·סדר כיתתי</strong> ·אירוע פסח של הכיתה, הורים וילדים יחד.</li>
                 </ul>
             </div>
             <!-- May–June -->
             <div class="cal-month-block">
-                <div class="cal-month-header">May — June</div>
+                <div class="cal-month-header">מאי · יוני</div>
                 <ul class="cal-items">
-                    <li><strong>פיקניק סוף שנה ואלבום דיגיטלי</strong> — סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום לכל משפחה.</li>
+                    <li><strong>פיקניק סוף שנה ואלבום דיגיטלי</strong> ·סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום לכל משפחה.</li>
                 </ul>
             </div>
         </div>
@@ -1232,28 +1329,28 @@
         <p>תפקידים קבועים שמלמדים אחריות, נתינה ושייכות.</p>
         <div class="routines-grid">
             <div class="routine-card">
-                <div class="routine-icon">🏠</div>
+                <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
                 <div>
                     <h4>תורנות כיתה וניקיון</h4>
                     <p>כל שבוע זוג תלמידים אחראי על סדר וניקיון הכיתה.</p>
                 </div>
             </div>
             <div class="routine-card">
-                <div class="routine-icon">👋</div>
+                <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
                 <div>
                     <h4>תורנות חבר</h4>
                     <p>דאגה לחברים בהפסקה: מי יושב לבד, מי צריך חברה, מי חדש.</p>
                 </div>
             </div>
             <div class="routine-card">
-                <div class="routine-icon">📚</div>
+                <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
                 <div>
                     <h4>תורנות ספרייה</h4>
                     <p>אחריות על פינת הספרים: סידור, המלצות, השאלה מסודרת.</p>
                 </div>
             </div>
             <div class="routine-card">
-                <div class="routine-icon">🌿</div>
+                <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21c3-3 4-7 1-10"/><path d="M17 3c-5 0-8 3-8 8s3 8 8 8"/></svg></div>
                 <div>
                     <h4>תורנות טבע</h4>
                     <p>טיפול בצמחים בכיתה, השקייה, תצפיות על גידול.</p>
@@ -1262,6 +1359,11 @@
         </div>
     </div>
 </section>
+
+</div><!-- /page-calendar -->
+
+<!-- TAB: אמנת הקשב -->
+<div class="tab-page" id="page-charter">
 
 <!-- ===== AMANA HAKESHEV ===== -->
 <div class="charter-section" id="charter">
@@ -1272,7 +1374,7 @@
             <div class="charter-subtitle">התחייבות של כל חבר בכיתה החברתית</div>
 
             <div class="charter-text">
-                אנחנו, הורי כיתה ב' בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של נוכחות מלאה — של משחק חופשי, של שיחה אמיתית, של שעמום שמוליד דמיון. בחירה משותפת, מתוך אהבה.
+                אנחנו, הורי כיתה ב' בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של נוכחות מלאה, של משחק חופשי, של שיחה אמיתית, של שעמום שמוליד דמיון. בחירה משותפת, מתוך אהבה.
             </div>
 
             <div class="charter-commitment">
@@ -1294,12 +1396,14 @@
     </div>
 </div>
 
+</div><!-- /page-charter -->
+
 <!-- ===== SIGN FORM ===== -->
-<section id="sign">
+<section id="sign" style="display:none">
     <div class="container">
         <div class="form-card">
             <h3>חתמי על הפנייה</h3>
-            <p class="form-sub">הצטרפי אלינו — יחד נבנה את גאולי</p>
+            <p class="form-sub">הצטרפי אלינו · יחד נבנה את גאולי</p>
             <form id="signForm">
                 <div class="field">
                     <label><span class="req">*</span> שם מלא</label>
@@ -1317,7 +1421,7 @@
                 </div>
                 <div class="field">
                     <label>מילה אישית (רשות)</label>
-                    <textarea id="message" placeholder="למה חשוב לך להצטרף לגאולי?" rows="2"></textarea>
+                    <textarea id="message" placeholder="אני רוצה להיות שנה הבאה בכיתה ב׳2 כיתה חדשה עבור הילד/ה שלי" rows="2"></textarea>
                 </div>
                 <button type="submit" class="btn-sign" id="btnSign">חותמת על הפנייה</button>
             </form>
@@ -1359,6 +1463,25 @@
 </footer>
 
 <script>
+    // ===== TAB NAVIGATION =====
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('[data-tab]').forEach(a => a.classList.remove('active'));
+        const page = document.getElementById('page-' + tabName);
+        if (page) page.classList.add('active');
+        document.querySelectorAll('[data-tab="' + tabName + '"]').forEach(a => a.classList.add('active'));
+        window.scrollTo({ top: document.querySelector('.hero').offsetTop, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('[data-tab]').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            switchTab(link.dataset.tab);
+            closeMenu();
+        });
+    });
+
+    // ===== HAMBURGER =====
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1394,29 +1517,36 @@
     function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
     async function loadSigs(){
-        const el=document.getElementById('signaturesList'),cnt=document.getElementById('sigCount');
+        const el=document.getElementById('signaturesListInline'),cnt=document.getElementById('sigCountInline');
+        if(!el||!cnt) return;
         try{
             const data=await sb('geuli_signatures?select=parent_name,child_name,message,created_at&order=created_at.desc');
             cnt.textContent=data.length||0;
-            if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה — חתמי למעלה</div>';return}
+            if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה! חתמי למעלה</div>';return}
             el.innerHTML=data.map(s=>{
                 const d=new Date(s.created_at).toLocaleDateString('he-IL',{day:'numeric',month:'long'});
-                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?' — אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}<div class="sig-date">${d}</div></div></div>`;
+                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}<div class="sig-date">${d}</div></div></div>`;
             }).join('');
         }catch(e){el.innerHTML='<div class="loading">שגיאה בטעינה</div>'}
     }
 
-    const signForm=document.getElementById('signForm');
-    if(signForm){
-        signForm.addEventListener('submit',async e=>{
-            e.preventDefault();const btn=document.getElementById('btnSign');btn.disabled=true;btn.textContent='שולח...';
-            try{
-                await sb('geuli_signatures',{method:'POST',body:JSON.stringify({parent_name:document.getElementById('parentName').value.trim(),child_name:document.getElementById('childName').value.trim()||null,phone:document.getElementById('phone').value.trim()||null,message:document.getElementById('message').value.trim()||null})});
-                signForm.style.display='none';
-                document.getElementById('successMsg').classList.add('show');
-                loadSigs();
-            }catch(err){alert('שגיאה, נסי שוב');btn.disabled=false;btn.textContent='חותמת על הפנייה'}
-        });
+    async function handleSign(e){
+        e.preventDefault();
+        const form=e.target;
+        const btn=form.querySelector('.btn-sign');
+        btn.disabled=true;btn.textContent='שולח...';
+        try{
+            await sb('geuli_signatures',{method:'POST',body:JSON.stringify({
+                parent_name:form.parentName.value.trim(),
+                child_name:form.childName.value.trim()||null,
+                phone:form.phone.value.trim()||null,
+                message:form.message.value.trim()||null
+            })});
+            form.style.display='none';
+            document.getElementById('successMsgInline').classList.add('show');
+            loadSigs();
+        }catch(err){alert('שגיאה, נסי שוב');btn.disabled=false;btn.textContent='חותמת על הפנייה'}
+        return false;
     }
 
     function copyLink(){
