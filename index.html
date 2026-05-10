@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גְּאוּלָה — הכיתה החברתית של כיתה ב' גאולים</title>
+    <title>גאולי — הכיתה החברתית של כיתה ב' גאולים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -532,42 +532,51 @@
             border-radius: 50%;
         }
 
-        /* ===== CALENDAR ===== */
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin: 32px 0;
+        /* ===== CALENDAR TIMELINE ===== */
+        .calendar-timeline { margin: 32px 0; }
+        .cal-month-block {
+            position: relative;
+            padding-right: 28px;
+            margin-bottom: 8px;
+            border-right: 2px solid rgba(201,165,76,0.25);
         }
-        .cal-card {
-            background: var(--warm-white);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 22px 20px;
-            transition: all 0.2s;
-        }
-        .cal-card:hover { border-color: var(--gold); }
-        .cal-month {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-        .cal-card h4 {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-        .cal-card p {
+        .cal-month-block:last-child { border-right-color: transparent; }
+        .cal-month-header {
+            font-family: 'Frank Ruhl Libre', serif;
             font-size: 14px;
-            line-height: 1.6;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            padding: 8px 0 6px;
+            position: relative;
+        }
+        .cal-month-header::before {
+            content: '';
+            position: absolute;
+            right: -34px;
+            top: 12px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--white);
+        }
+        .cal-items {
+            list-style: none;
+            padding: 0 0 16px;
             margin: 0;
         }
-        @media (max-width: 768px) {
-            .calendar-grid { grid-template-columns: 1fr; }
+        .cal-items li {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: var(--text-light);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .cal-items li:last-child { border-bottom: none; }
+        .cal-items li strong {
+            color: var(--navy);
+            font-weight: 600;
         }
 
         /* ===== ROUTINES ===== */
@@ -733,6 +742,70 @@
             .charter-section { padding: 48px 20px; }
         }
 
+        /* ===== LETTER ===== */
+        .addressee{padding:20px 24px;background:var(--warm-white);border-radius:14px;border:1px solid var(--border);margin-bottom:28px;font-size:15px;color:var(--text-light)}
+        .addressee strong{color:var(--text);display:block;margin-bottom:2px}
+        .letter-body{font-size:16px;line-height:1.95;color:var(--text-light)}
+        .letter-body p{margin-bottom:16px}
+        .letter-body strong{color:var(--navy);font-weight:600}
+        .letter-body .mark{background:linear-gradient(to top,rgba(201,165,76,.18) 40%,transparent 40%);padding:0 3px}
+
+        /* ===== VISION LIST ===== */
+        .vision-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:8px}
+        .vision-item{display:flex;align-items:center;gap:20px;padding:22px 24px;background:var(--white);transition:background .2s}
+        .vision-item:hover{background:var(--warm-white)}
+        .vi-num{width:36px;height:36px;border-radius:50%;border:2px solid var(--gold);color:var(--navy);font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Frank Ruhl Libre',serif}
+        .vi-text{font-size:15px;color:var(--text);line-height:1.6}
+        .vi-text strong{color:var(--navy)}
+
+        /* ===== SIGN FORM ===== */
+        .form-card{background:var(--white);border-radius:20px;padding:44px 36px;border:1px solid var(--border);max-width:500px;margin:0 auto}
+        .form-card h3{text-align:center;margin-bottom:4px}
+        .form-sub{text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:32px}
+        .field{margin-bottom:18px}
+        .field label{display:block;font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:6px}
+        .field label .req{color:#c0392b;font-size:11px}
+        .field input,.field textarea{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:'Heebo',sans-serif;font-size:15px;color:var(--text);background:var(--warm-white);outline:none;transition:all .2s}
+        .field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,165,76,.08);background:var(--white)}
+        .field textarea{resize:vertical;min-height:72px}
+        .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .btn-sign{width:100%;padding:16px;border:none;border-radius:60px;background:var(--navy);color:#fff;font-family:'Heebo',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:8px}
+        .btn-sign:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 28px rgba(27,42,74,.18)}
+        .btn-sign:disabled{opacity:.5;cursor:not-allowed;transform:none}
+        .success-box{display:none;text-align:center;padding:36px 20px}
+        .success-box.show{display:block;animation:fadeIn .5s ease}
+        .success-box .check{width:52px;height:52px;border-radius:50%;background:rgba(201,165,76,.12);margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+        .success-box .check svg{width:24px;height:24px;stroke:var(--navy);fill:none;stroke-width:2.5}
+        .success-box h4{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+        .success-box p{font-size:14px;color:var(--text-muted)}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+        /* ===== SHARE ===== */
+        .share-row{display:flex;gap:10px;justify-content:center;margin-top:28px}
+        .share-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:60px;border:1.5px solid var(--border);background:var(--white);font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--text)}
+        .share-btn:hover{border-color:var(--gold);background:rgba(201,165,76,.06);color:var(--navy)}
+        .share-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+        /* ===== SIGNATURES ===== */
+        .sigs-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:16px}
+        .sig-counter{text-align:left}
+        .sig-counter .num{font-size:40px;font-weight:900;color:var(--navy);line-height:1;font-family:'Frank Ruhl Libre',serif}
+        .sig-counter .lbl{font-size:12px;color:var(--text-muted)}
+        .sig-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+        .sig-item:last-child{border-bottom:none}
+        .sig-av{width:42px;height:42px;border-radius:50%;background:var(--warm-white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:var(--navy);flex-shrink:0;font-family:'Frank Ruhl Libre',serif}
+        .sig-info{flex:1;min-width:0}
+        .sig-name{font-size:15px;font-weight:600;color:var(--text)}
+        .sig-msg{font-size:13px;color:var(--text-light);margin-top:3px;font-style:italic}
+        .sig-date{font-size:11px;color:var(--text-muted);margin-top:2px}
+        .loading{text-align:center;padding:24px;color:var(--text-muted);font-size:14px}
+
+        @media(max-width:768px){
+            .form-card{padding:28px 20px}
+            .field-row{grid-template-columns:1fr}
+            .share-row{flex-direction:column;align-items:stretch}
+        }
+
         @media print {
             .hero, .dark-section, .charter-section { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             body { font-size: 13px; }
@@ -744,14 +817,14 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <a href="#" class="nav-brand">גְּאוּלָה</a>
+    <a href="#" class="nav-brand">גאולי</a>
     <ul class="nav-links">
-        <li><a href="#about">הכיתה החברתית</a></li>
-        <li><a href="#pillars">המודל</a></li>
-        <li><a href="#plan">תוכנית הפתיחה</a></li>
+        <li><a href="#letter">הפנייה</a></li>
+        <li><a href="#vision">החזון</a></li>
         <li><a href="#teams">הצוותים</a></li>
         <li><a href="#calendar">לוח שנה</a></li>
         <li><a href="#charter">אמנת הקשב</a></li>
+        <li><a href="#sign">חתמי</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
         <span></span><span></span><span></span>
@@ -759,12 +832,12 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMenu()">הכיתה החברתית</a>
-    <a href="#pillars" onclick="closeMenu()">המודל</a>
-    <a href="#plan" onclick="closeMenu()">תוכנית הפתיחה</a>
+    <a href="#letter" onclick="closeMenu()">הפנייה</a>
+    <a href="#vision" onclick="closeMenu()">החזון</a>
     <a href="#teams" onclick="closeMenu()">הצוותים</a>
     <a href="#calendar" onclick="closeMenu()">לוח שנה</a>
     <a href="#charter" onclick="closeMenu()">אמנת הקשב</a>
+    <a href="#sign" onclick="closeMenu()">חתמי</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -785,7 +858,7 @@
 
         <div class="hero-badge">בית ספר גאולים · כיתה ב' · בקעה, ירושלים · תשפ"ז</div>
 
-        <h1>גְּאוּלָה</h1>
+        <h1>גאולי</h1>
 
         <div class="hero-divider">
             <div class="hero-divider-arch"></div>
@@ -818,7 +891,7 @@
         <div class="section-label">מה זה כיתה חברתית</div>
         <h2>כיתה חברתית. משהו אחר לגמרי.</h2>
         <p class="lead">
-            גְּאוּלָה היא מודל של כיתה חברתית. הרעיון פשוט: לפזר את המעורבות בין כל ההורים, כך שכולם שותפים וכולם נראים.
+            גאולי היא מודל של כיתה חברתית. הרעיון פשוט: לפזר את המעורבות בין כל ההורים, כך שכולם שותפים וכולם נראים.
         </p>
         <p class="lead">
             המטרה: <strong>לאפשר למחנכת לראות כל ילד.</strong> כשהורים מרימים את הלוגיסטיקה, המחנכת משתחררת להתבונן, לזהות צרכים, ולהגיב מתוך מקום שלם.
@@ -828,6 +901,57 @@
             <p>כשכל הורה לוקח חתיכה קטנה, כולם נושאים יחד. וכשכולם נושאים יחד, כולם נשארים.</p>
         </div>
 
+    </div>
+</section>
+
+<!-- ===== LETTER ===== -->
+<section id="letter">
+    <div class="container">
+        <div class="section-label">הפנייה שלנו</div>
+        <h2>פנייה למנהלת בית הספר</h2>
+
+        <div class="addressee">
+            <strong>לכבוד גב' אני מלכה</strong>
+            מנהלת בית ספר גאולים, שכונת בקעה, ירושלים
+        </div>
+
+        <div class="letter-body">
+            <p>אנחנו, <strong>החתומות מטה</strong>, הורי ילדי כיתה א'2 בבית ספר גאולים, שלמדו במסלול נביעה, המעוניינות בשנה הבאה להקים כיתה חדשה — כיתה ב'2.</p>
+            <p>לאחר שנה שלא היתה פשוטה עבורנו — שנה של חוסר יציבות ואי-ודאות לגבי המשך הדרך — הגענו להבנה כי מסלול נביעה עובר למתחם אחר, ולנו נותרה ההחלטה האם להפריד את ילדינו מחבריהם לכיתה.</p>
+            <p>לאחר חשיבה מעמיקה, <span class="mark"><strong>החלטנו כי את הערכתנו ומעשינו נרצה לתת לבית ספר גאולים.</strong></span></p>
+            <p>יחד עם זאת, ההווי החברתי וההווי הקהילתי שחווינו במסלול נביעה היו לרוחנו מאוד. לכן, <strong>בקשתנו היא לא להשתלב בכיתה הקיימת (כיתה ב'1), אלא להקים כיתה ב'2 חדשה</strong> — כיתה שתיבנה מלכתחילה מתוך חזון משותף, יחד עם הורים נוספים שירצו לקחת חלק בבנייה של קהילה חינוכית-חברתית.</p>
+            <p>אנחנו מעוניינות <strong>לייצר אקלים חברתי משותף עם ההורים והצוות הפדגוגי</strong>, לתת מעצמנו לכיתה ולקהילת בית הספר, ולקחת חלק פעיל בהנהגת הכיתה — מתוך תקווה ליצור רוח חדשה ומרעננת בבית ספר גאולים.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VISION ===== -->
+<section id="vision">
+    <div class="container">
+        <div class="section-label">החזון</div>
+        <h2>מה אנחנו רוצות לבנות</h2>
+        <div class="vision-list">
+            <div class="vision-item">
+                <div class="vi-num">1</div>
+                <div class="vi-text">להקים <strong>כיתה קהילתית-חברתית חדשה</strong> בבית ספר גאולים לשנת הלימודים הבאה</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">2</div>
+                <div class="vi-text">לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong> — גאולי</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">3</div>
+                <div class="vi-text">לאמץ את <strong>אמנת הקשב</strong> — מרחב ללא טלפונים חכמים, המעודד נוכחות וקשרים אמיתיים</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">4</div>
+                <div class="vi-text">לתרום <strong>לקהילת בית הספר ולסביבה הקרובה</strong> מתוך ערכי שיתוף ואחריות</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">5</div>
+                <div class="vi-text">לייצר <strong>הנהגה שיתופית</strong> שתהווה דוגמה ורוח חדשה בבית הספר</div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1058,86 +1182,64 @@
         <h2>השנה שלנו — תשפ"ז</h2>
         <p>אירועים, סדירויות ופעילויות לאורך כל השנה.</p>
 
-        <div class="calendar-grid">
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>פיקניק היכרות עם המחנכת</h4>
-                <p>מפגש ראשון של כל המשפחות עם המחנכת. הכרות, שיחה, חיבור.</p>
+        <div class="calendar-timeline">
+            <!-- August -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">August</div>
+                <ul class="cal-items">
+                    <li><strong>פיקניק היכרות עם המחנכת</strong> — מפגש ראשון של כל המשפחות. הכרות, שיחה, חיבור.</li>
+                    <li><strong>הכנת הכיתה</strong> — צביעה, קישוטים, סידור פינות. כיתה שמרגישה כמו בית.</li>
+                    <li><strong>סקר הורים ומורים מקצועיים</strong> — מיפוי יכולות, צרכים, בחירת צוותים.</li>
+                    <li><strong>תמונות וזיכרון</strong> — איסוף תמונות תלמידים וצוות מקצועי.</li>
+                    <li><strong>מתנות קטנות לצוות</strong> — מתנת פתיחה למחנכת, לסייעת ולמורות. מתחילים עם נתינה.</li>
+                    <li><strong>הכנת שירונים</strong> — שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>הכנת הכיתה</h4>
-                <p>צביעה, קישוטים, סידור פינות. ההורים מכינים כיתה שמרגישה כמו בית.</p>
+            <!-- September -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">September</div>
+                <ul class="cal-items">
+                    <li><strong>טקס תחילת שנה ואימוץ כיתה א'</strong> — דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</li>
+                    <li><strong>ראש השנה — ברכות ושתילה</strong> — ברכות שנה טובה למורים. שתילה משותפת במרחב ציבורי.</li>
+                    <li><strong>אירוע סוכות משפחתי</strong> — פעילות משפחות ראשונה של השנה.</li>
+                    <li><strong>טיול משפחות בשישי</strong> — הליכה, טבע, חיבור בין המשפחות.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>סקר הורים ומורים מקצועיים</h4>
-                <p>העברת סקר להורים ולמורים המקצועיים של הכיתה. מיפוי יכולות וצרכים.</p>
+            <!-- December -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">December</div>
+                <ul class="cal-items">
+                    <li><strong>טיול עששיות בחנוכה</strong> — משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>תמונות וזיכרון</h4>
-                <p>בקשה מההורים לשלוח תמונות של התלמידים. איסוף תמונות הצוות המקצועי.</p>
+            <!-- January–February -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">January — February</div>
+                <ul class="cal-items">
+                    <li><strong>הכר את השכונה ואת בית הספר שלך</strong> — סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות.</li>
+                    <li><strong>מחצית — פעילות עם הילדים</strong> — פעילות מיוחדת של ההורים עם ילדי הכיתה.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>מתנות קטנות לצוות</h4>
-                <p>מתנת פתיחה למחנכת, לסייעת ולמורות המקצועיות. מתחילים עם נתינה.</p>
+            <!-- March -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">March</div>
+                <ul class="cal-items">
+                    <li><strong>פורים — תחפושות ומשלוחי מנות</strong> — פעילות פורים כיתתית, משלוחי מנות משותפים.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אוגוסט</div>
-                <h4>הכנת שירונים</h4>
-                <p>הכנת שירוני שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</p>
+            <!-- April -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">April</div>
+                <ul class="cal-items">
+                    <li><strong>פסח — סדר כיתתי</strong> — אירוע פסח של הכיתה, הורים וילדים יחד.</li>
+                </ul>
             </div>
-            <div class="cal-card">
-                <div class="cal-month">אלול — תחילת שנה</div>
-                <h4>טקס תחילת שנה ואימוץ כיתה א'</h4>
-                <p>דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">תשרי</div>
-                <h4>ראש השנה — ברכות ושתילה</h4>
-                <p>ברכות שנה טובה למורים המקצועיים. פעילות שתילה משותפת במרחב ציבורי.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">תשרי</div>
-                <h4>אירוע סוכות משפחתי</h4>
-                <p>פעילות משפחות ראשונה של השנה. הכרות, שיחה, חיבור.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">תשרי</div>
-                <h4>טיול משפחות בשישי</h4>
-                <p>טיול משפחות משותף ביום שישי. הליכה, טבע, חיבור בין המשפחות.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">כסלו</div>
-                <h4>טיול עששיות בחנוכה</h4>
-                <p>משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה. חנוכה של קהילה.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">שבט</div>
-                <h4>הכר את השכונה ואת בית הספר שלך</h4>
-                <p>סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות, הכרת השכנים.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">שבט — אדר</div>
-                <h4>מחצית — פעילות עם הילדים</h4>
-                <p>פעילות מיוחדת של ההורים עם ילדי הכיתה לציון מחצית השנה.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">אדר</div>
-                <h4>פורים — תחפושות ומשלוחי מנות</h4>
-                <p>פעילות פורים כיתתית, משלוחי מנות משותפים בין המשפחות.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">ניסן</div>
-                <h4>פסח — סדר כיתתי</h4>
-                <p>אירוע פסח של הכיתה, הורים וילדים יחד.</p>
-            </div>
-            <div class="cal-card">
-                <div class="cal-month">אייר — סיוון</div>
-                <h4>פיקניק סוף שנה ואלבום דיגיטלי</h4>
-                <p>סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום דיגיטלי לכל משפחה.</p>
+            <!-- May–June -->
+            <div class="cal-month-block">
+                <div class="cal-month-header">May — June</div>
+                <ul class="cal-items">
+                    <li><strong>פיקניק סוף שנה ואלבום דיגיטלי</strong> — סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום לכל משפחה.</li>
+                </ul>
             </div>
         </div>
 
@@ -1185,7 +1287,7 @@
             <div class="charter-subtitle">התחייבות של כל חבר בכיתה החברתית</div>
 
             <div class="charter-text">
-                אנחנו, הורי כיתה ב' בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של עיניים בעיניים, של משחק חופשי, של שעמום פורה ושל נוכחות מלאה. בחירה מודעת, מתוך אהבה.
+                אנחנו, הורי כיתה ב' בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של נוכחות מלאה — של משחק חופשי, של שיחה אמיתית, של שעמום שמוליד דמיון. בחירה משותפת, מתוך אהבה.
             </div>
 
             <div class="charter-commitment">
@@ -1206,6 +1308,65 @@
         </div>
     </div>
 </div>
+
+<!-- ===== SIGN FORM ===== -->
+<section id="sign">
+    <div class="container">
+        <div class="form-card">
+            <h3>חתמי על הפנייה</h3>
+            <p class="form-sub">הצטרפי אלינו — יחד נבנה את גאולי</p>
+            <form id="signForm">
+                <div class="field">
+                    <label><span class="req">*</span> שם מלא</label>
+                    <input type="text" id="parentName" placeholder="השם שלך" required>
+                </div>
+                <div class="field-row">
+                    <div class="field">
+                        <label>שם הילד/ה</label>
+                        <input type="text" id="childName" placeholder="שם הילד/ה">
+                    </div>
+                    <div class="field">
+                        <label>טלפון</label>
+                        <input type="tel" id="phone" placeholder="050-0000000">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>מילה אישית (רשות)</label>
+                    <textarea id="message" placeholder="למה חשוב לך להצטרף לגאולי?" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn-sign" id="btnSign">חותמת על הפנייה</button>
+            </form>
+            <div class="success-box" id="successMsg">
+                <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <h4>החתימה נקלטה</h4>
+                <p>תודה שהצטרפת לגאולי. יחד נבנה קהילה.</p>
+            </div>
+        </div>
+        <div class="share-row">
+            <button class="share-btn" onclick="copyLink()">
+                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                העתיקי קישור
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SIGNATURES ===== -->
+<section id="signatures">
+    <div class="container">
+        <div class="sigs-top">
+            <div>
+                <div class="section-label">החתומות</div>
+                <h3 style="margin-bottom:0">הקהילה שנבנית</h3>
+            </div>
+            <div class="sig-counter">
+                <div class="num" id="sigCount">0</div>
+                <div class="lbl">חתמו</div>
+            </div>
+        </div>
+        <div id="signaturesList"><div class="loading">טוען חתימות...</div></div>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer>
@@ -1237,6 +1398,51 @@
             card.addEventListener('click', () => card.classList.toggle('flipped'));
         });
     }
+
+    // ===== SUPABASE SIGNATURES =====
+    const SB_URL='https://vhmwijzcrqjjquxomccq.supabase.co';
+    const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZobXdpanpjcnFqanF1eG9tY2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1Nzk0MDgsImV4cCI6MjA4OTE1NTQwOH0.rMnAcdMiPddUAoap63tMiqeQQanJoF-HDmzra7P-5Cc';
+    async function sb(path,opt={}){
+        const r=await fetch(`${SB_URL}/rest/v1/${path}`,{...opt,headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json','Prefer':opt.method==='POST'?'return=representation':undefined,...opt.headers}});
+        return r.json();
+    }
+    function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+
+    async function loadSigs(){
+        const el=document.getElementById('signaturesList'),cnt=document.getElementById('sigCount');
+        try{
+            const data=await sb('geuli_signatures?select=parent_name,child_name,message,created_at&order=created_at.desc');
+            cnt.textContent=data.length||0;
+            if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה — חתמי למעלה</div>';return}
+            el.innerHTML=data.map(s=>{
+                const d=new Date(s.created_at).toLocaleDateString('he-IL',{day:'numeric',month:'long'});
+                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?' — אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}<div class="sig-date">${d}</div></div></div>`;
+            }).join('');
+        }catch(e){el.innerHTML='<div class="loading">שגיאה בטעינה</div>'}
+    }
+
+    const signForm=document.getElementById('signForm');
+    if(signForm){
+        signForm.addEventListener('submit',async e=>{
+            e.preventDefault();const btn=document.getElementById('btnSign');btn.disabled=true;btn.textContent='שולח...';
+            try{
+                await sb('geuli_signatures',{method:'POST',body:JSON.stringify({parent_name:document.getElementById('parentName').value.trim(),child_name:document.getElementById('childName').value.trim()||null,phone:document.getElementById('phone').value.trim()||null,message:document.getElementById('message').value.trim()||null})});
+                signForm.style.display='none';
+                document.getElementById('successMsg').classList.add('show');
+                loadSigs();
+            }catch(err){alert('שגיאה, נסי שוב');btn.disabled=false;btn.textContent='חותמת על הפנייה'}
+        });
+    }
+
+    function copyLink(){
+        navigator.clipboard.writeText(location.href).then(()=>{
+            const b=document.querySelector('.share-btn');
+            b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> הועתק!';
+            setTimeout(()=>{b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> העתיקי קישור'},2000);
+        });
+    }
+
+    loadSigs();
 </script>
 </body>
 </html>
