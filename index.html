@@ -791,6 +791,14 @@
         .success-box p{font-size:14px;color:var(--text-muted)}
         @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
+        /* ===== SIGNATURE PAD ===== */
+        .sig-pad-wrap{position:relative;margin-top:4px}
+        .sig-pad-canvas{width:100%;height:120px;border:1.5px solid var(--border);border-radius:12px;background:var(--warm-white);cursor:crosshair;touch-action:none}
+        .sig-pad-canvas:focus,.sig-pad-canvas.active{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,165,76,.08)}
+        .sig-pad-clear{position:absolute;top:8px;left:8px;background:rgba(27,42,74,.06);border:none;border-radius:8px;padding:4px 10px;font-family:'Heebo',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer}
+        .sig-pad-clear:hover{background:rgba(27,42,74,.12);color:var(--text)}
+        .sig-pad-hint{font-size:11px;color:var(--text-muted);margin-top:4px;text-align:center}
+
         /* ===== SHARE ===== */
         .share-row{display:flex;gap:10px;justify-content:center;margin-top:28px}
         .share-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:60px;border:1.5px solid var(--border);background:var(--white);font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--text)}
@@ -954,6 +962,14 @@
                 <div class="field">
                     <label>מילה אישית (רשות)</label>
                     <textarea name="message" placeholder="אני רוצה להיות שנה הבאה בכיתה ב׳2 כיתה חדשה עבור הילד/ה שלי" rows="2"></textarea>
+                </div>
+                <div class="field">
+                    <label>חתימה (רשות)</label>
+                    <div class="sig-pad-wrap">
+                        <canvas id="sigCanvas" class="sig-pad-canvas" width="460" height="120"></canvas>
+                        <button type="button" class="sig-pad-clear" onclick="clearSigPad()">נקה</button>
+                    </div>
+                    <div class="sig-pad-hint">חתמי עם האצבע או העכבר</div>
                 </div>
                 <button type="submit" class="btn-sign">חותמת על הפנייה</button>
             </form>
@@ -1571,7 +1587,9 @@
         const page = document.getElementById('page-' + tabName);
         if (page) page.classList.add('active');
         document.querySelectorAll('[data-tab="' + tabName + '"]').forEach(a => a.classList.add('active'));
-        window.scrollTo({ top: document.querySelector('.hero').offsetTop, behavior: 'smooth' });
+        const hero = document.querySelector('.hero');
+        hero.style.display = tabName === 'letter' ? '' : 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.querySelectorAll('[data-tab]').forEach(link => {
@@ -1608,6 +1626,46 @@
         });
     }
 
+    // ===== SIGNATURE PAD =====
+    const sigCanvas = document.getElementById('sigCanvas');
+    const sigCtx = sigCanvas.getContext('2d');
+    let sigDrawing = false, sigHasDrawn = false;
+
+    function resizeSigCanvas() {
+        const rect = sigCanvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        sigCanvas.width = rect.width * dpr;
+        sigCanvas.height = 120 * dpr;
+        sigCanvas.style.height = '120px';
+        sigCtx.scale(dpr, dpr);
+        sigCtx.strokeStyle = '#1B2A4A';
+        sigCtx.lineWidth = 2;
+        sigCtx.lineCap = 'round';
+        sigCtx.lineJoin = 'round';
+    }
+    resizeSigCanvas();
+    window.addEventListener('resize', () => { sigHasDrawn = false; resizeSigCanvas(); });
+
+    function getPos(e) {
+        const rect = sigCanvas.getBoundingClientRect();
+        const t = e.touches ? e.touches[0] : e;
+        return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+    }
+    function startDraw(e) { e.preventDefault(); sigDrawing = true; sigCanvas.classList.add('active'); const p = getPos(e); sigCtx.beginPath(); sigCtx.moveTo(p.x, p.y); }
+    function moveDraw(e) { if (!sigDrawing) return; e.preventDefault(); sigHasDrawn = true; const p = getPos(e); sigCtx.lineTo(p.x, p.y); sigCtx.stroke(); }
+    function endDraw() { sigDrawing = false; sigCanvas.classList.remove('active'); }
+
+    sigCanvas.addEventListener('mousedown', startDraw);
+    sigCanvas.addEventListener('mousemove', moveDraw);
+    sigCanvas.addEventListener('mouseup', endDraw);
+    sigCanvas.addEventListener('mouseleave', endDraw);
+    sigCanvas.addEventListener('touchstart', startDraw, { passive: false });
+    sigCanvas.addEventListener('touchmove', moveDraw, { passive: false });
+    sigCanvas.addEventListener('touchend', endDraw);
+
+    function clearSigPad() { sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height); sigHasDrawn = false; }
+    function getSigData() { return sigHasDrawn ? sigCanvas.toDataURL('image/png') : null; }
+
     // ===== SUPABASE SIGNATURES =====
     const SB_URL='https://vhmwijzcrqjjquxomccq.supabase.co';
     const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZobXdpanpjcnFqanF1eG9tY2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1Nzk0MDgsImV4cCI6MjA4OTE1NTQwOH0.rMnAcdMiPddUAoap63tMiqeQQanJoF-HDmzra7P-5Cc';
@@ -1621,12 +1679,13 @@
         const el=document.getElementById('signaturesListInline'),cnt=document.getElementById('sigCountInline');
         if(!el||!cnt) return;
         try{
-            const data=await sb('geuli_signatures?select=parent_name,child_name,message,created_at&order=created_at.desc');
+            const data=await sb('geuli_signatures?select=parent_name,child_name,message,signature_img,created_at&order=created_at.desc');
             cnt.textContent=data.length||0;
             if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה! חתמי למעלה</div>';return}
             el.innerHTML=data.map(s=>{
                 const d=new Date(s.created_at).toLocaleDateString('he-IL',{day:'numeric',month:'long'});
-                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}<div class="sig-date">${d}</div></div></div>`;
+                const sigImg=s.signature_img?`<img src="${s.signature_img}" style="height:36px;margin-top:6px;opacity:0.7" alt="חתימה">`:'';
+                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}${sigImg}<div class="sig-date">${d}</div></div></div>`;
             }).join('');
         }catch(e){el.innerHTML='<div class="loading">שגיאה בטעינה</div>'}
     }
@@ -1641,7 +1700,8 @@
                 parent_name:form.parentName.value.trim(),
                 child_name:form.childName.value.trim()||null,
                 phone:form.phone.value.trim()||null,
-                message:form.message.value.trim()||null
+                message:form.message.value.trim()||null,
+                signature_img:getSigData()
             })});
             form.style.display='none';
             document.getElementById('successMsgInline').classList.add('show');
