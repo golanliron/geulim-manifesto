@@ -1732,13 +1732,13 @@
         const el=document.getElementById('signaturesListInline'),cnt=document.getElementById('sigCountInline');
         if(!el||!cnt) return;
         try{
-            const data=await sb('geuli_signatures?select=parent_name,child_name,message,signature_img,created_at&order=created_at.desc');
+            const data=await sb('geuli_signatures?select=parent_name,child_name,parent_role,message,signature_img,created_at&order=created_at.desc');
             cnt.textContent=data.length||0;
             if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה! חתמי למעלה</div>';return}
             el.innerHTML=data.map(s=>{
                 const d=new Date(s.created_at).toLocaleDateString('he-IL',{day:'numeric',month:'long'});
                 const sigImg=s.signature_img?`<img src="${s.signature_img}" style="height:36px;margin-top:6px;opacity:0.7" alt="חתימה">`:'';
-                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', אמא של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}${sigImg}<div class="sig-date">${d}</div></div></div>`;
+                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', '+(s.parent_role||'אמא')+' של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}${sigImg}<div class="sig-date">${d}</div></div></div>`;
             }).join('');
         }catch(e){el.innerHTML='<div class="loading">שגיאה בטעינה</div>'}
     }
