@@ -71,16 +71,19 @@
 
         .hero h1 {
             font-family: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
-            font-size: 64px;
+            font-size: 80px;
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 10px;
-            letter-spacing: 0;
+            letter-spacing: 4px;
             color: #ffffff;
+            -webkit-text-stroke: 1.5px var(--gold);
+            text-shadow: 0 0 0 transparent;
+            paint-order: stroke fill;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 44px; }
+            .hero h1 { font-size: 54px; -webkit-text-stroke: 1px var(--gold); }
         }
 
         /* ===== TAB PAGES ===== */
@@ -927,7 +930,7 @@
 
         <div class="hero-badge">בית ספר גאולים · כיתה ב' · בקעה, ירושלים · תשפ"ז</div>
 
-        <h1>גְּאוּלִי</h1>
+        <h1>גאולי</h1>
         <div style="width:120px;height:2.5px;background:var(--gold);margin:10px auto 20px;border-radius:2px;opacity:0.7"></div>
 
         <div class="hero-divider">
