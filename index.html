@@ -841,8 +841,10 @@
         גְּאוּלִי
     </a>
     <ul class="nav-links">
-        <li><a href="#" data-tab="letter" class="active">הפנייה</a></li>
-        <li><a href="#" data-tab="vision">החזון</a></li>
+        <li><a href="#" data-tab="about" class="active">גאולי</a></li>
+        <li><a href="#" data-tab="letter">פנייה לאני מלכה</a></li>
+        <li><a href="#" data-tab="vision">החזון והמודל</a></li>
+        <li><a href="#" data-tab="plan">תוכנית פתיחה</a></li>
         <li><a href="#" data-tab="teams">הצוותים</a></li>
         <li><a href="#" data-tab="calendar">לוח שנה</a></li>
         <li><a href="#" data-tab="charter">אמנת הקשב</a></li>
@@ -853,8 +855,10 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#" data-tab="letter" class="active" onclick="closeMenu()">הפנייה</a>
-    <a href="#" data-tab="vision" onclick="closeMenu()">החזון</a>
+    <a href="#" data-tab="about" class="active" onclick="closeMenu()">גאולי</a>
+    <a href="#" data-tab="letter" onclick="closeMenu()">פנייה לאני מלכה</a>
+    <a href="#" data-tab="vision" onclick="closeMenu()">החזון והמודל</a>
+    <a href="#" data-tab="plan" onclick="closeMenu()">תוכנית פתיחה</a>
     <a href="#" data-tab="teams" onclick="closeMenu()">הצוותים</a>
     <a href="#" data-tab="calendar" onclick="closeMenu()">לוח שנה</a>
     <a href="#" data-tab="charter" onclick="closeMenu()">אמנת הקשב</a>
@@ -905,10 +909,9 @@
 
 </header>
 
-<!-- TAB: הפנייה -->
-<div class="tab-page active" id="page-letter">
+<!-- TAB: מה זה גאולי -->
+<div class="tab-page active" id="page-about">
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
     <div class="container">
         <div class="section-label">מה זה כיתה חברתית</div>
@@ -926,6 +929,11 @@
 
     </div>
 </section>
+
+</div><!-- /page-about -->
+
+<!-- TAB: הפנייה -->
+<div class="tab-page" id="page-letter">
 
 <!-- ===== LETTER ===== -->
 <section id="letter">
@@ -1078,7 +1086,11 @@
     </div>
 </section>
 
-<!-- ===== PRE-YEAR PLAN ===== -->
+</div><!-- /page-vision -->
+
+<!-- TAB: תוכנית פתיחה -->
+<div class="tab-page" id="page-plan">
+
 <section id="plan">
     <div class="container">
         <div class="section-label">לפני שמתחילים</div>
@@ -1144,7 +1156,7 @@
     </div>
 </section>
 
-</div><!-- /page-vision -->
+</div><!-- /page-plan -->
 
 <!-- TAB: הצוותים -->
 <div class="tab-page" id="page-teams">
