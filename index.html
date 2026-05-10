@@ -742,19 +742,56 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
-            .hero { padding: 32px 20px 24px; }
-            .hero h1 { font-size: 40px; letter-spacing: 2px; }
-            .hero .subtitle { font-size: 16px; letter-spacing: 1px; }
+            .hero { padding: 24px 16px 18px; }
+            .hero h1 { font-size: 36px; letter-spacing: 0; }
+            .hero .subtitle { font-size: 14px; letter-spacing: 0.5px; }
+            .hero .tagline { font-size: 14px; }
+            .hero-badge { font-size: 11px; padding: 5px 14px; }
+            .hero-logo svg { width: 52px; height: 52px; }
 
             .pillars { grid-template-columns: 1fr; }
-            .values-grid { grid-template-columns: 1fr; }
+            .value-card { width: 100%; }
+            .routine-card { width: 100%; }
             .principle { flex-direction: column; gap: 14px; }
             .practice-list { grid-template-columns: 1fr; }
-            h2 { font-size: 27px; }
-            .container { padding: 0 20px; }
-            section { padding: 48px 0; }
-            .dark-section { padding: 48px 20px; }
-            .charter-section { padding: 48px 20px; }
+            h2 { font-size: 24px; }
+            .container { padding: 0 16px; }
+            section { padding: 36px 0; }
+            .dark-section { padding: 36px 16px; }
+            .charter-section { padding: 36px 16px; }
+
+            .mobile-menu { max-height: calc(100vh - 56px); overflow-y: auto; }
+            .mobile-menu a { padding: 14px 8px; font-size: 15px; text-align: center; }
+
+            .form-card { padding: 24px 16px; }
+            .field-row { grid-template-columns: 1fr; }
+            .field input, .field textarea { font-size: 16px; padding: 14px 14px; }
+            .btn-sign { font-size: 17px; padding: 16px; }
+            .sig-pad-canvas { height: 100px; }
+            .sig-pad-hint { font-size: 12px; }
+
+            .share-row { flex-direction: column; align-items: stretch; }
+
+            .action-card { flex-direction: column; gap: 12px; padding: 16px; }
+            .action-letter { width: 48px; height: 48px; border-radius: 12px; }
+            .action-body h3 { font-size: 18px; }
+
+            .quote-block { padding: 28px 20px 22px; }
+            .quote-block p { font-size: 18px; }
+
+            .charter-card { padding: 28px 16px; }
+
+            .addressee { padding: 14px 16px; font-size: 14px; }
+            .letter-body { font-size: 15px; }
+
+            .cal-month-header { font-size: 13px; }
+            .cal-items li { font-size: 13.5px; }
+
+            .section-label { font-size: 11px; letter-spacing: 2px; }
+
+            .sig-item { gap: 12px; padding: 12px 0; }
+            .sig-av { width: 36px; height: 36px; font-size: 15px; }
+            .sig-name { font-size: 14px; }
         }
 
         /* ===== LETTER ===== */
@@ -1640,12 +1677,14 @@
     function resizeSigCanvas() {
         const rect = sigCanvas.parentElement.getBoundingClientRect();
         const dpr = window.devicePixelRatio || 1;
+        const h = window.innerWidth < 768 ? 100 : 120;
         sigCanvas.width = rect.width * dpr;
-        sigCanvas.height = 120 * dpr;
-        sigCanvas.style.height = '120px';
+        sigCanvas.height = h * dpr;
+        sigCanvas.style.width = '100%';
+        sigCanvas.style.height = h + 'px';
         sigCtx.scale(dpr, dpr);
         sigCtx.strokeStyle = '#1B2A4A';
-        sigCtx.lineWidth = 2;
+        sigCtx.lineWidth = window.innerWidth < 768 ? 2.5 : 2;
         sigCtx.lineCap = 'round';
         sigCtx.lineJoin = 'round';
     }
