@@ -294,7 +294,8 @@
         }
 
         /* ===== VALUES ===== */
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+        .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 32px 0; }
+        .value-card { width: calc(33.333% - 12px); }
 
         .value-card {
             height: 180px;
@@ -586,11 +587,13 @@
 
         /* ===== ROUTINES ===== */
         .routines-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 16px;
             margin: 32px 0;
         }
+        .routine-card { width: calc(50% - 8px); }
         .routine-card {
             background: linear-gradient(135deg, #FFFDF4 0%, var(--warm-white) 100%);
             border: 1px solid rgba(201,165,76,0.22);
