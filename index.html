@@ -1689,6 +1689,7 @@
         document.querySelectorAll('[data-tab="' + tabName + '"]').forEach(a => a.classList.add('active'));
         const hero = document.querySelector('.hero');
         hero.style.display = tabName === 'letter' ? '' : 'none';
+        history.replaceState(null, '', '#' + tabName);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1699,6 +1700,12 @@
             closeMenu();
         });
     });
+
+    // Open tab from URL hash
+    if (location.hash) {
+        const tab = location.hash.slice(1);
+        if (document.getElementById('page-' + tab)) switchTab(tab);
+    }
 
     // ===== HAMBURGER =====
     const hamburger = document.getElementById('hamburger');
