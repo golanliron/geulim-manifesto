@@ -298,8 +298,8 @@
         }
 
         /* ===== VALUES ===== */
-        .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 32px 0; }
-        .value-card { width: calc(33.333% - 12px); }
+        .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px auto; max-width: 560px; }
+        .value-card { width: 100%; }
 
         .value-card {
             height: 180px;
