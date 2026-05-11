@@ -643,7 +643,18 @@
 
 
         /* ===== FOOTER ===== */
-        footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: rgba(27,42,74,0.03); }
+        footer {
+            background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+            color: rgba(255,255,255,0.5); padding: 40px 24px 28px; text-align: center;
+        }
+        .footer-arch { width:40px; height:22px; margin:0 auto 12px; border:1.5px solid var(--gold); border-bottom:none; border-radius:50% 50% 0 0 / 100% 100% 0 0; opacity:0.6; }
+        .footer-brand { font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif; font-size:22px; font-weight:900; color:#fff; margin-bottom:4px; }
+        .footer-tagline { font-size:12px; color:var(--gold); margin-bottom:16px; letter-spacing:1px; }
+        .footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 16px; margin-bottom:18px; }
+        .footer-nav a { color:rgba(255,255,255,0.55); font-size:12px; text-decoration:none; transition:color 0.2s; }
+        .footer-nav a:hover { color:var(--gold); }
+        .footer-gold-line { width:48px; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold-light)); margin:0 auto 14px; border-radius:2px; opacity:0.5; }
+        .footer-info { font-size:11px; color:rgba(255,255,255,0.3); line-height:1.8; }
 
         /* ===== NAV ===== */
         nav {
@@ -1657,7 +1668,22 @@
 
 <!-- Footer -->
 <footer>
-    <p>הכיתה החברתית של כיתה ב' · בית ספר גאולים · שכונת בקעה, ירושלים · תשפ"ז</p>
+    <div class="footer-arch"></div>
+    <div class="footer-brand">גְּאוּלִי</div>
+    <div class="footer-tagline">הכיתה החברתית של כיתה ב׳2 · תשפ״ז</div>
+    <nav class="footer-nav">
+        <a href="#" onclick="event.preventDefault();switchTab('letter')">פנייה לאני מלכה</a>
+        <a href="#" onclick="event.preventDefault();switchTab('vision')">החזון והמודל</a>
+        <a href="#" onclick="event.preventDefault();switchTab('plan')">תוכנית פתיחה</a>
+        <a href="#" onclick="event.preventDefault();switchTab('teams')">קהילת ההורים</a>
+        <a href="#" onclick="event.preventDefault();switchTab('charter')">אמנת הקשב</a>
+        <a href="#" onclick="event.preventDefault();switchTab('businesses')">הורים וצוות בעסקים</a>
+    </nav>
+    <div class="footer-gold-line"></div>
+    <div class="footer-info">
+        בית ספר גאולים ממלכתי · שכונת בקעה, ירושלים<br>
+        קהילת הורים חברתית · בונים יחד מתוך חזון, שיתוף וקהילה
+    </div>
 </footer>
 
 <script>
