@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>העסקים של גאולי · קהילת ההורים של בית ספר גאולים</title>
+    <meta name="description" content="מדריך העסקים הקהילתי של גאולי — הורים ואנשי צוות בעסקים, בית ספר גאולים, שכונת בקעה, ירושלים">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#1B2A4A; --navy-deep:#0F1B33; --gold:#C9A54C; --gold-light:#E0C068; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family:'Heebo',sans-serif;
+            background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+            color:#fff; min-height:100vh;
+            display:flex; justify-content:center;
+        }
+        .page { max-width:420px; width:100%; padding:32px 20px 28px; }
+
+        .header { text-align:center; margin-bottom:20px; }
+        .arch {
+            width:36px; height:20px; margin:0 auto 8px;
+            border:2px solid var(--gold); border-bottom:none;
+            border-radius:50% 50% 0 0 / 100% 100% 0 0;
+        }
+        .header h1 {
+            font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;
+            font-size:26px; font-weight:900; margin-bottom:4px;
+        }
+        .subtitle { font-size:13px; color:var(--gold); margin-bottom:4px; }
+        .location { font-size:11px; color:rgba(255,255,255,0.4); }
+        .gold-line { width:36px; height:2px; margin:10px auto 0; background:linear-gradient(90deg,var(--gold),var(--gold-light)); border-radius:2px; }
+
+        .intro {
+            text-align:center; font-size:14px; line-height:1.7;
+            color:rgba(255,255,255,0.65); margin-bottom:24px;
+        }
+
+        .card {
+            display:flex; gap:12px; background:rgba(255,255,255,0.06);
+            border:1px solid rgba(201,165,76,0.18); border-radius:12px;
+            overflow:hidden; text-align:right; margin-bottom:10px;
+        }
+        .card img { width:80px; height:80px; object-fit:cover; flex-shrink:0; display:block; }
+        .card-body { padding:10px 12px 10px 0; flex:1; min-width:0; }
+        .card-name { font-family:'Frank Ruhl Libre',serif; font-size:15px; font-weight:700; color:#fff; }
+        .card-field { font-size:10px; color:var(--gold); margin:2px 0 3px; }
+        .card-parent { font-size:10px; color:rgba(255,255,255,0.4); }
+
+        .note { text-align:center; color:rgba(255,255,255,0.3); font-size:11px; margin:12px 0 20px; }
+
+        .cta-wrap { text-align:center; margin-bottom:24px; }
+        .cta {
+            display:inline-block; padding:12px 28px; border-radius:60px;
+            background:var(--gold); color:var(--navy-deep);
+            font-size:15px; font-weight:700; text-decoration:none;
+            transition:all 0.2s;
+        }
+        .cta:hover { background:var(--gold-light); }
+
+        .footer {
+            text-align:center; font-size:11px; color:rgba(255,255,255,0.2);
+            padding-top:16px; border-top:1px solid rgba(201,165,76,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <div class="arch"></div>
+        <h1>העסקים של גאולי</h1>
+        <div class="subtitle">הורים ואנשי צוות בעסקים</div>
+        <div class="location">בית ספר גאולים · שכונת בקעה, ירושלים</div>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="intro">
+        יש לכם עסק, מוצרים או שירות? נשמח לפרגן לכם בקהילה<br>
+        ולפרסם אתכם בין הורי ואנשי צוות גאולים.
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop" alt="אוכל">
+        <div class="card-body">
+            <div class="card-name">המטבח של נועה</div>
+            <div class="card-field">&#127828; אוכל ומזון</div>
+            <div class="card-parent">נועה כהן · הורה של יונתן ב׳2</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200&h=200&fit=crop" alt="כושר">
+        <div class="card-body">
+            <div class="card-name">סטודיו פילאטיס בקעה</div>
+            <div class="card-field">&#127947; ספורט וכושר</div>
+            <div class="card-parent">מיכל לוי · הורה של תמר ב׳2</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=200&h=200&fit=crop" alt="עיצוב">
+        <div class="card-body">
+            <div class="card-name">דנה עיצוב פנים</div>
+            <div class="card-field">&#127912; עיצוב ואדריכלות</div>
+            <div class="card-parent">דנה אברהם · איש/ת צוות</div>
+        </div>
+    </div>
+
+    <div class="note">* דוגמאות בלבד — בקרוב העסקים האמיתיים שלכם!</div>
+
+    <div class="cta-wrap">
+        <a href="https://golanliron.github.io/geulim-businesses/" target="_blank" class="cta">רוצים להופיע כאן? הירשמו</a>
+    </div>
+
+    <div class="footer">גְּאוּלִי — קהילת ההורים החברתית של בית ספר גאולים</div>
+</div>
+
+</body>
+</html>
