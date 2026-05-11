@@ -709,21 +709,22 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 4px;
+            padding: 8px;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .hamburger span {
             display: block;
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: white;
             border-radius: 2px;
             transition: all 0.3s;
         }
 
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
 
         .mobile-menu {
             display: none;
@@ -731,51 +732,59 @@
             top: 56px;
             right: 0; left: 0;
             background: var(--navy-deep);
-            border-bottom: 1px solid rgba(201,165,76,0.2);
-            padding: 16px 24px 24px;
+            border-bottom: 2px solid rgba(201,165,76,0.3);
+            padding: 8px 0 12px;
             z-index: 99;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+            animation: menuSlide 0.25s ease;
         }
+        @keyframes menuSlide { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 
         .mobile-menu.open { display: block; }
 
         .mobile-menu a {
             display: block;
-            padding: 13px 0;
+            padding: 14px 24px;
             font-size: 16px;
             font-weight: 500;
             color: rgba(255,255,255,0.85);
             text-decoration: none;
             border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.15s;
         }
 
         .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:active { color: var(--gold); }
+        .mobile-menu a:active, .mobile-menu a.active { color: var(--gold); background: rgba(201,165,76,0.06); }
 
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
-            .hero { padding: 24px 16px 18px; }
-            .hero h1 { font-size: 36px; letter-spacing: 0; }
-            .hero .subtitle { font-size: 14px; letter-spacing: 0.5px; }
+            .hero { padding: 20px 16px 16px; }
+            .hero h1 { font-size: 42px; letter-spacing: 1px; -webkit-text-stroke: 1px var(--gold); }
+            .hero .subtitle { font-size: 13px; letter-spacing: 0.5px; }
             .hero .tagline { font-size: 14px; }
-            .hero-badge { font-size: 11px; padding: 5px 14px; }
-            .hero-logo svg { width: 52px; height: 52px; }
+            .hero-badge { font-size: 10px; padding: 5px 14px; letter-spacing: 1px; }
+            .hero-logo svg { width: 48px; height: 48px; }
+            .hero-divider { gap: 5px; margin-bottom: 14px; }
+            .hero-divider-arch { width: 18px; height: 12px; }
 
-            .pillars { grid-template-columns: 1fr; }
+            .pillars { grid-template-columns: 1fr; gap: 12px; }
+            .pillar { padding: 24px 20px; }
+            .pillar h3 { font-size: 21px; }
             .value-card { width: 100%; }
             .routine-card { width: 100%; }
-            .principle { flex-direction: column; gap: 14px; }
+            .principle { flex-direction: column; gap: 14px; padding: 20px 16px; }
             .practice-list { grid-template-columns: 1fr; }
             h2 { font-size: 24px; }
+            .lead { font-size: 16px; line-height: 1.85; }
             .container { padding: 0 16px; }
-            section { padding: 36px 0; }
-            .dark-section { padding: 36px 16px; }
-            .charter-section { padding: 36px 16px; }
+            section { padding: 32px 0; }
+            .dark-section { padding: 32px 16px; }
+            .charter-section { padding: 32px 16px; }
 
             .mobile-menu { max-height: calc(100vh - 56px); overflow-y: auto; }
-            .mobile-menu a { padding: 14px 8px; font-size: 15px; text-align: center; }
 
             .form-card { padding: 24px 16px; }
             .field-row { grid-template-columns: 1fr; }
@@ -785,31 +794,59 @@
             .sig-pad-hint { font-size: 12px; }
 
             .share-row { flex-direction: column; align-items: stretch; }
+            .share-btn { justify-content: center; }
 
             .action-card { flex-direction: column; gap: 12px; padding: 16px; }
-            .action-letter { width: 48px; height: 48px; border-radius: 12px; }
+            .action-letter { width: 48px; height: 48px; border-radius: 12px; font-size: 28px; }
             .action-body h3 { font-size: 18px; }
+            .action-body p { font-size: 14px; }
+            .action-bullets { flex-direction: column; gap: 4px; }
 
+            .quote-section { padding: 36px 16px 30px; margin: 24px calc(-50vw + 50%) 24px calc(-50vw + 50%); }
+            .quote-section p { font-size: 20px; line-height: 1.6; }
+            .quote-section .source { font-size: 13px; margin-top: 12px; }
             .quote-block { padding: 28px 20px 22px; }
             .quote-block p { font-size: 18px; }
 
-            .charter-card { padding: 28px 16px; }
+            .charter-card { padding: 24px 16px; }
+            .charter-card .charter-text { font-size: 15px; line-height: 1.85; }
+            .charter-card .charter-commitment { padding: 18px 16px; }
+            .charter-card .charter-commitment h4 { font-size: 17px; }
+            .charter-items li { font-size: 14px; padding: 7px 18px 7px 0; }
 
             .addressee { padding: 14px 16px; font-size: 14px; }
-            .letter-body { font-size: 15px; }
+            .letter-body { font-size: 15px; line-height: 1.8; }
 
             .cal-month-header { font-size: 13px; }
             .cal-items li { font-size: 13.5px; }
 
             .section-label { font-size: 11px; letter-spacing: 2px; }
 
+            .dark-card { padding: 24px 18px; }
+            .dark-card h4 { font-size: 18px; }
+            .dark-card p { font-size: 14px; }
+
+            .icon-box { width: 48px; height: 48px; border-radius: 12px; }
+            .icon-box svg { width: 22px; height: 22px; }
+
+            .routine-card { padding: 18px 16px; gap: 12px; }
+            .routine-icon { width: 38px; height: 38px; border-radius: 10px; font-size: 18px; }
+            .routine-card h4 { font-size: 15px; }
+            .routine-card p { font-size: 13px; }
+
             .sig-item { gap: 12px; padding: 12px 0; }
             .sig-av { width: 36px; height: 36px; font-size: 15px; }
             .sig-name { font-size: 14px; }
+            .sig-msg { font-size: 12px; }
+
+            .vision-item { padding: 16px 16px; gap: 14px; }
+            .vi-num { width: 32px; height: 32px; font-size: 14px; }
+            .vi-text { font-size: 14px; }
 
             .footer-nav { flex-direction:column; gap:8px; }
             .footer-nav a { font-size:14px; padding:6px 0; }
             .footer-brand { font-size:20px; }
+            footer { padding: 32px 16px 20px; }
         }
 
         /* ===== LETTER ===== */
@@ -879,9 +916,11 @@
         .loading{text-align:center;padding:24px;color:var(--text-muted);font-size:14px}
 
         @media(max-width:768px){
-            .form-card{padding:28px 20px}
+            .form-card{padding:28px 18px}
             .field-row{grid-template-columns:1fr}
             .share-row{flex-direction:column;align-items:stretch}
+            .sigs-top{flex-direction:column;align-items:flex-start;gap:8px}
+            .sig-counter .num{font-size:32px}
         }
 
         @media print {
