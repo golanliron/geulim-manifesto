@@ -1,0 +1,20 @@
+<svg width="420" height="140" viewBox="0 0 420 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    <title id="title">גְּאוּלִי</title>
+    <desc id="desc">שם המותג גאולי בפונט הסריפי של המותג</desc>
+    <style>
+        .wordmark {
+            font-family: "Noto Serif Hebrew", "Frank Ruhl Libre", serif;
+            font-size: 84px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            fill: #ffffff;
+            stroke: #C9A54C;
+            stroke-width: 1.5px;
+            paint-order: stroke fill;
+        }
+    </style>
+    <rect width="420" height="140" rx="0" fill="#0F1B33"/>
+    <text class="wordmark" x="210" y="91" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override">גְּאוּלִי</text>
+    <path d="M150 112 H270" stroke="#C9A54C" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+</svg>
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף כתיבה גאולי</title>
+    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="../tokens/geuli-brand.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            background: #ffffff;
+            color: var(--geuli-text);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            background: #ffffff;
+            overflow: hidden;
+            padding: 0 20mm 20mm;
+        }
+
+        .top {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 44mm;
+            margin: 0 -20mm 18mm;
+            padding: 9mm 20mm;
+            background: var(--geuli-gradient-hero);
+            border-bottom: 1mm solid rgba(201,165,76,0.85);
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 4mm;
+        }
+
+        .symbol {
+            width: 16mm;
+            height: 16mm;
+            flex: 0 0 auto;
+        }
+
+        .brand-name {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 24pt;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            -webkit-text-stroke: 0.7px var(--geuli-gold);
+            paint-order: stroke fill;
+        }
+
+        .brand-desc {
+            margin-top: 1mm;
+            font-size: 9.5pt;
+            color: rgba(255,255,255,0.76);
+            letter-spacing: 0.02em;
+        }
+
+        .watermark {
+            position: absolute;
+            left: 18mm;
+            bottom: 35mm;
+            width: 36mm;
+            opacity: 0.04;
+            z-index: 1;
+        }
+
+        .footer {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            min-height: 24mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12mm;
+            padding: 6mm 20mm;
+            background: var(--geuli-navy-deep);
+            border-top: 1mm solid rgba(201,165,76,0.85);
+            color: rgba(255,255,255,0.78);
+            font-size: 10pt;
+        }
+
+        .footer-mark {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            color: var(--geuli-gold);
+            font-weight: 700;
+        }
+
+        .footer-mark::before {
+            content: "";
+            width: 7mm;
+            height: 7mm;
+            border: 0.45mm solid rgba(201,165,76,0.7);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .footer-values {
+            letter-spacing: 0.04em;
+        }
+
+        .corner {
+            position: absolute;
+            width: 34mm;
+            height: 18mm;
+            border: 0.55mm solid rgba(201,165,76,0.18);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            top: 15mm;
+            left: 18mm;
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="corner" aria-hidden="true"></div>
+
+        <header class="top">
+            <div class="logo-row">
+                <img class="symbol" src="../assets/logo/geuli-symbol.svg" alt="">
+                <div>
+                    <div class="brand-name">גְּאוּלִי</div>
+                    <div class="brand-desc">קהילת ההורים של בית ספר גאולים בשכונת בקעה</div>
+                </div>
+            </div>
+        </header>
+
+        <img class="watermark" src="../assets/logo/geuli-symbol.svg" alt="">
+
+        <footer class="footer">
+            <div class="footer-mark">גאולי</div>
+            <div class="footer-values">קהילה · חינוך · שותפות · קשב</div>
+        </footer>
+    </main>
+</body>
+</html>

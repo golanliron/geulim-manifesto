@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פולדר גאולי עם כנפיים</title>
+    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="../tokens/geuli-brand.css">
+    <style>
+        @page {
+            size: 452mm 396mm;
+            margin: 0;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            background: #ffffff;
+            color: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .sheet {
+            width: 452mm;
+            height: 396mm;
+            position: relative;
+            page-break-after: always;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 18%, rgba(201,165,76,0.18), transparent 28%),
+                var(--geuli-gradient-hero);
+        }
+
+        .sheet:last-child { page-break-after: auto; }
+
+        .panel {
+            position: absolute;
+            top: 3mm;
+            width: 220mm;
+            height: 310mm;
+            overflow: hidden;
+        }
+
+        .back-panel { right: 229mm; }
+        .front-panel { right: 3mm; }
+
+        .front-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 42%, rgba(224,192,104,0.14), transparent 34%),
+                linear-gradient(180deg, rgba(255,255,255,0.04), transparent 40%);
+            pointer-events: none;
+        }
+
+        .spine {
+            position: absolute;
+            top: 3mm;
+            right: 223mm;
+            width: 6mm;
+            height: 310mm;
+            background: rgba(15,27,51,0.32);
+            border-right: 0.35mm dashed rgba(201,165,76,0.8);
+            border-left: 0.35mm dashed rgba(201,165,76,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spine-text {
+            transform: rotate(90deg);
+            white-space: nowrap;
+            font-family: var(--geuli-font-heading);
+            font-size: 13pt;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            color: var(--geuli-gold);
+        }
+
+        .pocket {
+            position: absolute;
+            bottom: 3mm;
+            width: 220mm;
+            height: 80mm;
+            background: rgba(15,27,51,0.78);
+            border-top: 0.45mm dashed rgba(201,165,76,0.9);
+            overflow: hidden;
+        }
+
+        .pocket.back { right: 229mm; }
+        .pocket.front { right: 3mm; }
+
+        .pocket::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, transparent 0 28mm, rgba(201,165,76,0.12) 28.5mm, transparent 29mm),
+                radial-gradient(circle at 50% 120%, rgba(201,165,76,0.2), transparent 42%);
+        }
+
+        .glue-wing {
+            position: absolute;
+            bottom: 3mm;
+            width: 14mm;
+            height: 80mm;
+            background: rgba(201,165,76,0.12);
+            border: 0.35mm dashed rgba(201,165,76,0.75);
+        }
+
+        .glue-wing.left { left: 3mm; }
+        .glue-wing.right { right: 3mm; }
+
+        .label {
+            position: absolute;
+            z-index: 6;
+            padding: 1.4mm 2.4mm;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.68);
+            color: rgba(27,42,74,0.72);
+            font-size: 8pt;
+            font-weight: 700;
+            box-shadow: none;
+        }
+
+        .label.cut { top: 7mm; left: 7mm; }
+        .label.fold { bottom: 86mm; left: 150mm; color: rgba(27,42,74,0.72); }
+        .label.wings { bottom: 35mm; left: 26mm; }
+
+        .trim-line {
+            position: absolute;
+            inset: 3mm;
+            border: 0.3mm solid rgba(255,255,255,0.25);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .fold-line {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+            border-color: rgba(201,165,76,0.68);
+        }
+
+        .fold-horizontal {
+            right: 3mm;
+            left: 3mm;
+            top: 313mm;
+            border-top: 0.35mm dashed rgba(201,165,76,0.7);
+        }
+
+        .inside .sheet-title,
+        .outside .sheet-title {
+            position: absolute;
+            top: 8mm;
+            right: 8mm;
+            z-index: 4;
+            color: rgba(255,255,255,0.52);
+            font-size: 10pt;
+            letter-spacing: 0.04em;
+        }
+
+        .front-lockup {
+            position: absolute;
+            top: 46mm;
+            right: 18mm;
+            left: 18mm;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .front-lockup img {
+            width: 36mm;
+            max-width: 100%;
+            margin-bottom: 10mm;
+        }
+
+        .front-brand-name {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 64pt;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            -webkit-text-stroke: 1.4px var(--geuli-gold);
+            paint-order: stroke fill;
+        }
+
+        .front-brand-desc {
+            margin-top: 8mm;
+            font-size: 15pt;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.78);
+        }
+
+        .front-tagline {
+            margin-top: 28mm;
+            font-family: var(--geuli-font-heading);
+            font-size: 28pt;
+            font-weight: 900;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+
+        .front-rule,
+        .back-rule {
+            width: 58mm;
+            height: 1mm;
+            border-radius: 999px;
+            background: var(--geuli-gold);
+            margin: 12mm auto 0;
+        }
+
+        .back-content {
+            position: absolute;
+            right: 24mm;
+            left: 24mm;
+            top: 54mm;
+            text-align: center;
+        }
+
+        .back-kicker {
+            color: var(--geuli-gold);
+            font-family: var(--geuli-font-wordmark);
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 10mm;
+        }
+
+        .back-title {
+            font-family: var(--geuli-font-heading);
+            font-size: 34pt;
+            line-height: 1.18;
+            margin: 0;
+        }
+
+        .back-copy {
+            margin-top: 10mm;
+            max-width: 154mm;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 15pt;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.78);
+        }
+
+        .arch-pattern span {
+            position: absolute;
+            width: 24mm;
+            height: 13mm;
+            border: 0.55mm solid rgba(201,165,76,0.32);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .arch-pattern span:nth-child(1) { top: 25mm; right: 28mm; }
+        .arch-pattern span:nth-child(2) { top: 48mm; left: 34mm; }
+        .arch-pattern span:nth-child(3) { bottom: 36mm; right: 44mm; }
+        .arch-pattern span:nth-child(4) { bottom: 74mm; left: 30mm; }
+
+        .inside {
+            background: #ffffff;
+            color: var(--geuli-navy);
+        }
+
+        .inside .panel {
+            background: #ffffff;
+        }
+
+        .inside .spine {
+            background: var(--geuli-warm-white);
+        }
+
+        .inside .pocket {
+            background: var(--geuli-navy);
+            color: #ffffff;
+        }
+
+        .inside-logo {
+            position: absolute;
+            top: 26mm;
+            right: 24mm;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .inside-logo img {
+            width: 22mm;
+            height: 22mm;
+        }
+
+        .inside-name {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 24pt;
+            font-weight: 900;
+            color: var(--geuli-navy);
+        }
+
+        .inside-desc {
+            margin-top: 1mm;
+            font-size: 10pt;
+            color: var(--geuli-text-light);
+        }
+
+        .inside-line {
+            position: absolute;
+            right: 24mm;
+            left: 24mm;
+            top: 72mm;
+            border-top: 0.45mm solid rgba(201,165,76,0.55);
+        }
+
+        .pocket-title {
+            position: absolute;
+            top: 22mm;
+            right: 18mm;
+            font-family: var(--geuli-font-heading);
+            font-size: 18pt;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .pocket-copy {
+            position: absolute;
+            top: 47mm;
+            right: 18mm;
+            left: 18mm;
+            font-size: 11pt;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.5;
+        }
+
+        .inside .label {
+            background: var(--geuli-navy);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <section class="sheet outside">
+        <div class="sheet-title">צד חיצוני · פריסה פתוחה לפולדר עם כנפיים</div>
+        <div class="trim-line"></div>
+        <div class="fold-line fold-horizontal"></div>
+        <div class="label cut">קו חיתוך</div>
+        <div class="label fold">קו קיפול לכיסים</div>
+        <div class="label wings">כנפי הדבקה/קיפול</div>
+
+        <div class="panel back-panel">
+            <div class="arch-pattern"><span></span><span></span><span></span><span></span></div>
+            <div class="back-content">
+                <div class="back-kicker">גאולי</div>
+                <h2 class="back-title">בונים יחד קהילה חינוכית טובה יותר</h2>
+                <div class="back-rule"></div>
+                <p class="back-copy">קהילת הורים שמחזקת שייכות, נוכחות ושיתוף פעולה סביב בית ספר גאולים בשכונת בקעה.</p>
+            </div>
+        </div>
+
+        <div class="spine">
+            <div class="spine-text">גְּאוּלִי</div>
+        </div>
+
+        <div class="panel front-panel">
+            <div class="front-lockup">
+                <img src="../assets/logo/geuli-symbol.svg" alt="">
+                <div class="front-brand-name">גְּאוּלִי</div>
+                <div class="front-brand-desc">קהילת ההורים של בית ספר גאולים בשכונת בקעה</div>
+                <div class="front-tagline">קהילה · חינוך · שותפות · קשב</div>
+                <div class="front-rule"></div>
+            </div>
+        </div>
+
+        <div class="pocket back"></div>
+        <div class="pocket front"></div>
+        <div class="glue-wing left"></div>
+        <div class="glue-wing right"></div>
+    </section>
+
+    <section class="sheet inside">
+        <div class="sheet-title">צד פנימי · כיסים וכנפיים</div>
+        <div class="trim-line"></div>
+        <div class="fold-line fold-horizontal"></div>
+        <div class="label cut">קו חיתוך</div>
+        <div class="label fold">קו קיפול לכיסים</div>
+        <div class="label wings">כנפי הדבקה/קיפול</div>
+
+        <div class="panel back-panel">
+            <div class="inside-logo">
+                <img src="../assets/logo/geuli-symbol.svg" alt="">
+                <div>
+                    <div class="inside-name">גְּאוּלִי</div>
+                    <div class="inside-desc">קהילת ההורים של בית ספר גאולים בשכונת בקעה</div>
+                </div>
+            </div>
+            <div class="inside-line"></div>
+        </div>
+
+        <div class="spine">
+            <div class="spine-text">גְּאוּלִי</div>
+        </div>
+
+        <div class="panel front-panel">
+            <div class="inside-logo">
+                <img src="../assets/logo/geuli-symbol.svg" alt="">
+                <div>
+                    <div class="inside-name">גְּאוּלִי</div>
+                    <div class="inside-desc">קהילת ההורים של בית ספר גאולים בשכונת בקעה</div>
+                </div>
+            </div>
+            <div class="inside-line"></div>
+        </div>
+
+        <div class="pocket back">
+            <div class="pocket-title">כיס פנימי</div>
+            <div class="pocket-copy">מקום לדפי מידע, מכתבים וטפסים של קהילת גאולי.</div>
+        </div>
+        <div class="pocket front">
+            <div class="pocket-title">כיס פנימי</div>
+            <div class="pocket-copy">הכנף מתקפלת פנימה ויוצרת כיס לדפי A4.</div>
+        </div>
+        <div class="glue-wing left"></div>
+        <div class="glue-wing right"></div>
+    </section>
+</body>
+</html>

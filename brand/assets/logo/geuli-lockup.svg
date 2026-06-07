@@ -1,0 +1,35 @@
+<svg width="760" height="240" viewBox="0 0 760 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    <title id="title">גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה</title>
+    <desc id="desc">נעילת מותג הכוללת את סמל העלים, שם גאולי ושורת התיאור</desc>
+    <style>
+        .wordmark {
+            font-family: "Noto Serif Hebrew", "Frank Ruhl Libre", serif;
+            font-size: 78px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            fill: #ffffff;
+            stroke: #C9A54C;
+            stroke-width: 1.4px;
+            paint-order: stroke fill;
+        }
+        .tagline {
+            font-family: "Heebo", sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            fill: rgba(255,255,255,0.82);
+        }
+    </style>
+    <g transform="translate(344,28)">
+        <rect x="3" y="3" width="66" height="66" rx="16" stroke="#C9A54C" stroke-opacity="0.6" stroke-width="2"/>
+        <g transform="translate(36,35)">
+            <path d="M0 18 L0 0" stroke="#C9A54C" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M0 6 C-4 2 -13 1 -14 -8 C-5 -5 -1 -1 0 4" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M0 1 C4 -3 13 -6 16 -14 C7 -10 1 -4 0 1" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M0 -3 C-2 -9 0 -17 5 -21 C3 -13 1 -7 0 -3" stroke="#C9A54C" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+    </g>
+    <text class="wordmark" x="380" y="145" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override">גְּאוּלִי</text>
+    <path d="M322 165 H438" stroke="#C9A54C" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+    <text class="tagline" x="380" y="203" text-anchor="middle" direction="rtl">קהילת ההורים של בית ספר גאולים בשכונת בקעה</text>
+</svg>

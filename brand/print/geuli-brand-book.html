@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מותג גאולי להדפסה</title>
+    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="../tokens/geuli-brand.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 14mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            color: var(--geuli-text);
+            background: #ffffff;
+            line-height: 1.65;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            min-height: 269mm;
+            padding: 0;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        .cover {
+            min-height: 269mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            background: var(--geuli-gradient-hero);
+            border-radius: 8px;
+            padding: 28mm 20mm;
+        }
+
+        .cover img {
+            width: 148mm;
+            max-width: 100%;
+            margin-bottom: 18mm;
+        }
+
+        .cover-title {
+            font-family: var(--geuli-font-heading);
+            font-size: 18pt;
+            font-weight: 900;
+            margin: 0 0 4mm;
+        }
+
+        .cover-subtitle {
+            color: var(--geuli-gold);
+            font-size: 11pt;
+            letter-spacing: 0.04em;
+        }
+
+        .section {
+            padding: 8mm 0 0;
+        }
+
+        .section-title {
+            font-family: var(--geuli-font-heading);
+            font-size: 24pt;
+            line-height: 1.2;
+            margin: 0 0 3mm;
+            color: var(--geuli-navy);
+        }
+
+        .section-kicker {
+            color: var(--geuli-gold);
+            font-size: 10pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 10mm;
+        }
+
+        .intro-card {
+            background: var(--geuli-warm-white);
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 9mm;
+            margin-bottom: 9mm;
+        }
+
+        .intro-card strong {
+            display: block;
+            font-size: 13pt;
+            color: var(--geuli-navy);
+            margin-bottom: 2mm;
+        }
+
+        .assets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7mm;
+        }
+
+        .asset-card {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 7mm;
+            min-height: 68mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .asset-card.dark {
+            background: var(--geuli-navy-deep);
+            color: #ffffff;
+        }
+
+        .asset-card img {
+            max-width: 100%;
+            max-height: 45mm;
+            object-fit: contain;
+        }
+
+        .asset-label {
+            direction: ltr;
+            color: var(--geuli-text-muted);
+            font-size: 8.5pt;
+            margin-top: 5mm;
+        }
+
+        .dark .asset-label {
+            color: rgba(255,255,255,0.64);
+        }
+
+        .wordmark-sample {
+            display: inline-block;
+            background: var(--geuli-navy-deep);
+            color: #ffffff;
+            -webkit-text-stroke: 1.2px var(--geuli-gold);
+            paint-order: stroke fill;
+            font-family: var(--geuli-font-wordmark);
+            font-size: 52pt;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            padding: 7mm 12mm 10mm;
+            border-radius: 8px;
+            margin-bottom: 8mm;
+        }
+
+        .palette {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6mm;
+        }
+
+        .swatch {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .chip {
+            height: 25mm;
+        }
+
+        .swatch-meta {
+            padding: 4mm;
+            font-size: 9pt;
+        }
+
+        .swatch-meta strong {
+            display: block;
+            font-size: 10pt;
+            color: var(--geuli-navy);
+        }
+
+        .type-grid {
+            display: grid;
+            gap: 5mm;
+        }
+
+        .type-card {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 6mm;
+            background: #ffffff;
+        }
+
+        .type-card strong {
+            display: block;
+            color: var(--geuli-gold);
+            font-size: 10pt;
+            margin-bottom: 2mm;
+        }
+
+        .type-body {
+            font-size: 12pt;
+        }
+
+        .type-heading {
+            font-family: var(--geuli-font-heading);
+            font-size: 22pt;
+            line-height: 1.25;
+        }
+
+        .usage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+        }
+
+        .usage-card {
+            background: var(--geuli-warm-white);
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 6mm;
+            min-height: 34mm;
+        }
+
+        .usage-card strong {
+            display: block;
+            color: var(--geuli-navy);
+            margin-bottom: 2mm;
+        }
+
+        .footer-note {
+            margin-top: 10mm;
+            padding-top: 5mm;
+            border-top: 1px solid var(--geuli-border);
+            color: var(--geuli-text-muted);
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+    <section class="page">
+        <div class="cover">
+            <img src="../assets/logo/geuli-lockup.svg" alt="גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה">
+            <h1 class="cover-title">ספר מותג קצר</h1>
+            <div class="cover-subtitle">קהילת ההורים של בית ספר גאולים בשכונת בקעה</div>
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="section">
+            <h2 class="section-title">זהות המותג</h2>
+            <div class="section-kicker">שם · תיאור · תחושה</div>
+
+            <div class="intro-card">
+                <strong>שם המותג</strong>
+                גְּאוּלִי
+            </div>
+
+            <div class="intro-card">
+                <strong>תיאור קצר</strong>
+                גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה
+            </div>
+
+            <div class="intro-card">
+                <strong>רוח המותג</strong>
+                קהילה, חינוך, שותפות, קשב ונוכחות. המותג צריך להרגיש חם, יציב, מכבד וקהילתי.
+            </div>
+
+            <h2 class="section-title">לוגו ושם</h2>
+            <div class="section-kicker">נכסים לשימוש חוזר</div>
+
+            <div class="assets-grid">
+                <div class="asset-card">
+                    <img src="../assets/logo/geuli-symbol.svg" alt="סמל גאולי">
+                    <div class="asset-label">brand/assets/logo/geuli-symbol.svg</div>
+                </div>
+                <div class="asset-card dark">
+                    <img src="../assets/wordmark/geuli-wordmark.svg" alt="גְּאוּלִי">
+                    <div class="asset-label">brand/assets/wordmark/geuli-wordmark.svg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="section">
+            <h2 class="section-title">טיפוגרפיה</h2>
+            <div class="section-kicker">הפונטים של גאולי</div>
+
+            <div class="type-grid">
+                <div class="type-card">
+                    <strong>שם המותג · Noto Serif Hebrew</strong>
+                    <div class="wordmark-sample">גְּאוּלִי</div>
+                    <div>משמש לשם גאולי ולרגעים חגיגיים של המותג.</div>
+                </div>
+
+                <div class="type-card">
+                    <strong>כותרות · Frank Ruhl Libre</strong>
+                    <div class="type-heading">קהילת ההורים של בית ספר גאולים</div>
+                </div>
+
+                <div class="type-card">
+                    <strong>טקסט וממשק · Heebo</strong>
+                    <div class="type-body">טקסטים, כפתורים, טפסים, ניווט והסברים יומיומיים.</div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top:12mm;">צבעים</h2>
+            <div class="section-kicker">פלטת המותג</div>
+
+            <div class="palette">
+                <div class="swatch"><div class="chip" style="background:#1B2A4A"></div><div class="swatch-meta"><strong>כחול גאולי</strong>#1B2A4A</div></div>
+                <div class="swatch"><div class="chip" style="background:#0F1B33"></div><div class="swatch-meta"><strong>כחול עמוק</strong>#0F1B33</div></div>
+                <div class="swatch"><div class="chip" style="background:#C9A54C"></div><div class="swatch-meta"><strong>זהב גאולי</strong>#C9A54C</div></div>
+                <div class="swatch"><div class="chip" style="background:#E0C068"></div><div class="swatch-meta"><strong>זהב בהיר</strong>#E0C068</div></div>
+                <div class="swatch"><div class="chip" style="background:#F8F5F0;border-bottom:1px solid #ECEEF2"></div><div class="swatch-meta"><strong>קרם</strong>#F8F5F0</div></div>
+                <div class="swatch"><div class="chip" style="background:#F4F6FA;border-bottom:1px solid #ECEEF2"></div><div class="swatch-meta"><strong>לבן חם</strong>#F4F6FA</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="section">
+            <h2 class="section-title">שימושים בסיסיים</h2>
+            <div class="section-kicker">איך לשמור על אחידות</div>
+
+            <div class="usage">
+                <div class="usage-card">
+                    <strong>באתר</strong>
+                    להשתמש בלוגו, בצבעי הכחול והזהב ובפונט Heebo לטקסטים.
+                </div>
+                <div class="usage-card">
+                    <strong>במסמכים להורים</strong>
+                    כותרת ב-Frank Ruhl Libre, טקסט רץ ב-Heebo, נגיעת זהב לכותרות משנה.
+                </div>
+                <div class="usage-card">
+                    <strong>בפליירים והזמנות</strong>
+                    לפתוח עם גְּאוּלִי או עם הסמל, ולהשאיר מספיק אוויר לבן סביב הלוגו.
+                </div>
+                <div class="usage-card">
+                    <strong>בניסוחים</strong>
+                    לכתוב: גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה.
+                </div>
+            </div>
+
+            <div class="intro-card" style="margin-top:10mm;">
+                <strong>קבצים בפרויקט</strong>
+                לוגו: brand/assets/logo/geuli-symbol.svg<br>
+                שם מותג: brand/assets/wordmark/geuli-wordmark.svg<br>
+                צבעים: brand/tokens/geuli-brand.css<br>
+                פונטים: brand/fonts/geuli-fonts.css
+            </div>
+
+            <div class="footer-note">
+                גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

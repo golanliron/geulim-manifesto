@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&family=Noto+Serif+Hebrew:wght@700;900&display=swap");
+
+:root {
+    --geuli-font-body: "Heebo", sans-serif;
+    --geuli-font-heading: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
+    --geuli-font-wordmark: "Noto Serif Hebrew", "Frank Ruhl Libre", serif;
+    --geuli-font-accent: "Secular One", "Heebo", sans-serif;
+}
+
+.font-geuli-body {
+    font-family: var(--geuli-font-body);
+}
+
+.font-geuli-heading {
+    font-family: var(--geuli-font-heading);
+}
+
+.font-geuli-wordmark {
+    font-family: var(--geuli-font-wordmark);
+    font-weight: 900;
+}
+

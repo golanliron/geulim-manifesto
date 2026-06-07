@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מותג גאולי</title>
+    <link rel="stylesheet" href="fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="tokens/geuli-brand.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            background: #ffffff;
+            color: var(--geuli-text);
+            line-height: 1.7;
+        }
+        main {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+        .hero {
+            background: var(--geuli-gradient-hero);
+            color: white;
+            text-align: center;
+            padding: 44px 24px;
+            border-radius: 8px;
+        }
+        .hero img {
+            display: block;
+            width: min(100%, 520px);
+            margin: 0 auto;
+        }
+        h1, h2 {
+            font-family: var(--geuli-font-heading);
+        }
+        h1 {
+            margin: 0 0 12px;
+            font-size: 40px;
+        }
+        h2 {
+            margin: 36px 0 16px;
+            font-size: 26px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+        .asset {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 18px;
+            background: var(--geuli-warm-white);
+            text-align: center;
+        }
+        .asset.dark {
+            background: var(--geuli-navy-deep);
+        }
+        .asset img {
+            max-width: 100%;
+            height: auto;
+        }
+        .label {
+            margin-top: 12px;
+            color: var(--geuli-text-light);
+            font-size: 14px;
+            direction: ltr;
+        }
+        .swatches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+        }
+        .swatch {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .chip {
+            height: 72px;
+        }
+        .meta {
+            padding: 10px 12px;
+            font-size: 13px;
+        }
+        .meta strong {
+            display: block;
+            font-size: 14px;
+        }
+        .type-sample {
+            border: 1px solid var(--geuli-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 12px;
+            background: white;
+        }
+        .wordmark-text {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            -webkit-text-stroke: 1.5px var(--geuli-gold);
+            paint-order: stroke fill;
+            background: var(--geuli-navy-deep);
+            display: inline-block;
+            padding: 12px 24px 18px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <img src="assets/logo/geuli-lockup.svg" alt="גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה">
+        </section>
+
+        <h2>נכסי לוגו</h2>
+        <div class="grid">
+            <div class="asset">
+                <img src="assets/logo/geuli-symbol.svg" alt="סמל גאולי">
+                <div class="label">assets/logo/geuli-symbol.svg</div>
+            </div>
+            <div class="asset dark">
+                <img src="assets/wordmark/geuli-wordmark.svg" alt="גְּאוּלִי">
+                <div class="label">assets/wordmark/geuli-wordmark.svg</div>
+            </div>
+            <div class="asset dark">
+                <img src="assets/logo/geuli-lockup.svg" alt="נעילת מותג גאולי">
+                <div class="label">assets/logo/geuli-lockup.svg</div>
+            </div>
+        </div>
+
+        <h2>שם המותג</h2>
+        <div class="type-sample">
+            <div class="wordmark-text">גְּאוּלִי</div>
+        </div>
+        <div class="type-sample">
+            <strong>שם תיאורי:</strong>
+            גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה
+        </div>
+
+        <h2>פונטים</h2>
+        <div class="type-sample" style="font-family:var(--geuli-font-body)">
+            <strong>Heebo</strong>
+            טקסט רץ, כפתורים, טפסים וממשק.
+        </div>
+        <div class="type-sample" style="font-family:var(--geuli-font-heading);font-size:24px">
+            <strong>Frank Ruhl Libre</strong>
+            כותרות חגיגיות ותתי כותרות.
+        </div>
+        <div class="type-sample" style="font-family:var(--geuli-font-wordmark);font-size:30px;font-weight:900">
+            <strong>Noto Serif Hebrew</strong>
+            גְּאוּלִי
+        </div>
+
+        <h2>צבעים</h2>
+        <div class="swatches">
+            <div class="swatch"><div class="chip" style="background:#1B2A4A"></div><div class="meta"><strong>כחול גאולי</strong>#1B2A4A</div></div>
+            <div class="swatch"><div class="chip" style="background:#0F1B33"></div><div class="meta"><strong>כחול עמוק</strong>#0F1B33</div></div>
+            <div class="swatch"><div class="chip" style="background:#C9A54C"></div><div class="meta"><strong>זהב גאולי</strong>#C9A54C</div></div>
+            <div class="swatch"><div class="chip" style="background:#E0C068"></div><div class="meta"><strong>זהב בהיר</strong>#E0C068</div></div>
+            <div class="swatch"><div class="chip" style="background:#F8F5F0"></div><div class="meta"><strong>קרם</strong>#F8F5F0</div></div>
+            <div class="swatch"><div class="chip" style="background:#F4F6FA"></div><div class="meta"><strong>לבן חם</strong>#F4F6FA</div></div>
+        </div>
+    </main>
+</body>
+</html>

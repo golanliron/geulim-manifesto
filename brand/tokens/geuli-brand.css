@@ -1,0 +1,37 @@
+:root {
+    --geuli-navy: #1B2A4A;
+    --geuli-navy-deep: #0F1B33;
+    --geuli-gold: #C9A54C;
+    --geuli-gold-light: #E0C068;
+    --geuli-cream: #F8F5F0;
+    --geuli-warm-white: #F4F6FA;
+    --geuli-icon-bg: #ECEEF2;
+    --geuli-text: #1B2A4A;
+    --geuli-text-light: #5A6478;
+    --geuli-text-muted: #8A92A2;
+    --geuli-border: rgba(27, 42, 74, 0.08);
+
+    --geuli-gradient-hero: linear-gradient(160deg, var(--geuli-navy) 0%, var(--geuli-navy-deep) 100%);
+    --geuli-font-body: "Heebo", sans-serif;
+    --geuli-font-heading: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
+    --geuli-font-wordmark: "Noto Serif Hebrew", "Frank Ruhl Libre", serif;
+}
+
+.geuli-wordmark {
+    font-family: var(--geuli-font-wordmark);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    -webkit-text-stroke: 1.5px var(--geuli-gold);
+    paint-order: stroke fill;
+}
+
+.geuli-brand-surface {
+    background: var(--geuli-gradient-hero);
+    color: #ffffff;
+}
+
+.geuli-gold {
+    color: var(--geuli-gold);
+}
+

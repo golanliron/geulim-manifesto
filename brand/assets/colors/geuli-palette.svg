@@ -1,0 +1,48 @@
+<svg width="900" height="220" viewBox="0 0 900 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+    <title id="title">פלטת הצבעים של גאולי</title>
+    <style>
+        text {
+            font-family: "Heebo", sans-serif;
+            fill: #1B2A4A;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .hex {
+            font-size: 15px;
+            fill: #5A6478;
+        }
+    </style>
+    <rect width="900" height="220" fill="#ffffff"/>
+    <g transform="translate(30,30)">
+        <rect width="120" height="90" rx="8" fill="#1B2A4A"/>
+        <text class="name" x="60" y="128" text-anchor="middle">כחול גאולי</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#1B2A4A</text>
+    </g>
+    <g transform="translate(170,30)">
+        <rect width="120" height="90" rx="8" fill="#0F1B33"/>
+        <text class="name" x="60" y="128" text-anchor="middle">כחול עמוק</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#0F1B33</text>
+    </g>
+    <g transform="translate(310,30)">
+        <rect width="120" height="90" rx="8" fill="#C9A54C"/>
+        <text class="name" x="60" y="128" text-anchor="middle">זהב גאולי</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#C9A54C</text>
+    </g>
+    <g transform="translate(450,30)">
+        <rect width="120" height="90" rx="8" fill="#E0C068"/>
+        <text class="name" x="60" y="128" text-anchor="middle">זהב בהיר</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#E0C068</text>
+    </g>
+    <g transform="translate(590,30)">
+        <rect width="120" height="90" rx="8" fill="#F8F5F0" stroke="#ECEEF2"/>
+        <text class="name" x="60" y="128" text-anchor="middle">קרם</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#F8F5F0</text>
+    </g>
+    <g transform="translate(730,30)">
+        <rect width="120" height="90" rx="8" fill="#F4F6FA" stroke="#ECEEF2"/>
+        <text class="name" x="60" y="128" text-anchor="middle">לבן חם</text>
+        <text class="hex" x="60" y="152" text-anchor="middle">#F4F6FA</text>
+    </g>
+</svg>

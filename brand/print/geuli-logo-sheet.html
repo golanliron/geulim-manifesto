@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף לוגו גאולי</title>
+    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="../tokens/geuli-brand.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            color: var(--geuli-text);
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 16mm;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .hero {
+            height: 122mm;
+            border-radius: 8mm;
+            background: var(--geuli-gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 12mm;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 22%, rgba(201,165,76,0.18), transparent 36%);
+        }
+
+        .main-logo {
+            position: relative;
+            width: 128mm;
+            max-width: 88%;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 12mm;
+            border-bottom: 0.35mm solid var(--geuli-border);
+            padding-bottom: 5mm;
+            margin-bottom: 8mm;
+        }
+
+        h1 {
+            font-family: var(--geuli-font-heading);
+            font-size: 24pt;
+            line-height: 1.2;
+            margin: 0;
+            color: var(--geuli-navy);
+        }
+
+        .caption {
+            font-size: 10pt;
+            color: var(--geuli-text-muted);
+            direction: ltr;
+            text-align: left;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7mm;
+        }
+
+        .card {
+            border: 0.35mm solid var(--geuli-border);
+            border-radius: 5mm;
+            min-height: 52mm;
+            padding: 7mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--geuli-warm-white);
+        }
+
+        .card.dark {
+            background: var(--geuli-navy-deep);
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 34mm;
+            object-fit: contain;
+        }
+
+        .label {
+            margin-top: 4mm;
+            color: var(--geuli-text-muted);
+            font-size: 9pt;
+            direction: ltr;
+        }
+
+        .dark .label {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .wordmark-text {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 44pt;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            -webkit-text-stroke: 1.1px var(--geuli-gold);
+            paint-order: stroke fill;
+        }
+
+        .notes {
+            margin-top: 8mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5mm;
+        }
+
+        .note {
+            border-top: 0.35mm solid var(--geuli-gold);
+            padding-top: 4mm;
+            font-size: 10pt;
+            color: var(--geuli-text-light);
+            line-height: 1.55;
+        }
+
+        .note strong {
+            display: block;
+            color: var(--geuli-navy);
+            font-size: 11pt;
+            margin-bottom: 1mm;
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <img class="main-logo" src="../assets/logo/geuli-lockup.svg" alt="גאולי · קהילת ההורים של בית ספר גאולים בשכונת בקעה">
+        </section>
+
+        <div class="title-row">
+            <h1>דף לוגו גאולי</h1>
+            <div class="caption">A4 logo sheet · geuli</div>
+        </div>
+
+        <section class="grid">
+            <div class="card">
+                <img src="../assets/logo/geuli-symbol.svg" alt="סמל גאולי">
+                <div class="label">geuli-symbol.svg</div>
+            </div>
+
+            <div class="card dark">
+                <div class="wordmark-text">גְּאוּלִי</div>
+                <div class="label">wordmark style</div>
+            </div>
+
+            <div class="card dark">
+                <img src="../assets/logo/geuli-lockup.svg" alt="לוגו גאולי מלא">
+                <div class="label">geuli-lockup.svg</div>
+            </div>
+
+            <div class="card">
+                <img src="../assets/colors/geuli-palette.svg" alt="פלטת צבעי גאולי">
+                <div class="label">brand palette</div>
+            </div>
+        </section>
+
+        <section class="notes">
+            <div class="note">
+                <strong>שם</strong>
+                גְּאוּלִי
+            </div>
+            <div class="note">
+                <strong>תיאור</strong>
+                קהילת ההורים של בית ספר גאולים בשכונת בקעה
+            </div>
+            <div class="note">
+                <strong>צבעים</strong>
+                כחול עמוק, כחול גאולי וזהב גאולי
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+

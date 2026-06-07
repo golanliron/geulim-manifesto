@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גְּאוּלִי · הכיתה החברתית של כיתה ב' גאולים</title>
+    <title>גְּאוּלִי · קהילת ההורים של בית ספר גאולים בקעה</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -686,7 +686,7 @@
         }
 
         .nav-links {
-            display: flex;
+            display: none;
             gap: 28px;
             list-style: none;
         }
@@ -698,12 +698,13 @@
             text-decoration: none;
             transition: color 0.2s;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .nav-links a:hover { color: var(--gold); }
 
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             gap: 5px;
             background: none;
@@ -756,11 +757,13 @@
         .mobile-menu a:last-child { border-bottom: none; }
         .mobile-menu a:active, .mobile-menu a.active { color: var(--gold); background: rgba(201,165,76,0.06); }
 
-        /* ===== MOBILE ===== */
-        @media (max-width: 768px) {
+        @media (max-width: 1080px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
+        }
 
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
             .hero { padding: 20px 16px 16px; }
             .hero h1 { font-size: 42px; letter-spacing: 1px; -webkit-text-stroke: 1px var(--gold); }
             .hero .subtitle { font-size: 13px; letter-spacing: 0.5px; }
@@ -934,7 +937,7 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-    <a href="#" class="nav-brand" onclick="event.preventDefault();switchTab('letter')">
+    <a href="#" class="nav-brand" onclick="event.preventDefault();switchTab('vision')">
         <svg class="nav-logo" width="28" height="28" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="66" height="66" rx="16" stroke="rgba(201,165,76,0.6)" stroke-width="2"/>
             <g transform="translate(36,35)">
@@ -947,12 +950,12 @@
         גְּאוּלִי
     </a>
     <ul class="nav-links">
-        <li><a href="#" data-tab="letter" class="active">פנייה לאני מלכה</a></li>
-        <li><a href="#" data-tab="vision">החזון והמודל</a></li>
+        <li><a href="#" data-tab="vision" class="active">החזון והמודל</a></li>
         <li><a href="#" data-tab="plan">תוכנית פתיחה</a></li>
         <li><a href="#" data-tab="teams">קהילת ההורים והתלמידים</a></li>
         <li><a href="#" data-tab="charter" style="color:var(--gold);font-weight:700">אמנת הקשב</a></li>
         <li><a href="#" data-tab="businesses">הורים וצוות בעסקים</a></li>
+        <li><a href="#" data-tab="letter">פנייה לאני מלכה</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
         <span></span><span></span><span></span>
@@ -960,12 +963,12 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#" data-tab="letter" class="active" onclick="closeMenu()">פנייה לאני מלכה</a>
-    <a href="#" data-tab="vision" onclick="closeMenu()">החזון והמודל</a>
+    <a href="#" data-tab="vision" class="active" onclick="closeMenu()">החזון והמודל</a>
     <a href="#" data-tab="plan" onclick="closeMenu()">תוכנית פתיחה</a>
     <a href="#" data-tab="teams" onclick="closeMenu()">קהילת ההורים והתלמידים</a>
     <a href="#" data-tab="charter" onclick="closeMenu()">אמנת הקשב</a>
     <a href="#" data-tab="businesses" onclick="closeMenu()">הורים וצוות בעסקים</a>
+    <a href="#" data-tab="letter" onclick="closeMenu()">פנייה לאני מלכה</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -984,7 +987,7 @@
             </svg>
         </div>
 
-        <div class="hero-badge">בית ספר גאולים · כיתה ב' · בקעה, ירושלים · תשפ"ז</div>
+        <div class="hero-badge">בית ספר גאולים · בקעה, ירושלים · תשפ"ז</div>
 
         <h1>גְּאוּלִי</h1>
         <div style="width:120px;height:2.5px;background:var(--gold);margin:10px auto 20px;border-radius:2px;opacity:0.7"></div>
@@ -997,7 +1000,7 @@
             <div class="hero-divider-arch"></div>
         </div>
 
-        <div class="subtitle">קהילת ההורים של הכיתה החברתית לשנת תשפ"ז · ב' 2</div>
+        <div class="subtitle">קהילת ההורים של בית ספר גאולים בקעה</div>
         <div class="subtitle-deco">
             <div class="subtitle-deco-line"></div>
             <div class="subtitle-deco-dot"></div>
@@ -1016,7 +1019,7 @@
 
 
 <!-- TAB: הפנייה -->
-<div class="tab-page active" id="page-letter">
+<div class="tab-page" id="page-letter">
 
 <!-- ===== LETTER ===== -->
 <section id="letter">
@@ -1120,15 +1123,14 @@
 </div><!-- /page-letter -->
 
 <!-- TAB: החזון -->
-<div class="tab-page" id="page-vision">
+<div class="tab-page active" id="page-vision">
 
 <!-- ===== ABOUT (merged) ===== -->
 <section id="about">
     <div class="container">
         <div class="section-label">בונים יחד</div>
         <h2>קהילה. חינוך. איכות.</h2>
-        <p class="lead">חזון משותף לילדים שלנו, לבית הספר שלנו.</p>
-        <p class="lead"><strong>בחרנו בגאולים מתוך אמון.</strong> אנו רואים בבית ספר גאולים צוות מסור, איכותי ומקצועי, ורוצים להשקיע ולתרום יחד ליצירת חוויית חינוך משמעותית ומחברת, עבור הילדים שלנו.</p>
+        <p class="lead"><strong>קהילת הורי גאולים קמה מתוך מטרה וחזון משותף:</strong> להיות שותפים פעילים בעשייה הבית ספרית, לחזק את הקשר בין ההורים, הילדים והצוות, וליצור יחד חינוך מיטבי, איכותי ושותפי עבור הילדים שלנו.</p>
 
     </div>
 </section>
@@ -1173,7 +1175,7 @@
     <div class="container">
         <div class="section-label">העקרונות שלנו</div>
         <h2>מודל שמ"ש · שיתוף · מהפכת קשב · שקיפות</h2>
-        <p>שלושה עקרונות שמנחים את הכיתה החברתית ומבדילים אותה מוועד הורים רגיל.</p>
+        <p>שלושה עקרונות שמנחים את קהילת ההורים של גאולי ומבדילים אותה מוועד הורים רגיל.</p>
 
         <div class="pillars">
             <div class="pillar">
@@ -1728,7 +1730,7 @@
 <footer>
     <div class="footer-arch"></div>
     <div class="footer-brand">גְּאוּלִי</div>
-    <div class="footer-tagline">הכיתה החברתית של כיתה ב׳2 · תשפ״ז</div>
+    <div class="footer-tagline">קהילת ההורים של בית ספר גאולים בקעה</div>
     <nav class="footer-nav">
         <a href="#" onclick="event.preventDefault();switchTab('letter')">פנייה לאני מלכה</a>
         <a href="#" onclick="event.preventDefault();switchTab('vision')">החזון והמודל</a>
@@ -1740,7 +1742,7 @@
     <div class="footer-gold-line"></div>
     <div class="footer-info">
         בית ספר גאולים ממלכתי · שכונת בקעה, ירושלים<br>
-        קהילת הורים חברתית · בונים יחד מתוך חזון, שיתוף וקהילה
+        קהילת ההורים של בית ספר גאולים בקעה · בונים יחד מתוך חזון, שיתוף וקהילה
     </div>
     <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:14px;">&copy; 2026 קהילת גאולי · כל הזכויות שמורות</div>
 </footer>
@@ -1771,6 +1773,9 @@
     if (location.hash) {
         const tab = location.hash.slice(1);
         if (document.getElementById('page-' + tab)) switchTab(tab);
+        else switchTab('vision');
+    } else {
+        switchTab('vision');
     }
 
     // ===== HAMBURGER =====
