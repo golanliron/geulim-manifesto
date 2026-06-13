@@ -3873,11 +3873,6 @@
 
         video.playbackRate = 1.8;
 
-        /* Try to unmute after autoplay starts */
-        video.addEventListener('playing', function() {
-            try { video.muted = false; } catch(e) {}
-        }, { once: true });
-
         function dismiss() {
             splash.classList.add('fade-out');
             document.body.classList.remove('splash-active');
