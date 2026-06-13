@@ -201,7 +201,10 @@
         .nav-links a.active, .mobile-menu a.active { color: var(--gold); }
 
         .hero-divider {
-            display: none;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 18px;
         }
         .hero-divider-arch {
             width: 10px;
@@ -2022,7 +2025,9 @@
 
         @media (max-width: 1080px) {
             .nav-links { display: none; }
-            .hamburger { display: flex; }
+            .hamburger { display: flex; order: -1; }
+            .nav-top { grid-template-columns: auto 1fr; direction: ltr; }
+            .nav-brand { order: 1; justify-self: end; direction: rtl; }
         }
 
         /* ===== MOBILE ===== */
@@ -2278,8 +2283,6 @@
         </div>
 
         <div class="hero-divider">
-            <div class="hero-divider-arch"></div>
-            <div class="hero-divider-arch"></div>
             <div class="hero-divider-arch"></div>
             <div class="hero-divider-arch"></div>
             <div class="hero-divider-arch"></div>
