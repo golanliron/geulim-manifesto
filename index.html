@@ -588,13 +588,14 @@
         .section-label::before {
             content: '';
             display: block;
-            width: 8px;
+            width: 48px;
             height: 8px;
-            border: 0;
-            border-radius: 50%;
-            background: var(--navy);
-            box-shadow: 18px 0 0 0 var(--olive), 36px 0 0 0 var(--sand);
-            margin: 0 0 0 42px;
+            flex-shrink: 0;
+            background:
+                radial-gradient(circle at 4px 4px, var(--navy) 3.5px, transparent 4px),
+                radial-gradient(circle at 24px 4px, var(--olive) 3.5px, transparent 4px),
+                radial-gradient(circle at 44px 4px, var(--sand) 3.5px, transparent 4px);
+            background-repeat: no-repeat;
         }
 
         h2 {
