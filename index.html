@@ -2252,9 +2252,40 @@
             .pillar, .principle { break-inside: avoid; }
         }
 
+        /* ===== INTRO SPLASH ===== */
+        .intro-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #FAF8F4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out;
+        }
+        .intro-splash.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .intro-splash video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            background: #FAF8F4;
+        }
+        body.splash-active {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body>
+<body class="splash-active">
+
+<!-- ===== INTRO VIDEO SPLASH ===== -->
+<div class="intro-splash" id="introSplash">
+    <video id="introVideo" autoplay muted playsinline>
+        <source src="brand/intro.mp4" type="video/mp4">
+    </video>
+</div>
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -3514,6 +3545,29 @@
         update();
     })();
 
+    /* ===== INTRO SPLASH ===== */
+    (function(){
+        var splash = document.getElementById('introSplash');
+        var video = document.getElementById('introVideo');
+        if (!splash || !video) return;
+
+        video.playbackRate = 1.8;
+
+        function dismiss() {
+            splash.classList.add('fade-out');
+            document.body.classList.remove('splash-active');
+            setTimeout(function(){ splash.remove(); }, 600);
+        }
+
+        video.addEventListener('ended', dismiss);
+        video.addEventListener('error', dismiss);
+        setTimeout(dismiss, 8000);
+
+        splash.addEventListener('click', function(){
+            video.pause();
+            dismiss();
+        });
+    })();
 
 </script>
 
