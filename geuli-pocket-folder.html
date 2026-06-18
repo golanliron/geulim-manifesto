@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גְּאוּלִי · פולדר מעוצב להדפסה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1F355E;
+            --navy-deep: #14243F;
+            --olive: #8A9746;
+            --gold: #D8C7A0;
+            --gold-light: #E8DEC8;
+            --cream: #F8F6F1;
+            --white: #FFFFFF;
+            --text: #1F355E;
+            --text-light: #69707C;
+            --text-muted: #9297A1;
+            --border: rgba(23, 36, 59, 0.09);
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 11pt;
+            background: #e0e0e0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 10mm auto;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: var(--white);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        }
+        .page:last-child { page-break-after: auto; }
+
+        @media print {
+            body { background: white; }
+            .page { margin: 0; box-shadow: none; }
+            .page-label { display: none !important; }
+        }
+
+        /* ===== PAGE LABEL (screen only) ===== */
+        .page-label {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--navy);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 4px;
+            z-index: 100;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== DOT PATTERN ===== */
+        .dot-pattern {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(216,199,160,0.35) 0 2.5px, transparent 3px) 0 0 / 18px 18px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== GOLD CORNER FRAMES ===== */
+        .corner-tl, .corner-br {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .corner-tl {
+            top: 12mm;
+            right: 12mm;
+            border-top: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            border-radius: 0 8px 0 0;
+        }
+        .corner-br {
+            bottom: 12mm;
+            left: 12mm;
+            border-bottom: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+            border-radius: 0 0 0 8px;
+        }
+
+        /* ============================================================
+           PAGE 1: FRONT COVER
+           ============================================================ */
+        .cover-front {
+            background:
+                radial-gradient(circle at 15% 38%, rgba(216,199,160,0.24), transparent 25%),
+                radial-gradient(circle at 86% 24%, rgba(138,151,70,0.12), transparent 24%),
+                linear-gradient(180deg, #FFFFFF 0%, var(--cream) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30mm 24mm;
+        }
+
+        .cover-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 8px 18px rgba(31,53,94,0.08));
+        }
+
+        .cover-title {
+            font-family: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
+            font-size: 64pt;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .cover-subtitle {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--olive);
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .cover-divider {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .cover-divider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+        .cover-divider-dot:nth-child(2) { background: var(--olive); }
+        .cover-divider-dot:nth-child(3) { background: var(--navy); }
+
+        .cover-mantra {
+            font-family: 'Heebo', sans-serif;
+            font-size: 16pt;
+            font-weight: 400;
+            color: var(--navy);
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+        }
+
+        .cover-deco-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 20px;
+        }
+
+        .cover-tagline {
+            font-size: 11pt;
+            color: var(--text-light);
+            line-height: 1.9;
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        .cover-strip {
+            position: absolute;
+            bottom: 16mm;
+            left: 14mm;
+            right: 14mm;
+            height: 60px;
+            overflow: hidden;
+            opacity: 0.5;
+            border-radius: 8px;
+        }
+        .cover-strip img {
+            width: 140%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 52%;
+        }
+
+        .cover-website {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* ============================================================
+           PAGE 2: BACK COVER
+           ============================================================ */
+        .cover-back {
+            background:
+                radial-gradient(circle at 20% 10%, rgba(216,199,160,0.15), transparent 30%),
+                radial-gradient(circle at 82% 70%, rgba(138,151,70,0.18), transparent 32%),
+                linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30mm 28mm;
+            position: relative;
+        }
+
+        .back-gold-line-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--olive), transparent);
+        }
+        .back-gold-line-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--olive), var(--gold), transparent);
+        }
+
+        .back-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 16px;
+            filter: brightness(1.35) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+        }
+
+        .back-title {
+            font-family: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
+            font-size: 36pt;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        .back-subtitle {
+            font-size: 12pt;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+        }
+
+        .back-quote {
+            font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+            font-size: 20pt;
+            font-weight: 700;
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+            max-width: 440px;
+            margin-bottom: 12px;
+        }
+
+        .back-quote-source {
+            font-family: 'Heebo', sans-serif;
+            font-size: 10pt;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+
+        .back-values {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+        .back-value {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-value-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(216,199,160,0.15);
+            border: 1px solid rgba(216,199,160,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-value-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .back-value-label {
+            font-size: 9pt;
+            font-weight: 700;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .back-contact {
+            font-size: 10pt;
+            color: rgba(255,255,255,0.6);
+            line-height: 2;
+        }
+        .back-contact strong {
+            color: var(--gold);
+        }
+
+        .back-strip {
+            position: absolute;
+            bottom: 14mm;
+            left: 14mm;
+            right: 14mm;
+            height: 50px;
+            overflow: hidden;
+            opacity: 0.3;
+            border-radius: 8px;
+        }
+        .back-strip img {
+            width: 140%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 52%;
+            filter: brightness(1.5);
+        }
+
+        /* ============================================================
+           PAGE 3: LEFT FLAP (INSIDE)
+           ============================================================ */
+        .flap {
+            background:
+                radial-gradient(circle at 12% 30%, rgba(216,199,160,0.18), transparent 25%),
+                linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            padding: 14mm 16mm;
+            position: relative;
+        }
+
+        .flap-height-mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100mm;
+            border-bottom: 1px dashed rgba(216,199,160,0.4);
+            pointer-events: none;
+            z-index: 50;
+        }
+        .flap-height-label {
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 7pt;
+            color: var(--text-muted);
+            background: var(--cream);
+            padding: 0 8px;
+            white-space: nowrap;
+        }
+
+        .flap-inner {
+            height: 100mm;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flap-title {
+            font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+            font-size: 18pt;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .flap-label {
+            font-size: 8pt;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--olive);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .flap-divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 10px;
+        }
+
+        .flap-content {
+            font-size: 9pt;
+            color: var(--text-light);
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        .flap-pillars {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .flap-pillar {
+            flex: 1;
+            max-width: 55mm;
+            text-align: center;
+            padding: 8px 6px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(216,199,160,0.3);
+            border-radius: 10px;
+        }
+        .flap-pillar h4 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 12pt;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+        .flap-pillar p {
+            font-size: 8pt;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* For right flap — vision items */
+        .flap-vision-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .flap-vision-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 5px 0;
+            font-size: 8.5pt;
+            color: var(--text);
+            line-height: 1.55;
+            border-bottom: 1px solid rgba(216,199,160,0.2);
+        }
+        .flap-vision-list li:last-child { border-bottom: none; }
+        .flap-vision-num {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--navy);
+            font-family: 'Frank Ruhl Libre', serif;
+            margin-top: 1px;
+        }
+
+        /* Dark flap variant */
+        .flap-dark {
+            background:
+                radial-gradient(circle at 80% 20%, rgba(138,151,70,0.15), transparent 30%),
+                linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+        }
+        .flap-dark .flap-title { color: white; }
+        .flap-dark .flap-label { color: var(--gold); }
+        .flap-dark .flap-divider { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+        .flap-dark .flap-content { color: rgba(255,255,255,0.75); }
+        .flap-dark .flap-pillar {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(216,199,160,0.2);
+        }
+        .flap-dark .flap-pillar h4 { color: white; }
+        .flap-dark .flap-pillar p { color: rgba(255,255,255,0.6); }
+        .flap-dark .flap-vision-list li { color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.08); }
+        .flap-dark .flap-vision-num { border-color: var(--gold); color: var(--gold); }
+        .flap-dark .flap-height-mark { border-bottom-color: rgba(216,199,160,0.2); }
+        .flap-dark .flap-height-label { background: var(--navy); color: var(--gold); }
+
+        /* Logo watermark on flap */
+        .flap-watermark {
+            position: absolute;
+            bottom: 8mm;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            opacity: 0.15;
+        }
+        .flap-dark .flap-watermark {
+            opacity: 0.1;
+            filter: brightness(2);
+        }
+
+        /* ============================================================
+           INSTRUCTIONS AREA (below fold line on flap pages)
+           ============================================================ */
+        .fold-instructions {
+            position: absolute;
+            bottom: 12mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 8pt;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+        .flap-dark .fold-instructions { color: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1: FRONT COVER (OUTSIDE)
+     ============================================================ -->
+<div class="page cover-front">
+    <div class="page-label">עמוד קדמי (חזית)</div>
+    <div class="dot-pattern" style="top:20mm; right:16mm; opacity:0.6;"></div>
+    <div class="dot-pattern" style="bottom:80mm; left:18mm; opacity:0.4; width:90px; height:90px; background-size:22px 22px;"></div>
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+
+    <img class="cover-logo" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="לוגו גאולי">
+
+    <div class="cover-title">גְּאוּלִי</div>
+    <div class="cover-subtitle">קהילת ההורים של בית ספר גאולים בקעה</div>
+
+    <div class="cover-divider">
+        <div class="cover-divider-dot"></div>
+        <div class="cover-divider-dot"></div>
+        <div class="cover-divider-dot"></div>
+    </div>
+
+    <div class="cover-mantra">מקום. אנשים. משמעות.</div>
+
+    <div class="cover-deco-line"></div>
+
+    <div class="cover-tagline">
+        קהילה שמכירה את המקום, פוגשת את האנשים ופועלת יחד למען חינוך מיטיב לילדינו, תוך טיפוח שייכות, אחריות חברתית־ערכית וחיבור למקום שבו אנו חיים.
+    </div>
+
+    <div class="cover-strip">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+    <div class="cover-website">www.geuli.co.il</div>
+</div>
+
+<!-- ============================================================
+     PAGE 2: BACK COVER (OUTSIDE)
+     ============================================================ -->
+<div class="page cover-back">
+    <div class="page-label">עמוד אחורי (גב)</div>
+    <div class="back-gold-line-top"></div>
+    <div class="back-gold-line-bottom"></div>
+    <div class="dot-pattern" style="top:22mm; left:18mm; opacity:0.15; background:radial-gradient(circle, rgba(216,199,160,0.5) 0 2.5px, transparent 3px) 0 0 / 18px 18px;"></div>
+    <div class="dot-pattern" style="bottom:70mm; right:16mm; opacity:0.12; width:90px; height:90px; background:radial-gradient(circle, rgba(138,151,70,0.4) 0 2.5px, transparent 3px) 0 0 / 22px 22px;"></div>
+
+    <img class="back-logo" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="לוגו גאולי">
+
+    <div class="back-title">גְּאוּלִי</div>
+    <div class="back-subtitle">מקום · אנשים · משמעות</div>
+
+    <div class="back-quote">דרוש כפר שלם לגדל ילד.<br>גאולי תהיה הכפר הזה.</div>
+    <div class="back-quote-source">פתגם אפריקאי</div>
+
+    <div class="back-values">
+        <div class="back-value">
+            <div class="back-value-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="back-value-label">שיתוף</div>
+        </div>
+        <div class="back-value">
+            <div class="back-value-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>
+            </div>
+            <div class="back-value-label">מהפכת קשב</div>
+        </div>
+        <div class="back-value">
+            <div class="back-value-icon">
+                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="back-value-label">שקיפות</div>
+        </div>
+    </div>
+
+    <div class="back-contact">
+        <strong>www.geuli.co.il</strong><br>
+        בית ספר גאולים · שכונת בקעה · ירושלים
+    </div>
+
+    <div class="back-strip">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+</div>
+
+<!-- ============================================================
+     PAGE 3: LEFT FLAP (INNER — folds right)
+     Model + Pillars
+     ============================================================ -->
+<div class="page flap">
+    <div class="page-label">כנף שמאל (פנימית)</div>
+    <div class="dot-pattern" style="top:8mm; right:10mm; opacity:0.4; width:70px; height:70px;"></div>
+    <div class="corner-tl" style="top:8mm; right:8mm; width:40px; height:40px;"></div>
+
+    <div class="flap-height-mark">
+        <div class="flap-height-label">קו קיפול — 100 מ"מ מהקצה העליון</div>
+    </div>
+
+    <div class="flap-inner">
+        <div class="flap-label">המודל שלנו</div>
+        <div class="flap-title">קהילת גאולי</div>
+        <div class="flap-divider"></div>
+
+        <div class="flap-pillars">
+            <div class="flap-pillar">
+                <h4>המקום</h4>
+                <p>כל מרחב שהקהילה פוגשת. אנחנו מכירים את הסיפור שלו ופועלים לשפר בו.</p>
+            </div>
+            <div class="flap-pillar">
+                <h4>האנשים</h4>
+                <p>חיבור בין משפחות, תלמידים ותושבים מתוך סקרנות, הקשבה וכבוד.</p>
+            </div>
+            <div class="flap-pillar">
+                <h4>המשמעות</h4>
+                <p>ההיכרות מובילה לעשייה: יוזמה, שיפור, חיבור ופעולה.</p>
+            </div>
+        </div>
+    </div>
+
+    <img class="flap-watermark" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+    <div class="fold-instructions">כנף שמאל · מתקפלת פנימה ויוצרת כיס למסמכים</div>
+</div>
+
+<!-- ============================================================
+     PAGE 4: RIGHT FLAP (INNER — folds left)
+     Vision + Values
+     ============================================================ -->
+<div class="page flap flap-dark">
+    <div class="page-label">כנף ימין (פנימית)</div>
+    <div class="dot-pattern" style="top:8mm; left:10mm; opacity:0.1; width:70px; height:70px; background:radial-gradient(circle, rgba(216,199,160,0.5) 0 2.5px, transparent 3px) 0 0 / 18px 18px;"></div>
+
+    <div class="flap-height-mark">
+        <div class="flap-height-label">קו קיפול — 100 מ"מ מהקצה העליון</div>
+    </div>
+
+    <div class="flap-inner">
+        <div class="flap-label">החזון</div>
+        <div class="flap-title">מה אנחנו בונות</div>
+        <div class="flap-divider"></div>
+
+        <ul class="flap-vision-list">
+            <li>
+                <div class="flap-vision-num">1</div>
+                <span>להקים <strong>כיתה קהילתית-חברתית חדשה</strong> בבית ספר גאולים</span>
+            </li>
+            <li>
+                <div class="flap-vision-num">2</div>
+                <span>לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong></span>
+            </li>
+            <li>
+                <div class="flap-vision-num">3</div>
+                <span>לאמץ את <strong>אמנת הקשב</strong> · מרחב ללא טלפונים חכמים</span>
+            </li>
+            <li>
+                <div class="flap-vision-num">4</div>
+                <span>לתרום <strong>לקהילת בית הספר ולסביבה</strong> מתוך ערכי שיתוף ואחריות</span>
+            </li>
+            <li>
+                <div class="flap-vision-num">5</div>
+                <span>לייצר <strong>הנהגה שיתופית</strong> שתהווה דוגמה ורוח חדשה</span>
+            </li>
+        </ul>
+    </div>
+
+    <img class="flap-watermark" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+    <div class="fold-instructions">כנף ימין · מתקפלת פנימה ויוצרת כיס למסמכים</div>
+</div>
+
+</body>
+</html>

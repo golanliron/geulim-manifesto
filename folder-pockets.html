@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>גאולי - פולדר כיסים להדפסה</title>
+  <style>
+    :root {
+      --navy: #1f355e;
+      --deep: #14233f;
+      --olive: #8a9746;
+      --sand: #d8c7a0;
+      --cream: #f8f6f1;
+      --gray: #667083;
+      --white: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ecebe6;
+      font-family: Arial, sans-serif;
+      color: var(--navy);
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(248,246,241,.94);
+      border-bottom: 1px solid rgba(216,199,160,.7);
+    }
+    .toolbar a, .toolbar button {
+      border: 1px solid rgba(31,53,94,.18);
+      background: white;
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    main {
+      width: min(96vw, 1380px);
+      margin: 24px auto 60px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .spread {
+      position: relative;
+      width: 420mm;
+      height: 297mm;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(216,199,160,.22), transparent 26%),
+        radial-gradient(circle at 82% 16%, rgba(138,151,70,.14), transparent 28%),
+        linear-gradient(180deg, #fbfaf7 0%, var(--cream) 100%);
+      box-shadow: 0 18px 70px rgba(31,53,94,.14);
+      page-break-after: always;
+    }
+
+    .panel {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      padding: 28mm 24mm;
+      overflow: hidden;
+    }
+    .left { left: 0; }
+    .right { right: 0; }
+    .fold {
+      position: absolute;
+      top: 10mm;
+      bottom: 10mm;
+      left: 50%;
+      border-left: 1.4px dashed rgba(31,53,94,.28);
+      z-index: 5;
+    }
+
+    .logo {
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      text-align: center;
+    }
+    .logo img { width: 165px; display: block; }
+    .logo .word {
+      font-family: "Times New Roman", serif;
+      font-size: 58px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .logo .sub {
+      font-size: 18px;
+      line-height: 1.35;
+      color: var(--olive);
+      font-weight: 800;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: 43px;
+      line-height: 1.18;
+      font-weight: 900;
+      color: var(--navy);
+      text-align: center;
+    }
+    h2 {
+      font-size: 31px;
+      line-height: 1.25;
+      font-weight: 900;
+      color: var(--navy);
+      text-align: center;
+    }
+    p {
+      color: var(--gray);
+      font-size: 18px;
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .dots span {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--navy);
+    }
+    .dots span:nth-child(2) { background: var(--olive); }
+    .dots span:nth-child(3) { background: var(--sand); }
+    .gold-line {
+      width: 260px;
+      max-width: 78%;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--sand);
+      margin: 22px auto;
+    }
+
+    .landscape {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 46mm;
+      background: url("brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png") center bottom / 100% auto no-repeat;
+      opacity: .82;
+      pointer-events: none;
+    }
+
+    .front .logo { margin-top: 18mm; }
+    .front h1 { margin-top: 22mm; }
+    .front p { margin: 16px auto 0; max-width: 520px; }
+
+    .back-cover {
+      background:
+        radial-gradient(circle at 24% 20%, rgba(216,199,160,.16), transparent 28%),
+        linear-gradient(180deg, var(--navy), var(--deep));
+      color: white;
+    }
+    .back-cover .logo { margin-top: 24mm; }
+    .back-cover .logo img { width: 120px; }
+    .back-cover .logo .word { color: white; font-size: 44px; }
+    .back-cover .logo .sub { color: var(--sand); font-size: 13px; }
+    .back-cover h2 {
+      color: white;
+      margin: 28mm auto 0;
+      max-width: 520px;
+      font-size: 32px;
+    }
+    .back-cover p {
+      color: rgba(255,255,255,.82);
+      max-width: 500px;
+      margin: 22px auto 0;
+      font-size: 17px;
+    }
+    .back-cover .site {
+      color: var(--sand);
+      font-weight: 900;
+      margin-top: 28mm;
+    }
+    .back-cover .landscape {
+      filter: brightness(0) invert(1);
+      opacity: .28;
+    }
+
+    .inside-title {
+      position: absolute;
+      top: 26mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 3;
+    }
+    .inside-title h1 { font-size: 35px; }
+    .inside-title p {
+      margin-top: 8px;
+      font-size: 16px;
+      color: var(--gray);
+    }
+
+    .pocket {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 18mm;
+      height: 96mm;
+      border: 2px solid rgba(31,53,94,.18);
+      border-top: 0;
+      border-radius: 0 0 18px 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.86)),
+        radial-gradient(circle at 20% 18%, rgba(216,199,160,.26), transparent 35%);
+      box-shadow: inset 0 12px 30px rgba(31,53,94,.05);
+      padding: 22mm 16mm 12mm;
+      text-align: center;
+      z-index: 2;
+    }
+    .pocket::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--sand), var(--olive), var(--navy));
+      opacity: .55;
+    }
+    .pocket h2 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+    .pocket p {
+      font-size: 16px;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .pocket .mini-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .pocket .mini-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--sand);
+    }
+    .pocket .mini-dots span:nth-child(2) { background: var(--olive); }
+    .pocket .mini-dots span:nth-child(3) { background: var(--navy); }
+
+    .inside-panel-copy {
+      position: absolute;
+      top: 88mm;
+      left: 25mm;
+      right: 25mm;
+      text-align: center;
+    }
+    .inside-panel-copy h2 { font-size: 27px; }
+    .inside-panel-copy p { margin-top: 12px; font-size: 16px; }
+
+    .inside-brand {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 14mm;
+      z-index: 1;
+      text-align: center;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media print {
+      body { background: white; }
+      .toolbar { display: none; }
+      main { width: auto; margin: 0; gap: 0; }
+      .spread { box-shadow: none; margin: 0; }
+      @page { size: A3 landscape; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()">הדפסה / שמירה ל-PDF</button>
+    <a href="brand/print/geuli-pocket-folder-a3.pdf" target="_blank">פתיחת PDF</a>
+  </div>
+
+  <main>
+    <!-- OUTSIDE: left is back cover, right is front cover -->
+    <section class="spread outside">
+      <div class="fold"></div>
+
+      <div class="panel left back-cover">
+        <div class="logo">
+          <img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+          <div class="word">גְּאוּלִי</div>
+          <div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div>
+        </div>
+        <h2>מקום אחד. אנשים רבים. משמעות משותפת.</h2>
+        <div class="gold-line"></div>
+        <p>כאן כל משפחה שייכת, כל קול נשמע, וכל תרומה בונה קהילה שהילדים שלנו יגדלו בתוכה.</p>
+        <p class="site">www.geuli.co.il</p>
+        <div class="landscape"></div>
+      </div>
+
+      <div class="panel right front">
+        <div class="logo">
+          <img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+          <div class="word">גְּאוּלִי</div>
+          <div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div>
+        </div>
+        <div class="dots"><span></span><span></span><span></span></div>
+        <h1>קהילת ההורים<br>של בית ספר גאולים</h1>
+        <p>קהילה שמכירה את המקום, פוגשת את האנשים ופועלת יחד למען חינוך מיטיב לילדינו.</p>
+        <div class="gold-line"></div>
+        <h2>מקום. אנשים. משמעות.</h2>
+        <div class="landscape"></div>
+      </div>
+
+    </section>
+
+    <!-- INSIDE: pockets at the bottom -->
+    <section class="spread inside">
+      <div class="fold"></div>
+
+      <div class="inside-title">
+        <h1>פותחים מקום לשותפות</h1>
+        <p>קהילת הורים שמחברת בין בית הספר, המשפחות והמקום שבו הילדים גדלים.</p>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="panel left">
+        <div class="inside-panel-copy">
+          <h2>מקום</h2>
+          <p>המרחב שבו אנחנו נפגשים, לומדים, פועלים ובונים שייכות.</p>
+        </div>
+        <div class="pocket">
+          <h2>מכירים את המקום</h2>
+          <p>סיורים, רעיונות, יוזמות סביבתיות וחומרים שמחברים בין בית הספר לשכונה ולעיר.</p>
+          <div class="mini-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="panel right">
+        <div class="inside-panel-copy">
+          <h2>אנשים</h2>
+          <p>המשפחות, הילדים והצוות שמייצרים יחד קהילה חיה ונוכחת.</p>
+        </div>
+        <div class="pocket">
+          <h2>פוגשים את האנשים</h2>
+          <p>הזמנות, מעגלי עשייה, קשרים קהילתיים וחומרים שמזמינים הורים לקחת חלק.</p>
+          <div class="mini-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="inside-brand">מקום. אנשים. משמעות.</div>
+    </section>
+  </main>
+</body>
+</html>

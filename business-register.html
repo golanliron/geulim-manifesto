@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה למדריך העסקים של גאולי</title>
+    <meta name="description" content="טופס הרשמה למדריך העסקים הקהילתי של גאולי - קהילת ההורים של בית ספר גאולים בקעה">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1f355e;
+            --green: #8a9746;
+            --sand: #d8c7a0;
+            --paper: #f8f6f1;
+            --ink: #1f355e;
+            --muted: #657081;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Heebo", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(216, 199, 160, .18), transparent 24%),
+                radial-gradient(circle at 86% 18%, rgba(138, 151, 70, .12), transparent 22%),
+                linear-gradient(145deg, #fff, var(--paper));
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 38px 18px 56px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 28px 30px;
+            border: 1px solid rgba(216, 199, 160, .55);
+            border-radius: 28px;
+            background: rgba(255,255,255,.76);
+            box-shadow: 0 24px 70px rgba(31, 53, 94, .08);
+        }
+
+        .kicker {
+            color: var(--green);
+            font-weight: 900;
+            letter-spacing: .08em;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        h1, h2 {
+            font-family: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
+            margin: 0;
+            color: var(--navy);
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 76px);
+            line-height: .95;
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            font-size: 21px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0;
+            max-width: 760px;
+            margin-inline: auto;
+        }
+
+        .dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 22px;
+        }
+
+        .dot { width: 14px; height: 14px; border-radius: 50%; }
+        .dot.navy { background: var(--navy); }
+        .dot.green { background: var(--green); }
+        .dot.sand { background: var(--sand); }
+
+        .form-wrap {
+            margin-top: 26px;
+            max-width: 820px;
+            margin-inline: auto;
+        }
+
+        form {
+            background: rgba(255,255,255,.84);
+            border: 1px solid rgba(216, 199, 160, .55);
+            border-radius: 24px;
+            box-shadow: 0 18px 55px rgba(31, 53, 94, .07);
+        }
+
+        form { padding: 26px; }
+
+        .section-title {
+            font-size: 29px;
+            margin-bottom: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .field { display: flex; flex-direction: column; gap: 7px; }
+        .field.full { grid-column: 1 / -1; }
+
+        label {
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--navy);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            border: 1px solid rgba(31, 53, 94, .16);
+            background: #fff;
+            color: var(--ink);
+            border-radius: 16px;
+            padding: 13px 14px;
+            font: inherit;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        textarea { min-height: 100px; resize: vertical; }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(138, 151, 70, .14);
+        }
+
+        .hint {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .submit {
+            margin-top: 22px;
+            border: 0;
+            border-radius: 999px;
+            padding: 15px 32px;
+            background: var(--sand);
+            color: var(--navy);
+            font-weight: 900;
+            font-size: 18px;
+            cursor: pointer;
+            min-width: 210px;
+        }
+
+        .submit:hover { filter: brightness(.98); transform: translateY(-1px); }
+        .submit:disabled { opacity: .55; cursor: wait; transform: none; }
+
+        .message {
+            margin-top: 14px;
+            font-weight: 700;
+            color: #8b2f2f;
+            min-height: 24px;
+        }
+
+        @media (max-width: 820px) {
+            .dots { justify-content: center; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<main class="page">
+    <section class="hero">
+        <div>
+            <div class="kicker">קהילה בעסקים</div>
+            <h1>הרשמה למדריך העסקים של קהילת הורי גאולים</h1>
+            <p class="lead">גאולי קונה מגאולי. כאן הורים ואנשי צוות יכולים להציג עסק, שירות או משלח יד, כדי שהקהילה תכיר, תפרגן ותבחר מקומי.</p>
+            <div class="dots" aria-hidden="true">
+                <span class="dot navy"></span>
+                <span class="dot green"></span>
+                <span class="dot sand"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-wrap">
+        <form id="businessForm">
+            <h2 class="section-title">פרטי העסק</h2>
+            <div class="grid">
+                <div class="field">
+                    <label for="parent_name">שם ההורה / איש הצוות</label>
+                    <input id="parent_name" name="parent_name" required autocomplete="name">
+                </div>
+                <div class="field">
+                    <label for="role">הקשר לגאולים</label>
+                    <select id="role" name="role" required>
+                        <option value="">בחרו</option>
+                        <option>הורה</option>
+                        <option>איש/ת צוות</option>
+                    </select>
+                </div>
+                <div class="field full">
+                    <label for="child_info">שם הילד/ה וכיתה, אם רלוונטי</label>
+                    <input id="child_info" name="child_info" placeholder="לדוגמה: נועה, כיתה ג׳">
+                </div>
+                <div class="field">
+                    <label for="business_name">שם העסק</label>
+                    <input id="business_name" name="business_name" required>
+                </div>
+                <div class="field">
+                    <label for="business_field">תחום העסק</label>
+                    <input id="business_field" name="business_field" required placeholder="טיפול, אוכל, עיצוב, הוראה...">
+                </div>
+                <div class="field">
+                    <label for="phone">טלפון / וואטסאפ</label>
+                    <input id="phone" name="phone" inputmode="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                    <label for="website_url">אתר / אינסטגרם / פייסבוק</label>
+                    <input id="website_url" name="website_url" type="url" placeholder="https://">
+                </div>
+                <div class="field full">
+                    <label for="contact_info">פרטי קשר נוספים</label>
+                    <input id="contact_info" name="contact_info" placeholder="מייל, אזור פעילות, שעות מתאימות...">
+                </div>
+                <div class="field full">
+                    <label for="image_url">קישור לתמונה או לוגו</label>
+                    <input id="image_url" name="image_url" type="url" placeholder="אפשר להדביק קישור לתמונה">
+                    <div class="hint">אם אין תמונה, נציג את העסק בעיצוב גאולי נקי.</div>
+                </div>
+                <div class="field full">
+                    <label for="notes">כמה מילים על העסק</label>
+                    <textarea id="notes" name="notes" placeholder="מה אתם מציעים? למי זה מתאים? מה חשוב שהקהילה תדע?"></textarea>
+                </div>
+            </div>
+            <button class="submit" type="submit">שליחה למדריך</button>
+            <div id="formMessage" class="message" role="status"></div>
+        </form>
+
+    </div>
+</main>
+
+<script>
+    const API_URL = "https://vhmwijzcrqjjquxomccq.supabase.co/functions/v1/geuli-business";
+    const form = document.getElementById("businessForm");
+    const message = document.getElementById("formMessage");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        message.textContent = "";
+        const button = form.querySelector("button[type='submit']");
+        button.disabled = true;
+        button.textContent = "שולחים...";
+
+        const payload = Object.fromEntries(new FormData(form).entries());
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error("השליחה נכשלה");
+            }
+
+            window.location.href = "business-thanks.html";
+        } catch (error) {
+            message.textContent = "משהו לא עבר בשליחה. נסו שוב בעוד רגע.";
+            button.disabled = false;
+            button.textContent = "שליחה למדריך";
+        }
+    });
+</script>
+</body>
+</html>

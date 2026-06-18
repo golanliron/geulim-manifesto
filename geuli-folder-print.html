@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גְּאוּלִי · פולדר קהילתי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1F355E;
+            --navy-deep: #14243F;
+            --olive: #8A9746;
+            --gold: #D8C7A0;
+            --gold-light: #E8DEC8;
+            --cream: #F8F6F1;
+            --white: #FFFFFF;
+            --text: #1F355E;
+            --text-light: #69707C;
+            --text-muted: #9297A1;
+            --border: rgba(23, 36, 59, 0.09);
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 11pt;
+            background: white;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: var(--white);
+        }
+        .page:last-child { page-break-after: auto; }
+
+        .page-inner {
+            padding: 28mm 22mm 24mm;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-corner-tl, .page-corner-br {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .page-corner-tl {
+            top: 14mm;
+            right: 14mm;
+            border-top: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            border-radius: 0 8px 0 0;
+        }
+        .page-corner-br {
+            bottom: 14mm;
+            left: 14mm;
+            border-bottom: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+            border-radius: 0 0 0 8px;
+        }
+
+        .dot-pattern {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(216,199,160,0.3) 0 2px, transparent 2.5px) 0 0 / 16px 16px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 22mm;
+            right: 22mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8pt;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 6px;
+        }
+        .page-footer .brand-mark {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 9pt;
+        }
+
+        /* ===== COVER ===== */
+        .cover {
+            background:
+                radial-gradient(circle at 15% 38%, rgba(216,199,160,0.24), transparent 25%),
+                radial-gradient(circle at 86% 24%, rgba(138,151,70,0.12), transparent 24%),
+                linear-gradient(180deg, #FFFFFF 0%, var(--cream) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--navy);
+        }
+        .cover .page-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 297mm;
+        }
+
+        .cover-logo {
+            width: 220px;
+            height: auto;
+            margin-bottom: 6px;
+            filter: drop-shadow(0 8px 18px rgba(31,53,94,0.08));
+        }
+
+        .cover-title {
+            font-family: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
+            font-size: 56pt;
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .cover-subtitle {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--olive);
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .cover-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+        .cover-divider-line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+        .cover-divider-line:last-child {
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+        .cover-divider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        .cover-divider-dot:nth-child(2) { background: var(--sand); }
+        .cover-divider-dot:nth-child(3) { background: var(--olive); }
+        .cover-divider-dot:nth-child(4) { background: var(--navy); }
+
+        .cover-tagline {
+            font-size: 12pt;
+            color: var(--text-light);
+            max-width: 420px;
+            line-height: 2;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .cover-meta {
+            font-size: 10pt;
+            color: var(--text-muted);
+        }
+
+        .cover-bottom-line {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 16px auto 0;
+        }
+
+        /* ===== LANDSCAPE STRIP ===== */
+        .landscape-strip {
+            width: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .landscape-strip img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .landscape-strip-cover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            opacity: 0.7;
+        }
+        .landscape-strip-cover img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            object-position: center bottom;
+        }
+        .landscape-strip-page {
+            margin: 14px -22mm;
+            height: 52px;
+            opacity: 0.6;
+        }
+        .landscape-strip-page img {
+            width: 100%;
+            height: 52px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .landscape-strip-footer {
+            position: absolute;
+            bottom: 16mm;
+            left: 0;
+            right: 0;
+            height: 44px;
+            opacity: 0.4;
+        }
+        .landscape-strip-footer img {
+            width: 100%;
+            height: 44px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 22pt;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 8pt;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--olive);
+            background: rgba(138,151,70,0.08);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .lead {
+            font-size: 10.5pt;
+            line-height: 1.85;
+            color: var(--text-light);
+            margin-bottom: 14px;
+        }
+
+        p { margin-bottom: 6px; }
+        strong { color: var(--navy); }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        .section-divider-line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .section-divider-arch {
+            width: 18px;
+            height: 10px;
+            border: 1.5px solid var(--gold);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        /* ===== PILLARS ===== */
+        .pillars-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 14px 0;
+        }
+
+        .pillar-card {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .pillar-arch {
+            width: 28px;
+            height: 16px;
+            border: 2px solid var(--olive);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            margin: 0 auto 8px;
+        }
+        .pillar-card:nth-child(2) .pillar-arch { border-color: var(--gold); }
+        .pillar-card:nth-child(3) .pillar-arch { border-color: var(--navy); }
+
+        .pillar-card h3 { font-size: 12pt; margin-bottom: 4px; }
+        .pillar-card p { font-size: 8.5pt; line-height: 1.65; color: var(--text-light); margin: 0; }
+
+        /* ===== VISION LIST ===== */
+        .vision-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .vision-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--white);
+        }
+        .vi-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            color: var(--navy);
+            font-size: 10pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        .vi-text { font-size: 9.5pt; line-height: 1.5; }
+
+        /* ===== PRINCIPLES ===== */
+        .principles-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .principle-card {
+            background: var(--navy);
+            color: white;
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+        .principle-card .letter {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 18pt;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .principle-card h3 { color: white; font-size: 11pt; margin-bottom: 4px; }
+        .principle-card p { font-size: 8.5pt; line-height: 1.55; color: rgba(255,255,255,0.7); margin: 0; }
+
+        /* ===== VALUES ===== */
+        .values-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .value-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            background: var(--cream);
+        }
+        .value-card h4 { font-size: 10pt; margin-bottom: 3px; }
+        .value-card p { font-size: 8.5pt; color: var(--text-light); margin: 0; line-height: 1.5; }
+
+        /* ===== NAVY CARDS ===== */
+        .navy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .navy-card {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 12px 12px;
+            color: white;
+        }
+        .navy-card h4 { color: var(--gold); font-size: 9.5pt; margin-bottom: 3px; }
+        .navy-card p { font-size: 8.5pt; color: rgba(255,255,255,0.65); margin: 0; line-height: 1.5; }
+
+        /* ===== CIRCLES ===== */
+        .circle-card {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .circle-card:last-child { border-bottom: none; }
+        .circle-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .circle-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .circle-body h3 { font-size: 10.5pt; margin-bottom: 2px; }
+        .circle-body p { font-size: 9pt; color: var(--text-light); margin-bottom: 3px; }
+        .circle-body ul { list-style: none; padding: 0; font-size: 8.5pt; color: var(--text-light); }
+        .circle-body ul li::before { content: ''; display: inline-block; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; margin-left: 7px; vertical-align: middle; }
+
+        /* ===== STUDENT ===== */
+        .student-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .student-card {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 12px 10px;
+            text-align: center;
+            color: white;
+        }
+        .student-card h4 { color: var(--gold); font-size: 9.5pt; margin-bottom: 3px; }
+        .student-card p { font-size: 8pt; color: rgba(255,255,255,0.65); margin: 0; line-height: 1.45; }
+
+        /* ===== PREP ===== */
+        .prep-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .prep-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 12px;
+            background: var(--cream);
+        }
+        .prep-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 9pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        .prep-card h4 { font-size: 9.5pt; margin-bottom: 3px; }
+        .prep-card p { font-size: 8.5pt; color: var(--text-light); margin: 0; line-height: 1.5; }
+
+        /* ===== CALENDAR ===== */
+        .cal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .cal-block {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .cal-month {
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 8.5pt;
+            font-weight: 700;
+            padding: 5px 10px;
+            text-align: center;
+        }
+        .cal-items {
+            padding: 8px 10px;
+            font-size: 8pt;
+            line-height: 1.55;
+        }
+        .cal-items li { list-style: none; padding: 2px 0; border-bottom: 1px solid var(--border); }
+        .cal-items li:last-child { border-bottom: none; }
+        .cal-items strong { color: var(--navy); font-size: 8pt; }
+
+        /* ===== CHARTER ===== */
+        .charter-box {
+            background: var(--navy);
+            color: white;
+            border-radius: 14px;
+            padding: 20px 20px;
+            margin: 12px 0;
+        }
+        .charter-box h2 { color: white; font-size: 15pt; margin-bottom: 3px; }
+        .charter-box .subtitle { color: var(--gold); font-size: 9pt; margin-bottom: 12px; }
+        .charter-box p { font-size: 9.5pt; line-height: 1.75; color: rgba(255,255,255,0.8); margin-bottom: 12px; }
+        .charter-box ul { list-style: none; padding: 0; }
+        .charter-box ul li {
+            font-size: 9.5pt;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.85);
+        }
+        .charter-box ul li::before { content: ''; display: inline-block; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; margin-left: 8px; vertical-align: middle; }
+        .charter-box ul li:last-child { border-bottom: none; }
+        .charter-box h4 { color: var(--gold); font-size: 10pt; margin-bottom: 6px; margin-top: 4px; }
+
+        /* ===== QUOTE ===== */
+        .quote-block {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            margin: 14px 0;
+            border-right: 3px solid var(--gold);
+        }
+        .quote-block p { font-family: 'Frank Ruhl Libre', serif; font-size: 12pt; font-weight: 700; color: var(--navy); line-height: 1.8; margin-bottom: 4px; }
+        .quote-block .source { font-size: 8.5pt; color: var(--text-muted); font-family: 'Heebo', sans-serif; }
+
+        /* ===== MANTRA ===== */
+        .mantra {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .mantra span {
+            background: var(--cream);
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            padding: 5px 18px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ===== BACK COVER ===== */
+        .back-cover {
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .back-cover .page-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 297mm;
+        }
+
+        @media screen {
+            body { background: #e8e5e0; padding: 20px 0; }
+            .page { box-shadow: 0 4px 30px rgba(0,0,0,0.12); margin-bottom: 20px; }
+        }
+
+        @media print {
+            body { background: white; }
+            .page { box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="top:18mm;left:10mm;opacity:0.5;"></div>
+    <div class="dot-pattern" style="top:14mm;right:14mm;opacity:0.3;width:80px;height:80px;"></div>
+
+    <div class="page-inner">
+        <img class="cover-logo" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="לוגו גאולי">
+        <div class="cover-title">גְּאוּלִי</div>
+        <div class="cover-subtitle">קהילת ההורים של בית ספר גאולים בקעה</div>
+
+        <div style="font-family:'Heebo',sans-serif;font-size:14pt;font-weight:400;color:var(--navy);letter-spacing:3px;margin-bottom:8px;">מקום. אנשים. משמעות.</div>
+
+        <div class="cover-divider">
+            <div class="cover-divider-line"></div>
+            <div class="cover-divider-dot"></div>
+            <div class="cover-divider-dot"></div>
+            <div class="cover-divider-dot"></div>
+            <div class="cover-divider-line"></div>
+        </div>
+
+        <div class="cover-tagline">
+            קהילה שמכירה את המקום, פוגשת את האנשים ופועלת יחד למען חינוך מיטיב לילדינו, תוך טיפוח שייכות, אחריות חברתית־ערכית וחיבור למקום שבו אנו חיים.
+        </div>
+
+        <div class="cover-bottom-line"></div>
+        <div class="cover-meta">שנת הלימודים תשפ"ז &middot; 2026-2027</div>
+    </div>
+    <div class="landscape-strip landscape-strip-cover">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+</div>
+
+<!-- ==================== PAGE 2: VISION + MODEL ==================== -->
+<div class="page">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="top:18mm;left:10mm;opacity:0.4;"></div>
+
+    <div class="page-inner">
+        <div class="section-label">בונים יחד</div>
+        <h1>קהילה. חינוך. משמעות.</h1>
+        <p class="lead">
+            <strong>קהילת הורי גאולים קמה מתוך מטרה וחזון משותף:</strong> להיות שותפות פעילות בעשייה הבית ספרית דרך שלושה צירים: מקום, אנשים, משמעות. אנחנו מבקשות להכיר את המרחב שבו הילדים גדלים, לחזק קשרים בין הורים, תלמידים וצוות, ולהפוך את ההיכרות הזו ליוזמות חינוכיות, קהילתיות ומעשיות שיוצרות חינוך מיטבי, איכותי ושותפי עבור הילדים שלנו.
+        </p>
+
+        <div class="pillars-row">
+            <div class="pillar-card">
+                <div class="pillar-arch"></div>
+                <h3>המקום</h3>
+                <p>כל מרחב שהקהילה פוגשת: רחוב, גינה, חצר בית הספר, מסלול טיול או אתר בעיר. אנחנו מכירים את הסיפור שלו ושואלים איך אפשר לשפר בו.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-arch"></div>
+                <h3>האנשים</h3>
+                <p>בכל מקום יש אנשים, סיפורים וצרכים שונים. קהילת גאולי מחברת בין משפחות, תלמידים ותושבים מתוך סקרנות, הקשבה וכבוד למגוון.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-arch"></div>
+                <h3>המשמעות</h3>
+                <p>ההיכרות מובילה לעשייה: יוזמה קטנה, שיפור במרחב, חיבור בין אנשים, פעולה סביבתית או תוכן שמספר את סיפור המקום.</p>
+            </div>
+        </div>
+
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:9.5pt;line-height:1.7;">
+            <strong>קהילת גאולי מאמצת את רעיון המקום לא ככתובת גיאוגרפית, אלא כדרך פעולה:</strong> בכל מקום שבו אנחנו נמצאים, אנחנו לומדים להכיר, לכבד, להתחבר ולפעול לטובתו.
+        </div>
+
+        <div class="mantra">
+            <span>מכירים את המקום</span>
+            <span>פוגשים את האנשים</span>
+            <span>יוצרים משמעות</span>
+        </div>
+
+        <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-label">החזון</div>
+        <h2>מה אנחנו רוצות לבנות</h2>
+        <div class="vision-list">
+            <div class="vision-item">
+                <div class="vi-num">1</div>
+                <div class="vi-text">להקים <strong>כיתה קהילתית-חברתית חדשה</strong> בבית ספר גאולים לשנת הלימודים הבאה</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">2</div>
+                <div class="vi-text">לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong> &middot; גאולי</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">3</div>
+                <div class="vi-text">לאמץ את <strong>אמנת הקשב</strong> &middot; מרחב ללא טלפונים חכמים, המעודד נוכחות וקשרים אמיתיים</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">4</div>
+                <div class="vi-text">לתרום <strong>לקהילת בית הספר ולסביבה הקרובה</strong> מתוך ערכי שיתוף ואחריות</div>
+            </div>
+            <div class="vision-item">
+                <div class="vi-num">5</div>
+                <div class="vi-text">לייצר <strong>הנהגה שיתופית</strong> שתהווה דוגמה ורוח חדשה בבית הספר</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="landscape-strip landscape-strip-footer">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+    <div class="page-footer">
+        <span class="brand-mark">גְּאוּלִי &middot; מקום &middot; אנשים &middot; משמעות</span>
+        <span>2</span>
+    </div>
+</div>
+
+<!-- ==================== PAGE 3: PRINCIPLES + VALUES ==================== -->
+<div class="page">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="bottom:30mm;right:10mm;opacity:0.3;"></div>
+
+    <div class="page-inner">
+        <div class="section-label">העקרונות שלנו</div>
+        <h1>מודל שמ"ש &middot; שיתוף &middot; מהפכת קשב &middot; שקיפות</h1>
+        <p class="lead">שלושה עקרונות שמנחים את קהילת ההורים של גאולי ומבדילים אותה מוועד הורים רגיל.</p>
+
+        <div class="principles-row">
+            <div class="principle-card">
+                <div class="letter">שׁ</div>
+                <h3>שיתוף</h3>
+                <p>שיתוף הדדי ובטוח בין הורים, מורים והנהלה — ומודלינג לתלמידים לשיתוף פתוח ובריא. שיתוף פעולה אמיתי, יחד, למען חינוך מיטיב ומעמיק לילדינו.</p>
+            </div>
+            <div class="principle-card">
+                <div class="letter">מׁ</div>
+                <h3>מהפכת קשב</h3>
+                <p>דחיית הטלפון החכם לאחר כיתה ו׳ — מתוך רצון כנה שהילדים יחוו ילדות שלמה, נטולת רשתות חברתיות ותכנים לא מותאמים, וימשיכו לשחק, לדמיין וליהנות מפלאי הטבע.</p>
+            </div>
+            <div class="principle-card">
+                <div class="letter">שׁ</div>
+                <h3>שקיפות</h3>
+                <p>כל החלטה, תקציב ומידע על מצב הכיתה ובית הספר — ייעשו בשקיפות ובכנות מלאה, הן מצד חברי הקהילה והן מצד הנהלת בית הספר.</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>דרוש כפר שלם לגדל ילד. גאולי תהיה הכפר הזה.</p>
+            <span class="source">פתגם אפריקאי</span>
+        </div>
+
+        <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-label">הערכים שלנו</div>
+        <h2>החזון המשותף שלנו</h2>
+        <p style="font-size:9.5pt;color:var(--text-light);margin-bottom:10px;">עבור הילדים סביבה חינוכית שמצמיחה אותם ללמידה, לערכים ולחיים, ומחזקת את תחושת השייכות והקהילה.</p>
+
+        <div class="values-row">
+            <div class="value-card">
+                <h4>אווירה מיטבית</h4>
+                <p>מרחב בטוח, מכבד, מעודד וצומח.</p>
+            </div>
+            <div class="value-card">
+                <h4>סקרנות ולמידה</h4>
+                <p>טיפוח חשיבה יצירתית, יוזמה ואהבת למידה לכל החיים.</p>
+            </div>
+            <div class="value-card">
+                <h4>קהילה מחוברת</h4>
+                <p>חוויות, מסורות, קשרים משמעותיים ושיתוף פעולה.</p>
+            </div>
+            <div class="value-card">
+                <h4>חינוך ערכי</h4>
+                <p>הצבת ערכים בחיי היומיום, בדרך שמתחייה לכל ילד.</p>
+            </div>
+        </div>
+
+        <div class="section-label">שותפות</div>
+        <h2>איך אנחנו רוצות את השותפות?</h2>
+
+        <div class="navy-grid">
+            <div class="navy-card">
+                <h4>מבט קדימה</h4>
+                <p>חושבים יחד, מתכננים ומשפרים כל הזמן.</p>
+            </div>
+            <div class="navy-card">
+                <h4>התנדבויות מעשירות</h4>
+                <p>כוח ההורים כמנוע שמוביל, מסייע ומעורר השראה.</p>
+            </div>
+            <div class="navy-card">
+                <h4>חיזוק הקשרים</h4>
+                <p>מפגשים, אירועים ופעילויות שמחברים בין הורים לילדים.</p>
+            </div>
+            <div class="navy-card">
+                <h4>תקשורת פתוחה</h4>
+                <p>שיח מכבד, ישיר, מעודכן ושקוף.</p>
+            </div>
+        </div>
+
+        <div class="section-label">מה אנחנו מביאות</div>
+        <div class="navy-grid">
+            <div class="navy-card">
+                <h4>אמון</h4>
+                <p>בבחירות שלנו, בכם, ובהצלחת הדרך המשותפת.</p>
+            </div>
+            <div class="navy-card">
+                <h4>שיתוף פעולה</h4>
+                <p>נפעל יחד מתוך כבוד, הבנה וקשרים פתוחים ונכבדים.</p>
+            </div>
+            <div class="navy-card">
+                <h4>שותפות אמיתית</h4>
+                <p>נשקיע זמן, מחשבה והתמסרות למען הילדים.</p>
+            </div>
+            <div class="navy-card">
+                <h4>פתיחות</h4>
+                <p>נביא איתנו רצון לשמוע, להבין ולהיות נגישים לתהליכים.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span class="brand-mark">גְּאוּלִי &middot; מקום &middot; אנשים &middot; משמעות</span>
+        <span>3</span>
+    </div>
+</div>
+
+<!-- ==================== PAGE 4: CIRCLES + STUDENTS ==================== -->
+<div class="page">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="top:20mm;left:10mm;opacity:0.3;"></div>
+
+    <div class="page-inner">
+        <div class="section-label">קהילת ההורים והתלמידים</div>
+        <h1>מעגלי עשייה פתוחים</h1>
+        <p class="lead">קהילת גאולי תפעל במבנה פתוח, מבוזר ומעשי. במקום ועד מרכזי אחד, הוקמו מעגלי עשייה ברוח שלושת הצירים שלנו: <strong>מקום. אנשים. משמעות.</strong> כל הורה יכול להצטרף למעגל שמתאים לו, ליזום, לקחת אחריות ולהוביל פעולה קטנה או גדולה.</p>
+
+        <div class="circle-card">
+            <div class="circle-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <div class="circle-body">
+                <h3>מעגל מקום</h3>
+                <p>אחראי לפעילויות סביבתיות וחינוכיות בסביבה הפיזית: השכונה, חצר בית הספר, פארקים, מסלולים ואתרים בעיר.</p>
+                <ul>
+                    <li>סיורים במרחב הציבורי של השכונה והעיר, לא רק סביב בית הספר</li>
+                    <li>שימור פארק המסילה וימי ניקיון בשכונה</li>
+                    <li>נטיעת גינות קהילתיות ופרויקטים ירוקים</li>
+                    <li>היכרות עם מקומות וסיפורים בירושלים</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="circle-card">
+            <div class="circle-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="circle-body">
+                <h3>מעגל אנשים</h3>
+                <p>פועל לחיבורים חברתיים ומשפחתיים, להיכרות בין משפחות וקהילות שונות, ולבניית תחושת שייכות חמה ומכבדת.</p>
+                <ul>
+                    <li>קבלת משפחות חדשות</li>
+                    <li>מפגשי היכרות בין קבוצות חילוניות ודתיות</li>
+                    <li>ירידים, פסטיבלים ואירועים קהילתיים בבית הספר</li>
+                    <li>סיוע הדדי: מערך סנדוויץ' משפחתי ומפגשי שיתוף</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="circle-card">
+            <div class="circle-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/><path d="M2 12h6"/><path d="M16 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M14.83 9.17l4.24-4.24"/></svg>
+            </div>
+            <div class="circle-body">
+                <h3>מעגל משמעות</h3>
+                <p>מרכז יוזמות ערכיות וחינוכיות שמחברות בין למידה, אחריות, התנדבות, מורשת ויצירה משפחתית.</p>
+                <ul>
+                    <li>התנדבות משפחתית בשכונה ובמוסדות קהילתיים</li>
+                    <li>סדנאות הורים וילדים סביב חינוך דמוקרטי וערכי</li>
+                    <li>שותפות ביוזמות חברתיות, כמו יום התנדבות מקצועי</li>
+                    <li>כתיבת סיפורי משפחה או תערוכה קהילתית על מורשת המקום</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <h2>מעגלי תלמידים</h2>
+        <p style="font-size:9pt;color:var(--text-light);margin-bottom:8px;">גם התלמידים פועלים במעגלים קבועים, כדי ללמוד אחריות, שייכות ועשייה דרך אותה שפה: מקום, אנשים ומשמעות.</p>
+
+        <div class="student-row">
+            <div class="student-card">
+                <h4>מעגל מקום</h4>
+                <p>ילדים שאחראים על טיפוח המקום הקרוב: סדר וניקיון בכיתה, פינת טבע, השקיה, חצר ומרחבים משותפים.</p>
+            </div>
+            <div class="student-card">
+                <h4>מעגל ילדים</h4>
+                <p>ילדים ששמים לב לחברים: מי חדש, מי לבד, מי צריך הזמנה למשחק, ואיך מחזקים קשרים בכיתה.</p>
+            </div>
+            <div class="student-card">
+                <h4>מעגל משמעות</h4>
+                <p>ילדים שמובילים תוכן וערך: פינת ספרים, סיפורי משפחה, המלצות, תערוכות קטנות ופעולות נתינה.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span class="brand-mark">גְּאוּלִי &middot; מקום &middot; אנשים &middot; משמעות</span>
+        <span>4</span>
+    </div>
+    <div class="landscape-strip landscape-strip-footer">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+</div>
+
+<!-- ==================== PAGE 5: ANCHORS + CALENDAR ==================== -->
+<div class="page">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="bottom:25mm;left:10mm;opacity:0.3;"></div>
+
+    <div class="page-inner">
+        <div class="section-label">עוגנים וסדירויות</div>
+        <h1>תוכנית הפתיחה</h1>
+        <p class="lead">ארבע פעולות הכנה עוד לפני יום הראשון ללימודים.</p>
+
+        <div class="prep-grid">
+            <div class="prep-card">
+                <div class="prep-num">1</div>
+                <h4>סקר הורים &middot; מי אנחנו</h4>
+                <p>טופס קצר שכל הורה ממלא: מי אני, מה אני יכול/ה לתרום, ואיזה צוות מתאים לי.</p>
+            </div>
+            <div class="prep-card">
+                <div class="prep-num">2</div>
+                <h4>לוח ימי הולדת כיתתי</h4>
+                <p>לוח שנה כיתתי עם כל ימי ההולדת, תלוי בכיתה. לוח נפרד לצוות המקצועי.</p>
+            </div>
+            <div class="prep-card">
+                <div class="prep-num">3</div>
+                <h4>מיפוי הצוות המקצועי</h4>
+                <p>רשימת כל המורים המקצועיים: מה מלמדים, מתי, ומי איש הקשר ההורי שלהם.</p>
+            </div>
+            <div class="prep-card">
+                <div class="prep-num">4</div>
+                <h4>צביעת הכיתה וקישוט</h4>
+                <p>ההורים באים לפני תחילת השנה ומכינים כיתה שמרגישה כמו בית. פעולת חיבור ראשונה.</p>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-label">לוח שנה</div>
+        <h2>השנה שלנו &middot; תשפ"ז</h2>
+        <p style="font-size:9pt;color:var(--text-light);margin-bottom:8px;">אירועים, סדירויות ופעילויות לאורך כל השנה.</p>
+
+        <div class="cal-grid">
+            <div class="cal-block">
+                <div class="cal-month">אוגוסט</div>
+                <div class="cal-items">
+                    <li><strong>פיקניק היכרות עם המחנכת</strong> &middot; מפגש ראשון של כל המשפחות. הכרות, שיחה, חיבור.</li>
+                    <li><strong>הכנת הכיתה</strong> &middot; צביעה, קישוטים, סידור פינות. כיתה שמרגישה כמו בית.</li>
+                    <li><strong>סקר הורים ומורים מקצועיים</strong> &middot; מיפוי יכולות, צרכים, בחירת צוותים.</li>
+                    <li><strong>תמונות וזיכרון</strong> &middot; איסוף תמונות תלמידים וצוות מקצועי.</li>
+                    <li><strong>מתנות קטנות לצוות</strong> &middot; מתנת פתיחה למחנכת, לסייעת ולמורות. מתחילים עם נתינה.</li>
+                    <li><strong>הכנת שירונים</strong> &middot; שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</li>
+                </div>
+            </div>
+            <div class="cal-block">
+                <div class="cal-month">ספטמבר</div>
+                <div class="cal-items">
+                    <li><strong>טקס תחילת שנה ואימוץ כיתה א'</strong> &middot; דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</li>
+                    <li><strong>ראש השנה &middot; ברכות ושתילה</strong> &middot; ברכות שנה טובה למורים. שתילה משותפת במרחב ציבורי.</li>
+                    <li><strong>אירוע סוכות משפחתי</strong> &middot; פעילות משפחות ראשונה של השנה.</li>
+                    <li><strong>טיול משפחות בשישי</strong> &middot; הליכה, טבע, חיבור בין המשפחות.</li>
+                </div>
+            </div>
+            <div class="cal-block">
+                <div class="cal-month">דצמבר</div>
+                <div class="cal-items">
+                    <li><strong>טיול עששיות בחנוכה</strong> &middot; משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה.</li>
+                </div>
+            </div>
+            <div class="cal-block">
+                <div class="cal-month">ינואר &middot; פברואר</div>
+                <div class="cal-items">
+                    <li><strong>הכר את השכונה ואת בית הספר שלך</strong> &middot; סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות.</li>
+                    <li><strong>מחצית &middot; פעילות עם הילדים</strong> &middot; פעילות מיוחדת של ההורים עם ילדי הכיתה.</li>
+                </div>
+            </div>
+            <div class="cal-block">
+                <div class="cal-month">מרץ</div>
+                <div class="cal-items">
+                    <li><strong>פורים &middot; תחפושות ומשלוחי מנות</strong> &middot; פעילות פורים כיתתית, משלוחי מנות משותפים.</li>
+                </div>
+            </div>
+            <div class="cal-block">
+                <div class="cal-month">אפריל</div>
+                <div class="cal-items">
+                    <li><strong>פסח &middot; סדר כיתתי</strong> &middot; אירוע פסח של הכיתה, הורים וילדים יחד.</li>
+                </div>
+            </div>
+            <div class="cal-block" style="grid-column: 1 / -1;">
+                <div class="cal-month">מאי &middot; יוני</div>
+                <div class="cal-items">
+                    <li><strong>פיקניק סוף שנה ואלבום דיגיטלי</strong> &middot; סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום לכל משפחה.</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span class="brand-mark">גְּאוּלִי &middot; מקום &middot; אנשים &middot; משמעות</span>
+        <span>5</span>
+    </div>
+</div>
+
+<!-- ==================== PAGE 6: CHARTER ==================== -->
+<div class="page">
+    <div class="page-corner-tl"></div>
+    <div class="page-corner-br"></div>
+    <div class="dot-pattern" style="top:20mm;right:10mm;opacity:0.25;"></div>
+
+    <div class="page-inner">
+        <div class="section-label">אמנה</div>
+        <h1>אמנת הקשב</h1>
+        <p class="lead">התחייבות של כל חבר בכיתה החברתית.</p>
+
+        <div class="charter-box">
+            <h2>אמנת הקשב</h2>
+            <div class="subtitle">כיתה ב'2 &middot; בית ספר גאולים &middot; תשפ"ז</div>
+
+            <p>אנחנו, הורי כיתה ב'2 לשנת תשפ"ז בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של נוכחות מלאה, של משחק חופשי, של שיחה אמיתית, של שעמום שמוליד דמיון. בחירה משותפת, מתוך אהבה.</p>
+
+            <h4>ההתחייבות שלנו</h4>
+            <ul>
+                <li>נבחר טלפון בסיסי עד סוף היסודי</li>
+                <li>נעדיף טלפון בסיסי (כשר) לצורכי תקשורת</li>
+                <li>נגביל זמני מסך משותפים בבית ונשתף בדילמות</li>
+                <li>נתמוך אחד בשני כשהילדים לוחצים "אבל לכולם יש"</li>
+                <li>נהיה דוגמה אישית בשימוש מושכל במסכים</li>
+            </ul>
+
+            <h4 style="margin-top:12px;">למה דווקא עכשיו</h4>
+            <p style="margin:0;">כיתה ב' היא גיל שבו ילדים עדיין בונים יחסים מפנים-אל-פנים, לומדים להשתעמם, ומפתחים דמיון. כשכולנו מתחייבים יחד, כל ילד מרגיש שיש לו גב.</p>
+        </div>
+
+        <div class="quote-block">
+            <p>גאולי היא מקום אחד לאנשים רבים עם משמעות משותפת.</p>
+            <span class="source">כאן כל משפחה שייכת, כל קול נשמע, וכל תרומה — גדולה או קטנה — בונה קהילה שהילדים שלנו יגדלו בתוכה.</span>
+        </div>
+
+        <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-arch"></div>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <div style="text-align:center;margin-top:12px;">
+            <img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="לוגו גאולי" style="width:60px;height:auto;opacity:0.7;margin-bottom:10px;">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:14pt;font-weight:700;color:var(--navy);margin-bottom:4px;">www.geuli.co.il</div>
+            <div style="font-size:9pt;color:var(--text-muted);">קהילת ההורים של בית ספר גאולים בקעה, ירושלים</div>
+        </div>
+    </div>
+
+    <div class="landscape-strip landscape-strip-footer">
+        <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+    </div>
+    <div class="page-footer">
+        <span class="brand-mark">גְּאוּלִי &middot; מקום &middot; אנשים &middot; משמעות</span>
+        <span>6</span>
+    </div>
+</div>
+
+</body>
+</html>

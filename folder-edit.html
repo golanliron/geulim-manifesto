@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>פולדר גאולי - עריכה מהירה</title>
+  <style>
+    :root {
+      --navy: #1f355e;
+      --deep: #0f1b33;
+      --olive: #8a9746;
+      --sand: #d8c7a0;
+      --cream: #f8f6f1;
+      --gray: #5f6879;
+      --white: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ecebe6;
+      color: var(--navy);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 12px;
+      background: rgba(248, 246, 241, .95);
+      border-bottom: 1px solid rgba(216, 199, 160, .7);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar .group {
+      display: flex;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid rgba(216, 199, 160, .55);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .58);
+    }
+
+    button, a.tool {
+      border: 1px solid rgba(31, 53, 94, .18);
+      background: #fff;
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button.mini {
+      min-width: 36px;
+      padding: 8px 11px;
+    }
+
+    .hint {
+      width: 100%;
+      text-align: center;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    main {
+      width: min(94vw, 980px);
+      margin: 24px auto 60px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 8%, rgba(216,199,160,.24), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(138,151,70,.16), transparent 30%),
+        linear-gradient(180deg, #fbfaf7 0%, var(--cream) 100%);
+      box-shadow: 0 18px 65px rgba(31, 53, 94, .14);
+      padding: 26mm 20mm 22mm;
+      page-break-after: always;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 42mm;
+      background: url("brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png") center bottom / 100% auto no-repeat;
+      opacity: .72;
+      pointer-events: none;
+    }
+
+    .cover::after { opacity: .86; }
+    .back::after {
+      height: 50mm;
+      background-image: url("brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png");
+      filter: brightness(0) invert(1);
+      opacity: .34;
+    }
+    .back {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      padding: 34mm 24mm 42mm;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(216,199,160,.18), transparent 28%),
+        radial-gradient(circle at 82% 20%, rgba(138,151,70,.16), transparent 30%),
+        linear-gradient(180deg, #1f355e 0%, #14233f 100%);
+      color: white;
+    }
+    .back .logo .word { color: white; }
+    .back .logo .sub { color: var(--sand); }
+    .back h1, .back h2, .back h3, .back p { color: white; }
+    .back .lead {
+      color: rgba(255,255,255,.84);
+      max-width: 560px;
+    }
+    .back .brand-line {
+      width: 360px;
+      max-width: 70%;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--sand);
+      margin: 26px auto;
+    }
+    .back .back-site {
+      margin-top: 42px;
+      font-weight: 900;
+      color: var(--sand);
+      font-size: 20px;
+    }
+    .cover {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      padding-top: 20mm;
+      padding-bottom: 42mm;
+    }
+
+    [contenteditable="true"] {
+      outline: 1px dashed transparent;
+      border-radius: 6px;
+      transition: outline-color .15s, background .15s;
+    }
+    [contenteditable="true"]:focus {
+      outline-color: rgba(31, 53, 94, .28);
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .logo {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .logo img { width: 138px; height: auto; display: block; }
+    .logo .word {
+      font-family: FrankRuehl, "Frank Ruehl CLM", "Times New Roman", serif;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .logo .sub {
+      font-weight: 800;
+      color: var(--olive);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+    .cover .logo { margin-top: 0; }
+    .cover .logo img { width: 176px; }
+    .cover .logo .word { font-size: 62px; }
+    .cover .logo .sub { font-size: 18px; }
+
+    .mini-logo {
+      position: absolute;
+      top: 14mm;
+      right: 16mm;
+      width: 62px;
+      text-align: center;
+      z-index: 2;
+    }
+    .mini-logo img { width: 46px; display: block; margin: 0 auto 2px; }
+    .mini-logo .word { font-size: 17px; font-weight: 900; line-height: 1; }
+    .mini-logo .sub { display: none; }
+
+    .header {
+      width: min(100%, 610px);
+      margin: 0 auto 16mm;
+      padding: 0;
+      text-align: center;
+    }
+    .eyebrow {
+      color: var(--olive);
+      font-weight: 800;
+      letter-spacing: 0;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: 40px;
+      line-height: 1.18;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    h2 {
+      font-size: 31px;
+      line-height: 1.2;
+      font-weight: 900;
+      color: var(--navy);
+    }
+    h3 {
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 900;
+      color: var(--navy);
+    }
+    .rule {
+      height: 4px;
+      width: 78%;
+      margin: 14px auto 0;
+      border-radius: 999px;
+      background: var(--sand);
+    }
+    .lead {
+      max-width: 640px;
+      margin: 20px auto 0;
+      color: var(--gray);
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .cover-title {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: 4px;
+    }
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--sand);
+    }
+    .dots span:nth-child(2) { background: var(--olive); }
+    .dots span:nth-child(3) { background: var(--navy); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid rgba(216, 199, 160, .8);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .78);
+      padding: 18px 18px 20px;
+      min-height: 138px;
+    }
+    .card.sand { background: rgba(216, 199, 160, .82); }
+    .card.olive { background: rgba(138, 151, 70, .9); color: white; }
+    .card.navy { background: var(--navy); color: white; }
+    .card.navy h3, .card.olive h3 { color: white; }
+    .card p {
+      color: inherit;
+      font-size: 14px;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+    .big-card {
+      margin: 18px 0;
+      border: 1px solid rgba(216, 199, 160, .8);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .78);
+      padding: 22px;
+      text-align: center;
+    }
+    .big-card.navy {
+      background: var(--navy);
+      color: white;
+      border-color: rgba(216, 199, 160, .6);
+    }
+    .big-card.navy h2, .big-card.navy h3 { color: white; }
+    .big-card p {
+      margin-top: 10px;
+      color: inherit;
+      font-size: 16px;
+    }
+    .list {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+    .list div {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      align-items: start;
+      color: var(--gray);
+      font-size: 14px;
+    }
+    .list span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--olive);
+      margin-top: 9px;
+      justify-self: center;
+    }
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .month {
+      border: 1px solid rgba(216, 199, 160, .7);
+      border-radius: 12px;
+      padding: 11px 14px;
+      background: rgba(255, 255, 255, .74);
+      min-height: 84px;
+    }
+    .month h3 { font-size: 17px; }
+    .month p {
+      color: var(--gray);
+      font-size: 12px;
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      z-index: 2;
+      text-align: center;
+      font-size: 11px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    @media print {
+      body { background: white; }
+      .toolbar { display: none; }
+      main { width: auto; margin: 0; gap: 0; }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="group">
+      <button class="mini" onclick="formatBlock('justifyRight')" title="יישור לימין">ימין</button>
+      <button class="mini" onclick="formatBlock('justifyCenter')" title="מרכוז">מרכז</button>
+      <button class="mini" onclick="formatBlock('justifyLeft')" title="יישור לשמאל">שמאל</button>
+    </div>
+    <div class="group">
+      <button class="mini" onclick="nudgeFont(2)" title="הגדלת טקסט">A+</button>
+      <button class="mini" onclick="nudgeFont(-2)" title="הקטנת טקסט">A-</button>
+      <button class="mini" onclick="formatBlock('bold')" title="הדגשה">B</button>
+    </div>
+    <button onclick="window.print()">הדפסה / שמירה ל-PDF</button>
+    <button onclick="saveNow()">שמירת עריכות בדפדפן</button>
+    <button onclick="clearEdits()">איפוס טקסט</button>
+    <a class="tool" href="folder-preview.html" target="_blank">תצוגת PDF הקיים</a>
+    <div class="hint">לחצי על טקסט ואז השתמשי ביישור/גודל. השינויים נשמרים בדפדפן הזה, ואז אפשר לשמור ל-PDF דרך הדפסה.</div>
+  </div>
+
+  <main id="doc">
+    <section class="page cover">
+      <div class="logo">
+        <img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+        <div class="word" contenteditable="true">גְּאוּלִי</div>
+        <div class="sub" contenteditable="true">קהילת ההורים של בית ספר גאולים בקעה</div>
+      </div>
+      <div class="dots"><span></span><span></span><span></span></div>
+      <h2 class="cover-title" contenteditable="true">מקום. אנשים. משמעות.</h2>
+      <p class="lead" contenteditable="true">קהילה שמכירה את המקום, פוגשת את האנשים ופועלת יחד למען חינוך מיטיב לילדינו, תוך טיפוח שייכות, אחריות חברתית-ערכית וחיבור למקום שבו אנו חיים.</p>
+      <p class="lead" style="font-size:14px;margin-top:38px" contenteditable="true">שנת הלימודים תשפ״ז · 2026-2027</p>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">בונים יחד</div><h1 contenteditable="true">קהילה. חינוך. משמעות.</h1><div class="rule"></div></header>
+      <p class="lead" contenteditable="true">קהילת הורי גאולים קמה מתוך מטרה וחזון משותף: להיות שותפים פעילים בעשייה הבית ספרית דרך שלושה צירים: מקום, אנשים ומשמעות. אנחנו מבקשות להכיר את המרחב שבו הילדים גדלים, לחזק קשרים בין הורים, תלמידים וצוות, ולהפוך את ההיכרות הזו ליוזמות חינוכיות, קהילתיות ומעשיות.</p>
+      <div class="grid-3" style="margin-top:28px">
+        <div class="card sand"><h3 contenteditable="true">המקום</h3><p contenteditable="true">כל מרחב שהקהילה פוגשת: רחוב, גינה, חצר בית הספר, מסלול טיול או אתר בעיר.</p></div>
+        <div class="card"><h3 contenteditable="true">האנשים</h3><p contenteditable="true">בכל מקום יש אנשים, סיפורים וצרכים שונים. גאולי מחברת מתוך סקרנות, הקשבה וכבוד למגוון.</p></div>
+        <div class="card navy"><h3 contenteditable="true">המשמעות</h3><p contenteditable="true">ההיכרות מובילה לעשייה: יוזמה קטנה, שיפור במרחב, חיבור בין אנשים ותוכן שמספר סיפור.</p></div>
+      </div>
+      <div class="big-card"><h3 contenteditable="true">מה אנחנו רוצות לבנות</h3><div class="list"><div><span></span><p contenteditable="true">קהילת הורים מעורבת, פעילה ומחויבת</p></div><div><span></span><p contenteditable="true">מרחב שמחזק נוכחות, קשרים ותחושת שייכות</p></div><div><span></span><p contenteditable="true">עשייה סביבתית וקהילתית סביב בית הספר והשכונה</p></div><div><span></span><p contenteditable="true">הנהגה שיתופית שנותנת דוגמה לילדים</p></div></div></div>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 2</div>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">שיתוף · קשב · שקיפות</div><h1 contenteditable="true">העקרונות שלנו</h1><div class="rule"></div></header>
+      <p class="lead" contenteditable="true">שלושה עקרונות מנחים את קהילת ההורים של גאולי ומבדילים אותה מוועד רגיל: שותפות אמיתית, קשב שמאפשר לילדים לגדול, ושקיפות שמייצרת אמון.</p>
+      <div class="grid-3" style="margin-top:30px">
+        <div class="card navy"><h3 contenteditable="true">שיתוף</h3><p contenteditable="true">שיתוף הדדי ובטוח בין הורים, מורים והנהלה. מודלינג לתלמידים לשיתוף פתוח ובריא.</p></div>
+        <div class="card navy"><h3 contenteditable="true">מהפכת קשב</h3><p contenteditable="true">דחיית הסמארטפון לאחר כיתה ו׳ ורצון כן לילדות מלאה, משחק, דמיון ושיחה אמיתית.</p></div>
+        <div class="card navy"><h3 contenteditable="true">שקיפות</h3><p contenteditable="true">כל החלטה, תקציב ומידע על מצב הכיתה ובית הספר ייעשו בכנות מלאה ובבהירות.</p></div>
+      </div>
+      <div class="big-card"><h2 contenteditable="true">דרוש כפר שלם כדי לגדל ילד. גאולי תהיה הכפר הזה.</h2><p contenteditable="true">פתגם אפריקאי</p></div>
+      <div class="grid-2"><div class="card"><h3 contenteditable="true">אווירה מיטבית</h3><p contenteditable="true">מרחב בטוח, מכבד ומעודד</p></div><div class="card sand"><h3 contenteditable="true">קהילה מחוברת</h3><p contenteditable="true">חוויות, מסורות וקשרים משמעותיים</p></div><div class="card"><h3 contenteditable="true">חינוך ערכי</h3><p contenteditable="true">ערכים בחיי היומיום</p></div><div class="card olive"><h3 contenteditable="true">סקרנות ולמידה</h3><p contenteditable="true">יוזמה, יצירתיות ואהבת למידה</p></div></div>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 3</div>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">אמון ופעולה</div><h1 contenteditable="true">שותפות שמרגישים</h1><div class="rule"></div></header>
+      <div class="big-card navy"><p contenteditable="true">אנחנו מביאות אמון, פעולה, פתיחות ושותפות אמיתית. נבקש לפעול יחד מתוך כבוד, הבנה וקשרים פתוחים, כך שכל משפחה תרגיש שיש לה מקום וקול.</p></div>
+      <div class="grid-2"><div class="card"><h3 contenteditable="true">אמון</h3><p contenteditable="true">בבחירות שלנו, בצוות ובהצלחת הדרך המשותפת.</p></div><div class="card sand"><h3 contenteditable="true">פעולה</h3><p contenteditable="true">עשייה קטנה ומעשית שמתחברת לצורך אמיתי.</p></div><div class="card olive"><h3 contenteditable="true">פתיחות</h3><p contenteditable="true">רצון לשמוע, להבין ולהיות נגישים לתהליכים.</p></div><div class="card navy"><h3 contenteditable="true">שותפות אמיתית</h3><p contenteditable="true">זמן, מחשבה והתמסרות למען הילדים.</p></div></div>
+      <div class="big-card"><h3 contenteditable="true">איך השותפות נראית בפועל?</h3><div class="list"><div><span></span><p contenteditable="true">מבט קדימה: חושבים יחד, מתכננים ומשפרים כל הזמן</p></div><div><span></span><p contenteditable="true">התנדבויות מעשירות: כוח ההורים כמנוע שמוביל ומסייע</p></div><div><span></span><p contenteditable="true">חיזוק קשרים: מפגשים ופעילויות שמחברים בין הורים לילדים</p></div><div><span></span><p contenteditable="true">תקשורת פתוחה: שיח מכבד, ישיר, מעודכן ושקוף</p></div></div></div>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 4</div>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">מעגלי עשייה פתוחים</div><h1 contenteditable="true">קהילת ההורים והתלמידים</h1><div class="rule"></div></header>
+      <p class="lead" contenteditable="true">במקום ועד מרכזי אחד, קהילת גאולי פועלת במבנה פתוח, מבוזר ומעשי. כל הורה יכול להצטרף למעגל שמתאים לו, ליזום, לקחת אחריות ולהוביל פעולה קטנה או גדולה.</p>
+      <div class="grid-3" style="margin-top:28px"><div class="card sand"><h3 contenteditable="true">מעגל מקום</h3><p contenteditable="true">סיורים במרחב הציבורי של השכונה והעיר, שימור פארק המסילה, ימי ניקיון, גינות קהילתיות והיכרות עם סיפורים בירושלים.</p></div><div class="card"><h3 contenteditable="true">מעגל אנשים</h3><p contenteditable="true">קבלת משפחות חדשות, מפגשי היכרות, ירידים ואירועים קהילתיים, וסיוע הדדי בין משפחות.</p></div><div class="card navy"><h3 contenteditable="true">מעגל משמעות</h3><p contenteditable="true">התנדבות משפחתית, סדנאות הורים וילדים, יוזמות חברתיות, סיפורי משפחה ומורשת המקום.</p></div></div>
+      <div class="big-card"><h3 contenteditable="true">מעגלי תלמידים</h3><p contenteditable="true">גם הילדים פועלים במעגלים קבועים כדי ללמוד אחריות, שייכות ועשייה דרך אותה שפה: מקום, ילדים ומשמעות.</p></div>
+      <div class="grid-3"><div class="card"><h3 contenteditable="true">מעגל מקום</h3><p contenteditable="true">כיתה, חצר, פינת טבע ומרחבים משותפים</p></div><div class="card sand"><h3 contenteditable="true">מעגל ילדים</h3><p contenteditable="true">לשים לב מי חדש, מי לבד ומי צריך הזמנה</p></div><div class="card navy"><h3 contenteditable="true">מעגל משמעות</h3><p contenteditable="true">סיפורי משפחה, פינת ספרים, תערוכות ונתינה</p></div></div>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 5</div>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">עוגנים וסדירויות</div><h1 contenteditable="true">תוכנית הפתיחה</h1><div class="rule"></div></header>
+      <h3 style="text-align:center" contenteditable="true">ארבע פעולות הכנה עוד לפני היום הראשון ללימודים</h3>
+      <div class="grid-2" style="margin-top:22px"><div class="card"><h3 contenteditable="true">סקר הורים</h3><p contenteditable="true">מי אני, מה אני יכולה לתרום, ואיזה צוות מתאים לי.</p></div><div class="card sand"><h3 contenteditable="true">לוח ימי הולדת</h3><p contenteditable="true">לוח שנתי כיתתי שמייצר תשומת לב וקשר.</p></div><div class="card"><h3 contenteditable="true">מיפוי צוות מקצועי</h3><p contenteditable="true">מי מלמד, מתי, ומה הקשר ההורי הנכון.</p></div><div class="card navy"><h3 contenteditable="true">הכנת הכיתה</h3><p contenteditable="true">צביעה, קישוט וסידור מרחב שמרגיש כמו בית.</p></div></div>
+      <div class="big-card"><h2 contenteditable="true">שנת הלימודים שלנו</h2><div class="month-grid"><div class="month"><h3 contenteditable="true">אוגוסט</h3><p contenteditable="true">פיקניק היכרות, סקר הורים, הכנת הכיתה ומתנות פתיחה לצוות.</p></div><div class="month"><h3 contenteditable="true">ספטמבר</h3><p contenteditable="true">טקס פתיחת שנה, אימוץ כיתה א׳, ברכות לשנה טובה וטיול משפחות.</p></div><div class="month"><h3 contenteditable="true">דצמבר</h3><p contenteditable="true">טיול עששיות בחנוכה ופעילות הורים וילדים לסיכום מחצית.</p></div><div class="month"><h3 contenteditable="true">ינואר-פברואר</h3><p contenteditable="true">סיור שכונתי משפחתי והיכרות עם בקעה ופינות נסתרות.</p></div><div class="month"><h3 contenteditable="true">מרץ-אפריל</h3><p contenteditable="true">פורים, משלוחי מנות, סדר כיתתי ואירוע פסח משותף.</p></div><div class="month"><h3 contenteditable="true">מאי-יוני</h3><p contenteditable="true">פיקניק סוף שנה, אלבום דיגיטלי, חגיגת הישגים וטקס מעבר.</p></div></div></div>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 6</div>
+    </section>
+
+    <section class="page">
+      <div class="mini-logo"><img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png"><div class="word">גאולי</div><div class="sub">קהילת ההורים של בית ספר גאולים בקעה</div></div>
+      <header class="header"><div class="eyebrow" contenteditable="true">מה חוזר לאורך השנה</div><h1 contenteditable="true">שגרות שמחזיקות קהילה</h1><div class="rule"></div></header>
+      <div class="big-card navy"><p contenteditable="true">כדי שהקהילה לא תהיה אירוע חד פעמי, נבנים עוגנים קבועים: מפגשים, יוזמות קטנות, תקשורת ברורה ותיעוד תוצרים.</p></div>
+      <div class="grid-2"><div class="card"><h3 contenteditable="true">מפגש</h3><p contenteditable="true">מפגש קהילתי קצר אחת לתקופה, סביב צורך או רעיון.</p></div><div class="card sand"><h3 contenteditable="true">פעולה</h3><p contenteditable="true">פעולה קטנה ומעשית שמחברת ילדים, הורים וצוות.</p></div><div class="card olive"><h3 contenteditable="true">שיתוף</h3><p contenteditable="true">עדכון בהיר לקהילה: מה עשינו, מי הצטרף ומה הצעד הבא.</p></div><div class="card"><h3 contenteditable="true">למידה</h3><p contenteditable="true">איסוף משוב קצר ושיפור מתמיד של הדרך.</p></div></div>
+      <div class="dots" style="margin-top:60px"><span></span><span></span><span></span></div>
+      <h2 style="text-align:center;margin-top:20px" contenteditable="true">קהילה נוצרת מחזרתיות טובה: עוד מפגש, עוד חיבור, עוד פעולה קטנה.</h2>
+      <div class="footer">גאולי · מקום · אנשים · משמעות · 7</div>
+    </section>
+
+    <section class="page back">
+      <div class="logo">
+        <img src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+        <div class="word" contenteditable="true">גְּאוּלִי</div>
+        <div class="sub" contenteditable="true">קהילת ההורים של בית ספר גאולים בקעה</div>
+      </div>
+      <div class="dots"><span></span><span></span><span></span></div>
+      <h1 style="text-align:center;margin-top:34px" contenteditable="true">מקום אחד. אנשים רבים. משמעות משותפת.</h1>
+      <div class="brand-line"></div>
+      <p class="lead" contenteditable="true">כאן כל משפחה שייכת, כל קול נשמע, וכל תרומה - גדולה או קטנה - בונה קהילה שהילדים שלנו יגדלו בתוכה.</p>
+      <p class="back-site" contenteditable="true">www.geuli.co.il</p>
+      <p class="lead" style="font-size:14px;margin-top:8px" contenteditable="true">קהילת ההורים של בית ספר גאולים בקעה, ירושלים</p>
+    </section>
+  </main>
+
+  <script>
+    const KEY = "geuli-folder-edit-v3";
+    const editable = [...document.querySelectorAll('[contenteditable="true"]')];
+    let activeEditable = null;
+
+    function saveNow() {
+      const data = editable.map(el => el.innerHTML);
+      localStorage.setItem(KEY, JSON.stringify(data));
+    }
+
+    function loadSaved() {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return;
+      try {
+        JSON.parse(raw).forEach((html, i) => {
+          if (editable[i]) editable[i].innerHTML = html;
+        });
+      } catch {}
+    }
+
+    function clearEdits() {
+      if (!confirm("לאפס את הטקסט לגרסה המקורית?")) return;
+      localStorage.removeItem(KEY);
+      location.reload();
+    }
+
+    editable.forEach(el => {
+      el.addEventListener("focus", () => activeEditable = el);
+      el.addEventListener("click", () => activeEditable = el);
+      el.addEventListener("input", () => {
+        clearTimeout(window.__saveTimer);
+        window.__saveTimer = setTimeout(saveNow, 250);
+      });
+    });
+
+    function targetEditable() {
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount) {
+        const node = sel.anchorNode && (sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement);
+        const box = node && node.closest && node.closest('[contenteditable="true"]');
+        if (box) activeEditable = box;
+      }
+      return activeEditable;
+    }
+
+    function formatBlock(cmd) {
+      const el = targetEditable();
+      if (!el) return;
+      el.focus();
+      document.execCommand(cmd, false, null);
+      if (cmd === "justifyRight") el.style.textAlign = "right";
+      if (cmd === "justifyCenter") el.style.textAlign = "center";
+      if (cmd === "justifyLeft") el.style.textAlign = "left";
+      saveNow();
+    }
+
+    function nudgeFont(delta) {
+      const el = targetEditable();
+      if (!el) return;
+      const current = parseFloat(getComputedStyle(el).fontSize);
+      const next = Math.max(10, Math.min(72, current + delta));
+      el.style.fontSize = `${next}px`;
+      saveNow();
+    }
+    loadSaved();
+  </script>
+</body>
+</html>

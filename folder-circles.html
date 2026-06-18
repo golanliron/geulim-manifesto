@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>גאולי - מעגלי עשייה</title>
+  <style>
+    :root {
+      --navy: #1f355e;
+      --deep: #14233f;
+      --olive: #8a9746;
+      --sand: #d8c7a0;
+      --cream: #f8f6f1;
+      --ink: #596477;
+      --line: rgba(216, 199, 160, .58);
+      --paper: #fffefa;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      background: #ecebe6;
+      color: var(--navy);
+      font-family: Arial, "Noto Sans Hebrew", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .screen-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(248, 246, 241, .96);
+      border-bottom: 1px solid var(--line);
+    }
+    .screen-toolbar button {
+      border: 1px solid rgba(31, 53, 94, .18);
+      background: white;
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    main {
+      width: min(94vw, 900px);
+      margin: 24px auto 60px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(216, 199, 160, .24), transparent 26%),
+        radial-gradient(circle at 86% 18%, rgba(138, 151, 70, .12), transparent 28%),
+        linear-gradient(180deg, #fffefa 0%, var(--cream) 100%);
+      box-shadow: 0 18px 70px rgba(31, 53, 94, .14);
+      page-break-after: always;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 20mm 18mm 18mm;
+      height: 100%;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 98px 1fr 98px;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12mm;
+    }
+    .header img {
+      width: 96px;
+      justify-self: end;
+      border-radius: 10px;
+      mix-blend-mode: multiply;
+    }
+    .header h1 {
+      margin: 0;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34pt;
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: var(--navy);
+    }
+    .header .eyebrow {
+      margin: 0 0 7px;
+      text-align: center;
+      color: var(--olive);
+      font-weight: 900;
+      font-size: 12pt;
+      letter-spacing: 2px;
+    }
+    .rule {
+      height: 4px;
+      width: min(72%, 460px);
+      margin: 9mm auto 0;
+      border-radius: 999px;
+      background: var(--sand);
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      font-size: 27pt;
+      line-height: 1.12;
+      text-align: center;
+    }
+    h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 18pt;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 13.7pt;
+      line-height: 1.55;
+    }
+    strong { color: var(--navy); }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 5px;
+    }
+    li {
+      position: relative;
+      padding-right: 20px;
+      color: var(--ink);
+      font-size: 12.7pt;
+      line-height: 1.34;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: .56em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--olive);
+    }
+
+    .cover {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      text-align: center;
+      padding: 18mm 19mm;
+    }
+    .cover .logo {
+      width: 200px;
+      margin-bottom: 7mm;
+    }
+    .school-corner {
+      position: absolute;
+      top: 16mm;
+      right: 16mm;
+      width: 96px;
+      border-radius: 10px;
+      mix-blend-mode: multiply;
+      z-index: 4;
+    }
+    .cover h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 48pt;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .cover .subtitle {
+      margin-top: 7px;
+      color: var(--olive);
+      font-weight: 900;
+      font-size: 17pt;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin: 12mm 0 9mm;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27pt;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 7mm auto;
+    }
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--navy);
+    }
+    .dot:nth-child(2) { background: var(--olive); }
+    .dot:nth-child(3) { background: var(--sand); }
+    .intro {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .intro p {
+      text-align: center;
+      font-size: 15pt;
+      line-height: 1.65;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 13mm 14mm;
+      box-shadow: 0 18px 48px rgba(31, 53, 94, .08);
+    }
+    .section-card.dark {
+      background: linear-gradient(180deg, var(--navy), var(--deep));
+    }
+    .section-card.dark p,
+    .section-card.dark li { color: rgba(255, 255, 255, .85); }
+    .section-card.dark h3,
+    .section-card.dark strong { color: white; }
+    .section-card.dark li::before { background: var(--sand); }
+    .section-card.dark .list-box {
+      background: rgba(255, 255, 255, .93);
+      border-color: rgba(216, 199, 160, .72);
+    }
+    .section-card.dark .list-box h3 { color: var(--olive); }
+    .section-card.dark .list-box li { color: var(--ink); }
+    .section-card.dark .list-box li::before { background: var(--sand); }
+
+    .three-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 13mm;
+    }
+    .mini-card {
+      min-height: 178px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .78);
+      text-align: center;
+    }
+    .mini-card:nth-child(2) { background: rgba(216, 199, 160, .28); }
+    .mini-card:nth-child(3) { background: rgba(138, 151, 70, .18); }
+    .mini-card h3 {
+      margin-bottom: 8px;
+      font-size: 19pt;
+      text-align: center;
+    }
+    .mini-card p {
+      font-size: 11.8pt;
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    .circle-page .section-card {
+      display: grid;
+      gap: 8mm;
+    }
+    .circle-lead {
+      text-align: center;
+      color: var(--olive);
+      font-size: 17pt;
+      font-weight: 900;
+      margin-bottom: 2mm;
+    }
+    .circle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr;
+      gap: 13mm;
+      align-items: start;
+    }
+    .circle-text p {
+      font-size: 13.6pt;
+    }
+    .list-box {
+      background: rgba(248, 246, 241, .88);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 8mm 8mm;
+    }
+    .list-box h3 {
+      color: var(--olive);
+      font-size: 15pt;
+      margin-bottom: 5mm;
+    }
+    .closing-note {
+      margin-top: 9mm;
+      padding: 7mm 9mm;
+      border-radius: 22px;
+      background: rgba(31, 53, 94, .08);
+      border: 1px solid rgba(31, 53, 94, .12);
+      text-align: center;
+    }
+    .closing-note p {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 13.8pt;
+      margin: 0;
+    }
+
+    .join-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14mm;
+      margin-top: 12mm;
+    }
+    .join-grid li {
+      font-size: 15pt;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .end {
+      background:
+        radial-gradient(circle at 22% 18%, rgba(216, 199, 160, .22), transparent 25%),
+        linear-gradient(180deg, var(--navy), var(--deep));
+      color: white;
+    }
+    .end .content {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 22mm;
+    }
+    .end img {
+      width: 180px;
+      padding: 14px 18px;
+      border-radius: 28px;
+      background: rgba(255, 254, 250, .94);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, .16);
+    }
+    .end .school-corner {
+      background: rgba(255, 254, 250, .94);
+      padding: 8px;
+      mix-blend-mode: normal;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .12);
+    }
+    .end h2 {
+      color: white;
+      font-size: 36pt;
+      max-width: 650px;
+      margin: 15mm auto 7mm;
+    }
+    .end p {
+      color: rgba(255, 255, 255, .85);
+      font-size: 17pt;
+      max-width: 650px;
+      text-align: center;
+    }
+    .end .tagline {
+      color: var(--sand);
+      font-size: 26pt;
+      margin-top: 12mm;
+    }
+
+    .cityline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 38mm;
+      background: url("brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png") center bottom / 100% auto no-repeat;
+      opacity: .8;
+      pointer-events: none;
+    }
+    .footer {
+      position: absolute;
+      right: 17mm;
+      left: 17mm;
+      bottom: 9mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--navy);
+      font-size: 9pt;
+      font-weight: 800;
+      z-index: 3;
+    }
+    .footer .brand { color: var(--olive); }
+    .end .footer { color: rgba(255, 255, 255, .72); }
+    .end .footer .brand { color: var(--sand); }
+    .end .cityline {
+      filter: brightness(0) invert(1);
+      opacity: .24;
+    }
+    .dot-grid {
+      position: absolute;
+      width: 125px;
+      height: 120px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      opacity: .26;
+    }
+    .dot-grid span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--sand);
+    }
+    .dot-grid span:nth-child(3n) { background: var(--olive); }
+    .dot-grid span:nth-child(4n) { background: var(--navy); }
+    .dg-a { top: 33mm; left: 20mm; }
+    .dg-b { bottom: 34mm; right: 22mm; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    @media print {
+      body { background: white; }
+      .screen-toolbar { display: none; }
+      main { width: auto; margin: 0; gap: 0; }
+      .page { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-toolbar">
+    <button onclick="window.print()">הדפסה / שמירה ל-PDF</button>
+  </div>
+
+  <main>
+    <section class="page">
+      <img class="school-corner" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="בית ספר גאולים">
+      <div class="dot-grid dg-a" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="content cover">
+        <img class="logo" src="brand/assets/logo/geuli-logo-and-slogan.png" alt="גאולי">
+        <h1>קהילת גאולי</h1>
+        <div class="subtitle">קהילת ההורים של בית ספר גאולים</div>
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="tagline">מקום. אנשים. משמעות.</div>
+        <div class="intro">
+          <p><strong>קהילת גאולי היא קהילת ההורים של בית ספר גאולים.</strong></p>
+          <p>אנחנו מאמינים שבית ספר הוא הרבה יותר ממקום שבו הילדים לומדים. הוא מרחב קהילתי חי, שבו ילדים, הורים ואנשי צוות גדלים יחד, מכירים זה את זה, לוקחים אחריות ומשפיעים על הסביבה שבה הם חיים.</p>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">גאולי</span><span>1</span></div>
+    </section>
+
+    <section class="page">
+      <div class="content">
+        <div class="header">
+          <div></div>
+          <div>
+            <p class="eyebrow">מעגלי עשייה פתוחים</p>
+            <h1>כל משפחה מוצאת את הדרך שלה</h1>
+            <div class="rule"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="section-card">
+          <p>במקום שקבוצה קטנה של הורים תישא בכל האחריות, בחרנו לפעול באמצעות מעגלי עשייה פתוחים. כל משפחה מוזמנת להצטרף למעגל שמדבר אליה, בהתאם ליכולות, לתחומי העניין ולזמן העומד לרשותה.</p>
+          <p>המעגלים מאפשרים לכל אחד ואחת לקחת חלק בדרך שמתאימה להם, ולהיות שותפים בבניית קהילה חזקה, מחוברת ומשמעותית עבור הילדים שלנו.</p>
+        </div>
+        <div class="three-cards">
+          <div class="mini-card">
+            <h3>מעגל המקום</h3>
+            <p>יוצרים יחד את המרחב שבו הילדים גדלים.</p>
+          </div>
+          <div class="mini-card">
+            <h3>מעגל האנשים</h3>
+            <p>מחזקים את הקשרים שהופכים קהילה לבית.</p>
+          </div>
+          <div class="mini-card">
+            <h3>מעגל המשמעות</h3>
+            <p>עושים טוב ומחנכים לאחריות חברתית.</p>
+          </div>
+        </div>
+        <div class="closing-note">
+          <p>שלושה מעגלים, הרבה דרכי השתתפות, מטרה אחת: קהילה שמיטיבה עם הילדים ועם המקום שבו הם גדלים.</p>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">מקום. אנשים. משמעות.</span><span>2</span></div>
+    </section>
+
+    <section class="page circle-page">
+      <div class="content">
+        <div class="header">
+          <div></div>
+          <div>
+            <p class="eyebrow">מעגל המקום</p>
+            <h1>יוצרים יחד את המרחב שבו הילדים גדלים</h1>
+            <div class="rule"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="section-card">
+          <p class="circle-lead">מעגל המקום עוסק בכל מה שקשור למרחב הפיזי של בית הספר.</p>
+          <div class="circle-grid">
+            <div class="circle-text">
+              <p>זהו המעגל של ההורים שאוהבים לראות שינוי בעיניים. אנשים שנהנים ליצור, לארגן, לשפר, לעצב ולחשוב איך אפשר להפוך את בית הספר למקום נעים, מזמין ומעורר השראה עבור הילדים והצוות.</p>
+              <p>מעגל המקום עוזר לילדים להבין שהמרחב שבו הם חיים אינו מובן מאליו, ושהם יכולים לקחת חלק בשמירה עליו ובפיתוחו.</p>
+            </div>
+            <div class="list-box">
+              <h3>המעגל עוסק ב:</h3>
+              <ul>
+                <li>שיפור וטיפוח הכיתות והמרחבים המשותפים.</li>
+                <li>עיצוב מסדרונות, פינות למידה ופינות קריאה.</li>
+                <li>שדרוג חצר בית הספר והצללות.</li>
+                <li>הקמת גינות קהילתיות וגינות לימודיות.</li>
+                <li>יצירת סביבה ירוקה ומטופחת.</li>
+                <li>פיתוח מרחבי משחק ושהייה לילדים.</li>
+                <li>שילוט ועיצוב המרחב הבית ספרי.</li>
+                <li>ארגון ימי עבודה קהילתיים.</li>
+                <li>סיורים והיכרות עם מקומות מעניינים בירושלים ובשכונה.</li>
+                <li>חשיפה לילדים לסיפורים, היסטוריה ואנשים שעיצבו את המקום שבו הם חיים.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">מקום</span><span>3</span></div>
+    </section>
+
+    <section class="page circle-page">
+      <div class="content">
+        <div class="header">
+          <div></div>
+          <div>
+            <p class="eyebrow">מעגל האנשים</p>
+            <h1>מחזקים את הקשרים שהופכים קהילה לבית</h1>
+            <div class="rule"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="section-card">
+          <p class="circle-lead">מעגל האנשים עוסק בקשרים האנושיים בתוך בית הספר.</p>
+          <div class="circle-grid">
+            <div class="circle-text">
+              <p>זהו המעגל של ההורים שאוהבים לחבר בין אנשים, לדאוג שאף אחד לא ירגיש לבד, וליצור תחושת שייכות אמיתית.</p>
+              <p>מעגל האנשים מזכיר לנו שבסופו של דבר בית ספר הוא קודם כל אנשים.</p>
+            </div>
+            <div class="list-box">
+              <h3>המעגל עוסק ב:</h3>
+              <ul>
+                <li>קבלת פנים למשפחות חדשות.</li>
+                <li>יצירת חיבורים בין משפחות בבית הספר.</li>
+                <li>ליווי והיכרות עם הצוות החינוכי.</li>
+                <li>הוקרת אנשי הצוות לאורך השנה.</li>
+                <li>ציון ימי הולדת ואירועים משמחים.</li>
+                <li>ארגון מפגשי קהילה.</li>
+                <li>ערבי הורים.</li>
+                <li>אירועי בית ספר.</li>
+                <li>מסיבות ופעילויות משותפות.</li>
+                <li>סיוע למשפחות בעת הצורך.</li>
+                <li>יצירת מערך תמיכה קהילתי.</li>
+                <li>שמירה על קשר עם משפחות שפחות משתתפות.</li>
+                <li>יצירת תחושת שייכות לכל ילד, הורה ואיש צוות.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">אנשים</span><span>4</span></div>
+    </section>
+
+    <section class="page circle-page">
+      <div class="content">
+        <div class="header">
+          <div></div>
+          <div>
+            <p class="eyebrow">מעגל המשמעות</p>
+            <h1>עושים טוב ומחנכים לאחריות חברתית</h1>
+            <div class="rule"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="section-card dark">
+          <p class="circle-lead">מעגל המשמעות עוסק בנתינה, התנדבות, אחריות חברתית וערבות הדדית.</p>
+          <div class="circle-grid">
+            <div class="circle-text">
+              <p>זהו המעגל של ההורים שרוצים לעזור לילדים להבין שהם יכולים להשפיע על העולם שסביבם.</p>
+              <p>מעגל המשמעות מאפשר לילדים לחוות בפועל מהי אחריות, מהי נתינה, ומהי היכולת של כל אחד ואחת מאיתנו להשפיע לטובה על הסביבה.</p>
+            </div>
+            <div class="list-box">
+              <h3>המעגל עוסק ב:</h3>
+              <ul>
+                <li>ימי התנדבות משפחתיים.</li>
+                <li>פרויקטים של נתינה בקהילה.</li>
+                <li>איסוף ציוד ותרומות למשפחות הזקוקות לכך.</li>
+                <li>שיתופי פעולה עם עמותות וארגונים חברתיים.</li>
+                <li>ביקורים במוסדות קהילתיים.</li>
+                <li>פעילויות עם אזרחים ותיקים.</li>
+                <li>יוזמות חברתיות בהובלת הורים וילדים.</li>
+                <li>פרויקטים של ערבות הדדית.</li>
+                <li>סדנאות בנושאי אחריות חברתית.</li>
+                <li>פעילויות סביב ערכים, קהילה ונתינה.</li>
+                <li>תיעוד סיפורי משפחה ומורשת.</li>
+                <li>מיזמים שמחברים בין למידה לעשייה חברתית.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">משמעות</span><span>5</span></div>
+    </section>
+
+    <section class="page">
+      <div class="content">
+        <div class="header">
+          <div></div>
+          <div>
+            <p class="eyebrow">איך מצטרפים?</p>
+            <h1>כל משפחה בוחרת את המעגל הקרוב לליבה</h1>
+            <div class="rule"></div>
+          </div>
+          <div></div>
+        </div>
+        <div class="section-card">
+          <p>אין צורך בניסיון קודם. אין צורך להתחייב לשעות רבות. כל תרומה חשובה, כל רעיון משמעותי, וכל הורה יכול למצוא את הדרך שלו להיות חלק.</p>
+          <div class="join-grid">
+            <ul>
+              <li>אין צורך בניסיון קודם.</li>
+              <li>אין צורך להתחייב לשעות רבות.</li>
+              <li>כל תרומה חשובה.</li>
+            </ul>
+            <ul>
+              <li>כל רעיון משמעותי.</li>
+              <li>כל משפחה מוזמנת לבחור.</li>
+              <li>כל הורה יכול למצוא את הדרך שלו להיות חלק.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="closing-note">
+          <p>קהילת גאולי נבנית מהאנשים שבה.</p>
+          <p>יחד ניצור מקום טוב יותר לילדים שלנו. יחד נחזק את הקשרים בינינו. ויחד נעניק משמעות לעשייה הקהילתית שלנו.</p>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">גאולי</span><span>6</span></div>
+    </section>
+
+    <section class="page end">
+      <div class="content">
+        <div>
+          <img src="brand/assets/logo/geuli-logo-and-slogan.png" alt="גאולי">
+          <h2>קהילה שנבנית ממעשים קטנים ומכוונה גדולה</h2>
+          <p>בכל מקום שבו אנחנו פועלים, אנחנו מבקשים להכיר, להתחבר, לקחת אחריות וליצור משמעות עבור הילדים שלנו ועבור הקהילה שסביבם.</p>
+          <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="tagline">מקום. אנשים. משמעות.</div>
+        </div>
+      </div>
+      <div class="cityline"></div>
+      <div class="footer"><span class="brand">קהילת ההורים של בית ספר גאולים</span><span>7</span></div>
+    </section>
+  </main>
+</body>
+</html>
