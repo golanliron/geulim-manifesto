@@ -200,26 +200,6 @@
         .tab-page.active { display: block; }
         .nav-links a.active, .mobile-menu a.active { color: var(--gold); }
 
-        .year-summary-tab {
-            background: var(--cream);
-            padding: 0;
-        }
-
-        .year-summary-shell {
-            width: 100%;
-            min-height: calc(100vh - 72px);
-            background: var(--cream);
-        }
-
-        .year-summary-shell iframe {
-            display: block;
-            width: 100%;
-            height: calc(100vh - 72px);
-            min-height: 760px;
-            border: 0;
-            background: var(--cream);
-        }
-
         .hero-divider {
             display: flex;
             gap: 8px;
@@ -3592,15 +3572,6 @@
 
 </div><!-- /page-why -->
 
-<!-- TAB: סיום שנתי -->
-<div class="tab-page" id="page-year-summary">
-    <section class="year-summary-tab" aria-label="סיום שנתי גאולים תשפ״ז">
-        <div class="year-summary-shell">
-            <iframe src="year-summary/index.html" title="סיום שנתי גאולים תשפ״ז"></iframe>
-        </div>
-    </section>
-</div><!-- /page-year-summary -->
-
 <!-- Footer -->
 <footer>
     <div class="footer-arch"></div>
@@ -3725,6 +3696,10 @@
     }
 
     // ===== TAB NAVIGATION =====
+    if (location.hash === '#year-summary') {
+        location.replace('year-summary/');
+    }
+
     function switchTab(tabName) {
         document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('[data-tab]').forEach(a => a.classList.remove('active'));
