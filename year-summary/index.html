@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>גאולים תשפ"ו | שנה של עומק, שפע וקהילה לומדת</title>
+  <meta name="description" content="סיכום שנתי לבית ספר גאולים תשפ&quot;ו: פדגוגיה של מנהיגות, קהילה, למידה רב-תחומית ועשייה חינוכית עשירה.">
+  <style>
+    :root {
+      --ink: #1F355E;
+      --ink-deep: #14243F;
+      --muted: #69707C;
+      --olive: #8A9746;
+      --gold: #D8C7A0;
+      --gold-light: #E8DEC8;
+      --cream: #F8F6F1;
+      --warm: #EEEAE2;
+      --white: #FFFFFF;
+      --paper: #F8F6F1;
+      --line: rgba(31, 53, 94, .13);
+      --shadow: 0 24px 70px rgba(31, 53, 94, .16);
+      --heading: "Frank Ruhl Libre", "Noto Serif Hebrew", Georgia, serif;
+      --body: "Heebo", Arial, "Noto Sans Hebrew", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(216, 199, 160, .34), transparent 280px),
+        linear-gradient(180deg, #ffffff 0%, var(--cream) 520px),
+        var(--paper);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a { color: inherit; }
+
+    .scroll-bar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      transform: translateY(-110%);
+      transition: transform .35s ease, box-shadow .35s ease;
+      background: rgba(255, 254, 250, .9);
+      border-bottom: 1px solid rgba(216, 199, 160, .55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(31, 53, 94, .08);
+    }
+
+    .scroll-bar.is-visible {
+      transform: translateY(0);
+    }
+
+    .scroll-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--ink);
+      font-weight: 900;
+      font-size: .92rem;
+    }
+
+    .scroll-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(31, 53, 94, .16);
+      border-radius: 999px;
+      text-decoration: none;
+      background: white;
+      color: var(--ink);
+      box-shadow: 0 8px 22px rgba(31, 53, 94, .08);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero-logo-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(150px, 34vw);
+      aspect-ratio: 1;
+      background: url("brand/geuli-arch-mark-transparent.png") center / contain no-repeat;
+      margin: 0 auto 22px;
+    }
+
+    .hero-logo-card img {
+      display: none;
+    }
+
+    .school-logo-card {
+      position: absolute;
+      top: 22px;
+      left: 26px;
+      z-index: 3;
+      width: min(118px, 24vw);
+      aspect-ratio: 1;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .school-logo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .axis-chips {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px auto 24px;
+    }
+
+    .axis-chips span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(31, 53, 94, .14);
+      background: rgba(255, 255, 255, .82);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: .82rem;
+      font-weight: 900;
+      box-shadow: 0 9px 22px rgba(31, 53, 94, .06);
+    }
+
+    .axis-chips span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .axis-chips span:nth-child(2)::before {
+      background: var(--olive);
+    }
+
+    .axis-chips span:nth-child(3)::before {
+      background: var(--ink);
+    }
+
+    .hero {
+      min-height: auto;
+      display: grid;
+      align-items: center;
+      padding: 58px 0 70px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(216,199,160,.20), transparent 260px),
+        radial-gradient(circle at 82% 16%, rgba(138,151,70,.11), transparent 250px),
+        linear-gradient(180deg, #FFFEFA 0%, #F8F6F1 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 86px;
+      background: url("brand/cityline.png") center bottom / auto 72px repeat-x;
+      opacity: .12;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      padding-bottom: 0;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--olive);
+      font-size: .95rem;
+      font-weight: 900;
+      margin: 0 0 10px;
+      letter-spacing: .02em;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 6vw, 4.45rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+      margin: 0 auto 18px;
+      color: var(--ink);
+      font-family: var(--heading);
+      font-weight: 900;
+      max-width: 960px;
+    }
+
+    .lead {
+      font-size: clamp(1.12rem, 1.7vw, 1.34rem);
+      max-width: 820px;
+      color: #2a3f69;
+      margin: 0 auto 0;
+      line-height: 1.95;
+    }
+
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .82);
+      font-weight: 900;
+      color: var(--ink);
+      border-radius: 999px;
+      box-shadow: 0 12px 35px rgba(31, 53, 94, .08);
+      margin-top: 22px;
+    }
+
+    .hero-photos {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 150px;
+      gap: 12px;
+      width: min(900px, calc(100% - 40px));
+      margin: -164px auto 34px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .opening-letter {
+      max-width: 860px;
+      margin: 34px auto 0;
+      text-align: right;
+      border-top: 1px solid rgba(216,199,160,.64);
+      border-bottom: 1px solid rgba(216,199,160,.64);
+      padding: 22px 0 18px;
+    }
+
+    .opening-letter p {
+      margin: 0 0 12px;
+      color: #2a3f69;
+      font-size: 1.08rem;
+      line-height: 1.9;
+    }
+
+    .opening-letter p:first-child {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .photo {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      background: var(--warm);
+      position: relative;
+      border: 1px solid rgba(216, 199, 160, .45);
+    }
+
+    .photo.tall {
+      grid-row: auto;
+    }
+
+    .photo figcaption,
+    .gallery figure figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 10px 14px 12px;
+      color: white;
+      font-weight: 700;
+      font-size: .92rem;
+      line-height: 1.35;
+      background: rgba(31, 53, 94, .92);
+    }
+
+    .section {
+      padding: 76px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.alt {
+      background: linear-gradient(180deg, #ffffff 0%, #F8F6F1 100%);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-family: var(--heading);
+      font-weight: 900;
+    }
+
+    .section-kicker {
+      color: var(--olive);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .section-text {
+      font-size: 1.08rem;
+      color: #293d66;
+    }
+
+    .section-text p {
+      margin-bottom: 16px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .principle {
+      min-height: 132px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.82);
+      border-radius: 8px;
+      box-shadow: 0 14px 34px rgba(31, 53, 94, .06);
+    }
+
+    .principle strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 7px;
+      font-size: 1.05rem;
+    }
+
+    .principle span {
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.55;
+    }
+
+    .positioning {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 34px;
+      max-width: 880px;
+      margin-inline: auto;
+    }
+
+    .positioning-main,
+    .positioning-side {
+      border: 1px solid rgba(216, 199, 160, .55);
+      border-radius: 8px;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 18px 44px rgba(31, 53, 94, .08);
+      padding: 24px;
+    }
+
+    .positioning-main h3,
+    .positioning-side h3 {
+      font-family: var(--heading);
+      color: var(--ink);
+      font-size: 1.5rem;
+      line-height: 1.18;
+      margin: 0 0 12px;
+    }
+
+    .positioning-main p,
+    .positioning-side p {
+      margin: 0 0 12px;
+      color: #2a3f69;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .evidence-item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.55;
+    }
+
+    .evidence-item strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .map-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .84);
+      border-radius: 8px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 14px 34px rgba(31, 53, 94, .06);
+    }
+
+    .map-card h3 {
+      color: var(--ink);
+      font-size: 1.08rem;
+      margin: 0 0 8px;
+      font-family: var(--heading);
+      font-weight: 900;
+    }
+
+    .map-card p {
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.62;
+      margin: 0;
+    }
+
+    .text-columns {
+      columns: 2;
+      column-gap: 34px;
+    }
+
+    .text-columns p {
+      break-inside: avoid;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 240px;
+      gap: 20px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: var(--warm);
+      min-height: 0;
+      border: 1px solid rgba(216, 199, 160, .42);
+      box-shadow: 0 18px 48px rgba(31, 53, 94, .11);
+    }
+
+    .gallery figure img {
+      object-fit: cover;
+      background: transparent;
+    }
+
+    .gallery figure.wide {
+      grid-column: auto;
+    }
+
+    .gallery figure.tall {
+      grid-row: auto;
+    }
+
+    .gallery:has(> figure:nth-child(4):last-child) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quote-band {
+      padding: 54px 0 62px;
+      background: #FFFEFA;
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote-band::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 120px;
+      background: url("brand/cityline.png") center bottom / auto 95px repeat-x;
+      opacity: .12;
+    }
+
+    .quote {
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      line-height: 1.45;
+      max-width: 780px;
+      margin: 0;
+      font-weight: 700;
+      font-family: var(--heading);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .quote-title {
+      position: relative;
+      z-index: 1;
+      font-family: var(--heading);
+      color: var(--gold-light);
+      font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+      line-height: 1.2;
+      text-align: center;
+      margin: 0 0 18px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .quote small {
+      display: block;
+      font-size: .95rem;
+      line-height: 1.7;
+      color: #5f6a79;
+      margin: 14px auto 0;
+      font-weight: 600;
+      max-width: 700px;
+    }
+
+    .closing {
+      padding: 86px 0 96px;
+      background:
+        linear-gradient(135deg, rgba(216, 199, 160, .34), transparent 42%),
+        linear-gradient(225deg, rgba(138, 151, 70, .15), transparent 45%),
+        var(--paper);
+      text-align: center;
+    }
+
+    .cta {
+      margin: 42px auto 0;
+      width: min(760px, 100%);
+      border-radius: 8px;
+      background: rgba(255,255,255,.88);
+      color: var(--ink);
+      padding: 26px 28px 30px;
+      border: 1px solid rgba(216, 199, 160, .62);
+      box-shadow: 0 18px 44px rgba(31, 53, 94, .10);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 58px;
+      background: url("brand/cityline.png") center bottom / auto 54px repeat-x;
+      opacity: .10;
+      pointer-events: none;
+    }
+
+    .cta h3 {
+      font-family: var(--heading);
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      line-height: 1.18;
+      color: var(--ink);
+      margin: 0 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta p {
+      color: #2a3f69;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta strong {
+      color: var(--olive);
+      font-weight: 900;
+    }
+
+    .closing h2 {
+      margin-inline: auto;
+      max-width: 880px;
+    }
+
+    .section,
+    .quote-band,
+    .closing {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .section.is-visible,
+    .quote-band.is-visible,
+    .closing.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery figure {
+      transition: transform .45s ease, box-shadow .45s ease;
+    }
+
+    .gallery figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(31, 53, 94, .16);
+    }
+
+    .closing p {
+      margin-inline: auto;
+      max-width: 760px;
+      font-size: 1.18rem;
+      color: #2a3f69;
+    }
+
+    .final-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .final-gallery img {
+      height: 160px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(23, 33, 28, .12);
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding: 34px 0 42px;
+      }
+
+      .hero-grid,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photos {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 170px;
+      }
+
+      .principles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .positioning {
+        grid-template-columns: 1fr;
+      }
+
+      .map-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .text-columns {
+        columns: 1;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 210px;
+      }
+
+      .final-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .scroll-inner {
+        width: min(100% - 16px, 1120px);
+        min-height: 38px;
+        gap: 8px;
+        font-size: .66rem;
+      }
+
+      .scroll-inner span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .scroll-top {
+        min-height: 28px;
+        padding: 0 10px;
+        font-size: .66rem;
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        padding: 24px 0 34px;
+      }
+
+      .hero-logo-card {
+        width: 92px;
+        margin-bottom: 12px;
+      }
+
+      .school-logo-card {
+        top: 12px;
+        left: 12px;
+        width: 64px;
+      }
+
+      .eyebrow {
+        font-size: .68rem;
+        margin-bottom: 7px;
+      }
+
+      h1 {
+        font-size: clamp(1.92rem, 9.6vw, 2.85rem);
+        line-height: 1.12;
+        margin-bottom: 10px;
+      }
+
+      .axis-chips {
+        gap: 6px;
+        margin: 10px auto 16px;
+      }
+
+      .axis-chips span {
+        gap: 5px;
+        padding: 4px 9px;
+        font-size: .68rem;
+      }
+
+      .axis-chips span::before {
+        width: 6px;
+        height: 6px;
+      }
+
+      .lead {
+        font-size: .96rem;
+        line-height: 1.75;
+      }
+
+      .opening-letter {
+        margin-top: 18px;
+        padding: 15px 0 12px;
+      }
+
+      .opening-letter p {
+        font-size: .94rem;
+        line-height: 1.72;
+      }
+
+      .hero-note {
+        margin-top: 14px;
+        padding: 7px 11px;
+        font-size: .76rem;
+      }
+
+      .hero-photos {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 190px);
+      }
+
+      .photo.tall {
+        grid-row: auto;
+      }
+
+      .principles,
+      .map-grid,
+      .final-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 178px;
+        gap: 12px;
+      }
+
+      .gallery figure.wide,
+      .gallery figure.tall {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .gallery figure figcaption {
+        min-height: 52px;
+        padding: 8px 9px;
+        font-size: clamp(.72rem, 3vw, .84rem);
+        line-height: 1.28;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .final-gallery img {
+        height: 210px;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="scroll-bar" aria-label="ניווט מהיר">
+    <div class="scroll-inner">
+      <span>בית ספר גאולים · שנה של שייכות</span>
+      <a class="scroll-top" href="#top">חזרה למעלה</a>
+    </div>
+  </nav>
+  <header class="hero" id="top">
+    <div class="school-logo-card">
+      <img src="assets/geulim-school-logo-transparent.png" alt="בית ספר גאולים">
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="hero-logo-card">
+          <img src="brand/geuli-lockup.svg" alt="גאולי">
+        </div>
+        <p class="eyebrow">סיכום שנתי · בית ספר גאולים · תשפ"ו</p>
+        <h1>שנה של שייכות, עומק ומצוינות</h1>
+        <div class="axis-chips" aria-label="צירי גאולי">
+          <span>מקום</span>
+          <span>אנשים</span>
+          <span>משמעות</span>
+        </div>
+        <div class="opening-letter">
+          <p>הורים יקרים, צוות חינוכי, שותפים וקהילת גאולים,</p>
+          <p>שנת תשפ"ו הייתה שנה עשירה, עמוקה ורבת פנים. לאורך השנה ניכרה תפיסה חינוכית שלמה: לראות כל ילד וילדה, לבנות תחושת שייכות, לטפח מצוינות רחבה, ולחבר בין למידה, ערכים, קהילה ומעשה.</p>
+          <p>הסיכום מציג את הסיפור הפדגוגי של גאולים: איך רעיונות הופכים לשגרות, איך ערכים מקבלים ידיים ורגליים, ואיך קהילה שלמה משתתפת בבניית מרחב חינוכי חי, מגוון ומשמעותי.</p>
+        </div>
+        <div class="hero-note">מבט שנתי על פדגוגיה, חברה, מנהיגות ושייכות</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">מערכים לשגרה</p>
+            <h2>קיימות, יזמות ומוגנות שמורגשות ביום־יום.</h2>
+          </div>
+          <div class="section-text">
+            <p>אחד הדברים היפים שעולים מהשנה הוא המעבר מרעיון למעשה קטן ומדויק. מנהיגות ירוקה הפכה לשלטים, פחים, גינה, כיתת חוץ, שתילה, יוזמות תלמידים ושאלה מתמשכת: איך אנחנו משפרים את המרחב שבו כולנו חיים?</p>
+            <p>במקביל, השפה החברתית-רגשית קיבלה מקום ממשי: מובילי שח"ר, סקר אקלים, מעגלי שיח, דחייה חברתית וחרם, מוגנות ברשת, “האתגר החברתי”, עין טובה ומילים טובות. כך נבנית תשתית רגשית וחברתית שמאפשרת למידה, ביטחון ושייכות.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="assets/IMG-20260213-WA0016.jpg" alt="יוזמה ירוקה במסדרון">
+            <figcaption>מנהיגות ירוקה מתחילה בפרטים הקטנים</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260213-WA0019.jpg" alt="תלמידים מציגים יוזמה סביבתית">
+            <figcaption>תלמידים מציעים פתרונות למרחב שלהם</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260611-WA0012.jpg" alt="ילדים מחזיקים לבבות במסגרת האתגר החברתי">
+            <figcaption>האתגר החברתי: לראות את האחר ולומר מילה טובה</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260520-WA0006.jpg" alt="למידה בחברותא בנושא שבועות">
+            <figcaption>למידה בחברותא: חסד, גרים ונתינה</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260520-WA0007.jpg" alt="תלמידים לומדים יחד סביב שולחנות">
+            <figcaption>שכבות לומדות יחד ומתרגלות אחריות הדדית</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260520-WA0008.jpg" alt="תוצרי מילה טובה של תלמידים">
+            <figcaption>מילה טובה כהרגל חברתי</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">מנהיגות כשפת חיים</p>
+            <h2>מנהיגות כשפה שמארגנת את השנה.</h2>
+          </div>
+          <div class="section-text">
+            <p>השנה נבנתה סביב רעיון מנהיגות רחב: מנהיגות של התגברות, דיבור, חלום, דמוקרטיה, חמלה, אחריות סביבתית, אחריות חברתית ויכולת לראות את האחר. כמעט בכל שבוע הופיעה דמות אחרת או סיפור אחר: יצחק רבין ורחל אמנו, הרב יונתן זקס, מנחם בגין, אליעזר בן יהודה, הרמב"ם, דונה גרציה, עדי לוסטיג, עדי אלטשולר, ארי שפיץ ור' אריה לוין.</p>
+            <p>הדמויות הפכו לשיחה על תרבות שיח, ויתור, חלום, אחריות, אומץ, קדושה, תיקון ומעשה. מכאן נולדו בחירות למנהיגות תלמידים, מפגשי פותחים וסוגרים שבוע, מעגלי שיח, מיזם מנהיגות נשית ותוצרים שבהם התלמידים חקרו, הציגו ונתנו פרשנות משלהם.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="wide">
+            <img src="assets/IMG-20251017-WA0034.jpg" alt="כיתה עם תוצרים סביב דמויות השראה">
+            <figcaption>גבורה, זיכרון והשראה דרך עבודת כיתה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20251128-WA0012.jpg" alt="עמדות הצבעה בבחירות תלמידים">
+            <figcaption>דמוקרטיה כתרגול חי</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260415-WA0017.jpg" alt="מיצג מנהיגות נשית בבית הספר">
+            <figcaption>מיצג מנהיגות נשית בלמידה רב גילאית</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20251017-WA0016.jpg" alt="תלמידים מציגים דמות השראה">
+            <figcaption>חוזקות והשראה דרך הצגה בפני קהל</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">למידה רב-תחומית</p>
+            <h2>כשמדעים, שפה, טכנולוגיה וערכים נפגשים.</h2>
+          </div>
+          <div class="section-text">
+            <p>הייחוד של גאולים מתגלה ביכולת לחבר תחומי דעת סביב שאלה פדגוגית אחת. חודש המנהיגות הירוקה, שבוע החלל, 100 ימי למידה, קריאה סביב מנהיגות, בינה מלאכותית, יוניקורן, רובוטיקה ויריד חקר מחוזי הפכו את הלמידה למרחב חי ורב-כיווני.</p>
+            <p>הילדים פגשו טכנולוגיה ככלי לחשיבה, יצירה ופתרון בעיות: בניית אתרים במציאות מדומה, תכנון ובניית רובוטים, שימוש מבוקר בכלי AI, חקר מדעי, תוצרים חזותיים, אנגלית, קריאה ופרזנטציה. זהו חינוך שמכין ילדים לעולם משתנה מתוך ערכים, אחריות וקשר אנושי.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="tall">
+            <img src="assets/IMG-20260209-WA0044.jpg" alt="תלמידים עובדים במחשבים">
+            <figcaption>יוניקורן: מציאות מדומה, אתרים וחשיבה דיגיטלית</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260203-WA0012.jpg" alt="תוצרים בעקבות קריאה">
+            <figcaption>מנהיגות בין הדפים</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260130-WA0004.jpg" alt="כיתה מעוצבת לחגיגת 100 ימים">
+            <figcaption>100 ימי למידה</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260609-WA0028.jpg" alt="תחרות רובוטיקה בבית הספר">
+            <figcaption>רובוטיקה: קוד, בנייה, התמדה ועבודת צוות</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">מצוינות רחבה</p>
+            <h2>הישגים שמספרים על תרבות של מצוינות.</h2>
+          </div>
+          <div class="section-text">
+            <p>המצוינות בגאולים מופיעה בהרבה שפות: רובוטיקה, יוניקורן, יריד חקר מחוזי, צ'מפיונז באנגלית, תחרות כרזות בטיחות, נואמים צעירים, יוזמות סביבתיות ותלמידים שמייצגים את בית הספר בכנסים ובמרחבים עירוניים וארציים.</p>
+            <p>מאחורי כל הישג נמצאת דרך: התמדה, עבודת צוות, יכולת להסביר רעיון, תכנון, עמידה מול קהל, קבלת אחריות ותחושת מסוגלות. זו מצוינות שמחברת בין ידע לערכים.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="wide">
+            <img src="assets/IMG-20260609-WA0038.jpg" alt="נבחרת רובוטיקה בתחרות">
+            <figcaption>רובוטיקה: מקום, גאווה, קוד ועבודת צוות</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260605-WA0004.jpg" alt="תוצרי תכנית יוניקורן">
+            <figcaption>יוניקורן: יצירה, תכנות ובינה מלאכותית</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260512-WA0002.jpg" alt="תלמידים בפעילות בעקבות זכייה בתחרות כרזות">
+            <figcaption>זכייה ארצית שמובילה ללמידה מחוץ לבית הספר</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260527-WA0013.jpg" alt="תלמידי צ'מפיונז בכנס אנגלית">
+            <figcaption>צ'מפיונז: חיזוק אנגלית וביטחון</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <div class="wrap">
+        <h2 class="quote-title">לכל אחד יש מקום</h2>
+        <p class="quote">בגאולים נבנים הרבה שערים ללמידה ולשייכות: יש מי שמוצאים את עצמם על במה, יש מי שבחקר ובטכנולוגיה, יש מי שבספורט ובתנועה, ויש מי שבקהילה, טבע, יצירה או מסורת.
+          <small>העושר הבית־ספרי מאפשר לילדים שונים להרגיש נראים, מסוגלים ומשמעותיים - כל אחד ואחת דרך השער שמתאים להם.</small>
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">שערים של חוזקה</p>
+            <h2>מרחב שבו ילדים שונים יכולים להצליח בדרכים שונות.</h2>
+          </div>
+          <div class="section-text">
+            <p>הייחוד של גאולים אינו רק בריבוי הפעילויות, אלא במחשבה שמאחוריהן: ילדים שונים זקוקים לשערים שונים כדי לגלות מסוגלות. יש מי שפורחים בלמידה עיונית, יש מי שמוצאים קול על במה, יש מי שנדלקים מרובוטיקה וטכנולוגיה, ויש מי שמגלים ביטחון דרך תנועה, בעלי חיים, יצירה, יוזמה או מפגש קהילתי.</p>
+            <p>כך נבנית מצוינות רחבה: לא תבנית אחת של הצלחה, אלא מערכת שמזהה חוזקות שונות, נותנת להן שפה, ומאפשרת לכל תלמיד ותלמידה לחוות מקום שבו הם נראים, נחוצים וחזקים.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="assets/IMG-20260618-WA0016.jpg" alt="ילד מתרגל אילוף כלבים">
+            <figcaption>אילוף כלבים: ביטחון, קשר ואחריות</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260511-WA0022.jpg" alt="תלמידים מציגים תוצר סביב שערים">
+            <figcaption>יצירה ותוצר: חוזקה בידיים ובדמיון</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260130-WA0005.jpg" alt="תלמידים באירוע נואמים צעירים">
+            <figcaption>במה ודיבור: למצוא קול מול קהל</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20251205-WA0012.jpg" alt="תלמידים בריצת שדה">
+            <figcaption>תנועה וספורט: חוזקה דרך הגוף</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">רב־תרבותיות, זהות ושייכות</p>
+            <h2>ללמוד את השנה הישראלית בעומק וברגישות.</h2>
+          </div>
+          <div class="section-text">
+            <p>גאולים מציג בית ספר שמבין שילדים חיים בתוך מציאות ישראלית מורכבת, ולכן מעבד אותה איתם בעדינות, עומק ותקווה. החזרה סביב בשורת החטופים, אירועי שבעה באוקטובר, יום הזיכרון, יום העצמאות, אמץ נופל וגבעת התחמושת הפכו לשיחה על גבורה, מחיר, אחריות, שייכות ויכולת להחזיק יחד שמחה וכאב.</p>
+            <p>לצד זה, השנה נפתחה גם לשכבות זהות רבות: חגי תשרי, סיגד, פרשות השבוע, יום ירושלים, שבועות, לדינו, למידה בחברותא וסיפורים של דמויות יהודיות וישראליות מקהילות שונות. רב־תרבותיות כאן אינה “יום שיא” בלבד, אלא דרך לומר לילדים: הסיפור המשפחתי והקהילתי שלכם הוא חלק מהסיפור הבית־ספרי.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="wide">
+            <img src="assets/IMG-20251121-WA0007.jpg" alt="תחנות חג הסיגד בבית הספר">
+            <figcaption>סיגד: זהות קהילתית, למידה ותחנות חוויה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260420-WA0005.jpg" alt="סיור בגבעת התחמושת">
+            <figcaption>גבעת התחמושת: סיפור ממקור ראשון</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260420-WA0015.jpg" alt="מפגש אמץ נופל בבית הספר">
+            <figcaption>אמץ נופל: זיכרון שמצמיח קשר</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260514-WA0021.jpg" alt="טקס יום ירושלים">
+            <figcaption>יום ירושלים כמרחב קהילתי</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">במה לתלמידים</p>
+            <h2>קול, בחירה ואחריות.</h2>
+          </div>
+          <div class="section-text">
+            <p>אירועי הנואמים הצעירים, הבחירות למנהיגות תלמידים, ירידי החקר, תכנית צ'מפיונז, כנס מובילי חברתי, רובוטיקה, יוניקורן, כיתה יזמית ויוזמות ירוקות מייצרים רצף ברור: תלמידים אינם רק קהל של בית הספר; הם שחקנים פעילים בתוכו.</p>
+            <p>הם לומדים לנסח רעיון, להציג אותו, להגן עליו, לעבוד בצוות, לקבל משוב, לעמוד מול קהל ולהוביל שינוי קטן במרחב שלהם. זו פדגוגיה שמאמינה שילדים גדלים כאשר נותנים להם תפקיד ממשי, לא רק השתתפות פסיבית.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="assets/IMG-20260130-WA0018.jpg" alt="תלמידים מציגים במסגרת הנואמים הצעירים">
+            <figcaption>נואמים צעירים</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260430-WA0009.jpg" alt="תלמידות מציגות ביריד חקר מחוזי">
+            <figcaption>יריד חקר מחוזי: סקרנות שהופכת להצגה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260520-WA0012.jpg" alt="יוזמה תלמידית במסדרון בית הספר">
+            <figcaption>כיתה יזמית שמשפרת את המרחב</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260130-WA0019.jpg" alt="שיחה אישית בצומת הערכה">
+            <figcaption>צומת הערכה: קול אישי, יעד ומשוב</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">קהילה והורים</p>
+            <h2>בית ספר שמחזיקים יחד.</h2>
+          </div>
+          <div class="section-text">
+            <p>העשייה בגאולים נשענת על קהילה שנכנסת פנימה ויוצאת החוצה: הנהגת הורים פעילה, ועדי כיתות, הרצאות להורים, צומת הערכה פתוחה, שיתופי פעולה עם מינהלים קהילתיים, ספריות, מוזיאונים, מרכזים עירוניים, הורים מומחים וסבים וסבתות שמגיעים לקחת חלק.</p>
+            <p>הקשר עם ההורים הוא חלק מהתרבות החינוכית: שקיפות, מעורבות, תקשורת מכבדת ואחריות משותפת. כשהורים מובילים חגיגה, מפנקים את הצוות, משתתפים בטקסים, מנגישים תרבות, או עוזרים להפוך רעיון לאירוע - הילדים רואים קהילה בפעולה.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="assets/IMG-20251121-WA0013.jpg" alt="תחנות קהילתיות בחג הסיגד">
+            <figcaption>הורים וקהילה מביאים תרבות חיה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260518-WA0009.jpg" alt="פינוק לצוות החינוכי">
+            <figcaption>תודה לצוות: קהילה שמחזירה אהבה</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/IMG-20260519-WA0012.jpg" alt="טקס שבועות וארוחה קהילתית">
+            <figcaption>שבועות: טקס, משפחות וארוחת בוקר בית ספרית</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260611-WA0018.jpg" alt="קבוצת תלמידים מחזיקה תוצרים אישיים">
+            <figcaption>אתגר חברתי: עין טובה ומילה טובה</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">סיורים וביקורים</p>
+            <h2>למידה שיוצאת אל העיר, הטבע והזיכרון.</h2>
+          </div>
+          <div class="section-text">
+            <p>השנה נעה הרבה מעבר לקירות הכיתה: כנסת ישראל ומוזיאון הכנסת, מרכז בגין, מוזיאון המדע ומוזיאון ישראל, גבעת התחמושת, בית גוברין, גן החיות, האקווריום, זכרון יעקב, עין יעל, מכון איילון וסיורי מעבר לחטיבות.</p>
+            <p>בכל יציאה כזו הילדים פגשו ידע במקום שבו הוא מתרחש: אזרחות דרך סמלי ממשל, היסטוריה דרך אתרי זיכרון, טבע דרך בעלי חיים ונוף, ומנהיגות דרך מסע, אחריות, הקשבה וסקרנות.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="assets/IMG-20260510-WA0074.jpg" alt="תלמידים מסיירים במערות בית גוברין">
+            <figcaption>בית גוברין: היסטוריה שנכנסים אליה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260510-WA0075.jpg" alt="תלמידים בתצפית בבית גוברין">
+            <figcaption>ארץ אלף המערות: נוף, חקר ומסע</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260420-WA0008.jpg" alt="תלמידים בגבעת התחמושת">
+            <figcaption>גבעת התחמושת: זיכרון שמקבל מקום</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260420-WA0006.jpg" alt="תלמידים בגבעת התחמושת לצד כלי רכב היסטורי">
+            <figcaption>לומדים היסטוריה במקום שבו התרחשה</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260531-WA0020.jpg" alt="תלמידי שכבה א בגן החיות">
+            <figcaption>גן החיות: טבע, התבוננות וסקרנות</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/IMG-20260531-WA0021.jpg" alt="תלמידים בגן החיות התנכי">
+            <figcaption>יציאה שמחברת למידה, חוויה ועולם חי</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <h2>גאולים תשפ"ו: בית ספר שמחזיק יחד עומק, ריבוי ושייכות.</h2>
+        <p>בסוף השנה מתגלה דרך חינוכית שלמה. יש בה רעיון שבועי, שפה ערכית, התנסות, תוצר, במה, קהילה, גוף, טכנולוגיה, טבע וזיכרון. כל פעילות מחוברת למשהו גדול ממנה, וכל ילד וילדה מוזמנים למצוא בה שער כניסה משלהם.</p>
+        <div class="final-gallery" aria-label="רגעים נוספים מתוך השנה">
+          <img src="assets/IMG-20251121-WA0006.jpg" alt="חג הסיגד בבית הספר">
+          <img src="assets/IMG-20260427-WA0027.jpg" alt="טיול שנתי בטבע">
+          <img src="assets/IMG-20260513-WA0007.jpg" alt="למידה בכיתת החוץ">
+          <img src="assets/IMG-20260531-WA0014.jpg" alt="פעילות חווייתית בבית הספר">
+          <img src="assets/IMG-20260611-WA0016.jpg" alt="האתגר החברתי">
+          <img src="assets/IMG-20260616-WA0003.jpg" alt="מסיבת קיץ">
+        </div>
+        <div class="cta">
+          <h3>מקומות אחרונים להרשמה לכיתה א׳</h3>
+          <p><strong>בית ספר גאולים מזמין אתכם להצטרף.</strong> למשפחות שמחפשות שייכות, חיזוק אישי ומרחב שבו הילד או הילדה יוכלו לגלות מה הם אוהבים, במה הם טובים ואיפה הם יכולים לפרוח.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    סיכום שנתי גאולים תשפ"ו
+  </footer>
+  <script>
+    const scrollBar = document.querySelector('.scroll-bar');
+    const revealItems = document.querySelectorAll('.section, .quote-band, .closing');
+
+    const onScroll = () => {
+      scrollBar.classList.toggle('is-visible', window.scrollY > 360);
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+</body>
+</html>
