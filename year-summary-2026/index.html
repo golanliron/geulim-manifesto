@@ -114,14 +114,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: min(150px, 34vw);
+      width: min(210px, 46vw);
       aspect-ratio: 1;
-      background: url("brand/geuli-arch-mark-transparent.png?v=20260621-photos") center / contain no-repeat;
-      margin: 0 auto 22px;
+      background: transparent;
+      margin: 0 auto 18px;
     }
 
     .hero-logo-card img {
-      display: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
     }
 
     .school-logo-card {
@@ -768,7 +772,7 @@
       }
 
       .hero-logo-card {
-        width: 92px;
+        width: 126px;
         margin-bottom: 12px;
       }
 
@@ -897,13 +901,10 @@
     </div>
   </nav>
   <header class="hero" id="top">
-    <div class="school-logo-card">
-      <img src="assets/geulim-school-logo-transparent.png?v=20260621-photos" alt="בית ספר גאולים">
-    </div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <div class="hero-logo-card">
-          <img src="brand/geuli-lockup.svg?v=20260621-photos" alt="גאולי">
+          <img src="assets/geulim-school-logo-transparent.png?v=20260621-school-logo" alt="בית ספר גאולים">
         </div>
         <p class="eyebrow">סיכום שנתי · בית ספר גאולים · תשפ"ו</p>
         <h1>שנה של שייכות, עומק ומצוינות</h1>
