@@ -1964,14 +1964,23 @@
             gap: 10px;
             text-decoration: none;
         }
+        .nav-logo-wrap {
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.92);
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
         .nav-logo {
             display: block;
-            width: 80px;
-            height: 80px;
+            width: 58px;
+            height: 58px;
             object-fit: contain;
-            flex-shrink: 0;
-            mix-blend-mode: screen;
-            filter: brightness(1.2) saturate(1.3);
         }
         .nav-brand-text {
             display: flex;
@@ -2380,7 +2389,9 @@
 <nav>
     <div class="nav-top">
         <a href="#" class="nav-brand" onclick="event.preventDefault();switchTab('vision')">
-            <img class="nav-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+            <span class="nav-logo-wrap">
+                <img class="nav-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+            </span>
             <span class="nav-brand-text">
                 <span class="nav-brand-name">גְּאוּלִי</span>
                 <span class="nav-brand-tagline">מקום · אנשים · משמעות</span>
