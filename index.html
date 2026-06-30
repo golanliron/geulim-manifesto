@@ -1966,11 +1966,13 @@
         }
         .nav-logo {
             display: block;
-            width: 54px;
-            height: 54px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
-            filter: brightness(1.35) drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+            filter: brightness(1.6) contrast(1.2) drop-shadow(0 0 6px rgba(255,255,255,0.4));
             flex-shrink: 0;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
         .nav-brand-text {
             display: flex;
