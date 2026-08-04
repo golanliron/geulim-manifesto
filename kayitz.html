@@ -308,21 +308,17 @@
       valuesJson: JSON.stringify([row])
     });
 
-    try {
-      await fetch(HOOK_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: params
-      });
-      document.getElementById("headerWrap").style.display = "none";
-      document.getElementById("formWrap").style.display = "none";
-      document.getElementById("thanks").style.display = "block";
-      window.scrollTo(0, 0);
-    } catch (err) {
-      errBox.style.display = "block";
-      btn.disabled = false;
-      btn.textContent = "נרשמים!";
-    }
+    fetch(HOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      body: params
+    }).catch(() => {});
+
+    document.getElementById("headerWrap").style.display = "none";
+    document.getElementById("formWrap").style.display = "none";
+    document.getElementById("thanks").style.display = "block";
+    window.scrollTo(0, 0);
   });
 </script>
 </body>
