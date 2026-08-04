@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's Meet at Geulim School — Mid-Summer Gathering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Heebo:wght@400;500;700;900&family=Noto+Sans+Ethiopic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2b3a67;
+    --teal: #2ab3c0;
+    --green: #9acd4c;
+    --purple: #a58fd8;
+    --yellow: #f5d547;
+    --pink: #f26d7d;
+    --cream: #fdfaf1;
+    --ink: #2b3a67;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Heebo', 'Noto Sans Ethiopic', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .ti { font-family: 'Noto Sans Ethiopic', sans-serif; }
+  .watercolor-frame {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 45% at -5% -5%,   rgba(27,94,160,.85),  transparent 70%),
+      radial-gradient(ellipse 45% 38% at 22% -8%,   rgba(42,179,192,.8),  transparent 70%),
+      radial-gradient(ellipse 50% 40% at 55% -12%,  rgba(245,213,71,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% -5%,  rgba(154,205,76,.85), transparent 70%),
+      radial-gradient(ellipse 45% 42% at -10% 40%,  rgba(154,205,76,.8),  transparent 70%),
+      radial-gradient(ellipse 42% 38% at -8% 75%,   rgba(245,213,71,.75), transparent 70%),
+      radial-gradient(ellipse 45% 42% at 110% 40%,  rgba(165,143,216,.85),transparent 70%),
+      radial-gradient(ellipse 42% 38% at 108% 72%,  rgba(42,179,192,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at -5% 108%,  rgba(245,213,71,.8),  transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 114%,  rgba(42,179,192,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% 108%, rgba(165,143,216,.85),transparent 70%),
+      radial-gradient(ellipse 32% 28% at 0% 18%,    rgba(27,58,120,.6),   transparent 70%),
+      radial-gradient(ellipse 32% 28% at 100% 85%,  rgba(27,58,120,.5),   transparent 70%);
+    filter: blur(5px);
+  }
+  .bubble {
+    position: fixed; z-index: 0; pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.9), rgba(255,255,255,.15) 40%, rgba(165,143,216,.18) 70%, rgba(42,179,192,.28));
+    border: 1.5px solid rgba(255,255,255,.6);
+    box-shadow: inset -4px -4px 10px rgba(42,179,192,.25), 0 2px 8px rgba(43,58,103,.08);
+    animation: floatUp linear infinite;
+    opacity: .8;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(105vh) translateX(0) scale(1); }
+    50%  { transform: translateY(50vh) translateX(14px) scale(1.05); }
+    100% { transform: translateY(-12vh) translateX(-10px) scale(.95); }
+  }
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 16px 14px 24px;
+    text-align: center;
+  }
+  .card {
+    background: rgba(253,250,241,.94);
+    border-radius: 28px;
+    padding: 22px 24px 26px;
+    box-shadow: 0 10px 40px rgba(43,58,103,.15);
+    position: relative;
+  }
+  .school-logo {
+    display: block;
+    width: 120px;
+    margin: 0 auto 6px;
+  }
+  h1 {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    font-size: clamp(2.7rem, 9vw, 4rem);
+    line-height: 1;
+    color: var(--navy);
+  }
+  h1 .accent { color: var(--teal); }
+  .h1-ti {
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    color: var(--teal);
+    margin-top: 4px;
+  }
+  .brush-divider {
+    height: 10px; width: 60%; margin: 10px auto;
+    background: var(--purple); opacity: .55;
+    border-radius: 12px 40px 14px 44px / 20px 8px 26px 10px;
+    transform: rotate(-1.2deg);
+  }
+  .subtitle {
+    font-size: 1.15rem; font-weight: 500; line-height: 1.55;
+  }
+  .subtitle strong { font-weight: 900; }
+  .subtitle .blue { color: var(--teal); font-weight: 700; }
+  .subtitle .ti { display: block; font-size: 1.02rem; margin-top: 3px; color: #4a5a8a; }
+  .activity {
+    margin: 12px auto 10px;
+    padding: 12px 22px;
+    display: inline-block;
+    background:
+      radial-gradient(ellipse 80% 90% at 30% 30%, rgba(165,143,216,.24), transparent 70%),
+      radial-gradient(ellipse 80% 90% at 75% 70%, rgba(242,109,125,.18), transparent 70%),
+      radial-gradient(ellipse 90% 90% at 50% 50%, rgba(245,213,71,.2),  transparent 75%);
+    border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+  }
+  .activity .txt {
+    font-weight: 900; font-size: 1.25rem; line-height: 1.4;
+    background: linear-gradient(90deg, var(--teal), var(--purple));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--purple);
+  }
+  .activity .ti-txt {
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+    font-weight: 700; font-size: 1.02rem; margin-top: 4px; color: var(--purple);
+  }
+  .details {
+    display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;
+    margin: 10px 0 4px;
+  }
+  .detail { display: flex; align-items: center; gap: 8px; }
+  .detail .icon { font-size: 1.5rem; }
+  .detail .label { font-size: 1.05rem; text-align: left; line-height: 1.35; }
+  .detail .strong { font-weight: 900; color: var(--navy); }
+  .detail .ti { display: block; font-size: .9rem; color: #4a5a8a; }
+  .dots {
+    border: none; border-top: 3px dotted rgba(43,58,103,.35);
+    width: 65%; margin: 14px auto;
+  }
+  .form-title {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700; font-size: 2.3rem; color: var(--teal);
+    line-height: 1;
+  }
+  .form-title-ti {
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+    font-weight: 900; font-size: 1.15rem; color: var(--teal); margin-top: 2px;
+  }
+  form { margin-top: 14px; text-align: left; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+  }
+  .field label { display: block; font-weight: 700; margin-bottom: 5px; font-size: 1rem; }
+  .field label .ti { font-weight: 400; color: #55639a; font-size: .92rem; }
+  .field label .opt { font-weight: 400; color: #7a86a8; font-size: .85rem; }
+  input[type="text"], input[type="tel"] {
+    width: 100%; padding: 13px 16px;
+    border: 2.5px solid var(--teal);
+    border-radius: 14px 20px 14px 20px / 20px 14px 20px 14px;
+    background: #fff; color: var(--ink);
+    font-family: 'Heebo', 'Noto Sans Ethiopic', sans-serif; font-size: 1.1rem;
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  input[type="text"]:focus, input[type="tel"]:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px rgba(165,143,216,.2);
+  }
+  .siblings {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    background: rgba(154,205,76,.16);
+    border-radius: 16px; padding: 10px 14px;
+    cursor: pointer; user-select: none;
+    align-self: end;
+  }
+  .siblings input[type="checkbox"] {
+    width: 26px; height: 26px; accent-color: var(--green); cursor: pointer; flex-shrink: 0;
+  }
+  .siblings .lbl { font-weight: 700; font-size: 1rem; text-align: left; line-height: 1.3; }
+  .siblings .ti { display: block; font-weight: 400; font-size: .9rem; color: #55639a; }
+  button[type="submit"] {
+    display: block; width: 100%;
+    margin-top: 18px; padding: 14px;
+    font-family: 'Heebo', 'Noto Sans Ethiopic', sans-serif; font-weight: 900; font-size: 1.3rem;
+    color: #fff; background: var(--teal);
+    border: none; cursor: pointer;
+    border-radius: 16px 26px 16px 26px / 26px 16px 26px 16px;
+    box-shadow: 0 6px 0 #1d8f9a;
+    transition: transform .1s, box-shadow .1s, background .15s;
+  }
+  button[type="submit"]:hover { background: #23a0ac; }
+  button[type="submit"]:active { transform: translateY(4px); box-shadow: 0 2px 0 #1d8f9a; }
+  .waiting {
+    font-family: 'Amatic SC', cursive; font-weight: 700;
+    font-size: 1.9rem; color: var(--purple); margin-top: 14px;
+    line-height: 1;
+  }
+  .waiting .ti {
+    display: block;
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+    font-size: 1.05rem; font-weight: 700; margin-top: 4px;
+  }
+  #thanks { display: none; padding: 60px 10px 40px; }
+  #thanks .big { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 3.4rem; color: var(--teal); }
+  #thanks .big-ti { font-family: 'Noto Sans Ethiopic', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--teal); margin-top: 6px; }
+  #thanks p { font-size: 1.15rem; margin-top: 16px; line-height: 1.8; }
+  #thanks p.ti { font-size: 1.05rem; color: #4a5a8a; }
+  @media (max-width: 560px) {
+    .page { padding: 10px 10px 20px; }
+    .card { padding: 18px 16px 22px; border-radius: 22px; }
+    .grid { grid-template-columns: 1fr; gap: 12px; }
+    .school-logo { width: 100px; }
+    .details { gap: 10px 18px; }
+    input[type="text"], input[type="tel"] { padding: 14px 16px; font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="watercolor-frame"></div>
+<div class="bubble" style="left:8%;  width:34px; height:34px; animation-duration:14s; animation-delay:0s"></div>
+<div class="bubble" style="left:22%; width:20px; height:20px; animation-duration:18s; animation-delay:4s"></div>
+<div class="bubble" style="left:78%; width:28px; height:28px; animation-duration:16s; animation-delay:2s"></div>
+<div class="bubble" style="left:90%; width:18px; height:18px; animation-duration:20s; animation-delay:7s"></div>
+<div class="bubble" style="left:58%; width:24px; height:24px; animation-duration:22s; animation-delay:10s"></div>
+
+<div class="page">
+  <div class="card">
+    <div id="headerWrap">
+      <img class="school-logo" src="brand/assets/logo/geulim-school-logo-navon.png" alt="Geulim School — a home to grow in">
+      <h1>Let's Meet <span class="accent">at Geulim School</span></h1>
+      <div class="h1-ti">ኣብ ቤት ትምህርቲ ጌኡሊም ንራኸብ!</div>
+      <div class="brush-divider"></div>
+
+      <p class="subtitle">
+        <strong>Parents and children get together</strong><br>
+        <span class="blue">for a summer afternoon in the school yard</span>
+        <span class="ti">ወለድን ቆልዑን ንሓጋያዊ ድሕሪ ቀትሪ ኣብ ቀጽሪ ቤት ትምህርቲ ይራኸቡ</span>
+      </p>
+
+      <div class="activity">
+        <div class="txt">🫧 A fun activity with<br>soap bubbles &amp; popsicles 🍧</div>
+        <div class="ti-txt">ናይ ሳምና ዓፍራን ኣይስክሪምን ዘዘናግዕ ንጥፈት</div>
+      </div>
+
+      <div class="details">
+        <div class="detail"><span class="icon">📅</span><span class="label"><span class="strong">Monday, August 10</span><span class="ti">ሰኑይ፡ 10 ነሓሰ</span></span></div>
+        <div class="detail"><span class="icon">🕔</span><span class="label"><span class="strong">17:00</span> (5 PM)<span class="ti">ሰዓት 17:00</span></span></div>
+        <div class="detail"><span class="icon">📍</span><span class="label"><span class="strong">Geulim School yard</span><span class="ti">ቀጽሪ ቤት ትምህርቲ ጌኡሊም</span></span></div>
+      </div>
+
+      <hr class="dots">
+    </div>
+
+    <div id="formWrap">
+      <div class="form-title">Registration Form</div>
+      <div class="form-title-ti">ናይ ምዝገባ ቅጥዒ</div>
+      <form id="regForm">
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full name <span class="ti">· ምሉእ ስም</span></label>
+            <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="ti">· ቁጽሪ ተለፎን</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field">
+            <label for="child1">Child's name &amp; class <span class="ti">· ስም ቆልዓን ክፍልን</span></label>
+            <input type="text" id="child1" name="child1" required placeholder="e.g., Noa, 2nd grade">
+          </div>
+          <div class="field">
+            <label for="child2">Child's name &amp; class <span class="opt">(if any)</span> <span class="ti">· (እንተሎ)</span></label>
+            <input type="text" id="child2" name="child2">
+          </div>
+          <div class="field">
+            <label for="child3">Child's name &amp; class <span class="opt">(if any)</span> <span class="ti">· (እንተሎ)</span></label>
+            <input type="text" id="child3" name="child3">
+          </div>
+          <label class="siblings" for="siblings">
+            <input type="checkbox" id="siblings" name="siblings">
+            <span class="lbl">Siblings will come too 🎈<span class="ti">ኣሕዋት እውን ክመጹ እዮም</span></span>
+          </label>
+        </div>
+        <button type="submit" id="submitBtn">Register! · ተመዝገቡ!</button>
+      </form>
+    </div>
+
+    <div id="thanks">
+      <div class="big">See you there! 🎉</div>
+      <div class="big-ti">ኣብኡ ንራኸብ!</div>
+      <p>Your registration was received.<br>See you on Monday, August 10, at 17:00<br>in the Geulim School yard.</p>
+      <p class="ti">ምዝገባኹም ተቐቢሉ እዩ።<br>ሰኑይ 10 ነሓሰ ሰዓት 17:00 ኣብ ቀጽሪ ቤት ትምህርቲ ጌኡሊም ንራኸብ።</p>
+    </div>
+
+    <div class="waiting">We're waiting for you!<span class="ti">ንጽበየኩም ኢና!</span></div>
+  </div>
+</div>
+
+<script>
+  const HOOK_URL = "https://script.google.com/macros/s/AKfycbxj_qi87EZzfrEFKcvnqkWLbK6Op7FHM26HaPWVe3RaElgLho1RiCX7VgyDVuzx6Xvzuw/exec";
+
+  document.getElementById("regForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const val = (id) => document.getElementById(id).value.trim();
+    const siblings = document.getElementById("siblings").checked ? "כן" : "לא";
+
+    const params = new URLSearchParams({
+      fullName: val("fullName"),
+      phone: val("phone"),
+      child1: val("child1"),
+      child2: val("child2"),
+      child3: val("child3"),
+      siblings: siblings
+    });
+
+    fetch(HOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      body: params
+    }).catch(() => {});
+
+    document.getElementById("headerWrap").style.display = "none";
+    document.getElementById("formWrap").style.display = "none";
+    document.getElementById("thanks").style.display = "block";
+    window.scrollTo(0, 0);
+  });
+</script>
+</body>
+</html>
