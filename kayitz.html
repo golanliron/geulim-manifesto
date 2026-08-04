@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נפגשים בגאולים! — מפגש אמצע הקיץ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Heebo:wght@400;500;700;900&family=Varela+Round&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2b3a67;
+    --teal: #2ab3c0;
+    --green: #9acd4c;
+    --purple: #a58fd8;
+    --yellow: #f5d547;
+    --pink: #f26d7d;
+    --cream: #fdfaf1;
+    --ink: #2b3a67;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Heebo', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* מסגרת צבעי מים מסביב */
+  .watercolor-frame {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 45% at -5% -5%,   rgba(42,179,192,.55), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% -12%,  rgba(245,213,71,.5),  transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% -5%,  rgba(154,205,76,.55), transparent 70%),
+      radial-gradient(ellipse 45% 40% at -10% 45%,  rgba(154,205,76,.5),  transparent 70%),
+      radial-gradient(ellipse 45% 40% at 110% 45%,  rgba(165,143,216,.55),transparent 70%),
+      radial-gradient(ellipse 55% 45% at -5% 105%,  rgba(245,213,71,.5),  transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 112%,  rgba(42,179,192,.5),  transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% 105%, rgba(165,143,216,.55),transparent 70%),
+      radial-gradient(ellipse 35% 30% at 0% 20%,    rgba(43,58,103,.35),  transparent 70%),
+      radial-gradient(ellipse 35% 30% at 100% 80%,  rgba(43,58,103,.3),   transparent 70%);
+    filter: blur(6px);
+  }
+  .splat {
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; opacity: .5;
+  }
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 34px 22px 60px;
+    text-align: center;
+  }
+  .card {
+    background: rgba(253,250,241,.92);
+    border-radius: 34px;
+    padding: 36px 26px 44px;
+    box-shadow: 0 10px 40px rgba(43,58,103,.12);
+  }
+  h1 {
+    font-family: 'Amatic SC', 'Heebo', cursive;
+    font-weight: 700;
+    font-size: clamp(3.2rem, 11vw, 5rem);
+    line-height: .95;
+    color: var(--navy);
+  }
+  h1 .accent { color: var(--teal); display: block; }
+  .brush-divider {
+    height: 12px; width: 70%; margin: 18px auto 6px;
+    background: var(--purple); opacity: .55;
+    border-radius: 12px 40px 14px 44px / 20px 8px 26px 10px;
+    transform: rotate(-1.2deg);
+  }
+  .subtitle {
+    font-size: 1.2rem; font-weight: 500; line-height: 1.7; margin-top: 18px;
+  }
+  .subtitle .blue { color: var(--teal); font-weight: 700; }
+  .subtitle .purple { color: var(--purple); font-weight: 700; }
+  .popsicle { font-size: 2.4rem; margin-top: 8px; }
+  .details {
+    display: flex; justify-content: center; gap: 26px; flex-wrap: wrap;
+    margin: 30px 0 10px;
+  }
+  .detail { min-width: 110px; }
+  .detail .icon { font-size: 2rem; }
+  .detail .label { font-size: .95rem; margin-top: 6px; line-height: 1.45; }
+  .detail .strong { font-weight: 900; font-size: 1.25rem; color: var(--navy); }
+  .dots {
+    border: none; border-top: 3px dotted rgba(43,58,103,.35);
+    width: 75%; margin: 26px auto;
+  }
+  /* טופס */
+  .form-title {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700; font-size: 2.6rem; color: var(--teal);
+  }
+  form { margin-top: 18px; text-align: right; }
+  .field { margin-bottom: 16px; }
+  label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 1rem; }
+  label .opt { font-weight: 400; color: #7a86a8; font-size: .85rem; }
+  input[type="text"], input[type="tel"] {
+    width: 100%; padding: 13px 16px;
+    border: 2.5px solid var(--teal);
+    border-radius: 14px 22px 14px 22px / 22px 14px 22px 14px;
+    background: #fff; color: var(--ink);
+    font-family: 'Heebo', sans-serif; font-size: 1.05rem;
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  input[type="text"]:focus, input[type="tel"]:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px rgba(165,143,216,.2);
+  }
+  .siblings {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(154,205,76,.16);
+    border-radius: 16px; padding: 14px 16px; margin: 20px 0;
+    cursor: pointer; user-select: none;
+  }
+  .siblings input[type="checkbox"] {
+    width: 26px; height: 26px; accent-color: var(--green); cursor: pointer; flex-shrink: 0;
+  }
+  .siblings span { font-weight: 700; font-size: 1.05rem; }
+  button[type="submit"] {
+    display: block; width: 100%;
+    margin-top: 24px; padding: 16px;
+    font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 1.35rem;
+    color: #fff; background: var(--teal);
+    border: none; cursor: pointer;
+    border-radius: 18px 30px 18px 30px / 30px 18px 30px 18px;
+    box-shadow: 0 6px 0 #1d8f9a;
+    transition: transform .1s, box-shadow .1s, background .15s;
+  }
+  button[type="submit"]:hover { background: #23a0ac; }
+  button[type="submit"]:active { transform: translateY(4px); box-shadow: 0 2px 0 #1d8f9a; }
+  button[disabled] { opacity: .6; pointer-events: none; }
+  .waiting {
+    font-family: 'Amatic SC', cursive; font-weight: 700;
+    font-size: 2.2rem; color: var(--purple); margin-top: 26px;
+  }
+  /* מסך תודה */
+  #thanks { display: none; padding: 40px 10px; }
+  #thanks .big { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 3.4rem; color: var(--teal); }
+  #thanks p { font-size: 1.15rem; margin-top: 14px; line-height: 1.7; }
+  #formError {
+    display: none; margin-top: 14px; font-weight: 700; color: var(--pink);
+    background: rgba(242,109,125,.12); border-radius: 12px; padding: 10px;
+  }
+  @media (max-width: 480px) {
+    .card { padding: 28px 18px 36px; border-radius: 26px; }
+    .details { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="watercolor-frame"></div>
+<div class="splat" style="top:8%; right:4%; width:14px; height:14px; background:var(--purple)"></div>
+<div class="splat" style="top:16%; left:6%; width:10px; height:10px; background:var(--teal)"></div>
+<div class="splat" style="top:60%; right:7%; width:12px; height:12px; background:var(--yellow)"></div>
+<div class="splat" style="bottom:12%; left:5%; width:16px; height:16px; background:var(--green)"></div>
+
+<div class="page">
+  <div class="card">
+    <h1>נפגשים <span class="accent">בגאולים!</span></h1>
+    <div class="brush-divider"></div>
+
+    <p class="subtitle">
+      מפגש אמצע הקיץ של קהילת הורי בית ספר גאולים —<br>
+      <span class="purple">הפוגה קטנה להורים</span>
+      <span class="blue">וחוויה משותפת לילדים</span> 🍦
+    </p>
+
+    <div class="details">
+      <div class="detail">
+        <div class="icon">📅</div>
+        <div class="label">יום שני<br><span class="strong">10 באוגוסט</span></div>
+      </div>
+      <div class="detail">
+        <div class="icon">🕔</div>
+        <div class="label">בשעה<br><span class="strong">17:00</span></div>
+      </div>
+      <div class="detail">
+        <div class="icon">📍</div>
+        <div class="label">במתחם<br><span class="strong">בית הספר גאולים</span></div>
+      </div>
+    </div>
+
+    <hr class="dots">
+
+    <div id="formWrap">
+      <div class="form-title">טופס הרשמה</div>
+      <form id="regForm">
+        <div class="field">
+          <label for="fullName">שם מלא</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="phone">טלפון</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="child1">שם הילד/ה וכיתה</label>
+          <input type="text" id="child1" name="child1" required placeholder="למשל: נועה, כיתה ב׳">
+        </div>
+        <div class="field">
+          <label for="child2">שם הילד/ה וכיתה <span class="opt">(אם יש)</span></label>
+          <input type="text" id="child2" name="child2">
+        </div>
+        <div class="field">
+          <label for="child3">שם הילד/ה וכיתה <span class="opt">(אם יש)</span></label>
+          <input type="text" id="child3" name="child3">
+        </div>
+        <label class="siblings" for="siblings">
+          <input type="checkbox" id="siblings" name="siblings">
+          <span>יגיעו גם אחים 🎈</span>
+        </label>
+        <button type="submit" id="submitBtn">נרשמים!</button>
+        <div id="formError">משהו השתבש בשליחה — נסו שוב, ואם זה חוזר כתבו לנו בקבוצת הוואטסאפ.</div>
+      </form>
+    </div>
+
+    <div id="thanks">
+      <div class="big">נתראה במפגש! 🎉</div>
+      <p>ההרשמה נקלטה בהצלחה.<br>מחכים לכם ביום שני, 10 באוגוסט, בשעה 17:00 במתחם בית הספר.</p>
+    </div>
+
+    <div class="waiting">מחכים לכם!</div>
+  </div>
+</div>
+
+<script>
+  const HOOK_URL = "https://hook.eu2.make.com/or4e7jtipkuj4nkxn0uktxhsm3o1ub3p";
+
+  document.getElementById("regForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    const errBox = document.getElementById("formError");
+    errBox.style.display = "none";
+    btn.disabled = true;
+    btn.textContent = "שולח…";
+
+    const val = (id) => document.getElementById(id).value.trim();
+    const now = new Date();
+    const stamp = now.toLocaleDateString("he-IL") + " " +
+      now.toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
+
+    const row = [
+      stamp,
+      val("fullName"),
+      val("phone"),
+      val("child1"),
+      val("child2"),
+      val("child3"),
+      document.getElementById("siblings").checked ? "כן" : "לא"
+    ];
+
+    try {
+      await fetch(HOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ valuesJson: JSON.stringify([row]) })
+      });
+      document.getElementById("formWrap").style.display = "none";
+      document.getElementById("thanks").style.display = "block";
+    } catch (err) {
+      errBox.style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "נרשמים!";
+    }
+  });
+</script>
+</body>
+</html>
