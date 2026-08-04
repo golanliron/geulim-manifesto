@@ -34,17 +34,35 @@
     z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse 55% 45% at -5% -5%,   rgba(42,179,192,.55), transparent 70%),
-      radial-gradient(ellipse 50% 40% at 50% -12%,  rgba(245,213,71,.5),  transparent 70%),
-      radial-gradient(ellipse 55% 45% at 105% -5%,  rgba(154,205,76,.55), transparent 70%),
-      radial-gradient(ellipse 45% 40% at -10% 45%,  rgba(154,205,76,.5),  transparent 70%),
-      radial-gradient(ellipse 45% 40% at 110% 45%,  rgba(165,143,216,.55),transparent 70%),
-      radial-gradient(ellipse 55% 45% at -5% 105%,  rgba(245,213,71,.5),  transparent 70%),
-      radial-gradient(ellipse 50% 40% at 50% 112%,  rgba(42,179,192,.5),  transparent 70%),
-      radial-gradient(ellipse 55% 45% at 105% 105%, rgba(165,143,216,.55),transparent 70%),
-      radial-gradient(ellipse 35% 30% at 0% 20%,    rgba(43,58,103,.35),  transparent 70%),
-      radial-gradient(ellipse 35% 30% at 100% 80%,  rgba(43,58,103,.3),   transparent 70%);
-    filter: blur(6px);
+      radial-gradient(ellipse 55% 45% at -5% -5%,   rgba(27,94,160,.85),  transparent 70%),
+      radial-gradient(ellipse 45% 38% at 22% -8%,   rgba(42,179,192,.8),  transparent 70%),
+      radial-gradient(ellipse 50% 40% at 55% -12%,  rgba(245,213,71,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% -5%,  rgba(154,205,76,.85), transparent 70%),
+      radial-gradient(ellipse 45% 42% at -10% 40%,  rgba(154,205,76,.8),  transparent 70%),
+      radial-gradient(ellipse 42% 38% at -8% 75%,   rgba(245,213,71,.75), transparent 70%),
+      radial-gradient(ellipse 45% 42% at 110% 40%,  rgba(165,143,216,.85),transparent 70%),
+      radial-gradient(ellipse 42% 38% at 108% 72%,  rgba(42,179,192,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at -5% 108%,  rgba(245,213,71,.8),  transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 114%,  rgba(42,179,192,.75), transparent 70%),
+      radial-gradient(ellipse 55% 45% at 105% 108%, rgba(165,143,216,.85),transparent 70%),
+      radial-gradient(ellipse 32% 28% at 0% 18%,    rgba(27,58,120,.6),   transparent 70%),
+      radial-gradient(ellipse 32% 28% at 100% 85%,  rgba(27,58,120,.5),   transparent 70%);
+    filter: blur(5px);
+  }
+  /* בועות סבון מרחפות */
+  .bubble {
+    position: fixed; z-index: 0; pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.9), rgba(255,255,255,.15) 40%, rgba(165,143,216,.18) 70%, rgba(42,179,192,.28));
+    border: 1.5px solid rgba(255,255,255,.6);
+    box-shadow: inset -4px -4px 10px rgba(42,179,192,.25), 0 2px 8px rgba(43,58,103,.08);
+    animation: floatUp linear infinite;
+    opacity: .8;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(105vh) translateX(0) scale(1); }
+    50%  { transform: translateY(50vh) translateX(14px) scale(1.05); }
+    100% { transform: translateY(-12vh) translateX(-10px) scale(.95); }
   }
   .splat {
     position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; opacity: .5;
@@ -58,11 +76,34 @@
     text-align: center;
   }
   .card {
-    background: rgba(253,250,241,.92);
+    background: rgba(253,250,241,.93);
     border-radius: 34px;
-    padding: 36px 26px 44px;
-    box-shadow: 0 10px 40px rgba(43,58,103,.12);
+    padding: 30px 26px 44px;
+    box-shadow: 0 10px 40px rgba(43,58,103,.15);
+    position: relative;
   }
+  .school-logo {
+    display: block;
+    width: 130px; max-width: 40%;
+    margin: 0 auto 10px;
+  }
+  .activity {
+    margin: 26px auto 0;
+    padding: 22px 20px;
+    max-width: 420px;
+    background:
+      radial-gradient(ellipse 80% 90% at 30% 30%, rgba(165,143,216,.22), transparent 70%),
+      radial-gradient(ellipse 80% 90% at 75% 70%, rgba(242,109,125,.16), transparent 70%),
+      radial-gradient(ellipse 90% 90% at 50% 50%, rgba(245,213,71,.18), transparent 75%);
+    border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+  }
+  .activity .txt {
+    font-weight: 900; font-size: 1.45rem; line-height: 1.45;
+    background: linear-gradient(90deg, var(--teal), var(--purple));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--purple);
+  }
+  .activity .emojis { font-size: 2rem; margin-top: 6px; letter-spacing: 6px; }
   h1 {
     font-family: 'Amatic SC', 'Heebo', cursive;
     font-weight: 700;
@@ -163,17 +204,29 @@
 <div class="splat" style="top:16%; left:6%; width:10px; height:10px; background:var(--teal)"></div>
 <div class="splat" style="top:60%; right:7%; width:12px; height:12px; background:var(--yellow)"></div>
 <div class="splat" style="bottom:12%; left:5%; width:16px; height:16px; background:var(--green)"></div>
+<div class="bubble" style="left:8%;  width:34px; height:34px; animation-duration:14s; animation-delay:0s"></div>
+<div class="bubble" style="left:22%; width:20px; height:20px; animation-duration:18s; animation-delay:4s"></div>
+<div class="bubble" style="left:78%; width:28px; height:28px; animation-duration:16s; animation-delay:2s"></div>
+<div class="bubble" style="left:90%; width:18px; height:18px; animation-duration:20s; animation-delay:7s"></div>
+<div class="bubble" style="left:58%; width:24px; height:24px; animation-duration:22s; animation-delay:10s"></div>
 
 <div class="page">
   <div class="card">
-    <h1>נפגשים <span class="accent">בגאולים!</span></h1>
+    <img class="school-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="בית הספר גאולים — בית לגדול בו">
+    <h1>נפגשים <span class="accent">בביה"ס גאולים</span></h1>
     <div class="brush-divider"></div>
 
     <p class="subtitle">
-      מפגש אמצע הקיץ של קהילת הורי בית ספר גאולים —<br>
-      <span class="purple">הפוגה קטנה להורים</span>
-      <span class="blue">וחוויה משותפת לילדים</span> 🍦
+      <strong>הורים וילדים נפגשים</strong><br>
+      <span class="blue">לאחר צהריים קיצי בחצר בית הספר</span><br>
+      מפגש אמצע הקיץ של קהילת ההורים —
+      <span class="purple">הפוגה קטנה להורים וחוויה משותפת לילדים</span>
     </p>
+
+    <div class="activity">
+      <div class="txt">פעילות חווייתית של<br>בועות סבון וארטיקים</div>
+      <div class="emojis">🫧🍧🫧</div>
+    </div>
 
     <div class="details">
       <div class="detail">
