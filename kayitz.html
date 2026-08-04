@@ -19,7 +19,6 @@
     --ink: #2b3a67;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; }
   body {
     font-family: 'Heebo', sans-serif;
     color: var(--ink);
@@ -66,47 +65,45 @@
   .page {
     position: relative;
     z-index: 1;
-    max-width: 760px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 14px 14px 20px;
+    padding: 16px 14px 24px;
     text-align: center;
   }
   .card {
-    background: rgba(253,250,241,.93);
-    border-radius: 26px;
-    padding: 16px 22px 20px;
+    background: rgba(253,250,241,.94);
+    border-radius: 28px;
+    padding: 22px 24px 26px;
     box-shadow: 0 10px 40px rgba(43,58,103,.15);
     position: relative;
   }
   .school-logo {
-    position: absolute;
-    top: 12px;
-    right: 14px;
-    width: 84px;
+    display: block;
+    width: 120px;
+    margin: 0 auto 6px;
   }
   h1 {
     font-family: 'Amatic SC', 'Heebo', cursive;
     font-weight: 700;
-    font-size: clamp(2.3rem, 7vw, 3.6rem);
+    font-size: clamp(3rem, 10vw, 4.4rem);
     line-height: 1;
     color: var(--navy);
-    padding: 4px 90px 0;
   }
   h1 .accent { color: var(--teal); }
   .brush-divider {
-    height: 9px; width: 55%; margin: 8px auto 8px;
+    height: 10px; width: 60%; margin: 10px auto;
     background: var(--purple); opacity: .55;
     border-radius: 12px 40px 14px 44px / 20px 8px 26px 10px;
     transform: rotate(-1.2deg);
   }
   .subtitle {
-    font-size: 1.02rem; font-weight: 500; line-height: 1.5;
+    font-size: 1.2rem; font-weight: 500; line-height: 1.55;
   }
   .subtitle strong { font-weight: 900; }
   .subtitle .blue { color: var(--teal); font-weight: 700; }
   .activity {
-    margin: 10px auto 8px;
-    padding: 8px 18px;
+    margin: 12px auto 10px;
+    padding: 12px 22px;
     display: inline-block;
     background:
       radial-gradient(ellipse 80% 90% at 30% 30%, rgba(165,143,216,.24), transparent 70%),
@@ -115,42 +112,42 @@
     border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
   }
   .activity .txt {
-    font-weight: 900; font-size: 1.15rem;
+    font-weight: 900; font-size: 1.35rem; line-height: 1.4;
     background: linear-gradient(90deg, var(--teal), var(--purple));
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: var(--purple);
   }
   .details {
-    display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap;
-    margin: 6px 0 4px;
+    display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;
+    margin: 10px 0 4px;
   }
-  .detail { display: flex; align-items: center; gap: 7px; }
-  .detail .icon { font-size: 1.3rem; }
-  .detail .label { font-size: .95rem; }
+  .detail { display: flex; align-items: center; gap: 8px; }
+  .detail .icon { font-size: 1.5rem; }
+  .detail .label { font-size: 1.1rem; }
   .detail .strong { font-weight: 900; color: var(--navy); }
   .dots {
     border: none; border-top: 3px dotted rgba(43,58,103,.35);
-    width: 65%; margin: 10px auto;
+    width: 65%; margin: 14px auto;
   }
   .form-title {
     font-family: 'Amatic SC', cursive;
-    font-weight: 700; font-size: 1.9rem; color: var(--teal);
+    font-weight: 700; font-size: 2.4rem; color: var(--teal);
     line-height: 1;
   }
-  form { margin-top: 10px; text-align: right; }
+  form { margin-top: 14px; text-align: right; }
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 14px;
+    gap: 12px 16px;
   }
-  .field label { display: block; font-weight: 700; margin-bottom: 3px; font-size: .9rem; }
-  .field label .opt { font-weight: 400; color: #7a86a8; font-size: .8rem; }
+  .field label { display: block; font-weight: 700; margin-bottom: 5px; font-size: 1.05rem; }
+  .field label .opt { font-weight: 400; color: #7a86a8; font-size: .9rem; }
   input[type="text"], input[type="tel"] {
-    width: 100%; padding: 8px 13px;
+    width: 100%; padding: 13px 16px;
     border: 2.5px solid var(--teal);
-    border-radius: 12px 18px 12px 18px / 18px 12px 18px 12px;
+    border-radius: 14px 20px 14px 20px / 20px 14px 20px 14px;
     background: #fff; color: var(--ink);
-    font-family: 'Heebo', sans-serif; font-size: 1rem;
+    font-family: 'Heebo', sans-serif; font-size: 1.1rem;
     outline: none; transition: border-color .15s, box-shadow .15s;
   }
   input[type="text"]:focus, input[type="tel"]:focus {
@@ -158,47 +155,50 @@
     box-shadow: 0 0 0 4px rgba(165,143,216,.2);
   }
   .siblings {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
     background: rgba(154,205,76,.16);
-    border-radius: 14px; padding: 8px 12px;
+    border-radius: 16px; padding: 13px 14px;
     cursor: pointer; user-select: none;
     align-self: end;
   }
   .siblings input[type="checkbox"] {
-    width: 22px; height: 22px; accent-color: var(--green); cursor: pointer; flex-shrink: 0;
+    width: 26px; height: 26px; accent-color: var(--green); cursor: pointer; flex-shrink: 0;
   }
-  .siblings span { font-weight: 700; font-size: .98rem; }
+  .siblings span { font-weight: 700; font-size: 1.1rem; }
   button[type="submit"] {
     display: block; width: 100%;
-    margin-top: 12px; padding: 11px;
-    font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 1.2rem;
+    margin-top: 18px; padding: 15px;
+    font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 1.4rem;
     color: #fff; background: var(--teal);
     border: none; cursor: pointer;
     border-radius: 16px 26px 16px 26px / 26px 16px 26px 16px;
-    box-shadow: 0 5px 0 #1d8f9a;
+    box-shadow: 0 6px 0 #1d8f9a;
     transition: transform .1s, box-shadow .1s, background .15s;
   }
   button[type="submit"]:hover { background: #23a0ac; }
-  button[type="submit"]:active { transform: translateY(3px); box-shadow: 0 2px 0 #1d8f9a; }
+  button[type="submit"]:active { transform: translateY(4px); box-shadow: 0 2px 0 #1d8f9a; }
   button[disabled] { opacity: .6; pointer-events: none; }
   .waiting {
     font-family: 'Amatic SC', cursive; font-weight: 700;
-    font-size: 1.6rem; color: var(--purple); margin-top: 8px;
+    font-size: 2rem; color: var(--purple); margin-top: 14px;
     line-height: 1;
   }
-  #thanks { display: none; padding: 30px 10px; }
-  #thanks .big { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 3rem; color: var(--teal); }
-  #thanks p { font-size: 1.1rem; margin-top: 12px; line-height: 1.7; }
+  #thanks { display: none; padding: 60px 10px 40px; }
+  #thanks .big { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 3.6rem; color: var(--teal); }
+  #thanks p { font-size: 1.25rem; margin-top: 16px; line-height: 1.8; }
   #formError {
-    display: none; margin-top: 10px; font-weight: 700; color: var(--pink);
-    background: rgba(242,109,125,.12); border-radius: 12px; padding: 8px;
-    text-align: center; font-size: .9rem;
+    display: none; margin-top: 12px; font-weight: 700; color: var(--pink);
+    background: rgba(242,109,125,.12); border-radius: 12px; padding: 10px;
+    text-align: center; font-size: 1rem;
   }
   @media (max-width: 560px) {
-    .grid { grid-template-columns: 1fr; }
-    .school-logo { width: 64px; top: 10px; right: 10px; }
-    h1 { padding: 2px 70px 0; }
-    .card { padding: 14px 16px 18px; }
+    .page { padding: 10px 10px 20px; }
+    .card { padding: 18px 16px 22px; border-radius: 22px; }
+    .grid { grid-template-columns: 1fr; gap: 12px; }
+    .school-logo { width: 100px; }
+    .details { gap: 10px 18px; }
+    .detail .label { font-size: 1.02rem; }
+    input[type="text"], input[type="tel"] { padding: 14px 16px; font-size: 1.1rem; }
   }
 </style>
 </head>
@@ -212,26 +212,28 @@
 
 <div class="page">
   <div class="card">
-    <img class="school-logo" src="brand/assets/logo/geulim-school-logo-navon.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון — בית לגדול בו">
-    <h1>נפגשים <span class="accent">בביה"ס גאולים</span></h1>
-    <div class="brush-divider"></div>
+    <div id="headerWrap">
+      <img class="school-logo" src="brand/assets/logo/geulim-school-logo-navon.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון — בית לגדול בו">
+      <h1>נפגשים <span class="accent">בביה"ס גאולים</span></h1>
+      <div class="brush-divider"></div>
 
-    <p class="subtitle">
-      <strong>הורים וילדים נפגשים</strong>
-      <span class="blue">לאחר צהריים קיצי בחצר בית הספר</span>
-    </p>
+      <p class="subtitle">
+        <strong>הורים וילדים נפגשים</strong><br>
+        <span class="blue">לאחר צהריים קיצי בחצר בית הספר</span>
+      </p>
 
-    <div class="activity">
-      <div class="txt">🫧 פעילות חווייתית של בועות סבון וארטיקים 🍧</div>
+      <div class="activity">
+        <div class="txt">🫧 פעילות חווייתית של<br>בועות סבון וארטיקים 🍧</div>
+      </div>
+
+      <div class="details">
+        <div class="detail"><span class="icon">📅</span><span class="label">יום שני <span class="strong">10 באוגוסט</span></span></div>
+        <div class="detail"><span class="icon">🕔</span><span class="label">בשעה <span class="strong">17:00</span></span></div>
+        <div class="detail"><span class="icon">📍</span><span class="label">במתחם <span class="strong">ביה"ס גאולים</span></span></div>
+      </div>
+
+      <hr class="dots">
     </div>
-
-    <div class="details">
-      <div class="detail"><span class="icon">📅</span><span class="label">יום שני <span class="strong">10 באוגוסט</span></span></div>
-      <div class="detail"><span class="icon">🕔</span><span class="label">בשעה <span class="strong">17:00</span></span></div>
-      <div class="detail"><span class="icon">📍</span><span class="label">במתחם <span class="strong">ביה"ס גאולים</span></span></div>
-    </div>
-
-    <hr class="dots">
 
     <div id="formWrap">
       <div class="form-title">טופס הרשמה</div>
@@ -269,7 +271,7 @@
 
     <div id="thanks">
       <div class="big">נתראה במפגש! 🎉</div>
-      <p>ההרשמה נקלטה בהצלחה.<br>מחכים לכם ביום שני, 10 באוגוסט, בשעה 17:00 במתחם בית הספר.</p>
+      <p>ההרשמה נקלטה בהצלחה.<br>מחכים לכם ביום שני, 10 באוגוסט,<br>בשעה 17:00 במתחם בית הספר.</p>
     </div>
 
     <div class="waiting">מחכים לכם!</div>
@@ -291,26 +293,31 @@
     const now = new Date();
     const stamp = now.toLocaleDateString("he-IL") + " " +
       now.toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
+    const siblings = document.getElementById("siblings").checked ? "כן" : "לא";
 
-    const row = [
-      stamp,
-      val("fullName"),
-      val("phone"),
-      val("child1"),
-      val("child2"),
-      val("child3"),
-      document.getElementById("siblings").checked ? "כן" : "לא"
-    ];
+    const row = [stamp, val("fullName"), val("phone"), val("child1"), val("child2"), val("child3"), siblings];
+
+    const params = new URLSearchParams({
+      stamp: stamp,
+      fullName: val("fullName"),
+      phone: val("phone"),
+      child1: val("child1"),
+      child2: val("child2"),
+      child3: val("child3"),
+      siblings: siblings,
+      valuesJson: JSON.stringify([row])
+    });
 
     try {
       await fetch(HOOK_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ valuesJson: JSON.stringify([row]) })
+        body: params
       });
+      document.getElementById("headerWrap").style.display = "none";
       document.getElementById("formWrap").style.display = "none";
       document.getElementById("thanks").style.display = "block";
+      window.scrollTo(0, 0);
     } catch (err) {
       errBox.style.display = "block";
       btn.disabled = false;
