@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גְּאוּלִי · קהילת ההורים של בית ספר גאולים בקעה</title>
+    <title>Geuli · The Parent Community of Geulim School, Baka</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Secular+One&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1525,7 +1525,7 @@
         }
 
         .academic-card::after {
-            content: 'נגיעה לפתיחה';
+            content: 'Tap to open';
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -1541,7 +1541,7 @@
 
         .academic-card:hover::after,
         .academic-card.open::after {
-            content: 'פתוח';
+            content: 'open';
             background: rgba(216,199,160,0.18);
         }
 
@@ -2163,7 +2163,7 @@
             .place-card { min-height: 0; padding: 20px 16px; display: block; }
             .place-card h4 { font-size: 21px; }
             .place-card p { font-size: 14px; }
-            .place-statement { padding: 18px 16px; font-size: 15px; text-align: right; }
+            .place-statement { padding: 18px 16px; font-size: 15px; text-align: left; }
             .place-mantra { font-size: 21px; gap: 6px 10px; }
             .principle { flex-direction: column; gap: 14px; padding: 20px 16px; }
             .practice-list { grid-template-columns: 1fr; }
@@ -2295,7 +2295,7 @@
         .sig-pad-wrap{position:relative;margin-top:4px}
         .sig-pad-canvas{width:100%;height:120px;border:1.5px solid var(--border);border-radius:12px;background:var(--warm-white);cursor:crosshair;touch-action:none}
         .sig-pad-canvas:focus,.sig-pad-canvas.active{border-color:var(--gold);box-shadow:0 0 0 4px rgba(216,199,160,.08)}
-        .sig-pad-clear{position:absolute;top:8px;left:8px;background:rgba(31,53,94,.06);border:none;border-radius:8px;padding:4px 10px;font-family:'Heebo',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer}
+        .sig-pad-clear{position:absolute;top:8px;right:8px;background:rgba(31,53,94,.06);border:none;border-radius:8px;padding:4px 10px;font-family:'Heebo',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer}
         .sig-pad-clear:hover{background:rgba(31,53,94,.12);color:var(--text)}
         .sig-pad-hint{font-size:11px;color:var(--text-muted);margin-top:4px;text-align:center}
 
@@ -2307,7 +2307,7 @@
 
         /* ===== SIGNATURES ===== */
         .sigs-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:16px}
-        .sig-counter{text-align:left}
+        .sig-counter{text-align:right}
         .sig-counter .num{font-size:40px;font-weight:900;color:var(--navy);line-height:1;font-family:'Frank Ruhl Libre',serif}
         .sig-counter .lbl{font-size:12px;color:var(--text-muted)}
         .sig-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
@@ -2417,22 +2417,22 @@
     <div class="nav-top">
         <a href="#" class="nav-brand" onclick="event.preventDefault();switchTab('why')">
             <span class="nav-logo-wrap">
-                <img class="nav-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+                <img class="nav-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="Geulim School logo">
             </span>
             <span class="nav-brand-text">
-                <span class="nav-brand-name">גְּאוּלִי</span>
-                <span class="nav-brand-tagline">מקום · אנשים · משמעות</span>
+                <span class="nav-brand-name">Geuli</span>
+                <span class="nav-brand-tagline">Place · People · Meaning</span>
             </span>
         </a>
         <ul class="nav-links">
-            <li><a href="#" data-tab="why" class="active">למה גאולי</a></li>
-            <li><a href="#" data-tab="plan">התוכנית שלנו</a></li>
-            <li><a href="#" data-tab="teams">הקהילה</a></li>
-            <li><a href="#" data-tab="businesses">קהילה בעסקים</a></li>
-            <li><a href="year-summary-2026/">סיום שנתי גאולים תשפ״ו</a></li>
+            <li><a href="#" data-tab="why" class="active">Why Geuli</a></li>
+            <li><a href="#" data-tab="plan">Our Plan</a></li>
+            <li><a href="#" data-tab="teams">Community</a></li>
+            <li><a href="#" data-tab="businesses">Community in Business</a></li>
+            <li><a href="year-summary-2026/">Geulim Year in Review</a></li>
         </ul>
-        <a class="lang-toggle" href="index-en.html" onclick="this.href='index-en.html'+location.hash" aria-label="English">EN</a>
-        <button class="hamburger" id="hamburger" aria-label="תפריט">
+        <a class="lang-toggle" href="index.html" onclick="this.href='index.html'+location.hash" aria-label="עברית">עברית</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -2440,11 +2440,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#" data-tab="why" class="active" onclick="closeMenu()">למה גאולי</a>
-    <a href="#" data-tab="plan" onclick="closeMenu()">התוכנית שלנו</a>
-    <a href="#" data-tab="teams" onclick="closeMenu()">הקהילה</a>
-    <a href="#" data-tab="businesses" onclick="closeMenu()">קהילה בעסקים</a>
-    <a href="year-summary-2026/" onclick="closeMenu()">סיום שנתי גאולים תשפ״ו</a>
+    <a href="#" data-tab="why" class="active" onclick="closeMenu()">Why Geuli</a>
+    <a href="#" data-tab="plan" onclick="closeMenu()">Our Plan</a>
+    <a href="#" data-tab="teams" onclick="closeMenu()">Community</a>
+    <a href="#" data-tab="businesses" onclick="closeMenu()">Community in Business</a>
+    <a href="year-summary-2026/" onclick="closeMenu()">Geulim Year in Review</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -2453,9 +2453,9 @@
 
         <div class="hero-logo">
             <div class="hero-brand-card">
-                <img class="hero-brand-logo" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="קשת הלוגו המקורי">
-                <div class="hero-brand-word">גְּאוּלִי</div>
-                <div class="hero-brand-sub">קהילת ההורים של בית ספר גאולים בקעה</div>
+                <img class="hero-brand-logo" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="The original arch logo">
+                <div class="hero-brand-word">Geuli</div>
+                <div class="hero-brand-sub">The Parent Community of Geulim School, Baka</div>
             </div>
         </div>
 
@@ -2465,7 +2465,7 @@
             <div class="hero-divider-arch"></div>
         </div>
 
-        <div class="subtitle">מקום. אנשים. משמעות.</div>
+        <div class="subtitle">Place. People. Meaning.</div>
         <div class="subtitle-deco">
             <div class="subtitle-deco-line"></div>
             <div class="subtitle-deco-dot"></div>
@@ -2475,7 +2475,7 @@
         </div>
 
         <div class="tagline">
-            קהילה שמכירה את המקום, פוגשת את האנשים ופועלת יחד למען חינוך מיטיב לילדינו, תוך טיפוח שייכות, אחריות חברתית־ערכית וחיבור למקום שבו אנו חיים.
+            A community that knows its place, meets its people, and works together for a nurturing education for our children, fostering belonging, social responsibility and a deep connection to the place we call home.
         </div>
 
         <div class="landscape-strip hero-landscape-strip" aria-hidden="true">
@@ -2501,26 +2501,26 @@
 <!-- ===== LETTER ===== -->
 <section id="letter">
     <div class="container">
-        <div class="section-label">הפנייה שלנו</div>
-        <h2>פנייה למנהלת בית הספר</h2>
+        <div class="section-label">Our Letter</div>
+        <h2>A Letter to the School Principal</h2>
 
         <div class="addressee">
-            <strong>לכבוד גב' אני מלכה</strong>
-            מנהלת בית ספר גאולים, שכונת בקעה, ירושלים
+            <strong>To Ms. Ani Malka</strong>
+            Principal of Geulim School, Baka neighborhood, Jerusalem
         </div>
 
         <div class="letter-body">
-            <p>אנחנו, <strong>החתומות מטה</strong>, הורי ילדי כיתה א'2 בבית ספר גאולים, שלמדו במסלול נביעה, המעוניינות בשנה הבאה להקים כיתה חדשה, כיתה ב'2.</p>
-            <p>לאחר שנה שלא היתה פשוטה עבורנו, שנה של חוסר יציבות ואי-ודאות לגבי המשך הדרך, הגענו להבנה כי מסלול נביעה עובר למתחם אחר, ולנו נותרה ההחלטה האם להפריד את ילדינו מחבריהם לכיתה.</p>
-            <p>לאחר חשיבה מעמיקה, <span class="mark"><strong>החלטנו להישאר בבית ספר גאולים ולפתוח כיתה חדשה — מתוך תחושת שייכות, רצון לתת, ואמונה שיחד נבנה עתיד טוב יותר לילדינו.</strong></span></p>
-            <p>כפי שסוכם בפגישתנו האחרונה, <strong>בשנה הבאה תיפתח כיתה ב'2 חדשה</strong> — כיתה שתיבנה מלכתחילה מתוך חזון משותף, יחד עם הורים שרוצים לקחת חלק בבנייה של קהילה חינוכית-חברתית.</p>
-            <p>אנחנו מעוניינות <strong>לייצר אקלים חברתי משותף עם ההורים והצוות הפדגוגי</strong>, לתת מעצמנו לכיתה ולקהילת בית הספר, ולקחת חלק פעיל בהנהגת הכיתה, מתוך תקווה ליצור רוח חדשה ומרעננת בבית ספר גאולים.</p>
-            <p>מצורף בזאת מסמך המפרט את <strong>עיקרי תוכנית העבודה שלנו, החזון והערכים</strong> שיובילו אותנו בשנה הבאה.</p>
+            <p>We, <strong>the undersigned</strong>, are parents of children in the Alef 2 class at Geulim School, who studied in the Nevia track, and who wish to open a new class next year, Bet 2.</p>
+            <p>After a year that was not simple for us, a year of instability and uncertainty about the road ahead, we came to understand that the Nevia track is moving to another campus, leaving us with the decision of whether to separate our children from their classmates.</p>
+            <p>After deep reflection, <span class="mark"><strong>we decided to stay at Geulim School and open a new class, out of a sense of belonging, a desire to give, and a belief that together we will build a better future for our children.</strong></span></p>
+            <p>As agreed in our last meeting, <strong>a new Bet 2 class will open next year</strong>, a class built from day one around a shared vision, together with parents who want to take part in building an educational and social community.</p>
+            <p>We wish to <strong>create a shared social climate with the parents and the teaching staff</strong>, to give of ourselves to the class and the school community, and to take an active part in leading the class, hoping to bring a new and refreshing spirit to Geulim School.</p>
+            <p>Attached is a document detailing <strong>the main points of our work plan, our vision and our values</strong> that will guide us in the coming year.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px">
-                <a href="#" onclick="event.preventDefault();switchTab('why')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">למה גאולי</a>
-                <a href="#" onclick="event.preventDefault();switchTab('plan')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">תוכנית הפתיחה</a>
-                <a href="#" onclick="event.preventDefault();switchTab('teams')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">קהילת ההורים</a>
-                <a href="#" onclick="event.preventDefault();switchTab('charter')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">אמנת הקשב</a>
+                <a href="#" onclick="event.preventDefault();switchTab('why')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">Why Geuli</a>
+                <a href="#" onclick="event.preventDefault();switchTab('plan')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">The Opening Plan</a>
+                <a href="#" onclick="event.preventDefault();switchTab('teams')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">The Parent Community</a>
+                <a href="#" onclick="event.preventDefault();switchTab('charter')" style="padding:7px 16px;border-radius:60px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s">The Attention Charter</a>
             </div>
             <div style="width:80px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0;border-radius:2px"></div>
         </div>
@@ -2531,47 +2531,47 @@
 <section id="sign-inline">
     <div class="container">
         <div class="form-card">
-            <h3>חתמי על הפנייה</h3>
-            <p class="form-sub">הצטרפי אלינו · יחד נבנה את גאולי</p>
+            <h3>Sign the Letter</h3>
+            <p class="form-sub">Join us · Together we will build Geuli</p>
             <form id="signFormInline" onsubmit="return handleSign(event)">
                 <div class="field">
-                    <label><span class="req">*</span> שם מלא</label>
-                    <input type="text" name="parentName" placeholder="השם שלך" required>
+                    <label><span class="req">*</span> Full name</label>
+                    <input type="text" name="parentName" placeholder="Your name" required>
                 </div>
                 <div class="field-row">
                     <div class="field">
-                        <label>שם הילד/ה</label>
-                        <input type="text" name="childName" placeholder="שם הילד/ה">
+                        <label>Child's name</label>
+                        <input type="text" name="childName" placeholder="Child's name">
                     </div>
                     <div class="field">
-                        <label>טלפון</label>
+                        <label>Phone</label>
                         <input type="tel" name="phone" placeholder="050-0000000">
                     </div>
                 </div>
                 <div class="field">
-                    <label>מילה אישית (רשות)</label>
-                    <textarea name="message" placeholder="אני רוצה להיות שנה הבאה בכיתה ב׳2 כיתה חדשה עבור הילד/ה שלי" rows="2"></textarea>
+                    <label>A personal note (optional)</label>
+                    <textarea name="message" placeholder="I want my child to be part of the new Bet 2 class next year" rows="2"></textarea>
                 </div>
                 <div class="field">
-                    <label>חתימה (רשות)</label>
+                    <label>Signature (optional)</label>
                     <div class="sig-pad-wrap">
                         <canvas id="sigCanvas" class="sig-pad-canvas" width="460" height="120"></canvas>
-                        <button type="button" class="sig-pad-clear" onclick="clearSigPad()">נקה</button>
+                        <button type="button" class="sig-pad-clear" onclick="clearSigPad()">Clear</button>
                     </div>
-                    <div class="sig-pad-hint">חתמי עם האצבע או העכבר</div>
+                    <div class="sig-pad-hint">Sign with your finger or mouse</div>
                 </div>
-                <button type="submit" class="btn-sign">חותמת על הפנייה</button>
+                <button type="submit" class="btn-sign">Sign the Letter</button>
             </form>
             <div class="success-box" id="successMsgInline">
                 <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <h4>החתימה נקלטה</h4>
-                <p>תודה שהצטרפת לגאולי. יחד נבנה קהילה.</p>
+                <h4>Your signature was received</h4>
+                <p>Thank you for joining Geuli. Together we will build a community.</p>
             </div>
         </div>
         <div class="share-row">
             <button class="share-btn" onclick="copyLink()">
                 <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                העתיקי קישור
+                Copy link
             </button>
         </div>
     </div>
@@ -2582,17 +2582,17 @@
     <div class="container">
         <div class="sigs-top">
             <div>
-                <div class="section-label">החתומות</div>
-                <h3 style="margin-bottom:0">הקהילה שנבנית</h3>
+                <div class="section-label">Signatories</div>
+                <h3 style="margin-bottom:0">The community being built</h3>
             </div>
             <div class="sig-counter">
                 <div class="num" id="sigCountInline">0</div>
-                <div class="lbl">חתמו</div>
+                <div class="lbl">signed</div>
             </div>
         </div>
-        <div id="signaturesListInline"><div class="loading">טוען חתימות...</div></div>
+        <div id="signaturesListInline"><div class="loading">Loading signatures...</div></div>
         <div style="text-align:center;margin-top:28px">
-            <button class="btn-sign" style="max-width:320px;margin:0 auto" onclick="document.getElementById('sign-inline').scrollIntoView({behavior:'smooth'})">גם אני רוצה לחתום</button>
+            <button class="btn-sign" style="max-width:320px;margin:0 auto" onclick="document.getElementById('sign-inline').scrollIntoView({behavior:'smooth'})">I want to sign too</button>
         </div>
     </div>
 </section>
@@ -2606,22 +2606,22 @@
 
 <section id="plan">
     <div class="container">
-        <div class="section-label">לפני שמתחילים</div>
-        <h2>תוכנית הפתיחה</h2>
-        <p>ארבע פעולות הכנה עוד לפני יום הראשון ללימודים.</p>
+        <div class="section-label">Before We Begin</div>
+        <h2>The Opening Plan</h2>
+        <p>Four preparation actions before the first day of school.</p>
 
         <div class="principle">
             <div class="principle-num">1</div>
             <div class="principle-content">
-                <h3>סקר הורים · מי אנחנו</h3>
-                <p>טופס קצר שכל הורה ממלא: מי אני, מה אני יכול/ה לתרום, ואיזה צוות מתאים לי.</p>
+                <h3>Parent Survey · Who We Are</h3>
+                <p>A short form every parent fills in: who I am, what I can contribute, and which team suits me.</p>
                 <ul class="practice-list">
-                    <li>שם, טלפון, כתובת</li>
-                    <li>משלח יד ומקום עבודה</li>
-                    <li>עסק שנוכל לעזור לשווק</li>
-                    <li>מה אני יכול/ה לתרום</li>
-                    <li>איזה צוות אני בוחר/ת</li>
-                    <li>הערות ורעיונות</li>
+                    <li>Name, phone, address</li>
+                    <li>Occupation and workplace</li>
+                    <li>A business we can help promote</li>
+                    <li>What I can contribute</li>
+                    <li>Which team I choose</li>
+                    <li>Notes and ideas</li>
                 </ul>
             </div>
         </div>
@@ -2629,12 +2629,12 @@
         <div class="principle">
             <div class="principle-num">2</div>
             <div class="principle-content">
-                <h3>לוח ימי הולדת כיתתי</h3>
-                <p>לוח שנה כיתתי עם כל ימי ההולדת, תלוי בכיתה. לוח נפרד לצוות המקצועי.</p>
+                <h3>Class Birthday Calendar</h3>
+                <p>A class calendar with all the birthdays, hung in the classroom. A separate calendar for the teaching staff.</p>
                 <ul class="practice-list">
-                    <li>לוח ימי הולדת תלמידים</li>
-                    <li>לוח ימי הולדת צוות חינוכי</li>
-                    <li>עיצוב ותליה בכיתה</li>
+                    <li>Student birthday calendar</li>
+                    <li>Teaching staff birthday calendar</li>
+                    <li>Design and hanging in the classroom</li>
                 </ul>
             </div>
         </div>
@@ -2642,12 +2642,12 @@
         <div class="principle">
             <div class="principle-num">3</div>
             <div class="principle-content">
-                <h3>מיפוי הצוות המקצועי</h3>
-                <p>רשימת כל המורים המקצועיים: מה מלמדים, מתי, ומי איש הקשר ההורי שלהם.</p>
+                <h3>Mapping the Teaching Staff</h3>
+                <p>A list of all subject teachers: what they teach, when, and who their parent contact is.</p>
                 <ul class="practice-list">
-                    <li>שם המורה ותחום הוראה</li>
-                    <li>ימים ושעות בכיתה</li>
-                    <li>איש קשר הורה לכל מורה</li>
+                    <li>Teacher name and subject</li>
+                    <li>Days and hours in the classroom</li>
+                    <li>A parent contact for every teacher</li>
                 </ul>
             </div>
         </div>
@@ -2655,13 +2655,13 @@
         <div class="principle">
             <div class="principle-num">4</div>
             <div class="principle-content">
-                <h3>צביעת הכיתה וקישוט</h3>
-                <p>ההורים באים לפני תחילת השנה ומכינים כיתה שמרגישה כמו בית. פעולת חיבור ראשונה.</p>
+                <h3>Painting and Decorating the Classroom</h3>
+                <p>Parents come before the school year begins and prepare a classroom that feels like home. A first bonding activity.</p>
                 <ul class="practice-list">
-                    <li>צביעה ורענון הכיתה</li>
-                    <li>קישוט ותליית לוחות</li>
-                    <li>סידור פינות למידה</li>
-                    <li>פעולת חיבור ראשונה בין ההורים</li>
+                    <li>Painting and refreshing the classroom</li>
+                    <li>Decorating and hanging boards</li>
+                    <li>Arranging learning corners</li>
+                    <li>A first bonding activity for the parents</li>
                 </ul>
             </div>
         </div>
@@ -2672,67 +2672,67 @@
 <!-- ===== CALENDAR (merged) ===== -->
 <section id="calendar">
     <div class="container">
-        <div class="section-label">לוח שנה</div>
-        <h2>השנה שלנו · תשפ"ז</h2>
-        <p>אירועים, סדירויות ופעילויות לאורך כל השנה.</p>
+        <div class="section-label">Calendar</div>
+        <h2>Our Year · 2026/27</h2>
+        <p>Events, routines and activities throughout the year.</p>
 
         <div class="calendar-timeline">
             <!-- August -->
             <div class="cal-month-block">
-                <div class="cal-month-header">אוגוסט</div>
+                <div class="cal-month-header">August</div>
                 <ul class="cal-items">
-                    <li><strong>פיקניק היכרות עם המחנכת</strong> · מפגש ראשון של כל המשפחות. הכרות, שיחה, חיבור.</li>
-                    <li><strong>הכנת הכיתה</strong> · צביעה, קישוטים, סידור פינות. כיתה שמרגישה כמו בית.</li>
-                    <li><strong>סקר הורים ומורים מקצועיים</strong> · מיפוי יכולות, צרכים, בחירת צוותים.</li>
-                    <li><strong>תמונות וזיכרון</strong> · איסוף תמונות תלמידים וצוות מקצועי.</li>
-                    <li><strong>מתנות קטנות לצוות</strong> · מתנת פתיחה למחנכת, לסייעת ולמורות. מתחילים עם נתינה.</li>
-                    <li><strong>הכנת שירונים</strong> · שירי ארץ ישראל לפעילויות משפחות לאורך השנה.</li>
+                    <li><strong>Getting to know the teacher picnic</strong> · A first gathering of all the families. Meeting, talking, connecting.</li>
+                    <li><strong>Preparing the classroom</strong> · Painting, decorations, arranging corners. A classroom that feels like home.</li>
+                    <li><strong>Parent and teacher survey</strong> · Mapping abilities, needs and team choices.</li>
+                    <li><strong>Photos and memories</strong> · Collecting photos of students and staff.</li>
+                    <li><strong>Small gifts for the staff</strong> · An opening gift for the teacher, the aide and the teaching team. We start with giving.</li>
+                    <li><strong>Preparing songbooks</strong> · Israeli songs for family activities throughout the year.</li>
                 </ul>
             </div>
             <!-- September -->
             <div class="cal-month-block">
-                <div class="cal-month-header">ספטמבר</div>
+                <div class="cal-month-header">September</div>
                 <ul class="cal-items">
-                    <li><strong>טקס תחילת שנה ואימוץ כיתה א'</strong> · דגל משמרת מתלמידי ב' לתלמידי א'. פעילות חניכה ואימוץ.</li>
-                    <li><strong>ראש השנה · ברכות ושתילה</strong> · ברכות שנה טובה למורים. שתילה משותפת במרחב ציבורי.</li>
-                    <li><strong>אירוע סוכות משפחתי</strong> · פעילות משפחות ראשונה של השנה.</li>
-                    <li><strong>טיול משפחות בשישי</strong> · הליכה, טבע, חיבור בין המשפחות.</li>
+                    <li><strong>Opening ceremony and adopting first grade</strong> · Passing the torch from second graders to first graders. A mentoring and adoption activity.</li>
+                    <li><strong>Rosh Hashanah · Greetings and planting</strong> · New year greetings for the teachers. Community planting in a public space.</li>
+                    <li><strong>Family Sukkot event</strong> · The first family activity of the year.</li>
+                    <li><strong>Friday family hike</strong> · Walking, nature, and bonding between families.</li>
                 </ul>
             </div>
             <!-- December -->
             <div class="cal-month-block">
-                <div class="cal-month-header">דצמבר</div>
+                <div class="cal-month-header">December</div>
                 <ul class="cal-items">
-                    <li><strong>טיול עששיות בחנוכה</strong> · משפחות הכיתה יוצאות יחד לטיול עששיות בשכונה.</li>
+                    <li><strong>Hanukkah lantern walk</strong> · The class families go out together for a lantern walk in the neighborhood.</li>
                 </ul>
             </div>
             <!-- January–February -->
             <div class="cal-month-block">
-                <div class="cal-month-header">ינואר · פברואר</div>
+                <div class="cal-month-header">January · February</div>
                 <ul class="cal-items">
-                    <li><strong>הכר את השכונה ואת בית הספר שלך</strong> · סיור שכונתי משפחתי: היסטוריה של בקעה, פינות נסתרות.</li>
-                    <li><strong>מחצית · פעילות עם הילדים</strong> · פעילות מיוחדת של ההורים עם ילדי הכיתה.</li>
+                    <li><strong>Know your neighborhood and your school</strong> · A family neighborhood tour: the history of Baka and its hidden corners.</li>
+                    <li><strong>Midyear · An activity with the children</strong> · A special activity led by parents with the children of the class.</li>
                 </ul>
             </div>
             <!-- March -->
             <div class="cal-month-block">
-                <div class="cal-month-header">מרץ</div>
+                <div class="cal-month-header">March</div>
                 <ul class="cal-items">
-                    <li><strong>פורים · תחפושות ומשלוחי מנות</strong> · פעילות פורים כיתתית, משלוחי מנות משותפים.</li>
+                    <li><strong>Purim · Costumes and mishloach manot</strong> · A class Purim activity with shared gift baskets.</li>
                 </ul>
             </div>
             <!-- April -->
             <div class="cal-month-block">
-                <div class="cal-month-header">אפריל</div>
+                <div class="cal-month-header">April</div>
                 <ul class="cal-items">
-                    <li><strong>פסח · סדר כיתתי</strong> · אירוע פסח של הכיתה, הורים וילדים יחד.</li>
+                    <li><strong>Passover · A class seder</strong> · A class Passover event, parents and children together.</li>
                 </ul>
             </div>
             <!-- May–June -->
             <div class="cal-month-block">
-                <div class="cal-month-header">מאי · יוני</div>
+                <div class="cal-month-header">May · June</div>
                 <ul class="cal-items">
-                    <li><strong>פיקניק סוף שנה ואלבום דיגיטלי</strong> · סיכום שנה, חגיגת הישגים, טקס מעבר, אלבום לכל משפחה.</li>
+                    <li><strong>End of year picnic and digital album</strong> · A year in review, celebrating achievements, a passage ceremony, and an album for every family.</li>
                 </ul>
             </div>
         </div>
@@ -2747,21 +2747,21 @@
 <!-- ===== TEAMS ===== -->
 <section id="teams">
     <div class="container">
-        <div class="section-label">קהילת ההורים והתלמידים</div>
-        <h2>מעגלי עשייה פתוחים</h2>
-        <p class="lead">קהילת גאולי תפעל במבנה פתוח, מבוזר ומעשי. במקום ועד מרכזי אחד, הוקמו מעגלי עשייה ברוח שלושת הצירים שלנו: <strong>מקום. אנשים. משמעות.</strong> כל הורה יכול להצטרף למעגל שמתאים לו, ליזום, לקחת אחריות ולהוביל פעולה קטנה או גדולה.</p>
+        <div class="section-label">The Parent and Student Community</div>
+        <h2>Open Action Circles</h2>
+        <p class="lead">The Geuli community works in an open, distributed and practical structure. Instead of one central committee, we created action circles in the spirit of our three axes: <strong>Place. People. Meaning.</strong> Every parent can join the circle that suits them, initiate, take responsibility, and lead an action, small or large.</p>
 
         <div class="action-card">
             <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8C7A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
             <div class="action-body">
-                <span class="action-tag">מקום</span>
-                <h3>מעגל מקום</h3>
-                <p>אחראי לפעילויות סביבתיות וחינוכיות בסביבה הפיזית: השכונה, חצר בית הספר, פארקים, מסלולים ואתרים בעיר.</p>
+                <span class="action-tag">Place</span>
+                <h3>The Place Circle</h3>
+                <p>Responsible for environmental and educational activities in our physical surroundings: the neighborhood, the schoolyard, parks, trails and sites around the city.</p>
                 <ul class="action-bullets">
-                    <li>סיורים במרחב הציבורי של השכונה והעיר, לא רק סביב בית הספר</li>
-                    <li>שימור פארק המסילה וימי ניקיון בשכונה</li>
-                    <li>נטיעת גינות קהילתיות ופרויקטים ירוקים</li>
-                    <li>היכרות עם מקומות וסיפורים בירושלים</li>
+                    <li>Tours of the public spaces of the neighborhood and the city, not only around the school</li>
+                    <li>Preserving the Railway Park and neighborhood cleanup days</li>
+                    <li>Planting community gardens and green projects</li>
+                    <li>Discovering places and stories in Jerusalem</li>
                 </ul>
             </div>
         </div>
@@ -2769,14 +2769,14 @@
         <div class="action-card">
             <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8C7A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div class="action-body">
-                <span class="action-tag">אנשים</span>
-                <h3>מעגל אנשים</h3>
-                <p>פועל לחיבורים חברתיים ומשפחתיים, להיכרות בין משפחות וקהילות שונות, ולבניית תחושת שייכות חמה ומכבדת.</p>
+                <span class="action-tag">People</span>
+                <h3>The People Circle</h3>
+                <p>Works on social and family connections, bringing together different families and communities, and building a warm and respectful sense of belonging.</p>
                 <ul class="action-bullets">
-                    <li>קבלת משפחות חדשות</li>
-                    <li>מפגשי היכרות בין קבוצות חילוניות ודתיות</li>
-                    <li>ירידים, פסטיבלים ואירועים קהילתיים בבית הספר</li>
-                    <li>סיוע הדדי: מערך סנדוויץ' משפחתי ומפגשי שיתוף</li>
+                    <li>Welcoming new families</li>
+                    <li>Gatherings that bring together secular and religious families</li>
+                    <li>Fairs, festivals and community events at the school</li>
+                    <li>Mutual support: a family sandwich network and sharing circles</li>
                 </ul>
             </div>
         </div>
@@ -2784,40 +2784,40 @@
         <div class="action-card">
             <div class="action-letter"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D8C7A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/><path d="M2 12h6"/><path d="M16 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M14.83 9.17l4.24-4.24"/></svg></div>
             <div class="action-body">
-                <span class="action-tag">משמעות</span>
-                <h3>מעגל משמעות</h3>
-                <p>מרכז יוזמות ערכיות וחינוכיות שמחברות בין למידה, אחריות, התנדבות, מורשת ויצירה משפחתית.</p>
+                <span class="action-tag">Meaning</span>
+                <h3>The Meaning Circle</h3>
+                <p>Leads value driven and educational initiatives that connect learning, responsibility, volunteering, heritage and family creativity.</p>
                 <ul class="action-bullets">
-                    <li>התנדבות משפחתית בשכונה ובמוסדות קהילתיים</li>
-                    <li>סדנאות הורים וילדים סביב חינוך דמוקרטי וערכי</li>
-                    <li>שותפות ביוזמות חברתיות, כמו יום התנדבות מקצועי</li>
-                    <li>כתיבת סיפורי משפחה או תערוכה קהילתית על מורשת המקום</li>
+                    <li>Family volunteering in the neighborhood and in community institutions</li>
+                    <li>Parent and child workshops on democratic, values based education</li>
+                    <li>Partnering in social initiatives, such as a professional volunteering day</li>
+                    <li>Writing family stories or a community exhibition on the heritage of the place</li>
                 </ul>
             </div>
         </div>
 
-        <h3 style="margin-top: 40px;">מעגלי תלמידים</h3>
-        <p>גם התלמידים פועלים במעגלים קבועים, כדי ללמוד אחריות, שייכות ועשייה דרך אותה שפה: מקום, אנשים ומשמעות.</p>
+        <h3 style="margin-top: 40px;">Student Circles</h3>
+        <p>The students also work in their own circles, learning responsibility, belonging and action through the same language: place, people and meaning.</p>
         <div class="routines-grid student-circles">
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
                 <div>
-                    <h4>מעגל מקום</h4>
-                    <p>ילדים שאחראים על טיפוח המקום הקרוב: סדר וניקיון בכיתה, פינת טבע, השקיה, חצר ומרחבים משותפים.</p>
+                    <h4>The Place Circle</h4>
+                    <p>Children who care for their surroundings: order and cleanliness in the classroom, a nature corner, watering plants, the yard and shared spaces.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
                 <div>
-                    <h4>מעגל ילדים</h4>
-                    <p>ילדים ששמים לב לחברים: מי חדש, מי לבד, מי צריך הזמנה למשחק, ואיך מחזקים קשרים בכיתה.</p>
+                    <h4>The Friends Circle</h4>
+                    <p>Children who look out for their friends: who is new, who is alone, who needs an invitation to play, and how to strengthen friendships in class.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/><path d="M2 12h6"/><path d="M16 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M14.83 9.17l4.24-4.24"/></svg></div>
                 <div>
-                    <h4>מעגל משמעות</h4>
-                    <p>ילדים שמובילים תוכן וערך: פינת ספרים, סיפורי משפחה, המלצות, תערוכות קטנות ופעולות נתינה.</p>
+                    <h4>The Meaning Circle</h4>
+                    <p>Children who lead content and values: a book corner, family stories, recommendations, small exhibitions and acts of giving.</p>
                 </div>
             </div>
         </div>
@@ -2836,28 +2836,28 @@
 <div class="charter-section" id="charter">
     <div class="container">
         <div class="charter-card">
-            <div class="section-label" style="align-items: center;">אמנה</div>
-            <h2>אמנת הקשב</h2>
-            <div class="charter-subtitle">התחייבות של כל חבר בכיתה החברתית</div>
+            <div class="section-label" style="align-items: center;">Charter</div>
+            <h2>The Attention Charter</h2>
+            <div class="charter-subtitle">A commitment of every member of the class community</div>
 
             <div class="charter-text">
-                אנחנו, הורי כיתה ב'2 לשנת תשפ"ז בבית ספר גאולים, בוחרים לתת לילדים שלנו ילדות של נוכחות מלאה, של משחק חופשי, של שיחה אמיתית, של שעמום שמוליד דמיון. בחירה משותפת, מתוך אהבה.
+                We, the parents of the Bet 2 class of 2026/27 at Geulim School, choose to give our children a childhood of full presence, of free play, of real conversation, of boredom that sparks imagination. A shared choice, made out of love.
             </div>
 
             <div class="charter-commitment">
-                <h4>ההתחייבות שלנו</h4>
+                <h4>Our Commitment</h4>
                 <ul class="charter-items">
-                    <li>נבחר טלפון בסיסי עד סוף היסודי</li>
-                    <li>נעדיף טלפון בסיסי (כשר) לצורכי תקשורת</li>
-                    <li>נגביל זמני מסך משותפים בבית ונשתף בדילמות</li>
-                    <li>נתמוך אחד בשני כשהילדים לוחצים "אבל לכולם יש"</li>
-                    <li>נהיה דוגמה אישית בשימוש מושכל במסכים</li>
+                    <li>We will choose a basic phone until the end of elementary school</li>
+                    <li>We will prefer a simple (kosher) phone for communication</li>
+                    <li>We will limit screen time at home and share our dilemmas</li>
+                    <li>We will support each other when the children push with "but everyone has one"</li>
+                    <li>We will lead by personal example in mindful screen use</li>
                 </ul>
             </div>
 
             <div class="charter-commitment" style="margin-top: 16px;">
-                <h4>למה דווקא עכשיו</h4>
-                <p>כיתה ב' היא גיל שבו ילדים עדיין בונים יחסים מפנים-אל-פנים, לומדים להשתעמם, ומפתחים דמיון. כשכולנו מתחייבים יחד, כל ילד מרגיש שיש לו גב.</p>
+                <h4>Why Now</h4>
+                <p>Second grade is an age when children are still building face to face relationships, learning to be bored, and developing imagination. When we all commit together, every child feels they have backup.</p>
             </div>
         </div>
     </div>
@@ -2870,15 +2870,15 @@
 
 <!-- פתיח -->
 <section class="container" style="padding-top:56px;padding-bottom:34px;text-align:center;">
-    <div class="section-label" style="justify-content:center;margin-inline:auto;">קהילה בעסקים</div>
+    <div class="section-label" style="justify-content:center;margin-inline:auto;">Community in Business</div>
     <div class="hero-divider" style="margin-bottom:18px;" aria-hidden="true">
         <span class="hero-divider-arch"></span>
         <span class="hero-divider-arch"></span>
         <span class="hero-divider-arch"></span>
     </div>
-    <h2 style="font-size:clamp(34px,5vw,58px);line-height:1.25;max-width:980px;margin:0 auto;color:var(--navy);">גאולי קונה מגאולי: מפרגנים להורים, לצוות ולמשלח ידם</h2>
+    <h2 style="font-size:clamp(34px,5vw,58px);line-height:1.25;max-width:980px;margin:0 auto;color:var(--navy);">Geuli buys from Geuli: supporting our parents, our staff and what they do</h2>
     <p style="max-width:760px;margin:22px auto 0;text-align:center;font-size:clamp(19px,2.2vw,25px);line-height:1.85;color:var(--text-light);">
-        כשקהילה מבוססת משמעות פוגשת כלכלה מקומית, אנחנו בוחרים לפרגן לאנשים שלנו.
+        When a community built on meaning meets a local economy, we choose to support our own people.
     </p>
     
 </section>
@@ -2892,51 +2892,51 @@
 <!-- דוגמאות עסקים -->
 <section class="charter-section" style="padding:32px 16px 40px;">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
-        <h2 style="font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-size:22px;color:#fff;margin-bottom:18px;">העסקים של גאולי</h2>
+        <h2 style="font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-size:22px;color:#fff;margin-bottom:18px;">The Businesses of Geuli</h2>
 
         <div id="businessGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px;">
             <div class="business-fallback-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(216,199,160,0.18);border-radius:14px;overflow:hidden;text-align:center;">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="אוכל">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="Food">
                 <div style="padding:14px 16px 16px;">
-                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">המטבח של נועה</div>
-                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127828; אוכל ומזון</div>
-                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">מאיה · אמא מכיתה ו׳2</div>
+                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">Noa's Kitchen</div>
+                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127828; Food</div>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">Maya · A sixth grade mom</div>
                     <div style="display:flex;gap:8px;justify-content:center;">
-                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; וואטסאפ</span>
-                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; טלפון</span>
+                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; WhatsApp</span>
+                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; Phone</span>
                     </div>
                 </div>
             </div>
             <div class="business-fallback-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(216,199,160,0.18);border-radius:14px;overflow:hidden;text-align:center;">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="כושר">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="Fitness">
                 <div style="padding:14px 16px 16px;">
-                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">סטודיו פילאטיס בקעה</div>
-                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127947; ספורט וכושר</div>
-                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">מיכל לוי · הורה של תמר ב׳2</div>
+                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">Baka Pilates Studio</div>
+                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127947; Sports and Fitness</div>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">Michal Levi · Parent of Tamar, Bet 2</div>
                     <div style="display:flex;gap:8px;justify-content:center;">
-                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; וואטסאפ</span>
-                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; טלפון</span>
-                        <span style="padding:8px 14px;border-radius:10px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;">&#127760; אתר</span>
+                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; WhatsApp</span>
+                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; Phone</span>
+                        <span style="padding:8px 14px;border-radius:10px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;">&#127760; Website</span>
                     </div>
                 </div>
             </div>
             <div class="business-fallback-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(216,199,160,0.18);border-radius:14px;overflow:hidden;text-align:center;">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="עיצוב">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&h=200&fit=crop" style="width:100%;height:120px;object-fit:cover;display:block;" alt="Design">
                 <div style="padding:14px 16px 16px;">
-                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">דנה עיצוב פנים</div>
-                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127912; עיצוב ואדריכלות</div>
-                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">דנה אברהם · איש/ת צוות</div>
+                    <div style="font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">Dana Interior Design</div>
+                    <div style="font-size:12px;color:var(--gold);margin-bottom:6px;">&#127912; Design and Architecture</div>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px;">Dana Avraham · Staff member</div>
                     <div style="display:flex;gap:8px;justify-content:center;">
-                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; וואטסאפ</span>
-                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; טלפון</span>
-                        <span style="padding:8px 14px;border-radius:10px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;">&#127760; אתר</span>
+                        <span style="padding:8px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:13px;font-weight:600;">&#128172; WhatsApp</span>
+                        <span style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;">&#128222; Phone</span>
+                        <span style="padding:8px 14px;border-radius:10px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;">&#127760; Website</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <p id="businessStatus" style="color:rgba(255,255,255,0.45);font-size:12px;margin-bottom:20px;">טוענים את העסקים של הקהילה...</p>
-        <a href="business-register.html" target="_blank" style="display:inline-block;padding:12px 28px;border-radius:60px;background:var(--gold);color:var(--navy-deep);font-size:15px;font-weight:700;text-decoration:none;">הרשמה למדריך העסקים</a>
+        <p id="businessStatus" style="color:rgba(255,255,255,0.45);font-size:12px;margin-bottom:20px;">Loading the community's businesses...</p>
+        <a href="business-register.html" target="_blank" style="display:inline-block;padding:12px 28px;border-radius:60px;background:var(--gold);color:var(--navy-deep);font-size:15px;font-weight:700;text-decoration:none;">Join the Business Directory</a>
     </div>
 </section>
 
@@ -2948,13 +2948,13 @@
 <!-- ===== WHY HERO ===== -->
 <section id="why-intro">
     <div class="container">
-        <div class="section-label">למה גאולי</div>
-        <h2>קהילה סביב מקום — הסיפור שמוביל אותנו</h2>
+        <div class="section-label">Why Geuli</div>
+        <h2>Community Around Place: The Story That Leads Us</h2>
         <p class="lead">
-            בתי ספר אינם פועלים בחלל ריק. לצד תפקידם החינוכי והפדגוגי, הם מהווים מוסדות חברתיים וקהילתיים המשפיעים על עיצוב זהותם של תלמידים, משפחות וקהילות. בחירת בית ספר על ידי הורים אינה מתבססת רק על הישגים לימודיים, אלא מושפעת במידה רבה מתפיסות חברתיות, מוניטין, סיפורים העוברים מפה לאוזן ותחושת שייכות קהילתית.
+            Schools do not operate in a vacuum. Alongside their educational role, they are social and community institutions that shape the identity of students, families and communities. When parents choose a school, they do not rely on academic results alone. Their choice is deeply influenced by social perceptions, reputation, word of mouth stories and a sense of community belonging.
         </p>
         <p style="font-size:16px;line-height:1.9;color:var(--text-light);">
-            לפיכך, מוניטין בית־ספרי מהווה גורם משמעותי המשפיע על הרכב האוכלוסייה, על היקף הרישום ועל יכולתו של בית הספר להתפתח ולצמוח.
+            A school's reputation is therefore a significant factor that shapes its population, its enrollment and its ability to develop and grow.
         </p>
     </div>
 </section>
@@ -2962,11 +2962,11 @@
 <!-- ===== ANCHOR: COMMUNITY AROUND PLACE ===== -->
 <section>
     <div class="container">
-        <div class="section-label">העוגן שלנו</div>
+        <div class="section-label">Our Anchor</div>
         <div class="place-model">
             <div class="place-model-head">
-                <h3>קהילה סביב מקום</h3>
-                <p>מקום · אנשים · משמעות</p>
+                <h3>Community Around Place</h3>
+                <p>Place · People · Meaning</p>
             </div>
 
             <div class="place-model-grid">
@@ -2974,65 +2974,65 @@
                     <div class="place-card-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
                     </div>
-                    <h4>המקום</h4>
-                    <p>כל מרחב שהקהילה פוגשת — רחוב, גינה, חצר בית הספר, מסלול טיול או אתר בעיר — הוא נקודת מוצא. אנחנו מכירים את הסיפור שלו ושואלים איך לשפר בו.</p>
+                    <h4>The Place</h4>
+                    <p>Every space the community meets, a street, a garden, the schoolyard, a hiking trail or a site in the city, is a starting point. We learn its story and ask how we can make it better.</p>
                 </div>
                 <div class="place-card">
                     <div class="place-card-icon">
                         <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h4>האנשים</h4>
-                    <p>בכל מקום יש אנשים, סיפורים וצרכים שונים. קהילת גאולי מחברת בין משפחות, תלמידים ותושבים מתוך סקרנות, הקשבה וכבוד למגוון.</p>
+                    <h4>The People</h4>
+                    <p>Every place has its people, stories and needs. The Geuli community connects families, students and residents with curiosity, listening and respect for diversity.</p>
                 </div>
                 <div class="place-card">
                     <div class="place-card-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/><path d="M2 12h6"/><path d="M16 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M14.83 9.17l4.24-4.24"/></svg>
                     </div>
-                    <h4>המשמעות</h4>
-                    <p>ההיכרות מובילה לעשייה: יוזמה קטנה, שיפור במרחב, חיבור בין אנשים, פעולה סביבתית או תוכן שמספר את סיפור המקום.</p>
+                    <h4>The Meaning</h4>
+                    <p>Familiarity leads to action: a small initiative, an improvement to a shared space, a connection between people, an environmental project or content that tells the story of the place.</p>
                 </div>
             </div>
 
             <div class="place-statement">
-                <strong>הסיפור שלנו הוא קהילה סביב מקום.</strong>
-                זהו העוגן שעל פיו אנחנו פועלות — בכל מרחב שבו אנחנו נמצאות, אנחנו לומדות להכיר, לכבד, להתחבר ולפעול לטובתו. הלמה שלנו נולדת מהמקום, מהאנשים ומהמשמעות שנוצרת ביניהם.
+                <strong>Our story is community around place.</strong>
+                This is the anchor that guides everything we do. In every space we are part of, we learn to know it, respect it, connect to it and act for its good. Our why is born of the place, the people, and the meaning created between them.
             </div>
 
             <div class="place-mantra">
-                <span>מכירים את המקום</span>
-                <span>פוגשים את האנשים</span>
-                <span>יוצרים משמעות</span>
+                <span>Know the place</span>
+                <span>Meet the people</span>
+                <span>Create meaning</span>
             </div>
         </div>
     </div>
 </section>
 <div class="quote-section">
     <div class="quote-arch"></div>
-    <p>דרוש כפר שלם לגדל ילד. גאולי תהיה הכפר הזה.</p>
-    <span class="source">פתגם אפריקאי</span>
+    <p>It takes a village to raise a child. Geuli will be that village.</p>
+    <span class="source">African proverb</span>
 </div>
 
 <!-- ===== VISION ===== -->
 <section id="vision">
     <div class="container">
-        <div class="section-label">החזון</div>
-        <h2>מה אנחנו רוצות לבנות</h2>
+        <div class="section-label">The Vision</div>
+        <h2>What We Want to Build</h2>
         <div class="vision-list">
             <div class="vision-item">
                 <div class="vi-num">1</div>
-                <div class="vi-text">לבנות <strong>קהילת הורים מעורבת, פעילה ומחויבת</strong> · גאולי</div>
+                <div class="vi-text">To build <strong>an involved, active and committed parent community</strong> · Geuli</div>
             </div>
             <div class="vision-item">
                 <div class="vi-num">2</div>
-                <div class="vi-text">לאמץ את <strong>אמנת הקשב</strong> · מרחב ללא טלפונים חכמים, המעודד נוכחות וקשרים אמיתיים</div>
+                <div class="vi-text">To adopt <strong>the Attention Charter</strong> · A smartphone free space that encourages presence and real connection</div>
             </div>
             <div class="vision-item">
                 <div class="vi-num">3</div>
-                <div class="vi-text">לתרום <strong>לקהילת בית הספר ולסביבה הקרובה</strong> מתוך ערכי שיתוף ואחריות</div>
+                <div class="vi-text">To give back <strong>to the school community and our surroundings</strong> out of values of sharing and responsibility</div>
             </div>
             <div class="vision-item">
                 <div class="vi-num">4</div>
-                <div class="vi-text">לייצר <strong>הנהגה שיתופית</strong> שתהווה דוגמה ורוח חדשה בבית הספר</div>
+                <div class="vi-text">To create <strong>a collaborative leadership</strong> that sets an example and brings a new spirit to the school</div>
             </div>
         </div>
     </div>
@@ -3041,16 +3041,16 @@
 <!-- ===== QUOTE SEPARATOR ===== -->
 <div class="quote-section">
     <div class="quote-arch"></div>
-    <p>מוניטין בית־ספרי הוא לא גזירת גורל. הוא נבנה מתוך קהילה.</p>
+    <p>A school's reputation is not fate. It is built by a community.</p>
 </div>
 
 <!-- ===== WHY — DARK SECTION ===== -->
 <section class="dark-section">
     <div class="container">
-        <div class="section-label">למה? · WHY</div>
-        <h2>אפקט המוניטין הבית־ספרי</h2>
+        <div class="section-label">WHY</div>
+        <h2>The School Reputation Effect</h2>
         <p class="lead">
-            מוניטין בית־ספרי הוא מנגנון חברתי שבו תדמית המוסד בעיני הורים, תלמידים, צוות חינוכי והקהילה הרחבה מעצבת את הבחירה בבית הספר, את ציפיות המורים, את תחושת השייכות של התלמידים ואת חלוקת המשאבים וההזדמנויות החינוכיות.
+            A school's reputation is a social mechanism: the way the institution is seen by parents, students, staff and the wider community shapes school choice, teacher expectations, students' sense of belonging, and the distribution of resources and educational opportunities.
         </p>
 
         <div class="leadership-grid">
@@ -3058,29 +3058,29 @@
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
                 </div>
-                <h4>אפקט המוניטין</h4>
-                <p>כאשר בית ספר נתפס כבעל מוניטין חיובי, ציפיות ההורים והמחנכים מהתלמידים עולות, המורים מפתחים אמון רב יותר ביכולותיהם, והתלמידים עצמם מפתחים דימוי עצמי אקדמי חיובי יותר. כל אלה מגבירים את המוטיבציה ואת ההישגים, ובכך מחזקים עוד יותר את התדמית החיובית.</p>
+                <h4>The reputation effect</h4>
+                <p>When a school is seen in a positive light, parents and teachers expect more of the students, teachers develop greater confidence in their abilities, and students build a more positive academic self image. All of these raise motivation and achievement, which further strengthens the positive image.</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                 </div>
-                <h4>נבואה שמגשימה את עצמה</h4>
-                <p>כאשר בית ספר נתפס כבעל מוניטין שלילי, ציפיות נמוכות, חוסר אמון ודימוי עצמי אקדמי נמוך יותר עלולים ליצור מעגל של הישגים נמוכים, קשיי התנהגות וירידה באמון הציבור. כך גם המוניטין השלילי "מגשים את עצמו".</p>
+                <h4>A self fulfilling prophecy</h4>
+                <p>When a school carries a negative reputation, low expectations, mistrust and a weaker academic self image can create a cycle of lower achievement, behavioral difficulties and declining public trust. The negative reputation "fulfills itself".</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
-                <h4>תפקיד הקהילה</h4>
-                <p>לקהילה הבית־ספרית ולתהליכי התגבשות קהילתיים עשוי להיות תפקיד משמעותי בעיצוב המוניטין הבית־ספרי ובצמצום השפעותיו השליליות של אפקט המוניטין. באמצעות שותפות פעילה בין הורים, תלמידים, אנשי צוות והקהילה הרחבה, ניתן להשפיע לא רק על חוויית הלמידה, אלא גם על האופן שבו בית הספר נתפס בעיני הציבור.</p>
+                <h4>The role of the community</h4>
+                <p>The school community, and the process of coming together as one, can play a meaningful role in shaping a school's reputation and softening the negative effects of the reputation cycle. Through an active partnership of parents, students, staff and the wider community, we can influence not only the learning experience but also how the school is seen by the public.</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </div>
-                <h4>האמונה שלנו</h4>
-                <p>אנו מאמינות כי בית ספר ציבורי הוא הרבה מעבר למקום לימוד. הוא מרחב קהילתי, חברתי ואזרחי המעצב את דמותה של החברה. חיזוק החינוך הציבורי אינו רק יעד חינוכי, אלא גם יעד חברתי ואזרחי. קהילה חזקה, מגוונת ומעורבת מסוגלת לשבור מעגלים של מוניטין שלילי, לחזק תחושת שייכות וליצור הזדמנויות שוות עבור כלל הילדים.</p>
+                <h4>What we believe</h4>
+                <p>We believe a public school is far more than a place of study. It is a communal, social and civic space that shapes society itself. Strengthening public education is not only an educational goal but a social and civic one. A strong, diverse and involved community can break cycles of negative reputation, strengthen belonging, and create equal opportunities for all children.</p>
             </div>
         </div>
     </div>
@@ -3089,51 +3089,51 @@
 <!-- ===== QUOTE SEPARATOR ===== -->
 <div class="quote-section">
     <div class="quote-arch"></div>
-    <p>שינוי מוניטין מתרחש באמצעות שילוב בין בניית קהילה פעילה לבין עשייה שיווקית עקבית, ערכית ואותנטית.</p>
+    <p>Reputation changes through a combination of active community building and consistent, values driven, authentic marketing.</p>
 </div>
 
 <!-- ===== HOW ===== -->
 <section>
     <div class="container">
-        <div class="section-label">איך? · HOW</div>
-        <h2>קהילה ושיווק — יחד משנים מוניטין</h2>
+        <div class="section-label">HOW</div>
+        <h2>Community and Marketing: Changing Reputation Together</h2>
         <p class="lead">
-            בעוד שהקהילה יוצרת את החוויה הבית־ספרית בפועל, השיווק מאפשר לספר את סיפורה, להנגיש את ערכיה ולהפוך את עשייתה לנראית עבור הציבור הרחב. מוניטין של בית ספר נבנה מתוך החוויות, הקשרים והסיפורים שמספרים הורים, תלמידים ואנשי צוות על בית הספר.
+            While the community creates the school experience itself, marketing lets us tell its story, make its values accessible and make its work visible to the wider public. A school's reputation is built from the experiences, relationships and stories that parents, students and staff tell about it.
         </p>
 
         <div class="principle">
             <div class="principle-num">1</div>
             <div class="principle-content">
-                <h3>קהילה מגובשת</h3>
-                <p>אנו רואות בקהילה הבית־ספרית מרכיב יסוד בהצלחתו של בית הספר. קהילה מגובשת מחזקת את תחושת השייכות של תלמידים והורים, מעודדת מעורבות, יוצרת רשתות תמיכה חברתיות ומגבירה את האמון במוסד החינוכי.</p>
-                <p class="sub">תחושת השייכות והקשרים החברתיים אינם תוצר נלווה של בית הספר, אלא תנאי מרכזי ליצירת אקלים חינוכי מיטיב.</p>
+                <h3>A united community</h3>
+                <p>We see the school community as a foundation of the school's success. A united community strengthens the sense of belonging of students and parents, encourages involvement, creates social support networks and builds trust in the school.</p>
+                <p class="sub">Belonging and social connection are not a side effect of school life. They are a core condition for a nurturing educational climate.</p>
             </div>
         </div>
 
         <div class="principle">
             <div class="principle-num">2</div>
             <div class="principle-content">
-                <h3>גיוון כעושר</h3>
-                <p>אנו מבקשות לטפח תרבות קהילתית הרואה בגיוון החברתי, התרבותי והאישי מקור לעושר אנושי וחינוכי. קהילה המכילה משפחות מרקעים שונים מאפשרת לתלמידים לפתח סובלנות, אחריות אזרחית, אמפתיה ויכולת לחיים בחברה משותפת.</p>
-                <p class="sub">בית ספר ציבורי איכותי אינו נמדד רק בהישגיו האקדמיים, אלא גם ביכולתו ליצור מרחב שבו כל ילד וכל משפחה מרגישים נראים, שייכים ובעלי ערך.</p>
+                <h3>Diversity as richness</h3>
+                <p>We want to nurture a community culture that sees social, cultural and personal diversity as a source of human and educational richness. A community that embraces families from different backgrounds lets students develop tolerance, civic responsibility, empathy and the ability to live in a shared society.</p>
+                <p class="sub">A great public school is not measured only by academic results, but by its ability to create a space where every child and every family feels seen, valued, and that they belong.</p>
             </div>
         </div>
 
         <div class="principle">
             <div class="principle-num">3</div>
             <div class="principle-content">
-                <h3>בניית קהילה בפועל</h3>
-                <p>בניית קהילה מתרחשת באמצעות יצירת מפגשים משמעותיים בין משפחות, תלמידים ואנשי צוות; פיתוח מסורות, טקסים ויוזמות משותפות; עידוד מעורבות הורים בחיי בית הספר; וטיפוח תחושת אחריות קולקטיבית להצלחת כלל התלמידים.</p>
-                <p class="sub">קהילה פעילה ומלוכדת מסוגלת לייצר חוסן חברתי, לסייע בהתמודדות עם אתגרים, לחזק ביטחון ושייכות ולהעמיק את הגאווה הבית־ספרית.</p>
+                <h3>Building community in practice</h3>
+                <p>Community is built through meaningful gatherings of families, students and staff; through shared traditions, ceremonies and initiatives; through encouraging parent involvement in school life; and through nurturing a collective responsibility for the success of all students.</p>
+                <p class="sub">An active, close knit community creates social resilience, helps face challenges, strengthens confidence and belonging, and deepens school pride.</p>
             </div>
         </div>
 
         <div class="principle">
             <div class="principle-num">4</div>
             <div class="principle-content">
-                <h3>שיווק קהילתי ואותנטי</h3>
-                <p>שיווק חינוכי אינו נועד ליצור תדמית מלאכותית, אלא לחשוף את העשייה החינוכית המתקיימת בבית הספר, להנגיש את הישגיו, להציג את יוזמותיו ולהאיר את הסיפורים האנושיים המתרחשים בו מדי יום.</p>
-                <p class="sub">פעמים רבות פער נוצר בין איכותו האמיתית של בית הספר לבין האופן שבו הוא נתפס בציבור. שיווק נכון מאפשר לצמצם פער זה ולחזק את האמון הציבורי.</p>
+                <h3>Authentic community marketing</h3>
+                <p>Educational marketing is not about creating an artificial image. It is about revealing the educational work happening at the school, making its achievements accessible, presenting its initiatives and shining a light on the human stories that unfold there every day.</p>
+                <p class="sub">A gap often forms between the true quality of a school and how it is publicly perceived. Good marketing narrows that gap and strengthens public trust.</p>
             </div>
         </div>
     </div>
@@ -3142,10 +3142,10 @@
 <!-- ===== WHAT — DARK SECTION ===== -->
 <section class="dark-section">
     <div class="container">
-        <div class="section-label">מה? · WHAT</div>
-        <h2>מערך הפעולות של שמ"ש</h2>
+        <div class="section-label">WHAT</div>
+        <h2>The Shemesh Action Framework</h2>
         <p class="lead">
-            לצורך מימוש חזון בית הספר וחיזוק הקהילה הבית־ספרית, נפעל ליצירת מערך פעולות, מסורות ויוזמות קבועות המבוססות על ערכי מודל שמ"ש — <strong style="color:var(--gold);">שייכות, מהפכת קשב ושקיפות.</strong>
+            To realize the school's vision and strengthen its community, we will build a set of ongoing actions, traditions and initiatives based on the values of the Shemesh model: <strong style="color:var(--gold);">Belonging, an Attention Revolution, and Transparency.</strong>
         </p>
 
         <div class="leadership-grid">
@@ -3153,39 +3153,39 @@
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </div>
-                <h4>שייכות</h4>
-                <p>לוח שנה קהילתי עשיר: פיקניק היכרות, טקס קבלת כיתה א', אימוץ תלמידים, אירועי חג ומסורת, טיולי משפחות, פורים קהילתי, סדר כיתתי, טקסי סיום ואלבום דיגיטלי. חיזוק הקשרים בין משפחות ותיקות לחדשות.</p>
+                <h4>Belonging</h4>
+                <p>A rich community calendar: a welcome picnic, a first grade welcoming ceremony, student adoption, holiday and tradition events, family hikes, a community Purim, a class seder, end of year ceremonies and a digital album. Strengthening ties between veteran and new families.</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>
                 </div>
-                <h4><a href="#" onclick="event.preventDefault();switchTab('charter')" style="color:white;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;">מהפכת קשב</a></h4>
-                <p>טיפוח תרבות חינוכית הרואה בכל ילד וילדה עולם ומלואו. חיזוק הקשר האישי בין הצוות, התלמידים והמשפחות, זיהוי מוקדם של צרכים, ויצירת מענים מותאמים. מרחבים בטוחים של הקשבה ושיח.</p>
+                <h4><a href="#" onclick="event.preventDefault();switchTab('charter')" style="color:white;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;">Attention Revolution</a></h4>
+                <p>Nurturing an educational culture that sees every child as a whole world. Strengthening the personal bond between staff, students and families, identifying needs early, and creating tailored responses. Safe spaces for listening and conversation.</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 </div>
-                <h4>שקיפות</h4>
-                <p>תקשורת פתוחה, רציפה ומכבדת בין בית הספר, ההורים והקהילה. עדכון שוטף, שיתוף ביוזמות ובהחלטות מרכזיות, פרסום מידע רלוונטי וערוצי תקשורת נגישים ושקופים. אמון נבנה לאורך זמן באמצעות שיח פתוח ועקביות.</p>
+                <h4>Transparency</h4>
+                <p>Open, continuous and respectful communication between the school, the parents and the community. Regular updates, sharing initiatives and key decisions, publishing relevant information, and accessible, transparent communication channels. Trust is built over time through open dialogue and consistency.</p>
             </div>
             <div class="dark-card">
                 <div class="icon-box icon-box-dark">
                     <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h4>קהילת הורים וחוסן</h4>
-                <p>מרחבים למפגש, שיתוף פעולה והובלת יוזמות. מפגשי הורים וילדים, קבוצות קהילה, מעגלי שיח, יוזמות התנדבות, מבצעי חסד ושיתופי פעולה עם ארגונים מקומיים. טיפוח המרחב הפיזי של בית הספר וחיזוק הגאווה הבית־ספרית.</p>
+                <h4>Parent community and resilience</h4>
+                <p>Spaces for meeting, collaborating and leading initiatives. Parent and child gatherings, community groups, conversation circles, volunteering initiatives, acts of kindness and partnerships with local organizations. Caring for the school's physical space and strengthening school pride.</p>
             </div>
         </div>
 
         <div class="place-model" style="background:rgba(255,255,255,0.05);border-color:rgba(216,199,160,0.2);margin-top:40px;">
             <div class="place-model-head">
-                <h3 style="color:white;">שיווק קהילתי</h3>
-                <p>לספר את הסיפור, להנגיש את העשייה</p>
+                <h3 style="color:white;">Community Marketing</h3>
+                <p>Telling the story, making the work visible</p>
             </div>
             <div class="place-statement" style="background:rgba(255,255,255,0.06);">
-                נפעיל ערוצי תקשורת דיגיטליים, נשתף סיפורי הצלחה של תלמידים ואנשי צוות, נחשוף יוזמות חינוכיות וקהילתיות ונציג את העשייה הבית־ספרית באופן רציף ונגיש. <strong>שיווק חינוכי אינו יוצר מציאות חדשה, אלא מאפשר לקהילה לראות ולהכיר את הטוב שכבר קיים.</strong>
+                We will run digital communication channels, share success stories of students and staff, highlight educational and community initiatives, and present the school's work in an ongoing, accessible way. <strong>Educational marketing does not create a new reality. It lets the community see and know the good that already exists.</strong>
             </div>
         </div>
     </div>
@@ -3195,98 +3195,98 @@
 <section class="model-expansion">
     <div class="container">
         <div class="research-block">
-            <div class="academic-kicker">בסיס מחקרי</div>
-            <h3>חשיבות קהילת הורים</h3>
+            <div class="academic-kicker">Research Basis</div>
+            <h3>Why a Parent Community Matters</h3>
             <p>
-                מחקרים רבים מצביעים על קשר ישיר בין מעורבות הורים לבין שיפור הישגי תלמידים, אקלים בית ספרי חיובי ותחושת שייכות. שותפות הורים–בית ספר מגבירה מוטיבציה, מחזקת הישגים לימודיים, חברתיים וערכיים, ותורמת לפתרון בעיות התנהגות ולבניית חוסן קהילתי.
+                A large body of research points to a direct link between parent involvement and improved student achievement, a positive school climate and a sense of belonging. Parent school partnership raises motivation, strengthens academic, social and moral growth, and helps resolve behavioral issues while building community resilience.
             </p>
             <div class="research-grid">
                 <div class="research-item">
-                    <h4>הישגים ואקלים בית ספרי</h4>
-                    <p>כאשר הורים מעורבים בפעילויות בית הספר, הילדים רואים שהחינוך חשוב גם למשפחה וגם לקהילה. הדבר מחזק מוטיבציה, מיומנויות למידה ותחושת ביטחון, ומרחיב את בית הספר למרחב של העשרה, פנאי ותרומה.</p>
+                    <h4>Achievement and school climate</h4>
+                    <p>When parents take part in school life, children see that education matters to both family and community. This strengthens motivation, learning skills and confidence, and turns the school into a space of enrichment, leisure and giving.</p>
                 </div>
                 <div class="research-item">
-                    <h4>חוסן ושייכות</h4>
-                    <p>כאשר בית הספר והקהילה פועלים יחד, נוצרת תחושת שייכות חזקה יותר: תלמידים, הורים וצוות מרגישים שהם חלק ממקום משמעותי, מחויב ותומך. כך נבנה מרקם חברתי יציב יותר סביב הילדים.</p>
+                    <h4>Resilience and belonging</h4>
+                    <p>When school and community work together, a stronger sense of belonging emerges: students, parents and staff feel part of a meaningful, committed and supportive place. A more stable social fabric forms around the children.</p>
                 </div>
                 <div class="research-item">
-                    <h4>מחקר ומגמות</h4>
-                    <p>ספרות מחקרית בישראל ובעולם מדגישה כי קשר הורים–בית ספר המבוסס על אמון, כבוד ותקשורת ברורה הוא תנאי משמעותי לשיפור מעורבות. לכן המודל מציע דרכי מעורבות מגוונות, מותאמות ליכולות ולצרכים שונים.</p>
+                    <h4>Research and trends</h4>
+                    <p>Research in Israel and worldwide shows that a parent school relationship built on trust, respect and clear communication is key to deeper involvement. The model therefore offers varied ways to take part, adapted to different abilities and needs.</p>
                 </div>
                 <div class="research-item">
-                    <h4>בתי ספר קהילתיים</h4>
-                    <p>מודלים של בתי ספר קהילתיים בעולם משלבים למידה פורמלית עם קשרי קהילה, שירותים חברתיים ופעילויות העשרה. נמצא כי כאשר מנהלים, מורים, הורים וקהילה פועלים יחד, נוצרת השפעה חיובית על רווחת התלמידים ועל הישגיהם.</p>
+                    <h4>Community schools</h4>
+                    <p>Community school models around the world combine formal learning with community ties, social services and enrichment. When principals, teachers, parents and community work together, students' wellbeing and achievement improve.</p>
                 </div>
                 <div class="research-item">
-                    <h4>קהילה מבוססת מקום</h4>
-                    <p>גישת Place-Based Education רואה בסביבה המקומית חלק בלתי נפרד מהחינוך. המקום הופך לכיתה חיה: סיורים, מפגשים עם תושבים, חקר סביבתי ופרויקטים חברתיים מחברים בין ידע, אחריות ושייכות.</p>
+                    <h4>Place based community</h4>
+                    <p>Place Based Education sees the local environment as an inseparable part of learning. The place becomes a living classroom: tours, meetings with residents, environmental study and social projects connect knowledge, responsibility and belonging.</p>
                 </div>
                 <div class="research-item">
-                    <h4>תוצאות צפויות ומדידה</h4>
-                    <p>הצלחת המודל תיבחן דרך שיעורי השתתפות, שעות התנדבות, מספר פרויקטים שהושלמו, גיוון המשתתפים ומשובי שביעות רצון של הורים וצוות. כך הקהילה לומדת, מתקנת ומשתפרת לאורך השנה.</p>
+                    <h4>Expected outcomes and measurement</h4>
+                    <p>The model will be measured through participation rates, volunteer hours, completed projects, the diversity of participants, and satisfaction feedback from parents and staff. This is how the community learns, corrects and improves through the year.</p>
                 </div>
             </div>
         </div>
 
         <div class="academic-grid">
             <div class="academic-card">
-                <h3>ייצוג מגוון</h3>
-                <p>נוכחות רחבה מכל הרקעים — חילונים, דתיים, עולים, ותיקים. ייצוג אמיתי הוא תנאי לקבלת החלטות טובות.</p>
+                <h3>Diverse Representation</h3>
+                <p>Broad presence from all backgrounds: secular, religious, new immigrants and veterans. True representation is a condition for good decisions.</p>
                 <ul>
-                    <li>מעקב אחר הרכב המשתתפים בכל מעגל ובכל ועד פעולה.</li>
-                    <li>הזמנה יזומה של הורים מקבוצות שמיוצגות פחות.</li>
-                    <li>נציגים שדואגים לזהות פערים ולגשר בין קהלים.</li>
-                    <li>תשומת לב להורים דוברי שפות שונות, ובהן רוסית, אמהרית ושפות נוספות לפי צורך.</li>
+                    <li>Tracking the makeup of participants in every circle and action team.</li>
+                    <li>Actively inviting parents from underrepresented groups.</li>
+                    <li>Representatives who spot gaps and bridge between groups.</li>
+                    <li>Attention to parents who speak other languages, including Russian, Amharic and more as needed.</li>
                 </ul>
             </div>
 
             <div class="academic-card">
-                <h3>הנגשה תרבותית</h3>
-                <p>מידע ברור, זמנים נגישים, שפות מגוונות. כך כל משפחה יכולה להיות שותפה.</p>
+                <h3>Cultural Accessibility</h3>
+                <p>Clear information, accessible times, multiple languages. This is how every family can take part.</p>
                 <ul>
-                    <li>הפצת מידע בעברית, וברוסית או אמהרית לפי צורך קהילתי.</li>
-                    <li>שקיפות מוקדמת לגבי שעה, מקום, משך הפעילות ודרישות השתתפות.</li>
-                    <li>הימנעות ממועדים שעלולים לחסום השתתפות של משפחות דתיות או עובדות.</li>
-                    <li>אפשרויות מקוונות או היברידיות להורים שלא יכולים להגיע פיזית.</li>
+                    <li>Sharing information in Hebrew, and in Russian or Amharic as the community needs.</li>
+                    <li>Early clarity about time, place, duration and what taking part requires.</li>
+                    <li>Avoiding dates that could exclude religious or working families.</li>
+                    <li>Online or hybrid options for parents who cannot attend in person.</li>
                 </ul>
             </div>
 
 
             <div class="academic-card">
-                <h3>בדיקה לפני פעולה</h3>
-                <p>לפני כל פעילות — בודקות שהיא פתוחה, נגישה ומזמינה גם את מי שלא תמיד מגיע.</p>
+                <h3>Checking Before Acting</h3>
+                <p>Before every activity, we check that it is open, accessible and inviting, also for those who do not always show up.</p>
                 <ul>
-                    <li>למי הפעילות פונה, ומי עלול להישאר מחוץ לה?</li>
-                    <li>האם השפה, הזמן והמיקום מאפשרים השתתפות רחבה?</li>
-                    <li>האם הפעילות מערבת קבוצה שהייתה עד כה במיעוט?</li>
-                    <li>האם יש דרך להצטרף גם בתרומה קטנה, נקודתית או מרחוק?</li>
+                    <li>Who is the activity for, and who might be left out?</li>
+                    <li>Do the language, timing and location allow broad participation?</li>
+                    <li>Does the activity involve a group that has been a minority so far?</li>
+                    <li>Is there a way to join with a small, one time or remote contribution?</li>
                 </ul>
             </div>
 
             <div class="academic-card">
-                <h3>הערכה ולמידה</h3>
-                <p>בסוף כל סמסטר נשמענה, נזהה חסמים ונשתפר. קהילה שלומדת מעצמה.</p>
+                <h3>Evaluation and Learning</h3>
+                <p>At the end of every semester we listen, identify barriers and improve. A community that learns from itself.</p>
                 <ul>
-                    <li>מה עבד וחיזק תחושת שייכות?</li>
-                    <li>אילו משפחות או קבוצות עדיין לא הגיעו?</li>
-                    <li>אילו התאמות נדרשות בשפה, בזמן, במקום או בפורמט?</li>
-                    <li>אילו יוזמות כדאי להרחיב, ואילו צריך לשנות?</li>
+                    <li>What worked and strengthened belonging?</li>
+                    <li>Which families or groups have not yet joined?</li>
+                    <li>What adjustments are needed in language, time, place or format?</li>
+                    <li>Which initiatives should grow, and which should change?</li>
                 </ul>
             </div>
         </div>
 
         <div class="academic-statement">
             <p>
-                גאולי היא <strong>מקום אחד לאנשים רבים עם משמעות משותפת.</strong> כאן כל משפחה שייכת, כל קול נשמע, וכל תרומה — גדולה או קטנה — בונה קהילה שהילדים שלנו יגדלו בתוכה.
+                Geuli is <strong>one place, for many people, with a shared meaning.</strong> Here every family belongs, every voice is heard, and every contribution, large or small, builds the community our children will grow up in.
             </p>
         </div>
 
         <div class="sources-box">
-            <h3>מקורות אקדמיים ומקצועיים</h3>
+            <h3>Academic and Professional Sources</h3>
             <ol class="sources-list">
-                <li>משרד החינוך, מעורבות ושיתוף הורים – סקירת ספרות מחקרית (2019).</li>
-                <li>שרה שדמי-וורטמן, בית-ספר בונה קהילה (אבני ראשה, 2017).</li>
-                <li>פומרנץ ואח', מעורבות הורים בחינוך ילדיהם: איך, מי ומדוע (אבני ראשה, 2023).</li>
+                <li>Israel Ministry of Education, Parental Involvement and Partnership: A Research Literature Review (2019).</li>
+                <li>Sara Shadmi-Wortman, A School That Builds Community (Avney Rosha, 2017).</li>
+                <li>Pomerantz et al., Parental Involvement in Their Children's Education: How, Who and Why (Avney Rosha, 2023).</li>
                 <li>Learning Policy Institute (2025), How Community Schools Improve Outcomes.</li>
                 <li>OECD/PISA (2018), Parental involvement in school activities.</li>
                 <li>Sobel, D. (2004), Place-Based Education: Connecting Classrooms and Communities.</li>
@@ -3300,19 +3300,19 @@
 <!-- ===== VALUES GRID ===== -->
 <section>
     <div class="container">
-        <div class="section-label">הערכים שלנו</div>
-        <h2>החזון המשותף שלנו</h2>
-        <p>עבור הילדים סביבה חינוכית שמצמיחה אותם ללמידה, לערכים ולחיים, ומחזקת את תחושת השייכות והקהילה.</p>
+        <div class="section-label">Our Values</div>
+        <h2>Our Shared Vision</h2>
+        <p>An educational environment that helps our children grow toward learning, values and life, and strengthens their sense of belonging and community.</p>
         <div class="values-grid">
             <div class="value-card">
                 <div class="vc-inner">
                     <div class="vc-front">
                         <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-                        <h4>אווירה מיטבית</h4>
+                        <h4>A nurturing atmosphere</h4>
                     </div>
                     <div class="vc-back">
-                        <h4>אווירה מיטבית</h4>
-                        <p>מרחב בטוח, מכבד, מעודד וצומח.</p>
+                        <h4>A nurturing atmosphere</h4>
+                        <p>A safe, respectful, encouraging and growing space.</p>
                     </div>
                 </div>
             </div>
@@ -3320,11 +3320,11 @@
                 <div class="vc-inner">
                     <div class="vc-front">
                         <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-                        <h4>סקרנות ולמידה</h4>
+                        <h4>Curiosity and learning</h4>
                     </div>
                     <div class="vc-back">
-                        <h4>סקרנות ולמידה</h4>
-                        <p>טיפוח חשיבה יצירתית, יוזמה ואהבת למידה לכל החיים.</p>
+                        <h4>Curiosity and learning</h4>
+                        <p>Nurturing creative thinking, initiative and a lifelong love of learning.</p>
                     </div>
                 </div>
             </div>
@@ -3332,11 +3332,11 @@
                 <div class="vc-inner">
                     <div class="vc-front">
                         <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 22c-4-3-8-6-8-11a8 8 0 0116 0c0 5-4 8-8 11z"/><circle cx="12" cy="11" r="3"/></svg></div>
-                        <h4>קהילה מחוברת</h4>
+                        <h4>A connected community</h4>
                     </div>
                     <div class="vc-back">
-                        <h4>קהילה מחוברת</h4>
-                        <p>חוויות, מסורות, קשרים משמעותיים ושיתוף פעולה.</p>
+                        <h4>A connected community</h4>
+                        <p>Experiences, traditions, meaningful relationships and collaboration.</p>
                     </div>
                 </div>
             </div>
@@ -3344,11 +3344,11 @@
                 <div class="vc-inner">
                     <div class="vc-front">
                         <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                        <h4>חינוך ערכי</h4>
+                        <h4>Values based education</h4>
                     </div>
                     <div class="vc-back">
-                        <h4>חינוך ערכי</h4>
-                        <p>הצבת ערכים בחיי היומיום, בדרך שמתחייה לכל ילד.</p>
+                        <h4>Values based education</h4>
+                        <p>Living our values in everyday life, in a way that speaks to every child.</p>
                     </div>
                 </div>
             </div>
@@ -3359,35 +3359,35 @@
 <!-- ===== PARTNERSHIP ===== -->
 <section>
     <div class="container">
-        <div class="section-label">שותפות</div>
-        <h2 style="font-size:26px">איך אנחנו רוצות את השותפות?</h2>
+        <div class="section-label">Partnership</div>
+        <h2 style="font-size:26px">What Kind of Partnership Do We Want?</h2>
         <div class="routines-grid">
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
                 <div>
-                    <h4>מבט קדימה</h4>
-                    <p>חושבים יחד, מתכננים ומשפרים כל הזמן.</p>
+                    <h4>Looking ahead</h4>
+                    <p>Thinking together, planning and always improving.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
                 <div>
-                    <h4>התנדבויות מעשירות</h4>
-                    <p>כוח ההורים כמנוע שמוביל, מסייע ומעורר השראה.</p>
+                    <h4>Enriching volunteering</h4>
+                    <p>Parent power as an engine that leads, helps and inspires.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
                 <div>
-                    <h4>חיזוק הקשרים</h4>
-                    <p>מפגשים, אירועים ופעילויות שמחברים בין הורים לילדים.</p>
+                    <h4>Strengthening bonds</h4>
+                    <p>Gatherings, events and activities that connect parents and children.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
                 <div>
-                    <h4>תקשורת פתוחה</h4>
-                    <p>שיח מכבד, ישיר, מעודכן ושקוף.</p>
+                    <h4>Open communication</h4>
+                    <p>Respectful, direct, up to date and transparent dialogue.</p>
                 </div>
             </div>
         </div>
@@ -3397,35 +3397,35 @@
 <!-- ===== WHAT WE BRING ===== -->
 <section>
     <div class="container">
-        <div class="section-label">מה אנחנו מביאות</div>
-        <h2>מה אנחנו מבקשות להביא?</h2>
+        <div class="section-label">What We Bring</div>
+        <h2>What Do We Wish to Bring?</h2>
         <div class="routines-grid">
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <div>
-                    <h4>אמון</h4>
-                    <p>בבחירות שלנו, בכם, ובהצלחת הדרך המשותפת.</p>
+                    <h4>Trust</h4>
+                    <p>In our choices, in you, and in the success of our shared path.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
                 <div>
-                    <h4>שיתוף פעולה</h4>
-                    <p>נפעל יחד מתוך כבוד, הבנה וקשרים פתוחים ונכבדים.</p>
+                    <h4>Collaboration</h4>
+                    <p>We will work together with respect, understanding and open, honest relationships.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
                 <div>
-                    <h4>שותפות אמיתית</h4>
-                    <p>נשקיע זמן, מחשבה והתמסרות למען הילדים.</p>
+                    <h4>True partnership</h4>
+                    <p>We will invest time, thought and dedication for the children.</p>
                 </div>
             </div>
             <div class="routine-card">
                 <div class="routine-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
                 <div>
-                    <h4>פתיחות</h4>
-                    <p>נביא איתנו רצון לשמוע, להבין ולהיות נגישים לתהליכים.</p>
+                    <h4>Openness</h4>
+                    <p>We bring a genuine will to listen, understand and be part of the process.</p>
                 </div>
             </div>
         </div>
@@ -3435,21 +3435,21 @@
 <!-- ===== CLOSING ===== -->
 <div class="quote-section">
     <div class="quote-arch"></div>
-    <p>גאולים — בונים קהילה. מספרים סיפור. משנים מציאות.</p>
+    <p>Geulim: building a community, telling a story, changing reality.</p>
 </div>
 
 <section>
     <div class="container" style="max-width:740px;">
         <p style="font-size:17px;line-height:2;color:var(--text-light);text-align:center;">
-            אנו מאמינות כי עתידו של החינוך הציבורי אינו תלוי רק בתוכניות לימודים, בתקציבים או בהישגים אקדמיים, אלא גם ביכולתה של קהילה להתגבש סביב בית הספר, לקחת אחריות משותפת ולספר את סיפורו. קהילה חזקה, קשובה ושקופה מסוגלת לשנות מציאות, לחזק את אמון הציבור וליצור הזדמנויות שוות עבור כלל הילדים.
+            We believe the future of public education depends not only on curricula, budgets or academic results, but also on the ability of a community to come together around its school, take shared responsibility and tell its story. A strong, attentive and transparent community can change reality, strengthen public trust and create equal opportunities for all children.
         </p>
         <div class="place-mantra" style="margin-top:28px;">
-            <span>שייכות</span>
-            <span>מהפכת קשב</span>
-            <span>שקיפות</span>
+            <span>Belonging</span>
+            <span>Attention Revolution</span>
+            <span>Transparency</span>
         </div>
         <p style="font-size:15px;line-height:1.9;color:var(--text-muted);text-align:center;margin-top:20px;">
-            מודל שמ"ש מבקש להוביל תהליך של התחדשות קהילתית וחינוכית, שבמרכזו עומדת האמונה כי כל ילד וילדה ראויים להרגיש נראים, שייכים ומסוגלים להצליח.
+            The Shemesh model seeks to lead a process of communal and educational renewal, centered on the belief that every child deserves to feel seen, to belong, and to be capable of success.
         </p>
     </div>
 </section>
@@ -3457,8 +3457,8 @@
 <section>
     <div class="container" style="max-width:740px;text-align:center;">
         <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-            <a href="#" onclick="event.preventDefault();switchTab('letter')" style="padding:9px 20px;border-radius:60px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;">המכתב למנהלת</a>
-            <a href="#" onclick="event.preventDefault();switchTab('charter')" style="padding:9px 20px;border-radius:60px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;">אמנת הקשב</a>
+            <a href="#" onclick="event.preventDefault();switchTab('letter')" style="padding:9px 20px;border-radius:60px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;">The Letter to the Principal</a>
+            <a href="#" onclick="event.preventDefault();switchTab('charter')" style="padding:9px 20px;border-radius:60px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;">The Attention Charter</a>
         </div>
     </div>
 </section>
@@ -3468,8 +3468,8 @@
 <!-- Footer -->
 <footer>
     <div class="footer-arch"></div>
-    <div class="footer-brand">גְּאוּלִי</div>
-    <div class="footer-tagline">קהילת ההורים של בית ספר גאולים בקעה</div>
+    <div class="footer-brand">Geuli</div>
+    <div class="footer-tagline">The Parent Community of Geulim School, Baka</div>
     <div class="landscape-strip footer-landscape-strip" aria-hidden="true">
         <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
         <span class="journey-dot"></span>
@@ -3482,18 +3482,18 @@
         <span class="window-light wl-6"></span>
     </div>
     <nav class="footer-nav">
-        <a href="#" onclick="event.preventDefault();switchTab('why')">למה גאולי</a>
-        <a href="#" onclick="event.preventDefault();switchTab('plan')">התוכנית שלנו</a>
-        <a href="#" onclick="event.preventDefault();switchTab('teams')">הקהילה</a>
-        <a href="#" onclick="event.preventDefault();switchTab('businesses')">קהילה בעסקים</a>
-        <a href="year-summary-2026/">סיום שנתי גאולים תשפ״ו</a>
+        <a href="#" onclick="event.preventDefault();switchTab('why')">Why Geuli</a>
+        <a href="#" onclick="event.preventDefault();switchTab('plan')">Our Plan</a>
+        <a href="#" onclick="event.preventDefault();switchTab('teams')">Community</a>
+        <a href="#" onclick="event.preventDefault();switchTab('businesses')">Community in Business</a>
+        <a href="year-summary-2026/">Geulim Year in Review</a>
     </nav>
     <div class="footer-gold-line"></div>
     <div class="footer-info">
-        בית ספר גאולים ממלכתי · שכונת בקעה, ירושלים<br>
-        קהילת ההורים של בית ספר גאולים בקעה · מקום. אנשים. משמעות.
+        Geulim State School · Baka neighborhood, Jerusalem<br>
+        The parent community of Geulim School, Baka · Place. People. Meaning.
     </div>
-    <div style="font-size:10px;color:var(--text-muted);margin-top:14px;">&copy; 2026 קהילת גאולי · כל הזכויות שמורות</div>
+    <div style="font-size:10px;color:var(--text-muted);margin-top:14px;">&copy; 2026 The Geuli Community · All rights reserved</div>
 </footer>
 
 <script>
@@ -3552,8 +3552,8 @@
     }
 
     function businessCardTemplate(business) {
-        const name = escapeBusinessText(business.business_name || business.name || "עסק מגאולי");
-        const field = escapeBusinessText(business.business_field || business.field || "עסק מקומי");
+        const name = escapeBusinessText(business.business_name || business.name || "A Geuli business");
+        const field = escapeBusinessText(business.business_field || business.field || "Local business");
         const parent = escapeBusinessText(business.parent_name || business.owner_name || "");
         const role = escapeBusinessText(business.role || "");
         const child = escapeBusinessText(business.child_info || "");
@@ -3563,9 +3563,9 @@
         const image = escapeBusinessText(businessImageFor(field, business.image_url || business.logo_url));
         const meta = [parent, role, child].filter(Boolean).join(" · ");
         const cleanPhone = phone.replace(/[^\d+]/g, "");
-        const whatsapp = cleanPhone ? `<a href="https://wa.me/${cleanPhone.replace(/^0/, "972")}" target="_blank" style="padding:8px 15px;border-radius:999px;background:#25D366;color:#fff;font-size:13px;font-weight:700;text-decoration:none;">וואטסאפ</a>` : "";
-        const phoneLink = phone ? `<a href="tel:${cleanPhone}" style="padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;text-decoration:none;">טלפון</a>` : "";
-        const websiteLink = website ? `<a href="${website}" target="_blank" style="padding:8px 14px;border-radius:999px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;text-decoration:none;">אתר</a>` : "";
+        const whatsapp = cleanPhone ? `<a href="https://wa.me/${cleanPhone.replace(/^0/, "972")}" target="_blank" style="padding:8px 15px;border-radius:999px;background:#25D366;color:#fff;font-size:13px;font-weight:700;text-decoration:none;">WhatsApp</a>` : "";
+        const phoneLink = phone ? `<a href="tel:${cleanPhone}" style="padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.1);color:#fff;font-size:13px;text-decoration:none;">Phone</a>` : "";
+        const websiteLink = website ? `<a href="${website}" target="_blank" style="padding:8px 14px;border-radius:999px;background:rgba(216,199,160,0.15);color:var(--gold);font-size:13px;text-decoration:none;">Website</a>` : "";
 
         return `
             <article style="background:rgba(255,255,255,0.06);border:1px solid rgba(216,199,160,0.18);border-radius:14px;overflow:hidden;text-align:center;display:flex;flex-direction:column;height:100%;">
@@ -3595,13 +3595,13 @@
 
             if (businesses.length) {
                 grid.innerHTML = businesses.map(businessCardTemplate).join("");
-                if (status) status.textContent = "גאולי קונה מגאולי. רוצים להופיע כאן? הרשמה קצרה ותצטרפו למדריך.";
+                if (status) status.textContent = "Geuli buys from Geuli. Want to appear here? A short signup and you are in.";
             } else if (status) {
-                status.textContent = "בקרוב יופיעו כאן העסקים האמיתיים של הקהילה. בינתיים השארנו דוגמאות עם תמונות.";
+                status.textContent = "The community's real businesses will appear here soon. For now these are examples.";
             }
             geuliBusinessesLoaded = true;
         } catch (error) {
-            if (status) status.textContent = "מציגים דוגמאות בינתיים. אפשר להירשם למדריך, והרשימה תתעדכן כשהחיבור זמין.";
+            if (status) status.textContent = "Showing examples for now. You can join the directory and the list will update once the connection is available.";
         }
     }
 
@@ -3670,7 +3670,7 @@
                 <div class="academic-front">
                     <h3>${title}</h3>
                     <p>${text}</p>
-                    <span class="academic-open-chip">נגיעה לפתיחה</span>
+                    <span class="academic-open-chip">Tap to open</span>
                 </div>
                 <div class="academic-back">
                     <h3>${title}</h3>
@@ -3749,20 +3749,20 @@
         try{
             const data=await sb('geuli_signatures?select=parent_name,child_name,parent_role,message,signature_img,created_at&order=created_at.desc');
             cnt.textContent=data.length||0;
-            if(!data.length){el.innerHTML='<div class="loading">היי את הראשונה! חתמי למעלה</div>';return}
+            if(!data.length){el.innerHTML='<div class="loading">Be the first! Sign above</div>';return}
             el.innerHTML=data.map(s=>{
-                const d=new Date(s.created_at).toLocaleDateString('he-IL',{day:'numeric',month:'long'});
-                const sigImg=s.signature_img?`<img src="${s.signature_img}" style="height:36px;margin-top:6px;opacity:0.7" alt="חתימה">`:'';
-                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', '+(s.parent_role||'אמא')+' של '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}${sigImg}<div class="sig-date">${d}</div></div></div>`;
+                const d=new Date(s.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'long'});
+                const sigImg=s.signature_img?`<img src="${s.signature_img}" style="height:36px;margin-top:6px;opacity:0.7" alt="Signature">`:'';
+                return `<div class="sig-item"><div class="sig-av">${s.parent_name.charAt(0)}</div><div class="sig-info"><div class="sig-name">${esc(s.parent_name)}${s.child_name?', parent of '+esc(s.child_name):''}</div>${s.message?'<div class="sig-msg">"'+esc(s.message)+'"</div>':''}${sigImg}<div class="sig-date">${d}</div></div></div>`;
             }).join('');
-        }catch(e){el.innerHTML='<div class="loading">שגיאה בטעינה</div>'}
+        }catch(e){el.innerHTML='<div class="loading">Could not load signatures</div>'}
     }
 
     async function handleSign(e){
         e.preventDefault();
         const form=e.target;
         const btn=form.querySelector('.btn-sign');
-        btn.disabled=true;btn.textContent='שולח...';
+        btn.disabled=true;btn.textContent='Sending...';
         try{
             await sb('geuli_signatures',{method:'POST',body:JSON.stringify({
                 parent_name:form.parentName.value.trim(),
@@ -3774,15 +3774,15 @@
             form.style.display='none';
             document.getElementById('successMsgInline').classList.add('show');
             loadSigs();
-        }catch(err){alert('שגיאה, נסי שוב');btn.disabled=false;btn.textContent='חותמת על הפנייה'}
+        }catch(err){alert('Something went wrong, please try again');btn.disabled=false;btn.textContent='Sign the Letter'}
         return false;
     }
 
     function copyLink(){
         navigator.clipboard.writeText(location.href).then(()=>{
             const b=document.querySelector('.share-btn');
-            b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> הועתק!';
-            setTimeout(()=>{b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> העתיקי קישור'},2000);
+            b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+            setTimeout(()=>{b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link'},2000);
         });
     }
 
