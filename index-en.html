@@ -2366,8 +2366,12 @@
         }
 
         /* ===== LANGUAGE TOGGLE ===== */
-        .lang-toggle {
+        .lang-toggles {
             justify-self: end;
+            display: flex;
+            gap: 6px;
+        }
+        .lang-toggle {
             display: inline-flex;
             align-items: center;
             padding: 6px 16px;
@@ -2389,7 +2393,8 @@
         }
         @media (max-width: 1080px) {
             .nav-top { grid-template-columns: auto auto 1fr; }
-            .lang-toggle { order: 0; justify-self: start; padding: 5px 13px; font-size: 12px; }
+            .lang-toggles { order: 0; justify-self: start; }
+            .lang-toggle { padding: 5px 11px; font-size: 12px; }
         }
     </style>
 </head>
@@ -2431,7 +2436,10 @@
             <li><a href="#" data-tab="businesses">Community in Business</a></li>
             <li><a href="year-summary-2026/">Geulim Year in Review</a></li>
         </ul>
-        <a class="lang-toggle" href="index.html" onclick="this.href='index.html'+location.hash" aria-label="עברית">עברית</a>
+        <div class="lang-toggles">
+            <a class="lang-toggle" href="index.html" onclick="this.href='index.html'+location.hash" aria-label="עברית">עברית</a>
+            <a class="lang-toggle" href="index-ti.html" onclick="this.href='index-ti.html'+location.hash" aria-label="ትግርኛ">ትግርኛ</a>
+        </div>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
