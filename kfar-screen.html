@@ -239,6 +239,20 @@ function layout(q){
     el.style.left = spot.x+"px";
     el.style.top = spot.y+"px";
   });
+  // מרכוז: מזיזים את כל הענן כך שמרכז הכובד שלו באמצע הבמה
+  if(placed.length){
+    let L=1e9, R=-1e9, T=1e9, B=-1e9;
+    placed.forEach(p=>{ L=Math.min(L,p.l); R=Math.max(R,p.r); T=Math.min(T,p.t); B=Math.max(B,p.b); });
+    let dx=(W-(L+R))/2, dy=(H-(T+B))/2;
+    dx = Math.max(-(L-4), Math.min(dx, W-4-R));
+    dy = Math.max(-(T-4), Math.min(dy, H-4-B));
+    entries.forEach(([txt])=>{
+      const el = nodes[q].get(txt);
+      if(!el) return;
+      el.style.left = (parseFloat(el.style.left)+dx)+"px";
+      el.style.top = (parseFloat(el.style.top)+dy)+"px";
+    });
+  }
   for(const [txt,el] of nodes[q]) if(!seen.has(txt)){ el.remove(); nodes[q].delete(txt); }
 }
 
@@ -248,12 +262,14 @@ function free(x, y, w, h, W, H, placed){
   const rect = {l:x-w/2-pad, r:x+w/2+pad, t:y-h/2-pad, b:y+h/2+pad};
   return !placed.some(p => rect.l < p.r && rect.r > p.l && rect.t < p.b && rect.b > p.t);
 }
-// ספירלה מהמרכז החוצה
+// ספירלה מהמרכז החוצה — מתרחבת עד קצות המסך
 function findSpot(W, H, w, h, placed){
-  for(let s=0; s<2600; s++){
-    const a = s*0.33, r = 3.1*Math.sqrt(s);
-    const x = W/2 + r*Math.cos(a)*1.45;
-    const y = H/2 + r*Math.sin(a)*0.75;
+  const rMax = Math.hypot(W, H)/2;
+  for(let s=0; s<6000; s++){
+    const a = s*0.36;
+    const r = rMax * Math.sqrt(s/6000);
+    const x = W/2 + r*Math.cos(a)*1.25;
+    const y = H/2 + r*Math.sin(a)*0.72;
     if(free(x, y, w, h, W, H, placed)) return {x, y, w, h};
   }
   return null;
