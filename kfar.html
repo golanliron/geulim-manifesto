@@ -177,6 +177,15 @@ h2{
   font-size:16px;font-weight:500;color:var(--navy);
 }
 .screen-cue svg{flex:none;color:var(--olive);}
+.wa-btn{
+  display:flex;align-items:center;gap:9px;
+  font-size:16.5px;font-weight:700;color:#fff;text-decoration:none;
+  background:#25D366;border-radius:999px;
+  padding:14px 30px;margin-top:26px;
+  box-shadow:0 8px 22px rgba(37,211,102,.4);
+  transition:transform .1s ease;
+}
+.wa-btn:active{transform:scale(.97);}
 
 /* ---------- מובייל ---------- */
 @media (max-height:720px){
@@ -267,6 +276,10 @@ h2{
       <div class="divider" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <p class="lead">הערכים שלכם עלו עכשיו אל המסך, יחד עם של כל ההורים.</p>
       <div class="picked" id="picked"></div>
+      <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener" style="display:none">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3z"/></svg>
+        הצטרפו לקהילת ההורים של גאולים
+      </a>
       <div class="screen-cue">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         הרימו עיניים אל המסך הגדול
@@ -282,6 +295,8 @@ h2{
 <canvas id="confetti" aria-hidden="true"></canvas>
 
 <script>
+// לינק ההזמנה לקבוצת הוואטסאפ של קהילת ההורים — להדביק כשמתקבל
+const WHATSAPP_URL = "";
 // ── חיבור לגיליון: להדביק כאן את כתובת ה-Apps Script אחרי הפריסה ──
 const HOOK_URL = "https://script.google.com/macros/s/AKfycbxVdODHeLJ9ptvtJZAHSmf2e0aix4RpbCe8s5jmMMo6xeM8zvxWu_itLNdp31-UwPKr5A/exec";
 
@@ -357,6 +372,8 @@ function submitAnswers(){
     d.style.animationDelay = (i*0.2)+"s";
     picked.appendChild(d);
   });
+  const wa = document.getElementById("waBtn");
+  if(WHATSAPP_URL){ wa.href = WHATSAPP_URL; wa.style.display = "flex"; }
   goto(3);
   confettiBurst();
 }
