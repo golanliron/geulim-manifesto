@@ -52,11 +52,10 @@ body{
   pointer-events:none;
 }
 .lang-toggle{
-  position:absolute;top:16px;inset-inline-end:18px;z-index:5;
-  display:inline-block;padding:7px 16px;border:1.5px solid var(--border);
+  display:inline-block;margin:0 auto 18px;padding:8px 22px;border:1.5px solid rgba(31,53,94,.22);
   border-radius:60px;background:var(--white);color:var(--navy);
-  font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;
-  text-decoration:none;transition:all .2s;
+  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
+  text-decoration:none;transition:all .2s;box-shadow:0 3px 12px rgba(31,53,94,.07);
 }
 .lang-toggle:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(31,53,94,.1)}
 .hero-inner{position:relative;z-index:1}
@@ -181,7 +180,7 @@ h1{
 footer{background:var(--white);border-top:1px solid var(--border);padding:28px 24px 34px;text-align:center}
 footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 @media(max-width:560px){
-  .hero{padding:52px 18px 26px}
+  .hero{padding:36px 18px 26px}
   .form-card{padding:28px 18px}
   .strip{height:60px}.strip img{width:180%}
   .counter{gap:34px}
@@ -192,9 +191,9 @@ footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 <body>
 
 <section class="hero">
-  <a class="lang-toggle" href="tzaharon.html">עברית</a>
   <div class="hero-inner">
     <img class="arch" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="Geulim School logo">
+    <div><a class="lang-toggle" href="tzaharon.html">עברית</a></div>
     <div class="section-label">AFTERNOON PROGRAM · SCHOOL YEAR 2026/27</div>
     <h1>Feasibility Check: Nitzanim Afternoon Program at Geulim School</h1>
     <div class="subtitle-deco">

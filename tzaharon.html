@@ -63,11 +63,10 @@ body{
   pointer-events:none;
 }
 .lang-toggle{
-  position:absolute;top:16px;inset-inline-end:18px;z-index:5;
-  display:inline-block;padding:7px 16px;border:1.5px solid var(--border);
+  display:inline-block;margin:0 auto 18px;padding:8px 22px;border:1.5px solid rgba(31,53,94,.22);
   border-radius:60px;background:var(--white);color:var(--navy);
-  font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;
-  text-decoration:none;transition:all .2s;
+  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
+  text-decoration:none;transition:all .2s;box-shadow:0 3px 12px rgba(31,53,94,.07);
 }
 .lang-toggle:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(31,53,94,.1)}
 .hero-inner{position:relative;z-index:1}
@@ -193,7 +192,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:28px 2
 footer .word{font-family:'Noto Serif Hebrew','Frank Ruhl Libre',serif;font-weight:900;font-size:26px;color:var(--navy)}
 footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 @media(max-width:560px){
-  .hero{padding:52px 18px 26px}
+  .hero{padding:36px 18px 26px}
   .form-card{padding:28px 18px}
   .strip{height:60px}.strip img{width:180%}
   .counter{gap:34px}
@@ -206,9 +205,9 @@ footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 <body>
 
 <section class="hero">
-  <a class="lang-toggle" href="tzaharon-en.html">English</a>
   <div class="hero-inner">
     <img class="arch" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+    <div><a class="lang-toggle" href="tzaharon-en.html">English</a></div>
     <div class="section-label">צהרון · שנת תשפ״ז</div>
     <h1>בדיקת היתכנות לצהרון ניצנים במסגרת בית ספר גאולים</h1>
     <div class="subtitle-deco">
