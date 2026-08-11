@@ -68,7 +68,7 @@ body{
   background:radial-gradient(circle, rgba(138,151,70,0.22) 0 4px, transparent 4.5px) 0 0 / 30px 30px;
   pointer-events:none;z-index:-1;
 }
-.arch{width:86px;height:auto;margin:0 auto 18px;display:block;opacity:.95}
+.arch{width:150px;height:auto;margin:0 auto 18px;display:block}
 .section-label{
   font-size:12px;font-weight:800;letter-spacing:2px;color:var(--olive);
   margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;
@@ -132,7 +132,7 @@ h1{
 }
 .field input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(216,199,160,.08);background:var(--white)}
 .row{display:grid;gap:14px}
-@media(min-width:520px){.row.kid{grid-template-columns:1.5fr 1.2fr .8fr}.row.two{grid-template-columns:1fr 1fr}}
+@media(min-width:520px){.row.kid{grid-template-columns:1.7fr .8fr}.row.two{grid-template-columns:1fr 1fr}}
 .row .field{margin-bottom:0}
 
 .kid{border:1.5px solid var(--border);border-radius:16px;padding:18px 18px 20px;margin-bottom:14px;background:var(--warm-white)}
@@ -197,14 +197,9 @@ footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 </head>
 <body>
 
-<div class="topbar">
-  <img src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים" style="height:56px">
-
-</div>
-
 <section class="hero">
   <div class="hero-inner">
-    <img class="arch" src="brand/experiments/gaulim-inspired/geuli-uploaded-arch-transparent.png" alt="">
+    <img class="arch" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
     <div class="section-label">צהרון · שנת תשפ״ז</div>
     <h1>אשמח לרשום את ילדיי לצהרון</h1>
     <div class="subtitle-deco">
@@ -302,7 +297,6 @@ function addKid(){
     </div>
     <div class="row kid">
       <div class="field"><label>שם הילד/ה</label><input type="text" class="k-name" placeholder="שם פרטי ומשפחה"></div>
-      <div class="field"><label>ת.ז של הילד/ה</label><input type="text" class="k-id" inputmode="numeric" maxlength="9" placeholder="9 ספרות"></div>
       <div class="field"><label>כיתה</label><input type="text" class="k-class" placeholder="ב'2"></div>
     </div>`;
   d.querySelector('.kid-remove').addEventListener('click',()=>{d.remove();renumber();});
@@ -329,13 +323,11 @@ function collect(){
   const all=kids.querySelectorAll('.kid');
   for(let i=0;i<all.length;i++){
     const name=all[i].querySelector('.k-name').value.trim();
-    const id=all[i].querySelector('.k-id').value.replace(/\D/g,'');
     const cls=all[i].querySelector('.k-class').value.trim();
-    if(!name&&!id&&!cls) continue;
+    if(!name&&!cls) continue;
     if(!name) return {error:`חסר שם לילד/ה מספר ${i+1}.`};
-    if(id.length!==9) return {error:`ת.ז של ${name} צריכה להיות 9 ספרות.`};
     if(!cls) return {error:`חסרה כיתה עבור ${name}.`};
-    list.push({name,id,class:cls});
+    list.push({name,class:cls});
   }
   if(!list.length) return {error:'צריך למלא לפחות ילד/ה אחד.'};
   return {parent_name:parent,phone,children:list};
