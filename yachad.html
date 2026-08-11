@@ -110,6 +110,23 @@ h2{
 .card.text .body{padding:30px 28px;}
 .card.text .mark{width:13px;height:13px;border-radius:4px;background:var(--sand-deep);transform:rotate(45deg);margin-bottom:6px;}
 
+/* איור צ'אט לכרטיס הוואטסאפ */
+.chat{
+  height:250px;border-bottom:1px solid var(--border);
+  background:linear-gradient(160deg,#EFE9DC,#E3F0E2);
+  display:flex;flex-direction:column;justify-content:center;gap:12px;
+  padding:0 clamp(18px,6%,40px);
+}
+.chat .msg{
+  max-width:80%;background:#fff;border-radius:16px 16px 4px 16px;
+  padding:9px 16px 10px;font-size:.95rem;line-height:1.45;color:var(--navy);
+  box-shadow:0 2px 8px rgba(31,53,94,.1);align-self:flex-start;
+}
+.chat .msg.me{
+  background:#D9F2CE;border-radius:16px 16px 16px 4px;align-self:flex-end;
+}
+.chat .msg b{font-family:'Rubik',sans-serif;font-weight:700;font-size:.8rem;color:var(--olive);display:block;margin-bottom:2px;}
+
 /* ---------- וואטסאפ ---------- */
 .join{
   text-align:center;background:var(--sand-light);border-radius:22px;
@@ -188,9 +205,13 @@ footer a:hover{text-decoration:underline;}
         </div>
       </div>
 
-      <div class="card text">
+      <div class="card">
+        <div class="chat" role="img" aria-label="הודעות בקבוצת הוואטסאפ של הקהילה">
+          <div class="msg"><b>קהילת גאולי</b>יש לי רעיון ליוזמה חדשה בחצר!</div>
+          <div class="msg me">מי מצטרפים ביום שישי? 🎈</div>
+          <div class="msg">איזה כיף היה היום, מחכים לבא 💙</div>
+        </div>
         <div class="body">
-          <div class="mark"></div>
           <h3>קהילה בוואטסאפ</h3>
           <p>מעל חמישים משפחות הצטרפו לקבוצת הוואטסאפ של הקהילה, שבה עולות יוזמות, אירועים ורעיונות.</p>
         </div>
