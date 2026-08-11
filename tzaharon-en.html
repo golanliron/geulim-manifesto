@@ -129,7 +129,7 @@ h1{
 }
 .field input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(216,199,160,.08);background:var(--white)}
 .row{display:grid;gap:14px}
-@media(min-width:520px){.row.kid{grid-template-columns:1.7fr .8fr}.row.two{grid-template-columns:1fr 1fr}}
+@media(min-width:520px){.row.kidrow{grid-template-columns:1.7fr .8fr}.row.two{grid-template-columns:1fr 1fr}}
 .row .field{margin-bottom:0}
 
 .kid{border:1.5px solid var(--border);border-radius:16px;padding:18px 18px 20px;margin-bottom:14px;background:var(--warm-white)}
@@ -293,7 +293,7 @@ function addKid(){
       <span class="kid-num"></span><strong>Child</strong>
       <button class="kid-remove" type="button">Remove</button>
     </div>
-    <div class="row kid">
+    <div class="row kidrow">
       <div class="field"><label>Child's name</label><input type="text" class="k-name" placeholder="First and last name"></div>
       <div class="field"><label>Class</label><input type="text" class="k-class" placeholder="2nd grade"></div>
     </div>`;
