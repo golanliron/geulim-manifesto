@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>גאולי · צפיות בניוזלטר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ef; --sand:#efe6d7; --navy:#1b2a4a; --navy-deep:#131f38;
+  --olive:#7a8450; --gold:#c9a24b; --text-light:#5a6478;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--navy);min-height:100vh;padding:36px 20px 60px}
+.wrap{max-width:560px;margin:0 auto}
+h1{font-family:'Rubik',sans-serif;font-size:26px;font-weight:800;text-align:center;margin-bottom:6px}
+.sub{text-align:center;color:var(--text-light);font-size:14px;margin-bottom:28px}
+.card{background:#fff;border:1px solid rgba(27,42,74,.12);border-radius:18px;box-shadow:0 10px 30px rgba(27,42,74,.08);padding:24px;margin-bottom:18px}
+.big{text-align:center}
+.big .num{font-family:'Rubik',sans-serif;font-size:56px;font-weight:800;line-height:1.1}
+.big .lbl{color:var(--text-light);font-size:15px;margin-top:4px}
+.row{display:flex;gap:18px}
+.row .card{flex:1;text-align:center;margin-bottom:0}
+.row .num{font-family:'Rubik',sans-serif;font-size:30px;font-weight:800}
+.row .lbl{color:var(--text-light);font-size:13px;margin-top:4px}
+.row{margin-bottom:18px}
+h2{font-family:'Rubik',sans-serif;font-size:16px;font-weight:700;margin-bottom:14px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:13px}
+.bar-row .day{width:52px;color:var(--text-light);flex-shrink:0}
+.bar-track{flex:1;background:var(--sand);border-radius:60px;height:18px;overflow:hidden}
+.bar-fill{background:var(--olive);height:100%;border-radius:60px;min-width:4px}
+.bar-row .n{width:34px;text-align:left;font-weight:700;flex-shrink:0}
+.empty{color:var(--text-light);font-size:14px;text-align:center;padding:8px 0}
+.refresh{display:block;margin:8px auto 0;padding:12px 34px;border-radius:60px;border:none;background:var(--navy);color:#fff;font-family:'Heebo',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
+.refresh:hover{background:var(--navy-deep)}
+.stamp{text-align:center;color:var(--text-light);font-size:12px;margin-top:12px}
+.err{background:#fdf0f0;border:1px solid #e5b8b8;color:#8a3030;border-radius:12px;padding:14px;text-align:center;font-size:14px;display:none;margin-bottom:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>צפיות בניוזלטר</h1>
+  <div class="sub">גאולי · מה בנינו יחד · אוגוסט 2026</div>
+
+  <div class="err" id="err">לא הצלחנו לטעון את הנתונים. אפשר לנסות שוב בעוד רגע.</div>
+
+  <div class="card big">
+    <div class="num" id="total">…</div>
+    <div class="lbl">כניסות סך הכול, בשלוש השפות</div>
+  </div>
+
+  <div class="row">
+    <div class="card"><div class="num" id="today">…</div><div class="lbl">היום</div></div>
+    <div class="card"><div class="num" id="he">…</div><div class="lbl">עברית</div></div>
+    <div class="card"><div class="num" id="en">…</div><div class="lbl">אנגלית</div></div>
+    <div class="card"><div class="num" id="ti">…</div><div class="lbl">תגרינית</div></div>
+  </div>
+
+  <div class="card">
+    <h2>שבועיים אחרונים, לפי יום</h2>
+    <div id="days"><div class="empty">עוד אין נתונים</div></div>
+  </div>
+
+  <button class="refresh" onclick="load()">רענון</button>
+  <div class="stamp" id="stamp"></div>
+</div>
+
+<script>
+const SB_URL='https://vhmwijzcrqjjquxomccq.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZobXdpanpjcnFqanF1eG9tY2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1Nzk0MDgsImV4cCI6MjA4OTE1NTQwOH0.rMnAcdMiPddUAoap63tMiqeQQanJoF-HDmzra7P-5Cc';
+const DAY_NAMES=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+
+async function load(){
+  document.getElementById('err').style.display='none';
+  try{
+    const r=await fetch(SB_URL+'/rest/v1/rpc/geuli_yachad_stats',{
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},
+      body:'{}'
+    });
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    document.getElementById('total').textContent=d.total;
+    document.getElementById('today').textContent=d.today;
+    const langs=d.by_lang||{};
+    document.getElementById('he').textContent=langs.he||0;
+    document.getElementById('en').textContent=langs.en||0;
+    document.getElementById('ti').textContent=langs.ti||0;
+    const days=d.by_day||[];
+    const box=document.getElementById('days');
+    if(!days.length){
+      box.innerHTML='<div class="empty">עוד אין נתונים</div>';
+    }else{
+      const max=Math.max(...days.map(x=>x.n));
+      box.innerHTML=days.slice().reverse().map(x=>{
+        const dt=new Date(x.day+'T12:00:00');
+        const lbl=DAY_NAMES[dt.getDay()]+' '+dt.getDate()+'.'+(dt.getMonth()+1);
+        const w=Math.max(4,Math.round(x.n/max*100));
+        return '<div class="bar-row"><span class="day">'+lbl+'</span>'+
+          '<div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div>'+
+          '<span class="n">'+x.n+'</span></div>';
+      }).join('');
+    }
+    const now=new Date();
+    document.getElementById('stamp').textContent='עודכן ב'+now.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+  }catch(e){
+    document.getElementById('err').style.display='block';
+  }
+}
+load();
+</script>
+</body>
+</html>

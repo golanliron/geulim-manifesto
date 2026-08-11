@@ -380,5 +380,20 @@ footer a:hover{text-decoration:underline;}
   <span class="site"><a href="https://www.geuli.co.il/index-ti.html">www.geuli.co.il</a></span>
 </footer>
 
+<script>
+(function(){
+  var page='yachad-ti',lang='ti';
+  try{
+    if(sessionStorage.getItem('gv_'+page))return;
+    sessionStorage.setItem('gv_'+page,'1');
+  }catch(e){}
+  var K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZobXdpanpjcnFqanF1eG9tY2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1Nzk0MDgsImV4cCI6MjA4OTE1NTQwOH0.rMnAcdMiPddUAoap63tMiqeQQanJoF-HDmzra7P-5Cc';
+  fetch('https://vhmwijzcrqjjquxomccq.supabase.co/rest/v1/geuli_page_views',{
+    method:'POST',
+    headers:{'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json','Prefer':'return=minimal'},
+    body:JSON.stringify({page:page,lang:lang})
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
