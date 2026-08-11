@@ -276,6 +276,7 @@ footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 </footer>
 
 <script>
+const HOOK_URL='';
 const SB_URL='https://vhmwijzcrqjjquxomccq.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZobXdpanpjcnFqanF1eG9tY2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1Nzk0MDgsImV4cCI6MjA4OTE1NTQwOH0.rMnAcdMiPddUAoap63tMiqeQQanJoF-HDmzra7P-5Cc';
 async function sb(path,opt={}){
@@ -347,6 +348,13 @@ document.getElementById('send').addEventListener('click',async()=>{
   btn.disabled=true;btn.textContent='שולח...';say('');
   try{
     await sb('geuli_tzaharon',{method:'POST',body:JSON.stringify(r)});
+    if(HOOK_URL){
+      const params=new URLSearchParams({
+        parent:r.parent_name,phone:r.phone,
+        childrenJson:JSON.stringify(r.children)
+      });
+      fetch(HOOK_URL,{method:'POST',mode:'no-cors',keepalive:true,body:params}).catch(()=>{});
+    }
     document.getElementById('formWrap').style.display='none';
     document.getElementById('done').style.display='block';
     loadCounts();
