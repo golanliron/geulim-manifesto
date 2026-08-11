@@ -2434,6 +2434,7 @@
             <li><a href="#" data-tab="plan">התוכנית שלנו</a></li>
             <li><a href="#" data-tab="teams">הקהילה</a></li>
             <li><a href="#" data-tab="businesses">קהילה בעסקים</a></li>
+            <li><a href="#" data-tab="updates">אירועים ועדכונים</a></li>
             <li><a href="year-summary-2026/">סיום שנתי גאולים תשפ״ו</a></li>
         </ul>
         <div class="lang-toggles">
@@ -2452,6 +2453,7 @@
     <a href="#" data-tab="plan" onclick="closeMenu()">התוכנית שלנו</a>
     <a href="#" data-tab="teams" onclick="closeMenu()">הקהילה</a>
     <a href="#" data-tab="businesses" onclick="closeMenu()">קהילה בעסקים</a>
+    <a href="#" data-tab="updates" onclick="closeMenu()">אירועים ועדכונים</a>
     <a href="year-summary-2026/" onclick="closeMenu()">סיום שנתי גאולים תשפ״ו</a>
 </div>
 
@@ -2949,6 +2951,41 @@
 </section>
 
 </div>
+
+<!-- TAB: אירועים ועדכונים -->
+<div class="tab-page" id="page-updates">
+
+<section class="container" style="padding-top:56px;padding-bottom:64px;">
+    <div style="text-align:center;">
+        <div class="section-label" style="justify-content:center;margin-inline:auto;">אירועים ועדכונים</div>
+        <div class="hero-divider" style="margin-bottom:18px;" aria-hidden="true">
+            <span class="hero-divider-arch"></span>
+            <span class="hero-divider-arch"></span>
+            <span class="hero-divider-arch"></span>
+        </div>
+        <h2 style="font-size:clamp(34px,5vw,58px);line-height:1.25;max-width:980px;margin:0 auto;color:var(--navy);">מה קורה בקהילה</h2>
+        <p style="max-width:760px;margin:22px auto 0;text-align:center;font-size:clamp(19px,2.2vw,25px);line-height:1.85;color:var(--text-light);">
+            הניוזלטרים, האירועים והעדכונים של קהילת הורי גאולים, במקום אחד.
+        </p>
+    </div>
+
+    <!-- להוספת אירוע או ניוזלטר חדש: מעתיקים כרטיס updates-card ומדביקים אותו ראשון ברשימה (החדש תמיד למעלה) -->
+    <div id="updatesGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,420px));gap:22px;justify-content:center;margin-top:44px;">
+
+        <a class="updates-card" href="yachad.html" style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(27,42,74,.12);border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 10px 30px rgba(27,42,74,.08);">
+            <img src="brand/assets/newsletter-2026-08.jpg" alt="מפגש הבועות בחצר בית הספר" style="width:100%;height:200px;object-fit:cover;display:block;">
+            <div style="padding:20px 22px 24px;text-align:right;">
+                <div style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.06em;margin-bottom:6px;">ניוזלטר · אוגוסט 2026</div>
+                <div style="font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px;">מה בנינו יחד</div>
+                <p style="font-size:15px;line-height:1.7;color:var(--text-light);margin:0 0 16px;">מפגש הבועות של הקיץ, האירוע הקהילתי הראשון, קהילה בשלוש שפות, הפגישה עם חברת הכנסת מירב כהן, גאולים בעסקים ועוד.</p>
+                <span style="display:inline-block;padding:10px 24px;border-radius:60px;background:var(--gold);color:var(--navy-deep);font-size:14px;font-weight:700;">לצפייה בניוזלטר</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+</div><!-- /page-updates -->
 
 <!-- TAB: הלמה שלנו -->
 <div class="tab-page active" id="page-why">
@@ -3494,6 +3531,7 @@
         <a href="#" onclick="event.preventDefault();switchTab('plan')">התוכנית שלנו</a>
         <a href="#" onclick="event.preventDefault();switchTab('teams')">הקהילה</a>
         <a href="#" onclick="event.preventDefault();switchTab('businesses')">קהילה בעסקים</a>
+        <a href="#" onclick="event.preventDefault();switchTab('updates')">אירועים ועדכונים</a>
         <a href="year-summary-2026/">סיום שנתי גאולים תשפ״ו</a>
     </nav>
     <div class="footer-gold-line"></div>
