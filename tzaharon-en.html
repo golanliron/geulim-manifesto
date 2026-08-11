@@ -7,7 +7,7 @@
 <meta name="description" content="Feasibility check for a Nitzanim afternoon program at Geulim School. The list is compiled by the parent community of Geulim School, Baka.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&family=Noto+Sans+Ethiopic:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#1F355E;
@@ -51,10 +51,11 @@ body{
   background:linear-gradient(90deg,transparent,rgba(216,199,160,0.7),transparent);
   pointer-events:none;
 }
+.lang-toggles{display:flex;justify-content:center;gap:10px;margin:0 0 18px}
 .lang-toggle{
-  display:inline-block;margin:0 auto 18px;padding:8px 22px;border:1.5px solid rgba(31,53,94,.22);
+  display:inline-block;padding:8px 22px;border:1.5px solid rgba(31,53,94,.22);
   border-radius:60px;background:var(--white);color:var(--navy);
-  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
+  font-family:'Heebo','Noto Sans Ethiopic',sans-serif;font-size:14px;font-weight:700;
   text-decoration:none;transition:all .2s;box-shadow:0 3px 12px rgba(31,53,94,.07);
 }
 .lang-toggle:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(31,53,94,.1)}
@@ -193,7 +194,10 @@ footer p{font-size:13px;color:var(--text-muted);margin:6px 0 0;line-height:1.9}
 <section class="hero">
   <div class="hero-inner">
     <img class="arch" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="Geulim School logo">
-    <div><a class="lang-toggle" href="tzaharon.html">עברית</a></div>
+    <div class="lang-toggles">
+      <a class="lang-toggle" href="tzaharon.html">עברית</a>
+      <a class="lang-toggle" href="tzaharon-ti.html">ትግርኛ</a>
+    </div>
     <div class="section-label">AFTERNOON PROGRAM · SCHOOL YEAR 2026/27</div>
     <h1>Feasibility Check: Nitzanim Afternoon Program at Geulim School</h1>
     <div class="subtitle-deco">
