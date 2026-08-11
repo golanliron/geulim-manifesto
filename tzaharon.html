@@ -291,7 +291,7 @@ async function sb(path,opt={}){
     'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json',
     'Prefer':opt.method==='POST'?'return=minimal':undefined,...opt.headers}});
   if(!r.ok) throw new Error(await r.text());
-  return r.status===204?null:r.json();
+  const t=await r.text();return t?JSON.parse(t):null;
 }
 
 const kids=document.getElementById('kids');
