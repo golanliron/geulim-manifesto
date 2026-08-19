@@ -55,6 +55,24 @@
             margin-bottom: 14px;
         }
 
+        .logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 14px;
+        }
+
+        .logos .school-logo { margin-bottom: 0; }
+
+        .logo-plus {
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--green);
+        }
+
+        .oglogo { width: 108px; height: 108px; }
+
         .kicker {
             color: var(--green);
             font-weight: 900;
@@ -209,7 +227,18 @@
 <body>
 <main class="page">
     <section class="hero">
-        <img class="school-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+        <div class="logos">
+            <img class="school-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים">
+            <div class="logo-plus" aria-hidden="true">+</div>
+            <svg class="oglogo" viewBox="0 0 200 200" role="img" aria-label="הלוגו של אמהות לא אוגרות">
+                <circle cx="100" cy="100" r="97" fill="#e2edec"/>
+                <text x="100" y="80" text-anchor="middle" font-family="'Frank Ruhl Libre', serif" font-weight="900" font-size="37" fill="#67939b">אמהות</text>
+                <text x="100" y="124" text-anchor="middle" font-family="'Frank Ruhl Libre', serif" font-weight="900" font-size="37" fill="#67939b">לא</text>
+                <text x="52" y="121" text-anchor="middle" font-size="26" fill="#c11750">♥</text>
+                <text x="148" y="121" text-anchor="middle" font-size="26" fill="#c11750">♥</text>
+                <text x="100" y="168" text-anchor="middle" font-family="'Frank Ruhl Libre', serif" font-weight="900" font-size="37" fill="#67939b">אוגרות</text>
+            </svg>
+        </div>
         <div class="kicker">הזמנה לשיתוף פעולה</div>
         <h1>אמהות לא אוגרות, נעים להכיר</h1>
         <p class="lead">קהילת גאולי, קהילת ההורים והצוות החינוכי של בית ספר גאולים בבקעה, מזמינה אתכן לעשות אצלנו את מה שאתן יודעות לעשות הכי טוב: לתת, להעביר הלאה ולחבר בין אנשים. יש לנו חצר, יש לנו קהילה, ויש לנו הערכה גדולה לדרך שלכן.</p>
