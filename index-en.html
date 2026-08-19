@@ -3521,6 +3521,9 @@
     }
 
     function businessImageFor(field, imageUrl) {
+        // קישור שיתוף של Google Drive הוא דף HTML ולא תמונה — ממירים לכתובת התמונה עצמה
+        const drive = String(imageUrl || "").match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^"']*id=)([\w-]+)/);
+        if (drive) return "https://drive.google.com/thumbnail?id=" + drive[1] + "&sz=w1000";
         if (imageUrl) return imageUrl;
         const v = String(field || "");
         const map = [
@@ -3535,7 +3538,7 @@
             [["רפואה","רופא","שיניים","פיזיותרפ","אורתופד","רפואת"], "photo-1631217868264-e5b90bb7e133"],
             [["הייטק","תוכנה","פיתוח","מחשב","אפליקצי","סייבר"], "photo-1498050108023-c5249f4df085"],
             [["שיווק","פרסום","דיגיטל","קידום","סושיאל","מדיה"], "photo-1460925895917-afdab827c52f"],
-            [["ביגוד","אופנה","תפירה","בגד","טקסטיל"], "photo-1558618666-fcd25c85f82e"],
+            [["ביגוד","אופנה","תפירה","בגד","טקסטיל"], "photo-1445205170230-053b83016050"],
             [["יופי","קוסמט","איפור","שיער","מניקור","ספר"], "photo-1560066984-138dadb4c035"],
             [["תיקון","שיפוץ","חשמל","אינסטל","שרברב","בנייה","נגר"], "photo-1581578731548-c64695cc6952"],
             [["חשבונאות","ראיית חשבון","הנהלת חשבון","מס","פיננס","ביטוח"], "photo-1554224155-6726b3ff858f"],
@@ -3571,6 +3574,7 @@
         const phone = escapeBusinessText(business.phone || "");
         const website = escapeBusinessText(business.website_url || business.website || "");
         const image = escapeBusinessText(businessImageFor(field, business.image_url || business.logo_url));
+        const fallbackImage = escapeBusinessText(businessImageFor(field, ""));
         const meta = [parent, role, child].filter(Boolean).join(" · ");
         const cleanPhone = phone.replace(/[^\d+]/g, "");
         const whatsapp = cleanPhone ? `<a href="https://wa.me/${cleanPhone.replace(/^0/, "972")}" target="_blank" style="padding:8px 15px;border-radius:999px;background:#25D366;color:#fff;font-size:13px;font-weight:700;text-decoration:none;">WhatsApp</a>` : "";
@@ -3579,7 +3583,7 @@
 
         return `
             <article style="background:rgba(255,255,255,0.06);border:1px solid rgba(216,199,160,0.18);border-radius:14px;overflow:hidden;text-align:center;display:flex;flex-direction:column;height:100%;">
-                <img src="${image}" style="width:100%;height:130px;object-fit:cover;display:block;" alt="${name}">
+                <img src="${image}" onerror="this.onerror=null;this.src='${fallbackImage}';" style="width:100%;height:130px;object-fit:cover;display:block;" alt="${name}">
                 <div style="padding:16px 16px 18px;flex:1;display:flex;flex-direction:column;">
                     <div style="font-family:'Frank Ruhl Libre',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:5px;">${name}</div>
                     <div style="font-size:13px;color:var(--gold);margin-bottom:7px;">${field}</div>
