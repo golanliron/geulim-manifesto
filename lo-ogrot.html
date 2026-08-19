@@ -38,6 +38,55 @@
             max-width: 1040px;
             margin: 0 auto;
             padding: 38px 18px 56px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-deco {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 160px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .side-deco.right { right: 0; }
+        .side-deco.left { left: 0; }
+
+        .side-deco span { position: absolute; display: block; }
+
+        .side-deco .c {
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .side-deco .c:nth-of-type(odd) { animation-duration: 8s; }
+        .side-deco .c:nth-of-type(even) { animation-delay: 2.5s; }
+
+        .side-deco .ring {
+            border-radius: 50%;
+            background: transparent !important;
+            border: 3px solid rgba(138, 151, 70, .4);
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .side-deco .h {
+            color: rgba(193, 23, 80, .32);
+            line-height: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { translate: 0 0; }
+            50% { translate: 0 -14px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .side-deco .c, .side-deco .ring { animation: none; }
+        }
+
+        @media (max-width: 1180px) {
+            .side-deco { display: none; }
         }
 
         .hero {
@@ -233,6 +282,21 @@
 
         .cta-btn:hover { filter: brightness(.98); }
 
+        .cta-btn.wa {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .cta-btns .cta-btn { margin-top: 0; }
+
         footer {
             text-align: center;
             margin-top: 34px;
@@ -249,6 +313,23 @@
     </style>
 </head>
 <body>
+<div class="side-deco right" aria-hidden="true">
+    <span class="c" style="width:74px;height:74px;top:7%;right:34px;background:rgba(138,151,70,.28);"></span>
+    <span class="h" style="top:20%;right:70px;font-size:30px;transform:rotate(14deg);">♥</span>
+    <span class="c" style="width:44px;height:44px;top:33%;right:28px;background:rgba(31,53,94,.16);"></span>
+    <span class="c" style="width:96px;height:96px;top:48%;right:48px;background:rgba(216,199,160,.55);"></span>
+    <span class="h" style="top:66%;right:36px;font-size:22px;transform:rotate(-12deg);">♥</span>
+    <span class="ring" style="width:52px;height:52px;top:78%;right:66px;"></span>
+    <span class="c" style="width:38px;height:38px;top:91%;right:30px;background:rgba(31,53,94,.14);"></span>
+</div>
+<div class="side-deco left" aria-hidden="true">
+    <span class="c" style="width:88px;height:88px;top:10%;left:40px;background:rgba(216,199,160,.55);"></span>
+    <span class="ring" style="width:42px;height:42px;top:26%;left:26px;"></span>
+    <span class="h" style="top:38%;left:64px;font-size:26px;transform:rotate(-16deg);">♥</span>
+    <span class="c" style="width:64px;height:64px;top:54%;left:34px;background:rgba(31,53,94,.16);"></span>
+    <span class="h" style="top:72%;left:44px;font-size:32px;transform:rotate(10deg);">♥</span>
+    <span class="c" style="width:48px;height:48px;top:87%;left:64px;background:rgba(138,151,70,.28);"></span>
+</div>
 <main class="page">
     <section class="hero">
         <div class="logos">
@@ -338,8 +419,11 @@
 
     <section class="card cta">
         <h2>בואו נתחיל</h2>
-        <p style="font-size:17px;line-height:1.8;color:var(--muted);max-width:640px;margin:0 auto;">קיבלתן את הקישור הזה מאיתנו באופן אישי, אז הכי פשוט: <strong style="color:var(--navy);">השיבו להודעה, ונקבע שיחה או פגישה בבית הספר</strong>. מוזמנות גם להכיר אותנו קצת יותר באתר הקהילה.</p>
-        <a class="cta-btn" href="https://www.geuli.co.il/">להכיר את קהילת גאולי</a>
+        <p style="font-size:17px;line-height:1.8;color:var(--muted);max-width:640px;margin:0 auto;">מחכות לכן כאן: <strong style="color:var(--navy);">לירון, עמליה ואביה</strong> מקהילת גאולי. כתבו לנו ונקבע שיחה או פגישה בבית הספר.</p>
+        <div class="cta-btns">
+            <a class="cta-btn wa" href="https://wa.me/972502671012">וואטסאפ ללירון: 0502671012</a>
+            <a class="cta-btn" href="https://www.geuli.co.il/">להכיר את קהילת גאולי</a>
+        </div>
     </section>
 
     <footer>
