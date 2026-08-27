@@ -80,10 +80,24 @@ function doGet(e) {
     return json_({ ok: true, rows: readRows_() });
   }
 
+  if (mode === 'sync') {
+    if ((e.parameter.key || '') !== RESET_KEY) return json_({ ok: false, error: 'bad key' });
+    try {
+      return json_(syncToSheet());
+    } catch (err) {
+      return json_({ ok: false, error: String(err) });
+    }
+  }
+
   if (mode !== 'screen') {
     return json_({ ok: true, hint: 'use ?mode=screen' });
   }
 
+  var out = aggregate_();
+  return json_(out);
+}
+
+function aggregate_() {
   var out = { q1: {}, q2: {}, q3: {}, q4: {}, total: 0 };
   readRows_().forEach(function (row) {
     var hasAny = false;
@@ -97,5 +111,40 @@ function doGet(e) {
     }
     if (hasAny) out.total++;
   });
-  return json_(out);
+  return out;
+}
+
+var SHEET_NAME = 'תשובות הצוות';
+var HEADERS = [
+  'חותמת זמן',
+  'ש1 · ערכי בית הספר',
+  'ש2 · מה הילדים יקבלו',
+  'ש3 · מה זאת קהילה',
+  'ש4 · מה נרצה מקהילת ההורים'
+];
+
+/**
+ * מעתיק את כל התשובות מ-Properties לגיליון הצמוד.
+ * אידמפוטנטי: מוחק את שורות הנתונים וכותב הכול מחדש מהמקור.
+ * דורש הרשאת גיליונות (אושרה חד-פעמית בעורך).
+ */
+function syncToSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(SHEET_NAME);
+  if (!sh) {
+    sh = ss.insertSheet(SHEET_NAME);
+    sh.setFrozenRows(1);
+  }
+  sh.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]).setFontWeight('bold');
+  var last = sh.getLastRow();
+  if (last > 1) sh.getRange(2, 1, last - 1, sh.getLastColumn()).clearContent();
+
+  var rows = readRows_();
+  if (rows.length) {
+    var values = rows.map(function (r) {
+      return [r.t, (r.q1 || []).join(', '), (r.q2 || []).join(', '), (r.q3 || []).join(', '), (r.q4 || []).join(', ')];
+    });
+    sh.getRange(2, 1, values.length, HEADERS.length).setValues(values);
+  }
+  return { ok: true, synced: rows.length };
 }
