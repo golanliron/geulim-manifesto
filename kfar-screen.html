@@ -340,9 +340,14 @@ async function poll(){
   try{
     const r = await fetch(DATA_URL+"?mode=screen&t="+Date.now());
     const j = await r.json();
-    data[0] = new Map(Object.entries(j.q1||{}));
-    data[1] = new Map(Object.entries(j.q2||{}));
-    total = j.total||0;
+    // בגיליון נשארו 2 שליחות בדיקה מ-6.9.2026 עם קידוד שבור שאי אפשר למחוק מכאן —
+    // מסתירים כל ערך עם תווים שבורים ומורידים אותן מהמונה כל עוד הן קיימות
+    const BROKEN_SUBMISSIONS = 2;
+    const ok = k => !k.includes("�");
+    const hasBroken = Object.keys(j.q1||{}).concat(Object.keys(j.q2||{})).some(k=>!ok(k));
+    data[0] = new Map(Object.entries(j.q1||{}).filter(([k])=>ok(k)));
+    data[1] = new Map(Object.entries(j.q2||{}).filter(([k])=>ok(k)));
+    total = Math.max(0, (j.total||0) - (hasBroken ? BROKEN_SUBMISSIONS : 0));
     document.getElementById("count").textContent = total;
     layoutAll();
   }catch(e){}
