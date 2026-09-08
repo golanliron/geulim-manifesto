@@ -56,14 +56,14 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
   border-radius:50% 50% 0 0 / 22% 22% 0 0}
 .hero::after{content:'';position:absolute;bottom:0;right:8%;left:8%;height:1px;
   background:linear-gradient(to left,transparent,rgba(201,165,76,.55),transparent)}
-.hero img.logo{height:200px;display:block;margin:0 auto 12px}
+.hero img.logo{height:230px;display:block;margin:0 auto 12px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hair);background:#fff;
-  border-radius:9999px;padding:5px 14px;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);
+  border-radius:9999px;padding:7px 18px;font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--muted);
   box-shadow:0 2px 10px -4px rgba(27,42,74,.08)}
 .eyebrow i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
-.hero h1{font-size:clamp(46px,9vw,76px);font-weight:900;line-height:1.08;letter-spacing:-.01em;margin-top:24px;color:var(--navy)}
+.hero h1{font-size:clamp(54px,11vw,92px);font-weight:900;line-height:1.08;letter-spacing:-.01em;margin-top:24px;color:var(--navy)}
 .hero h1 .gl{background:linear-gradient(to top,var(--gold-soft) 42%,transparent 42%);padding:0 8px;color:var(--gold-deep)}
-.hero .sub{font-size:clamp(16px,2.6vw,19px);color:var(--muted);font-weight:400;max-width:620px;
+.hero .sub{font-size:clamp(18px,3vw,22px);color:var(--muted);font-weight:400;max-width:620px;
   text-wrap:balance;margin:26px auto 0;line-height:1.95}
 .hero .sub b{color:var(--ink);font-weight:700}
 .slot{display:inline-flex;align-items:center;justify-content:center;width:.6em;height:.8em;
@@ -73,7 +73,7 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
 @keyframes pop{0%{transform:scale(1.9);color:var(--gold-deep)}100%{transform:scale(1)}}
 
 /* blessing rain */
-.mf{position:absolute;top:-46px;border-radius:9999px;padding:6px 16px;font-size:14.5px;font-weight:800;
+.mf{position:absolute;top:-46px;border-radius:9999px;padding:7px 18px;font-size:16px;font-weight:800;
   white-space:nowrap;box-shadow:0 6px 16px -8px rgba(27,42,74,.35);animation:mfall linear forwards}
 .mf.g{background:var(--gold);color:var(--navy)}
 .mf.w{background:#fff;color:var(--navy);border:1px solid var(--hair)}
@@ -95,10 +95,10 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
 /* ── section chrome ── */
 .sec{margin-top:76px}
 .sec-hd{text-align:center;margin-bottom:40px}
-.sec-hd .tag{display:inline-block;border-radius:9999px;padding:7px 18px;font-size:12.5px;font-weight:800;
+.sec-hd .tag{display:inline-block;border-radius:9999px;padding:8px 20px;font-size:14px;font-weight:800;
   letter-spacing:.22em;background:var(--navy);color:var(--gold)}
-.sec-hd h2{font-size:clamp(26px,4.5vw,34px);font-weight:900;letter-spacing:-.01em;margin-top:14px;color:var(--navy)}
-.sec-hd p{font-size:17px;color:var(--muted);margin-top:8px}
+.sec-hd h2{font-size:clamp(32px,5.5vw,42px);font-weight:900;letter-spacing:-.01em;margin-top:14px;color:var(--navy)}
+.sec-hd p{font-size:19px;color:var(--muted);margin-top:8px}
 
 /* ── arch cards ── */
 .acards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -106,11 +106,11 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
   padding:34px 16px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;
   transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
 .acard:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
-.acard .glyph{min-width:54px;height:54px;padding:0 14px;border-radius:9999px;background:var(--navy);color:var(--gold);
+.acard .glyph{min-width:62px;height:62px;padding:0 16px;border-radius:9999px;background:var(--navy);color:var(--gold);
   display:flex;align-items:center;justify-content:center;font-family:'Frank Ruhl Libre',serif;
-  font-size:26px;font-weight:900;box-shadow:0 14px 26px -14px rgba(27,42,74,.5)}
-.acard b{font-family:'Frank Ruhl Libre',serif;font-size:22px;font-weight:900;color:var(--navy)}
-.acard p{font-size:14px;line-height:1.8;color:var(--muted)}
+  font-size:30px;font-weight:900;box-shadow:0 14px 26px -14px rgba(27,42,74,.5)}
+.acard b{font-family:'Frank Ruhl Libre',serif;font-size:26px;font-weight:900;color:var(--navy)}
+.acard p{font-size:16px;line-height:1.8;color:var(--muted)}
 
 /* ── bento (הקהילה בפעולה) ── */
 .bz{background:rgba(27,42,74,.045);border:1px solid var(--hair);border-radius:30px;padding:7px;
@@ -123,11 +123,11 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
 .core.goldc{background:var(--gold);color:var(--navy)}
 .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
 .b2{grid-column:span 2}.b3{grid-column:span 3}.b4{grid-column:span 4}.b6{grid-column:span 6}
-.core .lbl{font-size:11px;font-weight:800;letter-spacing:.18em;opacity:.55}
-.knum{font-size:clamp(38px,5vw,50px);font-weight:900;line-height:1;letter-spacing:-.02em;direction:ltr;text-align:right;font-family:'Heebo',sans-serif}
+.core .lbl{font-size:12.5px;font-weight:800;letter-spacing:.18em;opacity:.55}
+.knum{font-size:clamp(46px,6vw,60px);font-weight:900;line-height:1;letter-spacing:-.02em;direction:ltr;text-align:right;font-family:'Heebo',sans-serif}
 .knum .plus{font-size:.55em;vertical-align:14%}
-.core h3{font-family:'Frank Ruhl Libre',serif;font-size:20px;font-weight:900;line-height:1.35;letter-spacing:-.01em}
-.core p{font-size:14.5px;line-height:1.85;color:var(--muted);font-weight:400}
+.core h3{font-family:'Frank Ruhl Libre',serif;font-size:23px;font-weight:900;line-height:1.35;letter-spacing:-.01em}
+.core p{font-size:16.5px;line-height:1.85;color:var(--muted);font-weight:400}
 .core.navyc p{color:rgba(255,255,255,.72)}
 .core.goldc p{color:rgba(27,42,74,.68)}
 .core.navyc h3{color:var(--gold-soft)}
@@ -138,21 +138,21 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
   border-radius:50% 50% 0 0 / 30% 30% 0 0}
 .quote::after{content:'';position:absolute;bottom:0;right:8%;left:8%;height:1px;
   background:linear-gradient(to left,transparent,rgba(201,165,76,.55),transparent)}
-.quote blockquote{font-family:'Frank Ruhl Libre',serif;font-size:clamp(26px,4.6vw,38px);font-weight:900;
+.quote blockquote{font-family:'Frank Ruhl Libre',serif;font-size:clamp(32px,5.6vw,46px);font-weight:900;
   color:var(--navy);line-height:1.5;max-width:560px;margin:0 auto}
 .quote blockquote em{font-style:normal;color:var(--gold-deep)}
-.quote cite{display:block;font-style:normal;font-size:16.5px;color:var(--muted);margin-top:16px;font-weight:500}
+.quote cite{display:block;font-style:normal;font-size:18.5px;color:var(--muted);margin-top:16px;font-weight:500}
 .quote .tagline{font-size:15px;font-weight:700;color:var(--navy);margin-top:22px}
 
 /* ── wish ── */
 .wish-core{padding:38px 28px;text-align:center;align-items:center;gap:16px}
-.wish-core h2{font-size:clamp(22px,3.6vw,30px);font-weight:900;line-height:1.5;letter-spacing:-.01em}
+.wish-core h2{font-size:clamp(26px,4.4vw,36px);font-weight:900;line-height:1.5;letter-spacing:-.01em}
 .wish-core h2 .gl{color:var(--gold)}
-.wish-core p{font-size:15.5px;color:rgba(255,255,255,.66);max-width:480px;line-height:1.9}
-.wish-core .sig{font-size:17px;font-weight:800;color:var(--gold);letter-spacing:.02em}
-.wish-core .sig small{display:block;font-size:13px;font-weight:500;color:rgba(255,255,255,.55);margin-top:5px}
+.wish-core p{font-size:17.5px;color:rgba(255,255,255,.66);max-width:480px;line-height:1.9}
+.wish-core .sig{font-size:19px;font-weight:800;color:var(--gold);letter-spacing:.02em}
+.wish-core .sig small{display:block;font-size:15px;font-weight:500;color:rgba(255,255,255,.55);margin-top:5px}
 .btn-party{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);border:none;
-  border-radius:9999px;padding:10px 12px 10px 26px;font-size:16px;font-weight:900;font-family:'Heebo',sans-serif;cursor:pointer;
+  border-radius:9999px;padding:12px 14px 12px 30px;font-size:18px;font-weight:900;font-family:'Heebo',sans-serif;cursor:pointer;
   margin-top:8px;transition:transform .5s var(--ease)}
 .btn-party:active{transform:scale(.95)}
 .btn-party.pulse{animation:beat 2.2s var(--ease) infinite}
@@ -171,7 +171,7 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
   .b2,.b3,.b4,.b6{grid-column:span 6}
   .sec{margin-top:60px}
   .hero{padding:44px 16px 40px;border-radius:50% 50% 0 0 / 12% 12% 0 0}
-  .hero img.logo{height:160px}
+  .hero img.logo{height:185px}
 }
 @media (prefers-reduced-motion:reduce){
   .cf,.dove .wings{animation:none}
@@ -263,8 +263,8 @@ body::after{content:'';position:fixed;inset:0;z-index:80;pointer-events:none;opa
   <!-- thank you to the principal -->
   <section class="sec">
     <div class="bz rv"><div class="core wish-core" style="background:#fff">
-      <span class="lbl" style="color:var(--gold-deep);letter-spacing:.18em;font-size:12px;font-weight:800">תודה מיוחדת</span>
-      <h2 class="serif" style="color:var(--navy);font-size:clamp(22px,3.6vw,30px);font-weight:900;line-height:1.5">תודה רבה לאני מלכה, מנהלת בית הספר</h2>
+      <span class="lbl" style="color:var(--gold-deep);letter-spacing:.18em;font-size:13.5px;font-weight:800">תודה מיוחדת</span>
+      <h2 class="serif" style="color:var(--navy);font-size:clamp(26px,4.4vw,36px);font-weight:900;line-height:1.5">תודה רבה לאני מלכה, מנהלת בית הספר</h2>
       <p style="color:var(--muted)">שמובילה את בית הספר עם פדגוגיה חדשנית ויצירתית, עם לב פתוח ואוזן קשבת. שנה טובה לכל אנשי ונשות החינוך ולצוות המנהלי — תודה רבה לכולם על שנה של עשייה מכל הלב.</p>
     </div></div>
   </section>
