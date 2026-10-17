@@ -11,371 +11,802 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   מסיבת סוף הקיץ של גאולים
+   העולם המצויר של הפלייר, בנוי כדף: קיץ מימין, חורף משמאל,
+   קשת פסיפס, שעון חצוי, עלים נושרים.
+   ============================================================ */
 :root{
-  /* נדגם מהפלייר */
-  --navy:#1F3A5F;          /* כחול הלילה / הטקסט */
-  --navy-deep:#162A47;
-  --navy-night:#213A63;    /* צד החורף */
-  --rust:#C4622D;          /* "סוף" */
-  --olive:#7A8545;         /* "הקיץ" והעלים */
-  --olive-light:#9BA55F;
-  --sun:#F0C357;           /* השמש והירח */
-  --sand:#E3D5B4;          /* אבני הפסיפס הבהירות */
-  --cream:#FAF6EC;         /* נייר הפלייר */
-  --cream-deep:#F3ECDC;
-  --cocoa:#4A2C1D;         /* הקרמבו */
-  --white:#FFFFFF;
-  --text:#1F3A5F;
-  --text-light:#5E6B80;
-  --text-muted:#8E97A6;
-  --border:rgba(31,58,95,0.12);
-  --shadow:0 18px 46px rgba(31,58,95,0.13);
+  --navy:#1F3A5F;
+  --navy-deep:#16294A;
+  --night:#20365C;
+  --night-2:#2B4470;
+  --rust:#C4622D;
+  --rust-light:#D9793F;
+  --olive:#7A8545;
+  --olive-2:#949E5C;
+  --sun:#F0C357;
+  --sun-warm:#F5D483;
+  --sand:#E3D5B4;
+  --sand-2:#D6C49C;
+  --paper:#FAF6EC;
+  --paper-2:#F4EDDC;
+  --cocoa:#4A2C1D;
+  --cocoa-2:#5E3A26;
+  --gold:#C9A54C;          /* זהב גאולי */
+  --gold-light:#E0C068;
+  --ink:#1F3A5F;
+  --ink-soft:#5A6880;
+  --ink-mute:#8C96A6;
+  --hair:rgba(31,58,95,.10);
+  --hair-2:rgba(31,58,95,.16);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --ease-soft:cubic-bezier(.22,.61,.36,1);
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 html,body{max-width:100%;overflow-x:hidden}
 body{
-  margin:0;color:var(--text);
-  font-family:'Heebo',sans-serif;font-size:16px;line-height:1.75;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Heebo',sans-serif;
+  font-size:16.5px;line-height:1.75;
   -webkit-font-smoothing:antialiased;
-  /* נייר עם גרעין, כמו הפלייר */
-  background-color:var(--cream);
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(227,213,180,0.5), transparent 32%),
-    radial-gradient(circle at 88% 72%, rgba(240,195,87,0.14), transparent 34%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  text-rendering:optimizeLegibility;
 }
-.container{max-width:720px;margin:0 auto;padding:0 20px}
+/* גרעין נייר, שכבה קבועה */
+body::after{
+  content:'';position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-/* ===== POSTER HERO ===== */
-.poster-wrap{
-  max-width:620px;margin:0 auto;padding:26px 20px 0;position:relative;
+/* ==========================================================
+   סרגל המותג — גְּאוּלִי מארחת
+   ========================================================== */
+.brandbar{
+  position:relative;z-index:30;display:flex;justify-content:center;
+  padding:20px 24px 0;
 }
-.poster{
-  width:100%;height:auto;display:block;border-radius:16px;
-  box-shadow:0 24px 60px rgba(31,58,95,.22);
-  border:1px solid rgba(31,58,95,.1);
+.brandbar a{
+  display:flex;align-items:center;gap:13px;text-decoration:none;
+  padding:10px 22px 10px 16px;border-radius:999px;
+  background:rgba(255,255,255,.72);border:1px solid rgba(201,165,76,.42);
+  box-shadow:0 6px 20px -8px rgba(31,58,95,.26),inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .55s var(--ease);
+}
+.brandbar a:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 28px -10px rgba(31,58,95,.3),inset 0 1px 0 rgba(255,255,255,.9)}
+.brandbar svg{flex-shrink:0}
+.brandbar .wm{
+  font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-weight:900;
+  font-size:21px;letter-spacing:.03em;color:var(--navy);line-height:1;
+}
+.brandbar .wm,.brandbar .sb{display:block;text-align:right}
+.brandbar .sb{font-size:10.5px;color:var(--ink-mute);letter-spacing:.09em;margin-top:3px}
+@media(max-width:560px){
+  .brandbar{padding:14px 16px 0}
+  .brandbar a{padding:8px 16px 8px 12px;gap:10px}
+  .brandbar .wm{font-size:18px}
+  .brandbar .sb{font-size:9.5px;letter-spacing:.06em}
 }
 
-/* ===== MOSAIC TILE RULE (מוטיב קשת הפסיפס) ===== */
-.mosaic{
-  display:flex;justify-content:center;gap:6px;margin:30px auto 0;flex-wrap:wrap;max-width:420px;
+/* ==========================================================
+   HERO — עולם הפלייר, חי
+   ========================================================== */
+.hero{
+  position:relative;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:76px 24px 190px;overflow:hidden;isolation:isolate;
 }
-.mosaic i{
-  width:19px;height:19px;border-radius:3px;display:block;opacity:.92;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);
+/* שמי הקיץ (ימין) אל שמי החורף (שמאל) */
+.hero-sky{
+  position:absolute;inset:0;z-index:-3;
+  background:
+    radial-gradient(70% 48% at 92% 10%, rgba(245,212,131,.8) 0%, rgba(251,235,198,.52) 26%, transparent 58%),
+    radial-gradient(64% 46% at 2% 30%, var(--night) 0%, var(--night-2) 30%, rgba(43,68,112,.42) 52%, transparent 74%),
+    linear-gradient(250deg, var(--paper) 0%, var(--paper) 54%, #EBE6DC 68%, #C9CEDA 82%, #8C98B4 96%);
 }
-.mosaic i:nth-child(5n+1){background:var(--navy)}
-.mosaic i:nth-child(5n+2){background:var(--sand)}
-.mosaic i:nth-child(5n+3){background:var(--olive)}
-.mosaic i:nth-child(5n+4){background:var(--sun)}
-.mosaic i:nth-child(5n+5){background:var(--rust)}
+/* קו הגבעה המתעגל שמפריד קיץ מחורף, כמו בפלייר */
+.hero-hill{position:absolute;inset:auto 0 0 0;z-index:-2;width:100%;height:auto;display:block}
 
-/* ===== KEY DETAILS (יום / תאריך / שעה) ===== */
-.when{
-  background:var(--white);border:1px solid var(--border);border-radius:22px;
-  max-width:560px;margin:28px auto 0;padding:26px 26px 22px;box-shadow:var(--shadow);
+/* שמש */
+.sun{
+  position:absolute;top:13%;right:9%;width:132px;height:132px;z-index:-2;
+  animation:sunDrift 16s var(--ease-soft) infinite alternate;
+}
+/* ירח וכוכבים */
+.moon{position:absolute;top:27%;left:9%;width:80px;height:80px;z-index:-2;animation:moonDrift 19s var(--ease-soft) infinite alternate}
+.stars{position:absolute;top:21%;left:3%;width:min(320px,40vw);height:auto;z-index:-2}
+.stars circle{animation:twinkle 3.4s ease-in-out infinite}
+.stars circle:nth-child(2){animation-delay:.7s}
+.stars circle:nth-child(3){animation-delay:1.5s}
+.stars circle:nth-child(4){animation-delay:2.2s}
+.stars circle:nth-child(5){animation-delay:1.1s}
+@keyframes sunDrift{to{transform:translateY(-16px)}}
+@keyframes moonDrift{to{transform:translateY(12px)}}
+@keyframes twinkle{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* קשת הפסיפס — הפינה העליונה, כמו בפלייר */
+.arch{position:absolute;top:-54px;left:-54px;width:min(520px,58vw);height:auto;z-index:-1;opacity:.95}
+
+/* עלים נושרים — מאחורי הכל, לא מעל הטקסט */
+.leaf{position:absolute;z-index:-2;opacity:0;animation:fall linear infinite}
+@keyframes fall{
+  0%{opacity:0;transform:translate3d(0,-10vh,0) rotate(0deg)}
+  8%{opacity:.85}
+  92%{opacity:.7}
+  100%{opacity:0;transform:translate3d(-70px,104vh,0) rotate(420deg)}
+}
+
+/* תוכן ההירו */
+.hero-in{position:relative;z-index:2;text-align:center;max-width:860px;width:100%}
+/* הילה רכה מאחורי הטקסט: הכותרת תמיד קריאה מעל השמיים */
+.hero-in::before{
+  content:'';position:absolute;z-index:-1;
+  inset:-8% -14% -6% -14%;
+  background:radial-gradient(64% 52% at 50% 46%, rgba(250,246,236,.94) 0%, rgba(250,246,236,.8) 46%, rgba(250,246,236,0) 76%);
+  pointer-events:none;
+}
+.crest-plate{
+  display:flex;width:max-content;align-items:center;justify-content:center;
+  padding:16px 30px;margin:0 auto 24px;border-radius:28px;
+  background:rgba(250,246,236,.9);border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 34px -14px rgba(31,58,95,.26),inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+}
+.crest{width:176px;height:auto;display:block}
+.eyebrow{
+  display:block;width:max-content;margin-inline:auto;padding:7px 18px;border-radius:999px;
+  background:rgba(255,255,255,.72);border:1px solid var(--hair);
+  box-shadow:0 2px 10px rgba(31,58,95,.06),inset 0 1px 0 rgba(255,255,255,.9);
+  font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--olive);
+  margin-bottom:22px;backdrop-filter:blur(6px);
+}
+.kicker{
+  font-size:clamp(16px,2.3vw,19px);color:var(--ink-soft);
+  margin-bottom:14px;font-weight:400;
+}
+h1{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(50px,12.5vw,124px);line-height:.92;
+  letter-spacing:-.015em;margin-bottom:10px;
+}
+h1 .l1{display:block;color:var(--navy)}
+h1 .l2{display:block;margin-top:.06em}
+h1 .l2 .s{color:var(--rust)}
+h1 .l2 .k{color:var(--olive)}
+.of{
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;
+  font-size:clamp(22px,4.4vw,40px);color:var(--navy);opacity:.9;
+  margin-top:.12em;
+}
+.tag{
+  font-size:clamp(17px,2.7vw,23px);font-weight:500;color:var(--navy);
+  margin-top:20px;
+}
+/* פס הפסיפס מתחת לכותרת */
+.tiles{display:flex;justify-content:center;gap:7px;margin:34px auto 0;flex-wrap:wrap;max-width:430px;position:relative;z-index:3}
+.tiles i{
+  width:21px;height:21px;border-radius:4px;display:block;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 1px 3px rgba(31,58,95,.1);
+  opacity:0;transform:translateY(10px) scale(.7);
+  animation:tileIn .62s var(--ease) forwards;
+}
+@keyframes tileIn{to{opacity:.95;transform:none}}
+.tiles i:nth-child(5n+1){background:var(--navy)}
+.tiles i:nth-child(5n+2){background:var(--sand)}
+.tiles i:nth-child(5n+3){background:var(--olive)}
+.tiles i:nth-child(5n+4){background:var(--sun)}
+.tiles i:nth-child(5n+5){background:var(--rust)}
+
+/* ==========================================================
+   כרטיס הפרטים — שעון חצוי קיץ/חורף
+   ========================================================== */
+.detail-zone{position:relative;padding:0 0 96px;margin-top:-56px;z-index:3}
+/* Double bezel */
+.shell{
+  max-width:720px;margin:0 auto;padding:9px;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:40px;
+  box-shadow:0 30px 70px -22px rgba(31,58,95,.26),0 2px 8px rgba(31,58,95,.05);
+  backdrop-filter:blur(10px);
+}
+.core{
+  background:#FFF;border-radius:31px;padding:40px 34px 34px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(31,58,95,.04);
   position:relative;overflow:hidden;
 }
-/* חצי קיץ / חצי חורף בראש הכרטיס, כמו השעון בפלייר */
-.when::before{
-  content:'';position:absolute;inset:0 0 auto 0;height:5px;
-  background:linear-gradient(90deg,var(--navy-night) 0 50%,var(--sun) 50% 100%);
-}
-.when-row{
-  display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+.clock{width:96px;height:96px;margin:0 auto 22px;display:block}
+.clock .hand{transform-origin:50px 50px;animation:tick 26s linear infinite}
+@keyframes tick{to{transform:rotate(360deg)}}
+.when{
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
   font-family:'Frank Ruhl Libre',serif;font-weight:900;
-  font-size:clamp(21px,4.4vw,27px);color:var(--navy);line-height:1.3;
+  font-size:clamp(23px,4.6vw,34px);color:var(--navy);line-height:1.25;
 }
-.when-row .bar{width:1px;height:26px;background:rgba(31,58,95,.22)}
-.when-where{text-align:center;font-size:16.5px;color:var(--text-light);margin:8px 0 0}
+.when .sep{width:1.5px;height:30px;background:linear-gradient(180deg,transparent,var(--sand-2),transparent)}
+.where{
+  text-align:center;font-size:17px;color:var(--ink-soft);margin-top:12px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+}
+.where svg{flex-shrink:0;opacity:.7}
 
-/* ===== ACTIVITIES (אייקונים מצוירים, לא אימוג'י) ===== */
-.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;margin:14px auto 0}
+/* ==========================================================
+   שלוש הפעילויות
+   ========================================================== */
+.acts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  max-width:720px;margin:26px auto 0;
+}
 .act{
-  background:var(--white);border:1px solid var(--border);border-radius:18px;
-  padding:20px 10px 16px;text-align:center;box-shadow:0 8px 24px rgba(31,58,95,.07);
+  background:rgba(255,255,255,.62);border:1px solid var(--hair);
+  border-radius:26px;padding:28px 14px 22px;text-align:center;
+  box-shadow:0 10px 30px -12px rgba(31,58,95,.14),inset 0 1px 0 rgba(255,255,255,.9);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
 }
-.act svg{display:block;margin:0 auto 10px}
-.act .nm{font-size:14.5px;font-weight:700;color:var(--navy)}
-@media(max-width:480px){
-  .acts{grid-template-columns:1fr;gap:10px}
-  .act{display:flex;align-items:center;gap:14px;text-align:right;padding:14px 18px}
-  .act svg{margin:0;flex-shrink:0}
-}
+.act:hover{transform:translateY(-6px);box-shadow:0 22px 46px -16px rgba(31,58,95,.24),inset 0 1px 0 rgba(255,255,255,.9)}
+.act svg{display:block;margin:0 auto 14px;transition:transform .6s var(--ease)}
+.act:hover svg{transform:scale(1.07) rotate(-3deg)}
+.act b{display:block;font-size:15.5px;font-weight:700;color:var(--navy)}
 
-/* ===== FORM ===== */
-.form-card{
-  background:var(--white);border-radius:24px;padding:38px 34px;
-  border:1px solid var(--border);max-width:560px;margin:30px auto 0;
-  box-shadow:var(--shadow);position:relative;overflow:hidden;
+/* ==========================================================
+   טופס
+   ========================================================== */
+.rsvp{padding:0 0 110px;position:relative}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-head .eyebrow{margin-bottom:16px}
+.sec-head h2{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(34px,6.4vw,54px);color:var(--navy);line-height:1.1;letter-spacing:-.01em;
 }
-.form-card::before{
-  content:'';position:absolute;inset:0 0 auto 0;height:5px;
+.sec-head p{color:var(--ink-soft);margin-top:12px;font-size:17px}
+
+.form-shell{
+  max-width:640px;margin:0 auto;padding:9px;
+  background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);
+  border-radius:40px;
+  box-shadow:0 34px 76px -24px rgba(31,58,95,.26);
+  backdrop-filter:blur(10px);
+}
+.form-core{background:#FFF;border-radius:31px;padding:40px 34px;position:relative;overflow:hidden}
+.form-core::before{
+  content:'';position:absolute;inset:0 0 auto 0;height:4px;
   background:linear-gradient(90deg,var(--navy),var(--olive),var(--sun),var(--rust),var(--sand));
 }
-.form-card h2{
-  font-family:'Frank Ruhl Libre',serif;font-size:27px;font-weight:900;
-  color:var(--navy);text-align:center;margin:6px 0 4px;
-}
-.form-sub{text-align:center;font-size:14.5px;color:var(--text-muted);margin:0 0 28px}
-.field{margin-bottom:18px}
-.field label{display:block;font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:6px}
-.field label .req{color:#C0392B;font-size:11px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;letter-spacing:.01em}
+.field label .req{color:#C0392B}
 .field input,.field select,.field textarea{
-  width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:13px;
-  font-family:'Heebo',sans-serif;font-size:15px;color:var(--text);
-  background:var(--cream);outline:none;transition:all .2s;
+  width:100%;padding:15px 18px;border:1.5px solid var(--hair);border-radius:16px;
+  font-family:'Heebo',sans-serif;font-size:15.5px;color:var(--ink);
+  background:var(--paper);outline:none;
+  transition:border-color .45s var(--ease),box-shadow .45s var(--ease),background .45s var(--ease);
 }
-.field textarea{resize:vertical;min-height:74px;line-height:1.7}
+.field textarea{resize:vertical;min-height:84px;line-height:1.75}
 .field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--sun);box-shadow:0 0 0 4px rgba(240,195,87,.16);background:var(--white);
+  border-color:var(--sun);background:#FFF;
+  box-shadow:0 0 0 4px rgba(240,195,87,.2);
 }
-.row{display:grid;gap:14px}
-@media(min-width:520px){
-  .row.kidrow{grid-template-columns:1.7fr .8fr}
-  .row.two{grid-template-columns:1fr 1fr}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-mute)}
+.grid{display:grid;gap:16px}
+@media(min-width:560px){
+  .grid.two{grid-template-columns:1fr 1fr}
+  .grid.kid-row{grid-template-columns:1.7fr .85fr}
 }
-.row .field{margin-bottom:0}
+.grid .field{margin-bottom:0}
 
-.kid{border:1.5px solid var(--border);border-radius:17px;padding:18px 18px 20px;margin-bottom:14px;background:var(--cream)}
-.kid-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.kid-num{
-  width:29px;height:29px;border-radius:50%;background:var(--white);
-  border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;
-  font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:15px;color:var(--navy);flex-shrink:0;
+.kid{
+  border:1.5px solid var(--hair);border-radius:22px;padding:20px;margin-bottom:14px;
+  background:var(--paper);
+  animation:kidIn .5s var(--ease) both;
 }
-.kid-head strong{font-size:14px;font-weight:600;color:var(--navy)}
-.kid-remove{
-  margin-inline-start:auto;background:rgba(31,58,95,.06);border:none;border-radius:9px;
-  padding:5px 11px;font-family:'Heebo',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer;
+@keyframes kidIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.kid-top{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+.kid-n{
+  width:30px;height:30px;border-radius:50%;background:#FFF;border:1.5px solid var(--hair);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:15px;color:var(--navy);
 }
-.kid-remove:hover{background:rgba(31,58,95,.12);color:var(--text)}
-.add-kid{
-  width:100%;padding:13px;background:none;border:1.5px dashed rgba(122,133,69,.5);
-  border-radius:60px;color:var(--olive);font-family:'Heebo',sans-serif;font-weight:700;
-  font-size:14px;cursor:pointer;transition:all .2s;margin-bottom:8px;
+.kid-top b{font-size:14.5px;font-weight:700;color:var(--navy)}
+.kid-x{
+  margin-inline-start:auto;background:rgba(31,58,95,.055);border:none;border-radius:10px;
+  padding:6px 13px;font-family:'Heebo',sans-serif;font-size:12.5px;color:var(--ink-mute);
+  cursor:pointer;transition:all .4s var(--ease);
 }
-.add-kid:hover{background:rgba(122,133,69,.08);border-color:var(--olive)}
+.kid-x:hover{background:rgba(31,58,95,.11);color:var(--ink)}
+.add{
+  width:100%;padding:15px;background:none;border:1.5px dashed rgba(122,133,69,.5);
+  border-radius:999px;color:var(--olive);font-family:'Heebo',sans-serif;
+  font-weight:700;font-size:14.5px;cursor:pointer;
+  transition:all .5s var(--ease);
+}
+.add:hover{background:rgba(122,133,69,.08);border-color:var(--olive);transform:translateY(-2px)}
+.add:active{transform:scale(.985)}
 
-.check{
-  display:flex;align-items:flex-start;gap:11px;margin-top:18px;padding:15px 16px;
-  background:rgba(122,133,69,.08);border:1px solid rgba(122,133,69,.3);border-radius:15px;cursor:pointer;
+.opt{
+  display:flex;align-items:flex-start;gap:13px;margin-top:20px;padding:17px 18px;
+  background:rgba(122,133,69,.075);border:1px solid rgba(122,133,69,.28);
+  border-radius:20px;cursor:pointer;transition:all .5s var(--ease);
 }
-.check input{width:19px;height:19px;margin:3px 0 0;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
-.check span{font-size:14.5px;line-height:1.65;color:var(--text)}
-.check span b{color:var(--navy);font-weight:700}
+.opt:hover{background:rgba(122,133,69,.12)}
+.opt input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
+.opt span{font-size:15px;line-height:1.7}
+.opt span b{color:var(--navy);font-weight:700}
 
-.btn-sign{
-  width:100%;padding:17px;border:none;border-radius:60px;background:var(--navy);color:#fff;
-  font-family:'Heebo',sans-serif;font-size:16.5px;font-weight:700;cursor:pointer;
-  transition:all .3s;margin-top:18px;
+/* כפתור עם אייקון מקונן */
+.cta{
+  position:relative;width:100%;margin-top:22px;padding:7px 7px 7px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:var(--navy);color:#FFF;border:none;border-radius:999px;
+  font-family:'Heebo',sans-serif;font-size:17px;font-weight:700;cursor:pointer;
+  box-shadow:0 14px 34px -10px rgba(31,58,95,.5);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease),background .55s var(--ease);
 }
-.btn-sign:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 10px 30px rgba(31,58,95,.2)}
-.btn-sign:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.msg{margin-top:14px;font-size:14px;text-align:center;color:var(--text-light);min-height:20px}
-.msg.err{color:#C0392B}
-.privacy{font-size:12px;color:var(--text-muted);text-align:center;margin-top:16px;line-height:1.7}
-
-.done{display:none;text-align:center;padding:16px 0}
-.done .sunmoon{margin:0 auto 12px;display:block}
-.done h3{font-family:'Frank Ruhl Libre',serif;font-size:27px;font-weight:900;color:var(--navy);margin:0 0 8px}
-.done p{color:var(--text-light);margin:0 0 20px}
-.done .again{background:none;border:1.5px solid var(--border);border-radius:60px;padding:11px 26px;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer}
-.done .again:hover{border-color:var(--sun)}
-
-/* ===== COUNTER ===== */
-.counter{display:flex;justify-content:center;gap:52px;margin:32px auto 0;max-width:560px}
-.counter .num{font-family:'Frank Ruhl Libre',serif;font-size:42px;font-weight:900;color:var(--navy);line-height:1}
-.counter .lbl{font-size:12.5px;color:var(--text-muted);margin-top:4px}
-.counter div{text-align:center}
-
-/* ===== FOOTER ===== */
-footer{
-  margin-top:46px;padding:30px 24px 36px;text-align:center;
-  border-top:1px solid var(--border);background:rgba(255,255,255,.5);
+.cta:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 20px 44px -12px rgba(31,58,95,.56)}
+.cta:active{transform:scale(.985)}
+.cta:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.cta .lbl{flex:1;text-align:center}
+.cta .pod{
+  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.14);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform .55s var(--ease),background .55s var(--ease);
 }
-footer img{height:70px;width:auto}
-footer p{font-size:13px;color:var(--text-muted);margin:10px 0 0;line-height:1.9}
+.cta:hover .pod{background:rgba(255,255,255,.24);transform:translateX(-4px) scale(1.06)}
 
-@media(max-width:560px){
-  .poster-wrap{padding:16px 14px 0}
-  .form-card{padding:28px 18px}
-  .when{padding:22px 18px 18px}
-  .counter{gap:36px}
-  .mosaic i{width:16px;height:16px}
+.note{margin-top:16px;font-size:14.5px;text-align:center;color:var(--ink-soft);min-height:21px}
+.note.err{color:#C0392B}
+.fine{font-size:12.5px;color:var(--ink-mute);text-align:center;margin-top:18px;line-height:1.75}
+
+.done{display:none;text-align:center;padding:22px 0 10px}
+.done svg{margin:0 auto 18px;display:block}
+.done h3{font-family:'Frank Ruhl Libre',serif;font-size:32px;font-weight:900;color:var(--navy);margin-bottom:10px}
+.done p{color:var(--ink-soft);margin-bottom:24px}
+.done button{
+  background:none;border:1.5px solid var(--hair-2);border-radius:999px;
+  padding:13px 30px;font-family:'Heebo',sans-serif;font-size:14.5px;font-weight:700;
+  color:var(--navy);cursor:pointer;transition:all .5s var(--ease);
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.done button:hover{border-color:var(--sun);transform:translateY(-2px)}
+
+/* מונים */
+.tally{display:flex;justify-content:center;gap:64px;margin:40px auto 0}
+.tally div{text-align:center}
+.tally .n{font-family:'Frank Ruhl Libre',serif;font-size:46px;font-weight:900;color:var(--navy);line-height:1}
+.tally .t{font-size:13px;color:var(--ink-mute);margin-top:6px}
+
+/* ==========================================================
+   FOOTER — קו העלים והלילה
+   ========================================================== */
+footer{position:relative;padding:76px 24px 54px;text-align:center;overflow:hidden}
+footer::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,transparent,rgba(227,213,180,.3));
+}
+footer img{height:78px;width:auto;margin-bottom:18px}
+.fbrand{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:12px}
+.fbrand .fwm{
+  font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-weight:900;
+  font-size:24px;letter-spacing:.04em;color:var(--navy);line-height:1;
+}
+footer p{font-size:13.5px;color:var(--ink-mute);line-height:1.95}
+/* קו זהב דק שסוגר את הדף */
+footer::after{
+  content:'';position:absolute;inset:auto 0 0 0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);
+  opacity:.5;
+}
+
+/* ==========================================================
+   כניסה בגלילה
+   ========================================================== */
+.rise{opacity:0;transform:translateY(34px);filter:blur(5px);
+  transition:opacity .95s var(--ease),transform .95s var(--ease),filter .95s var(--ease)}
+.rise.in{opacity:1;transform:none;filter:none}
+
+@media(max-width:760px){
+  .hero{padding:72px 20px 96px;min-height:auto}
+  .arch{top:-46px;left:-66px;width:300px}
+  .sun{width:92px;height:92px;top:10%;right:6%}
+  .moon{width:62px;height:62px;top:12%;left:7%}
+  .acts{grid-template-columns:1fr;gap:12px;max-width:430px}
+  .act{display:flex;align-items:center;gap:16px;text-align:right;padding:18px 22px}
+  .act svg{margin:0;flex-shrink:0;width:38px;height:38px}
+  .core,.form-core{padding:30px 20px}
+  .shell,.form-shell{padding:7px;border-radius:32px}
+  .core,.form-core{border-radius:25px}
+  .when{gap:13px}
+  .when .sep{height:24px}
+  .tally{gap:44px}
+  .tiles i{width:17px;height:17px}
+  .detail-zone{margin-top:-30px;padding-bottom:72px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rise{opacity:1;transform:none;filter:none}
+  .leaf{display:none}
+}
 </style>
 </head>
 <body>
 
-<!-- הפלייר עצמו הוא ההירו -->
-<div class="poster-wrap">
-  <img class="poster" src="brand/assets/events/sof-kayitz-2026-poster.jpg"
-       alt="מסיבת סוף הקיץ של גאולים. יש דברים ששווה לעצור בשבילם את הזמן. נפרדים מהקיץ, מקבלים את החורף. יצירה, קרמבו והפתעות נוספות. יום חמישי 22.10 החל מ-16:30 בחצר בית הספר.">
+<!-- ===================== סרגל המותג: גְּאוּלִי ===================== -->
+<div class="brandbar">
+  <a href="https://www.geuli.co.il" aria-label="גְּאוּלִי · קהילת ההורים של בית ספר גאולים">
+    <svg width="34" height="34" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="66" height="66" rx="16" stroke="#C9A54C" stroke-opacity=".6" stroke-width="2.4"/>
+      <g transform="translate(36,35)">
+        <path d="M0 18 L0 0" stroke="#C9A54C" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M0 6 C-4 2 -13 1 -14 -8 C-5 -5 -1 -1 0 4" stroke="#C9A54C" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+        <path d="M0 1 C4 -3 13 -6 16 -14 C7 -10 1 -4 0 1" stroke="#C9A54C" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+        <path d="M0 -3 C-2 -9 0 -17 5 -21 C3 -13 1 -7 0 -3" stroke="#C9A54C" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <span>
+      <span class="wm">גְּאוּלִי</span>
+      <span class="sb">קהילת ההורים של גאולים</span>
+    </span>
+  </a>
 </div>
 
-<main class="container">
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="hero-sky"></div>
 
-  <div class="mosaic">
-    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  <!-- שמש -->
+  <svg class="sun" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+    <circle cx="70" cy="70" r="31" fill="#F0C357"/>
+    <circle cx="70" cy="70" r="31" fill="url(#sg)"/>
+    <g stroke="#F0C357" stroke-width="4.5" stroke-linecap="round" opacity=".92">
+      <path d="M70 14v18M70 108v18M14 70h18M108 70h18M30.4 30.4l12.7 12.7M96.9 96.9l12.7 12.7M109.6 30.4L96.9 43.1M43.1 96.9l-12.7 12.7"/>
+    </g>
+    <defs><radialGradient id="sg" cx=".4" cy=".35" r=".7">
+      <stop offset="0" stop-color="#FBE6B4"/><stop offset="1" stop-color="#F0C357"/>
+    </radialGradient></defs>
+  </svg>
+
+  <!-- ירח -->
+  <svg class="moon" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <path d="M78 50a30 30 0 11-36-29.4A34 34 0 0078 50z" fill="#F2D389"/>
+  </svg>
+
+  <!-- כוכבים -->
+  <svg class="stars" viewBox="0 0 330 200" fill="none" aria-hidden="true">
+    <circle cx="36" cy="40" r="2.6" fill="#F2D389"/>
+    <circle cx="104" cy="22" r="1.9" fill="#F2D389"/>
+    <circle cx="158" cy="62" r="2.2" fill="#F2D389"/>
+    <circle cx="74" cy="104" r="1.7" fill="#F2D389"/>
+    <circle cx="206" cy="36" r="1.5" fill="#F2D389"/>
+  </svg>
+
+  <!-- קשת הפסיפס -->
+  <svg class="arch" viewBox="0 0 520 520" fill="none" aria-hidden="true">
+    <g id="archTiles"></g>
+  </svg>
+
+  <!-- קו הגבעה: קיץ מימין, לילה משמאל -->
+  <svg class="hero-hill" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 108C168 50 338 160 520 176c196 18 330-78 520-74 150 3 282 74 400 96v102H0z" fill="#20365C" opacity=".96"/>
+    <path d="M0 196c190-56 356 22 540 24 190 2 342-70 528-54 142 12 262 62 372 78v56H0z" fill="#FAF6EC"/>
+  </svg>
+
+  <div class="hero-in">
+    <span class="crest-plate">
+      <img class="crest" src="brand/assets/logo/geulim-navon-poster-transparent.png"
+           alt="לוגו בית הספר גאולים ע״ש יצחק נבון">
+    </span>
+    <span class="eyebrow">מסיבת קהילה · תשפ״ז</span>
+    <p class="kicker">יש דברים ששווה לעצור בשבילם את הזמן...</p>
+    <h1>
+      <span class="l1">מסיבת</span>
+      <span class="l2"><span class="s">סוף</span> <span class="k">הקיץ</span></span>
+    </h1>
+    <p class="of">של גאולים</p>
+    <p class="tag">נפרדים מהקיץ, מקבלים את החורף!</p>
+    <div class="tiles" id="tiles"></div>
   </div>
+</header>
 
-  <section class="when">
-    <div class="when-row">
-      <span>יום חמישי</span>
-      <span class="bar"></span>
-      <span>22.10</span>
-      <span class="bar"></span>
-      <span>החל מ-16:30</span>
-    </div>
-    <p class="when-where">בחצר בית הספר</p>
-  </section>
+<!-- ======================== פרטי האירוע ======================== -->
+<section class="detail-zone">
+  <div class="wrap">
+    <div class="shell rise">
+      <div class="core">
+        <!-- שעון חצוי: חצי קיץ, חצי סתיו -->
+        <svg class="clock" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="#FAF6EC"/>
+          <path d="M50 4a46 46 0 010 92z" fill="#F7E9C4"/>
+          <path d="M50 4a46 46 0 000 92z" fill="#E8EDF2"/>
+          <g id="clockTicks"></g>
+          <circle cx="50" cy="50" r="35" fill="#FDFBF4"/>
+          <path class="hand" d="M50 50V26" stroke="#1F3A5F" stroke-width="4" stroke-linecap="round"/>
+          <path d="M50 50h20" stroke="#1F3A5F" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="4.6" fill="#1F3A5F"/>
+        </svg>
 
-  <div class="acts">
-    <!-- יצירה: פלטת צבעים ומכחול, כמו בפלייר -->
-    <div class="act">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="M20 5c-8.3 0-15 5.8-15 13 0 4.6 3.3 7.2 7.2 7.2h2.4c1.8 0 3.2 1.4 3.2 3.2 0 .8-.3 1.5-.6 2.1-.3.6-.6 1.2-.6 1.9 0 1.8 1.4 3.2 3.2 3.2 8.3 0 15-6.7 15-15S28.3 5 20 5z" fill="#7A8545" fill-opacity=".18" stroke="#7A8545" stroke-width="1.8"/>
-        <circle cx="13" cy="15" r="2.1" fill="#1F3A5F"/>
-        <circle cx="20" cy="12" r="2.1" fill="#C4622D"/>
-        <circle cx="27" cy="15" r="2.1" fill="#F0C357"/>
-        <circle cx="28.5" cy="22.5" r="2.1" fill="#E3D5B4"/>
-      </svg>
-      <span class="nm">יצירה</span>
-    </div>
-    <!-- קרמבו -->
-    <div class="act">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="M8 30c0-7.7 5.4-16 12-16s12 8.3 12 16H8z" fill="#4A2C1D"/>
-        <path d="M14.5 20.5c1.2-1.9 3.2-3.2 5.5-3.2s4.3 1.3 5.5 3.2c-1.6 1.1-3.4 1.7-5.5 1.7s-3.9-.6-5.5-1.7z" fill="#FAF6EC" fill-opacity=".9"/>
-        <rect x="6" y="29.5" width="28" height="3.6" rx="1.8" fill="#E3D5B4" stroke="#4A2C1D" stroke-width="1.2"/>
-      </svg>
-      <span class="nm">קרמבו</span>
-    </div>
-    <!-- הפתעות: מתנה -->
-    <div class="act">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <rect x="7.5" y="16.5" width="25" height="16" rx="2.2" fill="#7A8545" fill-opacity=".2" stroke="#7A8545" stroke-width="1.8"/>
-        <rect x="5.5" y="12" width="29" height="5.5" rx="1.8" fill="#F0C357" fill-opacity=".35" stroke="#7A8545" stroke-width="1.8"/>
-        <path d="M20 12v20.5" stroke="#C4622D" stroke-width="1.8"/>
-        <path d="M20 12c-3.5 0-6-1.4-6-3.4S16 5.5 17.6 6.6C19 7.6 20 10 20 12zm0 0c3.5 0 6-1.4 6-3.4s-2-3.1-3.6-2C21 7.6 20 10 20 12z" stroke="#C4622D" stroke-width="1.8" fill="none"/>
-      </svg>
-      <span class="nm">הפתעות נוספות...</span>
-    </div>
-  </div>
-
-  <section class="form-card">
-    <div id="formWrap">
-      <h2>אישור הגעה</h2>
-      <p class="form-sub">כדי שנדע כמה קרמבו להכין וכמה ערכות יצירה להזמין.</p>
-
-      <div class="row two">
-        <div class="field">
-          <label for="parent">שם ההורה <span class="req">*</span></label>
-          <input id="parent" type="text" autocomplete="name" placeholder="שם פרטי ומשפחה">
+        <div class="when">
+          <span>יום חמישי</span>
+          <span class="sep"></span>
+          <span>22.10</span>
+          <span class="sep"></span>
+          <span>החל מ-16:30</span>
         </div>
-        <div class="field">
-          <label for="phone">טלפון <span class="req">*</span></label>
-          <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0500000000">
+        <p class="where">
+          <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 18s6.5-5.4 6.5-10a6.5 6.5 0 10-13 0C3.5 12.6 10 18 10 18z" stroke="#5A6880" stroke-width="1.6"/>
+            <circle cx="10" cy="8" r="2.4" stroke="#5A6880" stroke-width="1.6"/>
+          </svg>
+          בחצר בית הספר
+        </p>
+      </div>
+    </div>
+
+    <div class="acts">
+      <div class="act rise">
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 5C13.5 5 5 12.3 5 21.4c0 5.8 4.2 9.1 9.1 9.1h3c2.3 0 4.1 1.8 4.1 4 0 1-.4 1.9-.8 2.7-.4.8-.8 1.5-.8 2.4 0 2.3 1.8 4.4 4.4 4.4C34.5 44 43 35.5 43 25S34.5 5 24 5z"
+                fill="#7A8545" fill-opacity=".16" stroke="#7A8545" stroke-width="2"/>
+          <circle cx="15.5" cy="18.5" r="2.7" fill="#1F3A5F"/>
+          <circle cx="24" cy="14.5" r="2.7" fill="#C4622D"/>
+          <circle cx="32.5" cy="18.5" r="2.7" fill="#F0C357"/>
+          <circle cx="34.5" cy="27.5" r="2.7" fill="#E3D5B4"/>
+        </svg>
+        <b>יצירה</b>
+      </div>
+      <div class="act rise">
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M9 36c0-9.4 6.7-19.5 15-19.5S39 26.6 39 36H9z" fill="#4A2C1D"/>
+          <path d="M17 24.5c1.6-2.4 4.1-4 7-4s5.4 1.6 7 4c-2 1.5-4.4 2.3-7 2.3s-5-0.8-7-2.3z" fill="#FAF6EC" fill-opacity=".92"/>
+          <rect x="6.5" y="35.5" width="35" height="4.6" rx="2.3" fill="#E3D5B4" stroke="#4A2C1D" stroke-width="1.6"/>
+        </svg>
+        <b>קרמבו</b>
+      </div>
+      <div class="act rise">
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="9" y="20" width="30" height="19.5" rx="2.6" fill="#7A8545" fill-opacity=".18" stroke="#7A8545" stroke-width="2"/>
+          <rect x="6.5" y="14.5" width="35" height="6.6" rx="2.2" fill="#F0C357" fill-opacity=".38" stroke="#7A8545" stroke-width="2"/>
+          <path d="M24 14.5v25" stroke="#C4622D" stroke-width="2"/>
+          <path d="M24 14.5c-4.2 0-7.2-1.7-7.2-4.1s2.4-3.7 4.3-2.4c1.7 1.2 2.9 4.1 2.9 6.5zm0 0c4.2 0 7.2-1.7 7.2-4.1s-2.4-3.7-4.3-2.4c-1.7 1.2-2.9 4.1-2.9 6.5z"
+                stroke="#C4622D" stroke-width="2" fill="none"/>
+        </svg>
+        <b>הפתעות נוספות...</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ טופס ============================ -->
+<section class="rsvp">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="eyebrow">אישור הגעה</span>
+      <h2>נשמח לדעת שאתם באים</h2>
+      <p>כדי שנדע כמה קרמבו להכין וכמה ערכות יצירה להזמין.</p>
+    </div>
+
+    <div class="form-shell rise">
+      <div class="form-core">
+        <div id="formWrap">
+
+          <div class="grid two">
+            <div class="field">
+              <label for="parent">שם ההורה <span class="req">*</span></label>
+              <input id="parent" type="text" autocomplete="name" placeholder="שם פרטי ומשפחה">
+            </div>
+            <div class="field">
+              <label for="phone">טלפון <span class="req">*</span></label>
+              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0500000000">
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:20px">
+            <label for="adults">כמה מבוגרים מגיעים? <span class="req">*</span></label>
+            <select id="adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 ויותר</option>
+            </select>
+          </div>
+
+          <div id="kids"></div>
+          <button class="add" type="button" id="addKid">+ הוספת ילד/ה</button>
+
+          <div class="field" style="margin-top:18px">
+            <label for="note">משהו שכדאי שנדע? (לא חובה)</label>
+            <textarea id="note" placeholder="אלרגיות, הערות, כל דבר"></textarea>
+          </div>
+
+          <label class="opt">
+            <input type="checkbox" id="volunteer">
+            <span><b>אשמח לעזור בהקמה או בפירוק.</b> כמה ידיים נוספות עושות את כל ההבדל.</span>
+          </label>
+
+          <button class="cta" type="button" id="send">
+            <span class="lbl">מאשרים הגעה</span>
+            <span class="pod">
+              <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M13 5l-6 5 6 5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          <p class="note" id="msg"></p>
+          <p class="fine">הפרטים משמשים את קהילת ההורים לארגון המסיבה בלבד.</p>
+        </div>
+
+        <div class="done" id="done">
+          <svg width="96" height="50" viewBox="0 0 96 50" fill="none" aria-hidden="true">
+            <circle cx="26" cy="25" r="12" fill="#F0C357"/>
+            <g stroke="#F0C357" stroke-width="2.4" stroke-linecap="round">
+              <path d="M26 5v4.5M26 40.5V45M5 25h4.5M42.5 25H47M12.4 11.4l3.2 3.2M36.4 35.4l3.2 3.2M39.6 11.4l-3.2 3.2M15.6 35.4l-3.2 3.2"/>
+            </g>
+            <path d="M78 12a13 13 0 100 26 15 15 0 010-26z" fill="#F2D389"/>
+            <circle cx="62" cy="13" r="1.8" fill="#F2D389"/>
+            <circle cx="58" cy="33" r="1.4" fill="#F2D389"/>
+          </svg>
+          <h3>נרשמתם. נתראה בחצר!</h3>
+          <p>יום חמישי 22.10, החל מ-16:30.</p>
+          <button type="button" id="again">רישום משפחה נוספת</button>
         </div>
       </div>
-
-      <div class="field" style="margin-top:18px">
-        <label for="adults">כמה מבוגרים מגיעים? <span class="req">*</span></label>
-        <select id="adults">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5 ויותר</option>
-        </select>
-      </div>
-
-      <div id="kids" style="margin-top:4px"></div>
-      <button class="add-kid" type="button" id="addKid">+ הוספת ילד/ה</button>
-
-      <div class="field" style="margin-top:14px">
-        <label for="note">משהו שכדאי שנדע? (לא חובה)</label>
-        <textarea id="note" placeholder="אלרגיות, הערות, כל דבר"></textarea>
-      </div>
-
-      <label class="check">
-        <input type="checkbox" id="volunteer">
-        <span><b>אשמח לעזור בהקמה או בפירוק.</b> כמה ידיים נוספות עושות את כל ההבדל.</span>
-      </label>
-
-      <button class="btn-sign" type="button" id="send">מאשרים הגעה</button>
-      <p class="msg" id="msg"></p>
-      <p class="privacy">הפרטים משמשים את קהילת ההורים לארגון המסיבה בלבד.</p>
     </div>
 
-    <div class="done" id="done">
-      <!-- שמש וירח, שני צידי הפלייר -->
-      <svg class="sunmoon" width="86" height="46" viewBox="0 0 86 46" fill="none" aria-hidden="true">
-        <circle cx="24" cy="23" r="11" fill="#F0C357"/>
-        <g stroke="#F0C357" stroke-width="2.2" stroke-linecap="round">
-          <path d="M24 5v4M24 37v4M6 23h4M38 23h4M11.5 10.5l2.8 2.8M33.7 32.7l2.8 2.8M36.5 10.5l-2.8 2.8M14.3 32.7l-2.8 2.8"/>
-        </g>
-        <path d="M70 11a12 12 0 100 24 14 14 0 010-24z" fill="#F0C357"/>
-        <circle cx="56" cy="12" r="1.7" fill="#F0C357"/>
-        <circle cx="52" cy="30" r="1.3" fill="#F0C357"/>
-      </svg>
-      <h3>נרשמתם. נתראה בחצר!</h3>
-      <p>יום חמישי 22.10, החל מ-16:30.</p>
-      <button class="again" type="button" id="again">רישום משפחה נוספת</button>
+    <div class="tally rise">
+      <div><div class="n" id="cFam">0</div><div class="t">משפחות מגיעות</div></div>
+      <div><div class="n" id="cKids">0</div><div class="t">ילדים</div></div>
     </div>
-  </section>
-
-  <div class="counter">
-    <div><div class="num" id="cFam">0</div><div class="lbl">משפחות מגיעות</div></div>
-    <div><div class="num" id="cKids">0</div><div class="lbl">ילדים</div></div>
   </div>
-
-</main>
+</section>
 
 <footer>
   <img src="brand/assets/logo/geulim-navon-poster-transparent.png" alt="לוגו בית הספר גאולים ע״ש יצחק נבון">
-  <p>קהילת ההורים של בית ספר גאולים בקעה<br>
-  © 2026</p>
+  <div class="fbrand">
+    <svg width="26" height="26" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="66" height="66" rx="16" stroke="#C9A54C" stroke-opacity=".6" stroke-width="2.6"/>
+      <g transform="translate(36,35)">
+        <path d="M0 18 L0 0" stroke="#C9A54C" stroke-width="3" stroke-linecap="round"/>
+        <path d="M0 6 C-4 2 -13 1 -14 -8 C-5 -5 -1 -1 0 4" stroke="#C9A54C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M0 1 C4 -3 13 -6 16 -14 C7 -10 1 -4 0 1" stroke="#C9A54C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M0 -3 C-2 -9 0 -17 5 -21 C3 -13 1 -7 0 -3" stroke="#C9A54C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <span class="fwm">גְּאוּלִי</span>
+  </div>
+  <p>האירוע מאורגן על ידי קהילת ההורים<br>של בית ספר גאולים בקעה · © 2026</p>
 </footer>
 
 <script>
 const HOOK_URL='https://script.google.com/macros/s/AKfycbyO0QuVDkIRZL8NJAcO-0dbrZA0jZq6X2UL76zH35rvHdi1AV62DFsMLzzXtW-ViOZmxA/exec';
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ---- פס הפסיפס ---- */
+(function(){
+  const box=document.getElementById('tiles');
+  for(let i=0;i<15;i++){
+    const t=document.createElement('i');
+    t.style.animationDelay=(i*48)+'ms';
+    box.appendChild(t);
+  }
+})();
+
+/* ---- קשת הפסיפס: שתי שורות אבנים לאורך רבע מעגל ---- */
+(function(){
+  const g=document.getElementById('archTiles');
+  if(!g) return;
+  const cx=60, cy=460, cols=['#1F3A5F','#E3D5B4','#7A8545','#F0C357','#C4622D','#D6C49C','#2B4470'];
+  const NS='http://www.w3.org/2000/svg';
+  [330,392].forEach((R,ring)=>{
+    const n=ring?17:15;
+    for(let i=0;i<n;i++){
+      const a=(Math.PI/2)*(i/(n-1)) - Math.PI/2;          // מלמעלה לימין
+      const x=cx+R*Math.cos(a), y=cy+R*Math.sin(a);
+      const r=document.createElementNS(NS,'rect');
+      const w=ring?30:27;
+      r.setAttribute('x',(-w/2).toFixed(1)); r.setAttribute('y',(-w/2).toFixed(1));
+      r.setAttribute('width',w); r.setAttribute('height',w); r.setAttribute('rx','3.5');
+      r.setAttribute('fill',cols[(i+ring*3)%cols.length]);
+      r.setAttribute('opacity',(0.82+((i*7)%13)/70).toFixed(2));
+      r.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a*180/Math.PI+90).toFixed(1)})`);
+      g.appendChild(r);
+    }
+  });
+})();
+
+/* ---- חריצי השעון ---- */
+(function(){
+  const g=document.getElementById('clockTicks');
+  if(!g) return;
+  const NS='http://www.w3.org/2000/svg';
+  for(let i=0;i<12;i++){
+    const a=(Math.PI*2)*(i/12)-Math.PI/2;
+    const r=document.createElementNS(NS,'rect');
+    r.setAttribute('x','-2'); r.setAttribute('y','-5.5');
+    r.setAttribute('width','4'); r.setAttribute('height','11'); r.setAttribute('rx','1.4');
+    r.setAttribute('fill', i%3===0 ? '#1F3A5F' : (a<0.3 && a>-2.9 ? '#C4622D' : '#7A8545'));
+    r.setAttribute('opacity','.85');
+    const x=50+41*Math.cos(a), y=50+41*Math.sin(a);
+    r.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a*180/Math.PI+90).toFixed(1)})`);
+    g.appendChild(r);
+  }
+})();
+
+/* ---- עלים נושרים ---- */
+(function(){
+  if(reduce) return;
+  const hero=document.querySelector('.hero');
+  const shapes=[
+    'M12 1C6 5 2 10 2 15c0 4 3 7 7 7 6 0 11-7 11-14 0-3-4-6-8-7z',
+    'M12 2c-5 3-9 8-9 13 0 3 2 6 6 6 7 0 12-8 12-14 0-2-5-5-9-5z'
+  ];
+  const cols=['#C4622D','#D9793F','#7A8545','#E3D5B4','#B4642F'];
+  for(let i=0;i<11;i++){
+    const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    s.setAttribute('viewBox','0 0 24 24');
+    s.classList.add('leaf');
+    const size=13+Math.random()*15;
+    s.style.width=size+'px'; s.style.height=size+'px';
+    s.style.left=(Math.random()*96)+'%';
+    s.style.animationDuration=(11+Math.random()*11)+'s';
+    s.style.animationDelay=(-Math.random()*20)+'s';
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d',shapes[i%2]);
+    p.setAttribute('fill',cols[i%cols.length]);
+    p.setAttribute('opacity','.78');
+    s.appendChild(p);
+    hero.appendChild(s);
+  }
+})();
+
+/* ---- כניסה בגלילה ---- */
+(function(){
+  const els=document.querySelectorAll('.rise');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver((ents)=>{
+    ents.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('in'), i*90);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* ---- ילדים ---- */
 const kids=document.getElementById('kids');
 const msgEl=document.getElementById('msg');
 
 function addKid(){
-  const all=kids.querySelectorAll('.kid');
-  if(all.length>=6) return;
+  if(kids.querySelectorAll('.kid').length>=6) return;
   const d=document.createElement('div');
   d.className='kid';
   d.innerHTML=`
-    <div class="kid-head">
-      <span class="kid-num"></span><strong>ילד/ה</strong>
-      <button class="kid-remove" type="button">הסרה</button>
+    <div class="kid-top">
+      <span class="kid-n"></span><b>ילד/ה</b>
+      <button class="kid-x" type="button">הסרה</button>
     </div>
-    <div class="row kidrow">
+    <div class="grid kid-row">
       <div class="field"><label>שם הילד/ה</label><input type="text" class="k-name" placeholder="שם פרטי"></div>
       <div class="field"><label>כיתה</label><input type="text" class="k-class" placeholder="ב2"></div>
     </div>`;
-  d.querySelector('.kid-remove').addEventListener('click',()=>{d.remove();renumber();});
+  d.querySelector('.kid-x').addEventListener('click',()=>{d.remove();renumber();});
   kids.appendChild(d);renumber();
 }
 function renumber(){
   const all=kids.querySelectorAll('.kid');
   all.forEach((k,i)=>{
-    k.querySelector('.kid-num').textContent=i+1;
-    k.querySelector('.kid-remove').style.display=all.length>1?'':'none';
+    k.querySelector('.kid-n').textContent=i+1;
+    k.querySelector('.kid-x').style.display=all.length>1?'':'none';
   });
 }
 document.getElementById('addKid').addEventListener('click',addKid);
 addKid();
 
-function say(t,err){msgEl.textContent=t;msgEl.className='msg'+(err?' err':'');}
+function say(t,err){msgEl.textContent=t;msgEl.className='note'+(err?' err':'');}
 
 function collect(){
   const parent=document.getElementById('parent').value.trim();
@@ -393,8 +824,7 @@ function collect(){
   }
   if(!list.length) return {error:'צריך למלא לפחות ילד/ה אחד.'};
   return {
-    parent_name:parent,
-    phone,
+    parent_name:parent,phone,
     adults:parseInt(document.getElementById('adults').value,10),
     children:list,
     volunteer:document.getElementById('volunteer').checked,
@@ -406,14 +836,12 @@ document.getElementById('send').addEventListener('click',async()=>{
   const r=collect();
   if(r.error) return say(r.error,true);
   const btn=document.getElementById('send');
-  btn.disabled=true;btn.textContent='שולח...';say('');
+  const lbl=btn.querySelector('.lbl');
+  btn.disabled=true;lbl.textContent='שולח...';say('');
   try{
     const params=new URLSearchParams({
-      parent:r.parent_name,
-      phone:r.phone,
-      adults:String(r.adults),
-      volunteer:String(r.volunteer),
-      note:r.note||'',
+      parent:r.parent_name,phone:r.phone,adults:String(r.adults),
+      volunteer:String(r.volunteer),note:r.note||'',
       childrenJson:JSON.stringify(r.children)
     });
     await fetch(HOOK_URL,{method:'POST',mode:'no-cors',keepalive:true,body:params});
@@ -423,14 +851,12 @@ document.getElementById('send').addEventListener('click',async()=>{
   }catch(e){
     say('משהו השתבש בשליחה. אפשר לנסות שוב בעוד רגע.',true);
   }finally{
-    btn.disabled=false;btn.textContent='מאשרים הגעה';
+    btn.disabled=false;lbl.textContent='מאשרים הגעה';
   }
 });
 
 document.getElementById('again').addEventListener('click',()=>{
-  document.getElementById('parent').value='';
-  document.getElementById('phone').value='';
-  document.getElementById('note').value='';
+  ['parent','phone','note'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('volunteer').checked=false;
   kids.innerHTML='';addKid();say('');
   document.getElementById('done').style.display='none';
