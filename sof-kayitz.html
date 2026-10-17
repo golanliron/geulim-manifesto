@@ -97,9 +97,9 @@ body::after{
    HERO — עולם הפלייר, חי
    ========================================================== */
 .hero{
-  position:relative;min-height:100dvh;
+  position:relative;min-height:auto;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:76px 24px 190px;overflow:hidden;isolation:isolate;
+  padding:42px 24px 112px;overflow:hidden;isolation:isolate;
 }
 /* שמי הקיץ (ימין) אל שמי החורף (שמאל) */
 .hero-sky{
@@ -152,18 +152,18 @@ body::after{
 }
 .crest-plate{
   display:flex;width:max-content;align-items:center;justify-content:center;
-  padding:16px 30px;margin:0 auto 24px;border-radius:28px;
+  padding:13px 24px;margin:0 auto 18px;border-radius:24px;
   background:rgba(250,246,236,.9);border:1px solid rgba(255,255,255,.9);
   box-shadow:0 14px 34px -14px rgba(31,58,95,.26),inset 0 1px 0 rgba(255,255,255,.95);
   backdrop-filter:blur(8px);
 }
-.crest{width:176px;height:auto;display:block}
+.crest{width:150px;height:auto;display:block}
 .eyebrow{
   display:block;width:max-content;margin-inline:auto;padding:7px 18px;border-radius:999px;
   background:rgba(255,255,255,.72);border:1px solid var(--hair);
   box-shadow:0 2px 10px rgba(31,58,95,.06),inset 0 1px 0 rgba(255,255,255,.9);
   font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--olive);
-  margin-bottom:22px;backdrop-filter:blur(6px);
+  margin-bottom:16px;backdrop-filter:blur(6px);
 }
 .kicker{
   font-size:clamp(16px,2.3vw,19px);color:var(--ink-soft);
@@ -171,7 +171,7 @@ body::after{
 }
 h1{
   font-family:'Frank Ruhl Libre',serif;font-weight:900;
-  font-size:clamp(50px,12.5vw,124px);line-height:.92;
+  font-size:clamp(44px,11.5vw,116px);line-height:.94;
   letter-spacing:-.015em;margin-bottom:10px;
 }
 h1 .l1{display:block;color:var(--navy)}
@@ -188,7 +188,7 @@ h1 .l2 .k{color:var(--olive)}
   margin-top:20px;
 }
 /* פס הפסיפס מתחת לכותרת */
-.tiles{display:flex;justify-content:center;gap:7px;margin:34px auto 0;flex-wrap:wrap;max-width:430px;position:relative;z-index:3}
+.tiles{display:flex;justify-content:center;gap:7px;margin:26px auto 0;flex-wrap:wrap;max-width:430px;position:relative;z-index:3}
 .tiles i{
   width:21px;height:21px;border-radius:4px;display:block;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 1px 3px rgba(31,58,95,.1);
@@ -205,7 +205,7 @@ h1 .l2 .k{color:var(--olive)}
 /* ==========================================================
    כרטיס הפרטים — שעון חצוי קיץ/חורף
    ========================================================== */
-.detail-zone{position:relative;padding:0 0 96px;margin-top:-56px;z-index:3}
+.detail-zone{position:relative;padding:0 0 60px;margin-top:-48px;z-index:3}
 /* Double bezel */
 .shell{
   max-width:720px;margin:0 auto;padding:9px;
@@ -216,11 +216,11 @@ h1 .l2 .k{color:var(--olive)}
   backdrop-filter:blur(10px);
 }
 .core{
-  background:#FFF;border-radius:31px;padding:40px 34px 34px;
+  background:#FFF;border-radius:31px;padding:30px 30px 26px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(31,58,95,.04);
   position:relative;overflow:hidden;
 }
-.clock{width:96px;height:96px;margin:0 auto 22px;display:block}
+.clock{width:76px;height:76px;margin:0 auto 16px;display:block}
 .clock .hand{transform-origin:50px 50px;animation:tick 26s linear infinite}
 @keyframes tick{to{transform:rotate(360deg)}}
 .when{
@@ -239,31 +239,31 @@ h1 .l2 .k{color:var(--olive)}
    שלוש הפעילויות
    ========================================================== */
 .acts{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-  max-width:720px;margin:26px auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  max-width:720px;margin:18px auto 0;
 }
 .act{
   background:rgba(255,255,255,.62);border:1px solid var(--hair);
-  border-radius:26px;padding:28px 14px 22px;text-align:center;
+  border-radius:24px;padding:20px 12px 16px;text-align:center;
   box-shadow:0 10px 30px -12px rgba(31,58,95,.14),inset 0 1px 0 rgba(255,255,255,.9);
   transition:transform .6s var(--ease),box-shadow .6s var(--ease);
 }
 .act:hover{transform:translateY(-6px);box-shadow:0 22px 46px -16px rgba(31,58,95,.24),inset 0 1px 0 rgba(255,255,255,.9)}
-.act svg{display:block;margin:0 auto 14px;transition:transform .6s var(--ease)}
+.act svg{display:block;margin:0 auto 10px;transition:transform .6s var(--ease)}
 .act:hover svg{transform:scale(1.07) rotate(-3deg)}
 .act b{display:block;font-size:15.5px;font-weight:700;color:var(--navy)}
 
 /* ==========================================================
    טופס
    ========================================================== */
-.rsvp{padding:0 0 110px;position:relative}
-.sec-head{text-align:center;margin-bottom:34px}
+.rsvp{padding:0 0 72px;position:relative}
+.sec-head{text-align:center;margin-bottom:24px}
 .sec-head .eyebrow{margin-bottom:16px}
 .sec-head h2{
   font-family:'Frank Ruhl Libre',serif;font-weight:900;
   font-size:clamp(34px,6.4vw,54px);color:var(--navy);line-height:1.1;letter-spacing:-.01em;
 }
-.sec-head p{color:var(--ink-soft);margin-top:12px;font-size:17px}
+.sec-head p{color:var(--ink-soft);margin-top:9px;font-size:16px}
 
 .form-shell{
   max-width:640px;margin:0 auto;padding:9px;
@@ -272,12 +272,37 @@ h1 .l2 .k{color:var(--olive)}
   box-shadow:0 34px 76px -24px rgba(31,58,95,.26);
   backdrop-filter:blur(10px);
 }
-.form-core{background:#FFF;border-radius:31px;padding:40px 34px;position:relative;overflow:hidden}
+.form-core{background:#FFF;border-radius:31px;padding:32px 28px;position:relative;overflow:hidden}
 .form-core::before{
   content:'';position:absolute;inset:0 0 auto 0;height:4px;
   background:linear-gradient(90deg,var(--navy),var(--olive),var(--sun),var(--rust),var(--sand));
 }
-.field{margin-bottom:20px}
+.field{margin-bottom:16px}
+/* "מבוגרים" צר, לא שורה שלמה */
+.adults-row{margin-top:16px;max-width:200px}
+/* הערות מתקפלות */
+.extra{margin-top:14px;border:1.5px solid var(--hair);border-radius:16px;background:var(--paper);overflow:hidden}
+.extra summary{
+  list-style:none;cursor:pointer;padding:13px 18px;
+  font-size:14px;font-weight:700;color:var(--ink-soft);
+  display:flex;align-items:center;gap:7px;
+  transition:color .4s var(--ease);
+}
+.extra summary::-webkit-details-marker{display:none}
+.extra summary span{font-weight:400;color:var(--ink-mute);font-size:13px}
+.extra summary::after{
+  content:'+';margin-inline-start:auto;font-size:18px;color:var(--ink-mute);
+  transition:transform .45s var(--ease);
+}
+.extra[open] summary::after{transform:rotate(45deg)}
+.extra summary:hover{color:var(--navy)}
+.extra textarea{
+  width:100%;border:none;border-top:1.5px solid var(--hair);border-radius:0;
+  padding:14px 18px;min-height:76px;background:#FFF;
+  font-family:'Heebo',sans-serif;font-size:15px;color:var(--ink);
+  outline:none;resize:vertical;line-height:1.7;
+}
+.extra textarea:focus{box-shadow:inset 0 0 0 2px rgba(240,195,87,.3)}
 .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;letter-spacing:.01em}
 .field label .req{color:#C0392B}
 .field input,.field select,.field textarea{
@@ -300,12 +325,12 @@ h1 .l2 .k{color:var(--olive)}
 .grid .field{margin-bottom:0}
 
 .kid{
-  border:1.5px solid var(--hair);border-radius:22px;padding:20px;margin-bottom:14px;
+  border:1.5px solid var(--hair);border-radius:20px;padding:16px 16px 17px;margin-bottom:12px;
   background:var(--paper);
   animation:kidIn .5s var(--ease) both;
 }
 @keyframes kidIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.kid-top{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+.kid-top{display:flex;align-items:center;gap:11px;margin-bottom:12px}
 .kid-n{
   width:30px;height:30px;border-radius:50%;background:#FFF;border:1.5px solid var(--hair);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
@@ -319,7 +344,7 @@ h1 .l2 .k{color:var(--olive)}
 }
 .kid-x:hover{background:rgba(31,58,95,.11);color:var(--ink)}
 .add{
-  width:100%;padding:15px;background:none;border:1.5px dashed rgba(122,133,69,.5);
+  width:100%;padding:13px;background:none;border:1.5px dashed rgba(122,133,69,.5);
   border-radius:999px;color:var(--olive);font-family:'Heebo',sans-serif;
   font-weight:700;font-size:14.5px;cursor:pointer;
   transition:all .5s var(--ease);
@@ -328,18 +353,18 @@ h1 .l2 .k{color:var(--olive)}
 .add:active{transform:scale(.985)}
 
 .opt{
-  display:flex;align-items:flex-start;gap:13px;margin-top:20px;padding:17px 18px;
+  display:flex;align-items:center;gap:12px;margin-top:14px;padding:14px 16px;
   background:rgba(122,133,69,.075);border:1px solid rgba(122,133,69,.28);
   border-radius:20px;cursor:pointer;transition:all .5s var(--ease);
 }
 .opt:hover{background:rgba(122,133,69,.12)}
-.opt input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
+.opt input{width:20px;height:20px;margin:0;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
 .opt span{font-size:15px;line-height:1.7}
 .opt span b{color:var(--navy);font-weight:700}
 
 /* כפתור עם אייקון מקונן */
 .cta{
-  position:relative;width:100%;margin-top:22px;padding:7px 7px 7px 26px;
+  position:relative;width:100%;margin-top:18px;padding:7px 7px 7px 26px;
   display:flex;align-items:center;justify-content:space-between;gap:14px;
   background:var(--navy);color:#FFF;border:none;border-radius:999px;
   font-family:'Heebo',sans-serif;font-size:17px;font-weight:700;cursor:pointer;
@@ -359,7 +384,7 @@ h1 .l2 .k{color:var(--olive)}
 
 .note{margin-top:16px;font-size:14.5px;text-align:center;color:var(--ink-soft);min-height:21px}
 .note.err{color:#C0392B}
-.fine{font-size:12.5px;color:var(--ink-mute);text-align:center;margin-top:18px;line-height:1.75}
+.fine{font-size:12px;color:var(--ink-mute);text-align:center;margin-top:14px;line-height:1.7}
 
 .done{display:none;text-align:center;padding:22px 0 10px}
 .done svg{margin:0 auto 18px;display:block}
@@ -373,20 +398,20 @@ h1 .l2 .k{color:var(--olive)}
 .done button:hover{border-color:var(--sun);transform:translateY(-2px)}
 
 /* מונים */
-.tally{display:flex;justify-content:center;gap:64px;margin:40px auto 0}
+.tally{display:flex;justify-content:center;gap:56px;margin:28px auto 0}
 .tally div{text-align:center}
-.tally .n{font-family:'Frank Ruhl Libre',serif;font-size:46px;font-weight:900;color:var(--navy);line-height:1}
+.tally .n{font-family:'Frank Ruhl Libre',serif;font-size:40px;font-weight:900;color:var(--navy);line-height:1}
 .tally .t{font-size:13px;color:var(--ink-mute);margin-top:6px}
 
 /* ==========================================================
    FOOTER — קו העלים והלילה
    ========================================================== */
-footer{position:relative;padding:76px 24px 54px;text-align:center;overflow:hidden}
+footer{position:relative;padding:48px 24px 38px;text-align:center;overflow:hidden}
 footer::before{
   content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,transparent,rgba(227,213,180,.3));
 }
-footer img{height:78px;width:auto;margin-bottom:18px}
+footer img{height:62px;width:auto;margin-bottom:14px}
 .fbrand{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:12px}
 .fbrand .fwm{
   font-family:'Frank Ruhl Libre','Noto Serif Hebrew',serif;font-weight:900;
@@ -408,13 +433,14 @@ footer::after{
 .rise.in{opacity:1;transform:none;filter:none}
 
 @media(max-width:760px){
-  .hero{padding:72px 20px 96px;min-height:auto}
+  .hero{padding:30px 18px 88px;min-height:auto}
   .arch{top:-46px;left:-66px;width:300px}
   .sun{width:92px;height:92px;top:10%;right:6%}
   .moon{width:62px;height:62px;top:12%;left:7%}
-  .acts{grid-template-columns:1fr;gap:12px;max-width:430px}
-  .act{display:flex;align-items:center;gap:16px;text-align:right;padding:18px 22px}
-  .act svg{margin:0;flex-shrink:0;width:38px;height:38px}
+  .acts{grid-template-columns:repeat(3,1fr);gap:8px;max-width:430px}
+  .act{padding:14px 6px 12px;border-radius:18px}
+  .act svg{width:32px;height:32px;margin:0 auto 7px}
+  .act b{font-size:12.5px;line-height:1.3}
   .core,.form-core{padding:30px 20px}
   .shell,.form-shell{padding:7px;border-radius:32px}
   .core,.form-core{border-radius:25px}
@@ -582,7 +608,6 @@ footer::after{
 <section class="rsvp">
   <div class="wrap">
     <div class="sec-head rise">
-      <span class="eyebrow">אישור הגעה</span>
       <h2>נשמח לדעת שאתם באים</h2>
       <p>כדי שנדע כמה קרמבו להכין וכמה ערכות יצירה להזמין.</p>
     </div>
@@ -602,8 +627,8 @@ footer::after{
             </div>
           </div>
 
-          <div class="field" style="margin-top:20px">
-            <label for="adults">כמה מבוגרים מגיעים? <span class="req">*</span></label>
+          <div class="field adults-row">
+            <label for="adults">מבוגרים <span class="req">*</span></label>
             <select id="adults">
               <option value="1">1</option>
               <option value="2" selected>2</option>
@@ -616,14 +641,14 @@ footer::after{
           <div id="kids"></div>
           <button class="add" type="button" id="addKid">+ הוספת ילד/ה</button>
 
-          <div class="field" style="margin-top:18px">
-            <label for="note">משהו שכדאי שנדע? (לא חובה)</label>
-            <textarea id="note" placeholder="אלרגיות, הערות, כל דבר"></textarea>
-          </div>
+          <details class="extra">
+            <summary>הערות או אלרגיות <span>(לא חובה)</span></summary>
+            <textarea id="note" placeholder="כל דבר שכדאי שנדע"></textarea>
+          </details>
 
           <label class="opt">
             <input type="checkbox" id="volunteer">
-            <span><b>אשמח לעזור בהקמה או בפירוק.</b> כמה ידיים נוספות עושות את כל ההבדל.</span>
+            <span><b>אשמח לעזור בהקמה או בפירוק</b></span>
           </label>
 
           <button class="cta" type="button" id="send">
