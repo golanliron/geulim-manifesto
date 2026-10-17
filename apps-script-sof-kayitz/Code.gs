@@ -9,6 +9,7 @@
 
 var SHEET_ID = '1XD9GmHoi0s6EUrJHfsgBLYnJaLIcFLrtO_opucZ8T-k';
 var SHEET_NAME = 'אישורי הגעה';
+var CLEAR_KEY = 'geuli-sof-kayitz-2026';
 
 var HEADERS = [
   'תאריך רישום',
@@ -112,6 +113,13 @@ function doGet(e) {
     } catch (err) {
       return json_({ ok: false, error: String(err) });
     }
+  }
+  if (mode === 'clear') {
+    if ((e.parameter.key || '') !== CLEAR_KEY) return json_({ ok: false, error: 'bad key' });
+    var sh = sheet_();
+    var last = sh.getLastRow();
+    if (last > 1) sh.deleteRows(2, last - 1);
+    return json_({ ok: true, cleared: last - 1 });
   }
   return json_({ ok: true, service: 'geuli sof-kayitz' });
 }
