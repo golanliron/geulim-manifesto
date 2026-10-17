@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מסיבת סוף הקיץ של גאולים · יום חמישי 22.10</title>
+<meta name="description" content="נפרדים מהקיץ, מקבלים את החורף. יום חמישי 22.10 החל מ-16:30 בחצר בית הספר. יצירה, קרמבו והפתעות נוספות.">
+<meta property="og:title" content="מסיבת סוף הקיץ של גאולים">
+<meta property="og:description" content="יום חמישי 22.10 · החל מ-16:30 · בחצר בית הספר">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F355E;
+  --navy-deep:#14243F;
+  --olive:#8A9746;
+  --sand:#D8C7A0;
+  --gold:#D8C7A0;
+  --rust:#C4622D;
+  --cream:#F8F6F1;
+  --white:#FFFFFF;
+  --warm-white:#F8F6F1;
+  --text:#1F355E;
+  --text-light:#69707C;
+  --text-muted:#9297A1;
+  --border:rgba(23,36,59,0.09);
+  --brand-shadow:0 18px 46px rgba(31,53,94,0.11);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--cream);color:var(--text);
+  font-family:'Heebo',sans-serif;font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* ===== HERO ===== */
+.hero{
+  background:
+    radial-gradient(circle at 15% 38%, rgba(216,199,160,0.24), transparent 25%),
+    radial-gradient(circle at 86% 24%, rgba(138,151,70,0.12), transparent 24%),
+    linear-gradient(180deg,#FFFFFF 0%,var(--cream) 100%);
+  padding:48px 24px 34px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:64px;left:7%;width:170px;height:170px;
+  background:radial-gradient(circle, rgba(216,199,160,0.42) 0 3px, transparent 3.5px) 0 0 / 24px 24px;
+  opacity:.72;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;right:50%;bottom:0;
+  width:min(760px,calc(100vw - 32px));height:1px;transform:translateX(50%);
+  background:linear-gradient(90deg,transparent,rgba(216,199,160,0.7),transparent);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+.hero-inner::before{
+  content:'';position:absolute;top:30px;right:6%;width:96px;height:96px;
+  background:radial-gradient(circle, rgba(138,151,70,0.22) 0 4px, transparent 4.5px) 0 0 / 30px 30px;
+  pointer-events:none;z-index:-1;
+}
+.school-logo{width:150px;height:auto;margin:0 auto 20px;display:block}
+.section-label{
+  font-size:12px;font-weight:800;letter-spacing:2px;color:var(--olive);
+  margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.section-label::before{
+  content:'';display:block;width:48px;height:8px;flex-shrink:0;
+  background:
+    radial-gradient(circle at 4px 4px, var(--navy) 3.5px, transparent 4px),
+    radial-gradient(circle at 24px 4px, var(--olive) 3.5px, transparent 4px),
+    radial-gradient(circle at 44px 4px, var(--sand) 3.5px, transparent 4px);
+  background-repeat:no-repeat;
+}
+.kicker{font-size:17px;color:var(--text-light);margin:0 0 10px}
+h1{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(34px,7vw,56px);line-height:1.2;color:var(--navy);
+  margin:0 auto 6px;max-width:16ch;
+}
+h1 .rust{color:var(--rust)}
+.of-geulim{
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;
+  font-size:clamp(20px,4vw,28px);color:var(--navy);opacity:.85;margin:0 0 16px;
+}
+.subtitle-deco{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+.subtitle-deco .line{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.subtitle-deco .line.right{background:linear-gradient(90deg,var(--gold),transparent)}
+.subtitle-deco .dot{width:5px;height:5px;border-radius:50%;background:var(--sand);opacity:.7}
+.subtitle-deco .dot:nth-child(3){background:var(--olive)}
+.subtitle-deco .dot:nth-child(4){background:var(--navy)}
+.lead{font-size:19px;line-height:1.9;color:var(--text);max-width:54ch;margin:0 auto;font-weight:500}
+
+/* ===== WHEN / WHERE ===== */
+.when{
+  background:var(--white);border:1px solid var(--border);border-radius:20px;
+  max-width:560px;margin:30px auto 0;padding:24px 26px;box-shadow:var(--brand-shadow);
+  position:relative;
+}
+.when::before{
+  content:'';position:absolute;top:0;right:50%;transform:translateX(50%);
+  width:64px;height:3px;border-radius:0 0 4px 4px;
+  background:linear-gradient(90deg,var(--sand),var(--olive),var(--sand));opacity:.85;
+}
+.when-row{
+  display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(20px,4.2vw,26px);color:var(--navy);
+}
+.when-row .bar{width:1px;height:26px;background:rgba(216,199,160,.9)}
+.when-where{text-align:center;font-size:16px;color:var(--text-light);margin-top:8px}
+
+/* ===== ACTIVITIES ===== */
+.acts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  max-width:560px;margin:18px auto 0;
+}
+.act{
+  background:rgba(216,199,160,0.16);border:1px solid rgba(216,199,160,0.45);
+  border-radius:16px;padding:18px 10px;text-align:center;
+}
+.act .ico{font-size:28px;line-height:1;display:block;margin-bottom:8px}
+.act .nm{font-size:14.5px;font-weight:700;color:var(--navy)}
+@media(max-width:480px){
+  .acts{grid-template-columns:1fr;gap:10px}
+  .act{display:flex;align-items:center;gap:12px;text-align:right;padding:14px 18px}
+  .act .ico{margin:0;font-size:24px}
+}
+
+/* ===== FORM ===== */
+.form-card{
+  background:var(--white);border-radius:20px;padding:40px 36px;
+  border:1px solid var(--border);max-width:560px;margin:34px auto 0;
+  box-shadow:var(--brand-shadow);position:relative;
+}
+.form-card::before{
+  content:'';position:absolute;top:0;right:50%;transform:translateX(50%);
+  width:64px;height:3px;border-radius:0 0 4px 4px;
+  background:linear-gradient(90deg,var(--sand),var(--olive),var(--sand));opacity:.85;
+}
+.form-card h2{
+  font-family:'Frank Ruhl Libre',serif;font-size:26px;font-weight:900;
+  color:var(--navy);text-align:center;margin:0 0 4px;
+}
+.form-sub{text-align:center;font-size:14px;color:var(--text-muted);margin:0 0 28px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:6px}
+.field label .req{color:#c0392b;font-size:11px}
+.field input,.field select,.field textarea{
+  width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:12px;
+  font-family:'Heebo',sans-serif;font-size:15px;color:var(--text);
+  background:var(--warm-white);outline:none;transition:all .2s;
+}
+.field textarea{resize:vertical;min-height:74px;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--gold);box-shadow:0 0 0 4px rgba(216,199,160,.08);background:var(--white);
+}
+.row{display:grid;gap:14px}
+@media(min-width:520px){
+  .row.kidrow{grid-template-columns:1.7fr .8fr}
+  .row.two{grid-template-columns:1fr 1fr}
+}
+.row .field{margin-bottom:0}
+
+.kid{border:1.5px solid var(--border);border-radius:16px;padding:18px 18px 20px;margin-bottom:14px;background:var(--warm-white)}
+.kid-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.kid-num{
+  width:28px;height:28px;border-radius:50%;background:var(--white);
+  border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:15px;color:var(--navy);flex-shrink:0;
+}
+.kid-head strong{font-size:14px;font-weight:600;color:var(--navy)}
+.kid-remove{
+  margin-inline-start:auto;background:rgba(31,53,94,.06);border:none;border-radius:8px;
+  padding:5px 11px;font-family:'Heebo',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer;
+}
+.kid-remove:hover{background:rgba(31,53,94,.12);color:var(--text)}
+.add-kid{
+  width:100%;padding:13px;background:none;border:1.5px dashed rgba(138,151,70,.45);
+  border-radius:60px;color:var(--olive);font-family:'Heebo',sans-serif;font-weight:700;
+  font-size:14px;cursor:pointer;transition:all .2s;margin-bottom:8px;
+}
+.add-kid:hover{background:rgba(138,151,70,.07);border-color:var(--olive)}
+
+.check{
+  display:flex;align-items:flex-start;gap:11px;margin-top:18px;padding:15px 16px;
+  background:rgba(138,151,70,0.07);border:1px solid rgba(138,151,70,0.3);border-radius:14px;cursor:pointer;
+}
+.check input{width:19px;height:19px;margin:2px 0 0;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
+.check span{font-size:14.5px;line-height:1.65;color:var(--text)}
+.check span b{color:var(--navy);font-weight:700}
+
+.btn-sign{
+  width:100%;padding:16px;border:none;border-radius:60px;background:var(--navy);color:#fff;
+  font-family:'Heebo',sans-serif;font-size:16px;font-weight:700;cursor:pointer;
+  transition:all .3s;margin-top:18px;
+}
+.btn-sign:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 28px rgba(31,53,94,.18)}
+.btn-sign:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.msg{margin-top:14px;font-size:14px;text-align:center;color:var(--text-light);min-height:20px}
+.msg.err{color:#c0392b}
+.privacy{font-size:12px;color:var(--text-muted);text-align:center;margin-top:16px;line-height:1.7}
+
+.done{display:none;text-align:center;padding:14px 0}
+.done h3{font-family:'Frank Ruhl Libre',serif;font-size:26px;font-weight:900;color:var(--navy);margin:0 0 8px}
+.done p{color:var(--text-light);margin:0 0 20px}
+.done .again{background:none;border:1.5px solid var(--border);border-radius:60px;padding:11px 26px;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer}
+.done .again:hover{border-color:var(--gold)}
+
+/* ===== COUNTER ===== */
+.counter{display:flex;justify-content:center;gap:52px;margin:36px auto 0;max-width:560px}
+.counter .num{font-family:'Frank Ruhl Libre',serif;font-size:40px;font-weight:900;color:var(--navy);line-height:1}
+.counter .lbl{font-size:12px;color:var(--text-muted);margin-top:4px}
+.counter div{text-align:center}
+
+/* ===== FOOTER ===== */
+.strip{width:100%;height:110px;overflow:hidden;margin-top:52px;opacity:.94}
+.strip img{width:140%;max-width:none;height:100%;object-fit:cover;object-position:center 52%;display:block}
+footer{background:var(--white);border-top:1px solid var(--border);padding:28px 24px 34px;text-align:center}
+footer p{font-size:13px;color:var(--text-muted);margin:10px 0 0;line-height:1.9}
+@media(max-width:560px){
+  .hero{padding:34px 18px 26px}
+  .form-card{padding:28px 18px}
+  .when{padding:20px 18px}
+  .strip{height:60px}
+  .strip img{width:180%}
+  .counter{gap:34px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <img class="school-logo" src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים ע״ש יצחק נבון">
+    <div class="section-label">מסיבת קהילה · תשפ״ז</div>
+    <p class="kicker">יש דברים ששווה לעצור בשבילם את הזמן...</p>
+    <h1>מסיבת <span class="rust">סוף הקיץ</span></h1>
+    <p class="of-geulim">של גאולים</p>
+    <div class="subtitle-deco">
+      <span class="line"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="line right"></span>
+    </div>
+    <p class="lead">נפרדים מהקיץ, מקבלים את החורף.</p>
+
+    <div class="when">
+      <div class="when-row">
+        <span>יום חמישי</span>
+        <span class="bar"></span>
+        <span>22.10</span>
+        <span class="bar"></span>
+        <span>החל מ-16:30</span>
+      </div>
+      <p class="when-where">בחצר בית הספר</p>
+    </div>
+
+    <div class="acts">
+      <div class="act"><span class="ico">🎨</span><span class="nm">יצירה</span></div>
+      <div class="act"><span class="ico">🍫</span><span class="nm">קרמבו</span></div>
+      <div class="act"><span class="ico">🎁</span><span class="nm">הפתעות נוספות...</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="form-card">
+    <div id="formWrap">
+      <h2>אישור הגעה</h2>
+      <p class="form-sub">כדי שנדע כמה קרמבו להכין וכמה ערכות יצירה להזמין.</p>
+
+      <div class="row two">
+        <div class="field">
+          <label for="parent">שם ההורה <span class="req">*</span></label>
+          <input id="parent" type="text" autocomplete="name" placeholder="שם פרטי ומשפחה">
+        </div>
+        <div class="field">
+          <label for="phone">טלפון <span class="req">*</span></label>
+          <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0500000000">
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:18px">
+        <label for="adults">כמה מבוגרים מגיעים? <span class="req">*</span></label>
+        <select id="adults">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 ויותר</option>
+        </select>
+      </div>
+
+      <div id="kids" style="margin-top:4px"></div>
+      <button class="add-kid" type="button" id="addKid">+ הוספת ילד/ה</button>
+
+      <div class="field" style="margin-top:14px">
+        <label for="note">משהו שכדאי שנדע? (לא חובה)</label>
+        <textarea id="note" placeholder="אלרגיות, הערות, כל דבר"></textarea>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" id="volunteer">
+        <span><b>אשמח לעזור בהקמה או בפירוק.</b> כמה ידיים נוספות עושות את כל ההבדל.</span>
+      </label>
+
+      <button class="btn-sign" type="button" id="send">מאשרים הגעה</button>
+      <p class="msg" id="msg"></p>
+      <p class="privacy">הפרטים משמשים את קהילת ההורים לארגון המסיבה בלבד.</p>
+    </div>
+
+    <div class="done" id="done">
+      <h3>נרשמתם. נתראה בחצר!</h3>
+      <p>יום חמישי 22.10, החל מ-16:30.</p>
+      <button class="again" type="button" id="again">רישום משפחה נוספת</button>
+    </div>
+  </section>
+
+  <div class="counter">
+    <div><div class="num" id="cFam">0</div><div class="lbl">משפחות מגיעות</div></div>
+    <div><div class="num" id="cKids">0</div><div class="lbl">ילדים</div></div>
+  </div>
+
+</main>
+
+<div class="strip">
+  <img src="brand/experiments/gaulim-inspired/geuli-landscape-strip-transparent.png" alt="">
+</div>
+
+<footer>
+  <img src="brand/assets/logo/gaulim-school-logo-transparent.png" alt="לוגו בית ספר גאולים" style="height:52px;width:auto">
+  <p>קהילת ההורים של בית ספר גאולים בקעה<br>
+  © 2026</p>
+</footer>
+
+<script>
+const HOOK_URL='https://script.google.com/macros/s/AKfycbyO0QuVDkIRZL8NJAcO-0dbrZA0jZq6X2UL76zH35rvHdi1AV62DFsMLzzXtW-ViOZmxA/exec';
+
+const kids=document.getElementById('kids');
+const msgEl=document.getElementById('msg');
+
+function addKid(){
+  const all=kids.querySelectorAll('.kid');
+  if(all.length>=6) return;
+  const d=document.createElement('div');
+  d.className='kid';
+  d.innerHTML=`
+    <div class="kid-head">
+      <span class="kid-num"></span><strong>ילד/ה</strong>
+      <button class="kid-remove" type="button">הסרה</button>
+    </div>
+    <div class="row kidrow">
+      <div class="field"><label>שם הילד/ה</label><input type="text" class="k-name" placeholder="שם פרטי"></div>
+      <div class="field"><label>כיתה</label><input type="text" class="k-class" placeholder="ב2"></div>
+    </div>`;
+  d.querySelector('.kid-remove').addEventListener('click',()=>{d.remove();renumber();});
+  kids.appendChild(d);renumber();
+}
+function renumber(){
+  const all=kids.querySelectorAll('.kid');
+  all.forEach((k,i)=>{
+    k.querySelector('.kid-num').textContent=i+1;
+    k.querySelector('.kid-remove').style.display=all.length>1?'':'none';
+  });
+}
+document.getElementById('addKid').addEventListener('click',addKid);
+addKid();
+
+function say(t,err){msgEl.textContent=t;msgEl.className='msg'+(err?' err':'');}
+
+function collect(){
+  const parent=document.getElementById('parent').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  if(!parent) return {error:'חסר שם ההורה.'};
+  if(phone.replace(/\D/g,'').length<9) return {error:'מספר הטלפון אינו תקין.'};
+  const list=[];
+  const all=kids.querySelectorAll('.kid');
+  for(let i=0;i<all.length;i++){
+    const name=all[i].querySelector('.k-name').value.trim();
+    const cls=all[i].querySelector('.k-class').value.trim();
+    if(!name&&!cls) continue;
+    if(!name) return {error:`חסר שם לילד/ה מספר ${i+1}.`};
+    list.push({name,class:cls});
+  }
+  if(!list.length) return {error:'צריך למלא לפחות ילד/ה אחד.'};
+  return {
+    parent_name:parent,
+    phone,
+    adults:parseInt(document.getElementById('adults').value,10),
+    children:list,
+    children_count:list.length,
+    volunteer:document.getElementById('volunteer').checked,
+    note:document.getElementById('note').value.trim()||null
+  };
+}
+
+document.getElementById('send').addEventListener('click',async()=>{
+  const r=collect();
+  if(r.error) return say(r.error,true);
+  const btn=document.getElementById('send');
+  btn.disabled=true;btn.textContent='שולח...';say('');
+  try{
+    const params=new URLSearchParams({
+      parent:r.parent_name,
+      phone:r.phone,
+      adults:String(r.adults),
+      volunteer:String(r.volunteer),
+      note:r.note||'',
+      childrenJson:JSON.stringify(r.children)
+    });
+    await fetch(HOOK_URL,{method:'POST',mode:'no-cors',keepalive:true,body:params});
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('done').style.display='block';
+    setTimeout(loadCounts,1200);
+  }catch(e){
+    say('משהו השתבש בשליחה. אפשר לנסות שוב בעוד רגע.',true);
+  }finally{
+    btn.disabled=false;btn.textContent='מאשרים הגעה';
+  }
+});
+
+document.getElementById('again').addEventListener('click',()=>{
+  document.getElementById('parent').value='';
+  document.getElementById('phone').value='';
+  document.getElementById('note').value='';
+  document.getElementById('volunteer').checked=false;
+  kids.innerHTML='';addKid();say('');
+  document.getElementById('done').style.display='none';
+  document.getElementById('formWrap').style.display='block';
+});
+
+async function loadCounts(){
+  try{
+    const r=await fetch(`${HOOK_URL}?mode=counts`);
+    const d=await r.json();
+    if(d&&d.ok){
+      document.getElementById('cFam').textContent=d.families||0;
+      document.getElementById('cKids').textContent=d.children||0;
+    }
+  }catch(e){}
+}
+loadCounts();
+</script>
+</body>
+</html>
