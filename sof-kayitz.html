@@ -69,7 +69,7 @@ body::after{
 .hero{
   position:relative;min-height:auto;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:42px 24px 168px;overflow:hidden;isolation:isolate;
+  padding:34px 24px 140px;overflow:hidden;isolation:isolate;
 }
 /* שמי הקיץ (ימין) אל שמי החורף (שמאל) */
 .hero-sky{
@@ -171,10 +171,10 @@ h1 .k{color:var(--olive)}
 /* ==========================================================
    כרטיס הפרטים — שעון חצוי קיץ/חורף
    ========================================================== */
-.detail-zone{position:relative;padding:0 0 60px;margin-top:-48px;z-index:3}
+.detail-zone{position:relative;padding:0 0 44px;margin-top:-44px;z-index:3}
 /* Double bezel */
 .shell{
-  max-width:720px;margin:0 auto;padding:9px;
+  max-width:640px;margin:0 auto;padding:7px;
   background:rgba(255,255,255,.55);
   border:1px solid rgba(255,255,255,.85);
   border-radius:40px;
@@ -182,21 +182,21 @@ h1 .k{color:var(--olive)}
   backdrop-filter:blur(10px);
 }
 .core{
-  background:#FFF;border-radius:31px;padding:30px 30px 26px;
+  background:#FFF;border-radius:28px;padding:22px 26px 20px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(31,58,95,.04);
   position:relative;overflow:hidden;
 }
-.clock{width:76px;height:76px;margin:0 auto 16px;display:block}
+.clock{width:56px;height:56px;margin:0 auto 12px;display:block}
 .clock .hand{transform-origin:50px 50px;animation:tick 26s linear infinite}
 @keyframes tick{to{transform:rotate(360deg)}}
 .when{
   display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
   font-family:'Frank Ruhl Libre',serif;font-weight:900;
-  font-size:clamp(23px,4.6vw,34px);color:var(--navy);line-height:1.25;
+  font-size:clamp(20px,3.6vw,27px);color:var(--navy);line-height:1.25;
 }
 .when .sep{width:1.5px;height:30px;background:linear-gradient(180deg,transparent,var(--sand-2),transparent)}
 .where{
-  text-align:center;font-size:17px;color:var(--ink-soft);margin-top:12px;
+  text-align:center;font-size:15.5px;color:var(--ink-soft);margin-top:9px;
   display:flex;align-items:center;justify-content:center;gap:9px;
 }
 .where svg{flex-shrink:0;opacity:.7}
@@ -205,12 +205,12 @@ h1 .k{color:var(--olive)}
    שלוש הפעילויות
    ========================================================== */
 .acts{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-  max-width:720px;margin:18px auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:11px;
+  max-width:640px;margin:13px auto 0;
 }
 .act{
   background:rgba(255,255,255,.62);border:1px solid var(--hair);
-  border-radius:24px;padding:20px 12px 16px;text-align:center;
+  border-radius:20px;padding:15px 10px 13px;text-align:center;
   box-shadow:0 10px 30px -12px rgba(31,58,95,.14),inset 0 1px 0 rgba(255,255,255,.9);
   transition:transform .6s var(--ease),box-shadow .6s var(--ease);
 }
