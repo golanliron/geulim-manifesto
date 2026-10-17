@@ -69,7 +69,7 @@ body::after{
 .hero{
   position:relative;min-height:auto;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:42px 24px 112px;overflow:hidden;isolation:isolate;
+  padding:42px 24px 168px;overflow:hidden;isolation:isolate;
 }
 /* שמי הקיץ (ימין) אל שמי החורף (שמאל) */
 .hero-sky{
@@ -80,7 +80,8 @@ body::after{
     linear-gradient(252deg, var(--paper) 0%, var(--paper) 64%, #EEE9DF 76%, #D7DBE4 88%, #AFB8CA 100%);
 }
 /* קו הגבעה המתעגל שמפריד קיץ מחורף, כמו בפלייר */
-.hero-hill{position:absolute;inset:auto 0 0 0;z-index:-2;width:100%;height:auto;display:block}
+.hero-hill{position:absolute;inset:auto 0 -1px 0;z-index:-2;width:100%;height:auto;display:block;max-height:120px}
+@media(max-width:560px){.hero-hill{max-height:84px}}
 
 /* שמש */
 .sun{
@@ -144,8 +145,8 @@ h1 .k{color:var(--olive)}
 .tag{
   font-family:'Frank Ruhl Libre',serif;font-weight:700;
   font-size:clamp(21px,4.6vw,34px);line-height:1.35;
-  color:var(--navy);margin-top:22px;
-  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  color:var(--navy);margin:24px auto 0;
+  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:nowrap;
 }
 .tag .sum{color:var(--rust)}
 .tag .win{color:var(--night)}
@@ -161,22 +162,12 @@ h1 .k{color:var(--olive)}
   width:7px;height:7px;border-left:2px solid var(--night);border-bottom:2px solid var(--night);
   transform:translateY(-50%) rotate(45deg);
 }
-@media(max-width:420px){.tag{gap:9px;font-size:19px}.tag .go{width:24px}}
-/* פס הפסיפס מתחת לכותרת */
-.tiles{display:flex;justify-content:center;gap:7px;margin:26px auto 0;flex-wrap:wrap;max-width:430px;position:relative;z-index:3}
-.tiles i{
-  width:21px;height:21px;border-radius:4px;display:block;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 1px 3px rgba(31,58,95,.1);
-  opacity:0;transform:translateY(10px) scale(.7);
-  animation:tileIn .62s var(--ease) forwards;
+@media(max-width:470px){
+  .tag{flex-direction:column;gap:6px;font-size:21px;line-height:1.3}
+  .tag .go{width:2px;height:22px;background:linear-gradient(180deg,var(--rust),var(--night))}
+  .tag .go::after{left:50%;top:auto;bottom:0;transform:translateX(-50%) rotate(-45deg)}
 }
-@keyframes tileIn{to{opacity:.95;transform:none}}
-.tiles i:nth-child(5n+1){background:var(--navy)}
-.tiles i:nth-child(5n+2){background:var(--sand)}
-.tiles i:nth-child(5n+3){background:var(--olive)}
-.tiles i:nth-child(5n+4){background:var(--sun)}
-.tiles i:nth-child(5n+5){background:var(--rust)}
-
+/* פס הפסיפס מתחת לכותרת */
 /* ==========================================================
    כרטיס הפרטים — שעון חצוי קיץ/חורף
    ========================================================== */
@@ -357,7 +348,7 @@ h1 .k{color:var(--olive)}
 .rise.in{opacity:1;transform:none;filter:none}
 
 @media(max-width:760px){
-  .hero{padding:30px 18px 88px;min-height:auto}
+  .hero{padding:26px 18px 140px;min-height:auto}
   .arch{top:-46px;left:-66px;width:300px}
   .sun{width:92px;height:92px;top:10%;right:6%}
   .moon{width:62px;height:62px;top:12%;left:7%}
@@ -370,7 +361,6 @@ h1 .k{color:var(--olive)}
   .core,.form-core{border-radius:25px}
   .when{gap:13px}
   .when .sep{height:24px}
-  .tiles i{width:17px;height:17px}
   .detail-zone{margin-top:-30px;padding-bottom:72px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -434,7 +424,6 @@ h1 .k{color:var(--olive)}
       מסיבת <span class="s">סוף</span> <span class="k">הקיץ</span> של גאולים
     </h1>
     <p class="tag"><span class="sum">נפרדים מהקיץ</span><span class="go"></span><span class="win">מקבלים את החורף!</span></p>
-    <div class="tiles" id="tiles"></div>
   </div>
 </header>
 
@@ -584,16 +573,6 @@ h1 .k{color:var(--olive)}
 <script>
 const HOOK_URL='https://script.google.com/macros/s/AKfycbyO0QuVDkIRZL8NJAcO-0dbrZA0jZq6X2UL76zH35rvHdi1AV62DFsMLzzXtW-ViOZmxA/exec';
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---- פס הפסיפס ---- */
-(function(){
-  const box=document.getElementById('tiles');
-  for(let i=0;i<15;i++){
-    const t=document.createElement('i');
-    t.style.animationDelay=(i*48)+'ms';
-    box.appendChild(t);
-  }
-})();
 
 /* ---- קשת הפסיפס: שתי שורות אבנים לאורך רבע מעגל ---- */
 (function(){
