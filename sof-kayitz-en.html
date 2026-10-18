@@ -370,6 +370,31 @@ h1 .k{color:var(--olive)}
 
 
 /* ==========================================================
+   מצב "נרשמת" — רק אישור ההרשמה על המסך
+   ========================================================== */
+body.submitted .hero,
+body.submitted .detail-zone,
+body.submitted .sec-head{display:none}
+body.submitted .rsvp{
+  min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:28px 0;
+}
+body.submitted .form-shell{width:100%}
+body.submitted .form-core{padding:44px 30px}
+.done .big{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(30px,7vw,42px);color:var(--navy);line-height:1.2;margin-bottom:12px;
+}
+.done .when-line{
+  display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+  margin:4px auto 22px;padding:12px 22px;border-radius:999px;
+  background:rgba(240,195,87,.16);border:1px solid rgba(240,195,87,.5);
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;
+  font-size:clamp(16px,3.4vw,20px);color:var(--navy);
+}
+.done .when-line .d{width:1px;height:18px;background:rgba(31,58,95,.2)}
+.done .place{font-size:15.5px;color:var(--ink-soft);margin-bottom:26px}
+
+/* ==========================================================
    כניסה בגלילה
    ========================================================== */
 .rise{opacity:0;transform:translateY(34px);filter:blur(5px);
@@ -593,8 +618,9 @@ h1 .k{color:var(--olive)}
             <circle cx="62" cy="13" r="1.8" fill="#F2D389"/>
             <circle cx="58" cy="33" r="1.4" fill="#F2D389"/>
           </svg>
-          <h3>You're registered. See you in the yard!</h3>
-          <p>Thursday 22.10, from 16:30.</p>
+          <p class="big">You're registered!</p>
+          <p class="when-line"><span>Thursday 22.10</span><span class="d"></span><span>from 16:30</span></p>
+          <p class="place">See you in the school yard</p>
           <button type="button" id="again">Register another family</button>
         </div>
       </div>
@@ -762,6 +788,8 @@ document.getElementById('send').addEventListener('click',async()=>{
     await fetch(HOOK_URL,{method:'POST',mode:'no-cors',keepalive:true,body:params});
     document.getElementById('formWrap').style.display='none';
     document.getElementById('done').style.display='block';
+    document.body.classList.add('submitted');
+    window.scrollTo({top:0,behavior:'instant'});
     setTimeout(loadCounts,1200);
   }catch(e){
     say('Something went wrong. Please try again in a moment.',true);
@@ -775,6 +803,7 @@ document.getElementById('again').addEventListener('click',()=>{
   document.getElementById('volunteer').checked=false;
   kids.innerHTML='';addKid();say('');
   document.getElementById('done').style.display='none';
+  document.body.classList.remove('submitted');
   document.getElementById('formWrap').style.display='block';
 });
 
