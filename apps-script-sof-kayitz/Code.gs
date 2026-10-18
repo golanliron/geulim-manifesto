@@ -114,12 +114,21 @@ function doGet(e) {
       return json_({ ok: false, error: String(err) });
     }
   }
-  if (mode === 'clear') {
+  if (mode === 'restore') {
     if ((e.parameter.key || '') !== CLEAR_KEY) return json_({ ok: false, error: 'bad key' });
+    var rows;
+    try { rows = JSON.parse(e.parameter.rows || '[]'); } catch (err) { return json_({ ok:false, error:'bad rows' }); }
+    if (!rows.length) return json_({ ok:false, error:'no rows' });
     var sh = sheet_();
-    var last = sh.getLastRow();
-    if (last > 1) sh.deleteRows(2, last - 1);
-    return json_({ ok: true, cleared: last - 1 });
+    var lock = LockService.getScriptLock();
+    lock.waitLock(20000);
+    try {
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        sh.appendRow([ r[0], r[1], "'" + r[2], Number(r[3]), Number(r[4]), r[5], r[6] || '', r[7] || '' ]);
+      }
+    } finally { lock.releaseLock(); }
+    return json_({ ok: true, restored: rows.length });
   }
   return json_({ ok: true, service: 'geuli sof-kayitz' });
 }
