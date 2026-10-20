@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ናይ ገኡሊም መፋነዊ ክረምቲ ጽምብል · ሓሙስ 22.10</title>
-<meta name="description" content="ንክረምቲ ንፋነዎ፣ ንሓጋይ ንቕበሎ። ሓሙስ 22.10 ካብ 16:30 ኣብ ቀጽሪ ቤት ትምህርቲ። ስነ ጥበብ፣ ክሬምቦን ካልእ ሰላምታን።">
+<meta name="description" content="ንክረምቲ ንፋነዎ፣ ንሓጋይ ንቕበሎ። ሓሙስ 22.10፣ ብ 16:30 ኣብ ቀጽሪ ቤት ትምህርቲ ንራኸብ። ተዋስኦ ቆልዑ ምስ ሻኒ ዋይስማን፣ ስነ ጥበብ፣ ክሬምቦን ካልእ ሰላምታን።">
 <meta property="og:title" content="ናይ ገኡሊም መፋነዊ ክረምቲ ጽምብል">
-<meta property="og:description" content="ሓሙስ 22.10 · ካብ 16:30 · ኣብ ቀጽሪ ቤት ትምህርቲ">
+<meta property="og:description" content="ሓሙስ 22.10 · ብ 16:30 ንራኸብ · ኣብ ቀጽሪ ቤት ትምህርቲ · ተዋስኦ ቆልዑ ምስ ሻኒ ዋይስማን">
 <meta property="og:image" content="https://www.geuli.co.il/brand/assets/events/sof-kayitz-2026-poster.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,6 +249,51 @@ h1 .k{color:var(--olive)}
 .act b{display:block;font-size:15.5px;font-weight:700;color:var(--navy)}
 
 /* ==========================================================
+   הצגת הילדים — הכוכבת של האירוע
+   ========================================================== */
+.show{
+  max-width:640px;margin:13px auto 0;padding:6px;
+  background:linear-gradient(140deg,rgba(240,195,87,.42),rgba(196,98,45,.3) 55%,rgba(240,195,87,.4));
+  border:1px solid rgba(240,195,87,.6);border-radius:28px;
+  box-shadow:0 26px 58px -22px rgba(31,58,95,.3);
+}
+.show-core{
+  position:relative;overflow:hidden;
+  background:linear-gradient(170deg,#213C62,#1F3A5F 58%,#182D4B);
+  border-radius:22px;padding:20px 24px;
+  display:flex;align-items:center;gap:20px;
+}
+.show-core::before{
+  content:'';position:absolute;top:-56%;left:50%;transform:translateX(-50%);
+  width:150%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(240,195,87,.26),transparent 62%);
+  pointer-events:none;
+}
+.show-stage{flex-shrink:0;width:74px;height:74px;position:relative;z-index:1}
+.show-txt{position:relative;z-index:1;min-width:0}
+.show-eyebrow{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.16em;
+  color:var(--sun);margin-bottom:7px;
+}
+.show-txt h3{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(21px,3.5vw,28px);color:#FDFBF4;line-height:1.18;
+}
+.show-txt h3 .name{color:var(--sun)}
+.show-txt p{margin-top:7px;font-size:15px;color:rgba(250,246,236,.8);line-height:1.5}
+.show-ticks{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 11% 26%,rgba(240,195,87,.65) 0 1.5px,transparent 2.4px),
+    radial-gradient(circle at 23% 72%,rgba(240,195,87,.4) 0 1.1px,transparent 2px),
+    radial-gradient(circle at 88% 30%,rgba(240,195,87,.5) 0 1.3px,transparent 2.2px),
+    radial-gradient(circle at 78% 76%,rgba(240,195,87,.34) 0 1px,transparent 1.8px);
+  animation:twinkle 5.5s ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:.55}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.show-ticks{animation:none}}
+
+/* ==========================================================
    טופס
    ========================================================== */
 .rsvp{padding:0 0 72px;position:relative}
@@ -407,6 +452,9 @@ body.submitted .form-core{padding:44px 30px}
   .sun{width:92px;height:92px;top:10%;right:6%}
   .moon{width:62px;height:62px;top:12%;left:7%}
   .acts{grid-template-columns:repeat(3,1fr);gap:8px;max-width:430px}
+  .show{max-width:430px;border-radius:24px}
+  .show-core{flex-direction:column;text-align:center;gap:12px;padding:20px 18px;border-radius:19px}
+  .show-stage{width:62px;height:62px}
   .act{padding:14px 6px 12px;border-radius:18px}
   .act svg{width:32px;height:32px;margin:0 auto 7px}
   .act b{font-size:12.5px;line-height:1.3}
@@ -509,7 +557,7 @@ body.submitted .form-core{padding:44px 30px}
           <span class="sep"></span>
           <span>22.10</span>
           <span class="sep"></span>
-          <span>ካብ 16:30</span>
+          <span>ብ 16:30 ንራኸብ</span>
         </div>
         <p class="where">
           <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -518,6 +566,32 @@ body.submitted .form-core{padding:44px 30px}
           </svg>
           ኣብ ቀጽሪ ቤት ትምህርቲ
         </p>
+      </div>
+    </div>
+
+    <div class="show rise">
+      <div class="show-core">
+        <span class="show-ticks" aria-hidden="true"></span>
+        <svg class="show-stage" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+          <!-- אלומת אור זרקור -->
+          <path d="M40 16L19 60h42z" fill="#F0C357" fill-opacity=".2"/>
+          <!-- מסך קטיפה, שני כנפיים אסופות -->
+          <path d="M8 8h64v6H8z" fill="#C4622D"/>
+          <path d="M8 14h13c0 12-4 15-4 24s4 13 4 22H8z" fill="#C4622D"/>
+          <path d="M72 14H59c0 12 4 15 4 24s-4 13-4 22h13z" fill="#C4622D"/>
+          <path d="M14 15c0 11-3 14-3 23s3 13 3 22M66 15c0 11 3 14 3 23s-3 13-3 22"
+                stroke="#8E3F18" stroke-width="1.3" stroke-opacity=".5"/>
+          <!-- כוכב ההצגה -->
+          <path d="M40 24l3.4 7.2 7.9.9-5.9 5.4 1.6 7.8L40 41.4l-7 3.9 1.6-7.8-5.9-5.4 7.9-.9z" fill="#F0C357"/>
+          <!-- רצפת הבמה -->
+          <path d="M20 60h40l6 9H14z" fill="#E3D5B4"/>
+          <path d="M13 69h54" stroke="#F0C357" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <div class="show-txt">
+          <span class="show-eyebrow">ፍሉይ ንምጅማር ሓጋይ</span>
+          <h3>ዘደንቕ ተዋስኦ ቆልዑ ምስ <span class="name">ሻኒ ዋይስማን</span></h3>
+          <p>ክረምቲ ንሓጋይ ቦታ ኪገድፍ እንከሎ፣ ኩላ ቤተሰብ ኣብ ቀጽሪ ቤት ትምህርቲ ናብ ተዋስኦ ትዕደም።</p>
+        </div>
       </div>
     </div>
 
@@ -619,7 +693,7 @@ body.submitted .form-core{padding:44px 30px}
             <circle cx="58" cy="33" r="1.4" fill="#F2D389"/>
           </svg>
           <p class="big">ተመዝጊብኩም!</p>
-          <p class="when-line"><span>ሓሙስ 22.10</span><span class="d"></span><span>ካብ 16:30</span></p>
+          <p class="when-line"><span>ሓሙስ 22.10</span><span class="d"></span><span>ብ 16:30 ንራኸብ</span></p>
           <p class="place">ኣብ ቀጽሪ ቤት ትምህርቲ ንራኸብ</p>
           <button type="button" id="again">ካልእ ስድራቤት ምዝገባ</button>
         </div>
