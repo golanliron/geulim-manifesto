@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דף מכתבים בית ספר גאולים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4; margin:0; }
+*{ box-sizing:border-box; }
+
+:root{
+  --navy:#1F355E;
+  --navy-deep:#14243F;
+  --rust:#C4622D;
+  --olive:#8A9746;
+  --olive-2:#949E5C;
+  --sun:#F0C357;
+  --sand:#D8C7A0;
+  --sand-2:#C9B88C;
+  --paper:#FFFFFF;
+  --paper-2:#F4EDDC;
+  --water:#4A7398;
+  --ink:#1F355E;
+  --ink-soft:#69707C;
+  --ink-mute:#9297A1;
+}
+
+body{
+  margin:0;
+  font-family:"Heebo",sans-serif;
+  background:#dcd9d0;
+  color:var(--ink);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page{
+  width:210mm; height:297mm;
+  position:relative;
+  background:var(--paper);
+  overflow:hidden;
+  margin:0 auto;
+}
+
+/* ---------- קשת הפסיפס בפינה ---------- */
+.arch{
+  position:absolute;
+  top:0; left:0;
+  width:92mm;
+  z-index:1;
+  line-height:0;
+}
+.arch img{ width:100%; height:auto; display:block; }
+
+/* ---------- ראש הדף ---------- */
+.head{
+  position:relative;
+  z-index:3;
+  display:flex;
+  justify-content:flex-start;
+  padding:13mm 18mm 0;
+}
+.school-logo{ height:36mm; width:auto; }
+
+/* ---------- גוף המכתב (ריק, למילוי) ---------- */
+.body-area{ position:relative; z-index:3; }
+
+/* ---------- איור הרחוב ---------- */
+.cityline{
+  position:absolute;
+  right:0; left:0; bottom:22mm;
+  z-index:2;
+  line-height:0;
+}
+.cityline img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ---------- כותרת תחתונה ---------- */
+.footer{
+  position:absolute; right:0; left:0; bottom:9mm;
+  z-index:3;
+  text-align:center;
+  color:var(--navy);
+  font-size:9.5pt;
+  line-height:1.75;
+}
+.footer .line2{ direction:rtl; unicode-bidi:plaintext; }
+
+@media print{ body{ background:#fff; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <div class="arch" aria-hidden="true">
+    <img src="../assets/logo/geulim-arch-transparent.png" alt="">
+  </div>
+
+  <header class="head">
+    <img class="school-logo" src="../assets/logo/geulim-logo-slogan-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
+  </header>
+
+  <section class="body-area"></section>
+
+  <!-- איור הרחוב של גאולי (בקעה) -->
+  <div class="cityline" aria-hidden="true">
+    <img src="../cityline-transparent.png" alt="">
+  </div>
+
+  <footer class="footer">
+    <div class="line1">בית הספר הממלכתי גאולים &nbsp;|&nbsp; רחוב קיבוץ גלויות 4 ירושלים &nbsp;|&nbsp; 93625</div>
+    <div class="line2">טל: 02-6733879 &nbsp;|&nbsp; פקס: 02-6738639 &nbsp;|&nbsp; geulim.jerusalem@gmail.com</div>
+  </footer>
+</main>
+
+
+</body>
+</html>
