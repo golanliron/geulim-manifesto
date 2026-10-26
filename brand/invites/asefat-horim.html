@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>הזמנה לאסיפת הורים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F355E; --navy-d:#14243F;
+  --olive:#8A9746; --olive-d:#73813B;
+  --sand:#D8C7A0; --sand-l:#E8DEC8;
+  --paper:#F8F6F1;
+  --ink-soft:#69707C; --ink-mute:#9297A1;
+  --t1:#00365A; --t2:#1F4068; --t3:#90B4C6; --t4:#8A9746;
+  --t5:#7E7E36; --t6:#D8B47E; --t7:#EAC6A2; --t8:#C4622D;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; width:1080px; height:1350px; overflow:hidden;
+  background:var(--paper); color:var(--navy);
+  font-family:"Heebo",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.card{ width:1080px; height:1350px; position:relative; overflow:hidden; background:var(--paper); }
+
+/* מסגרת פסיפס עליונה ותחתונה */
+.strip{ position:absolute; right:0; left:0; height:16px; display:flex; gap:4px; z-index:5; }
+.strip.t{ top:0; } .strip.b{ bottom:0; }
+.strip i{ flex:1 1 auto; border-radius:2px; display:block; }
+
+/* קשת הפסיפס בפינה */
+.arch{ position:absolute; top:-40px; left:-150px; width:560px; z-index:1; }
+.arch img{ width:100%; display:block; }
+
+/* הלוגו */
+.logo{ position:absolute; top:58px; right:64px; width:230px; z-index:4; }
+.logo img{ width:100%; display:block; }
+
+/* גוף ההזמנה */
+.body{
+  position:absolute; z-index:4;
+  right:64px; left:64px; top:286px;
+}
+
+.eyebrow{
+  font-size:21px; font-weight:700; letter-spacing:.22em;
+  color:var(--olive); margin:0 0 22px;
+}
+
+h1{
+  font-family:"Frank Ruhl Libre",serif;
+  font-weight:900; font-size:104px; line-height:.98;
+  letter-spacing:-.02em; margin:0; color:var(--navy);
+}
+
+.leafrule{ display:flex; align-items:center; gap:14px; margin:30px 0 26px; }
+.leafrule i{ height:2px; width:92px; background:var(--olive); opacity:.55; display:block; }
+.leafrule svg{ width:30px; height:30px; flex:0 0 auto; }
+
+.lede{
+  font-size:28px; line-height:1.6; color:var(--ink-soft);
+  margin:0; max-width:21ch; font-weight:400;
+}
+.lede b{ color:var(--navy); font-weight:700; }
+
+/* כרטיס הפרטים */
+.details{
+  position:absolute; z-index:4;
+  right:64px; left:64px; bottom:300px;
+  background:#fff;
+  border-radius:6px;
+  border:1px solid rgba(31,53,94,.10);
+  box-shadow:0 26px 60px -30px rgba(31,53,94,.40);
+  display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr;
+  overflow:hidden;
+}
+.det{ padding:36px 24px 34px; text-align:center; }
+.det .k{
+  font-size:16px; font-weight:700; letter-spacing:.16em;
+  color:var(--ink-mute); margin:0 0 12px;
+}
+.det .v{
+  font-family:"Frank Ruhl Libre",serif; font-weight:900;
+  font-size:46px; line-height:1; color:var(--navy); margin:0;
+  font-variant-numeric:tabular-nums;
+}
+.det .s{ font-size:19px; color:var(--ink-soft); margin:10px 0 0; }
+.vr{ background:rgba(31,53,94,.10); }
+
+/* שורת נושאים */
+.topics{
+  position:absolute; z-index:4;
+  right:64px; left:64px; bottom:214px;
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+}
+.chip{
+  background:var(--sand-l);
+  border-radius:100px;
+  padding:11px 26px;
+  font-size:20px; font-weight:700; color:var(--navy);
+}
+
+/* איור הרחוב */
+.cityline{ position:absolute; right:0; left:0; bottom:74px; z-index:2; line-height:0; }
+.cityline img{ width:100%; height:auto; display:block; }
+
+/* פוטר */
+.foot{
+  position:absolute; z-index:4; right:0; left:0; bottom:16px;
+  height:58px; display:flex; align-items:center; justify-content:center; gap:18px;
+  background:var(--navy); color:#fff;
+}
+.foot .wm{
+  font-family:"Noto Serif Hebrew",serif; font-weight:900;
+  font-size:26px; color:#fff;
+}
+.foot .dot{ color:var(--sand); }
+.foot .site{ font-size:19px; color:rgba(255,255,255,.80); letter-spacing:.02em; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="strip t" id="st"></div>
+
+  <div class="arch"><img src="arch.png" alt=""></div>
+  <div class="logo"><img src="logo.png" alt="בית הספר גאולים ע״ש יצחק נבון"></div>
+
+  <div class="body">
+    <p class="eyebrow">קהילת ההורים של בית ספר גאולים</p>
+    <h1>אסיפת<br>הורים</h1>
+    <div class="leafrule">
+      <i></i>
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 21V11" stroke="#8A9746" stroke-width="1.9" stroke-linecap="round"/>
+        <path d="M12 14C9 13 5 11 5 7c4 1 7 3 7 7z" fill="#8A9746"/>
+        <path d="M12 13c3-1 7-3 7-7-4 1-7 3-7 7z" fill="#A3B05A"/>
+      </svg>
+      <i></i>
+    </div>
+    <p class="lede">באים לשמוע, לשאול ולהשפיע על <b>השנה שלנו</b>. מחכים לכם.ן.</p>
+  </div>
+
+  <div class="details">
+    <div class="det">
+      <p class="k">תאריך</p>
+      <p class="v">12.11</p>
+      <p class="s">יום רביעי</p>
+    </div>
+    <div class="vr"></div>
+    <div class="det">
+      <p class="k">שעה</p>
+      <p class="v">20:00</p>
+      <p class="s">עד 21:30</p>
+    </div>
+    <div class="vr"></div>
+    <div class="det">
+      <p class="k">מקום</p>
+      <p class="v">חדר אוכל</p>
+      <p class="s">בית ספר גאולים</p>
+    </div>
+  </div>
+
+  <div class="topics">
+    <span class="chip">תוכנית השנה</span>
+    <span class="chip">ועד ההורים</span>
+    <span class="chip">שאלות מההורים</span>
+  </div>
+
+  <div class="cityline"><img src="cityline.png" alt=""></div>
+
+  <div class="foot">
+    <span class="wm">גְּאוּלִי</span>
+    <span class="dot">·</span>
+    <span class="site">geuli.co.il</span>
+  </div>
+</div>
+
+<script>
+var C=["#00365A","#D8B47E","#8A9746","#90B4C6","#C4622D","#EAC6A2","#1F4068","#7E7E36"];
+function fill(el,off){ for(var i=0;i<38;i++){ var b=document.createElement("i");
+  b.style.background=C[(i+off)%C.length]; el.appendChild(b);} }
+fill(document.getElementById("st"),0);
+var bt=document.createElement("div"); bt.className="strip b"; fill(bt,3);
+document.querySelector(".card").appendChild(bt);
+</script>
+</body>
+</html>
