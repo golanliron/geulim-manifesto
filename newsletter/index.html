@@ -186,36 +186,38 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
 
 /* ====== הרשמה ====== */
 .join{
-  margin:3.2rem 0 0;
+  margin:2.6rem 0 0;
   background:radial-gradient(circle at 88% 10%, rgba(216,199,160,.18), transparent 45%), var(--navy);
-  color:#fff; border-radius:22px; padding:2.2rem 2rem 2.3rem;
+  color:#fff; border-radius:18px; padding:1.5rem 1.5rem 1.6rem;
 }
-.join h2{font-size:1.65rem; font-weight:800; color:#fff; margin-bottom:.6rem; letter-spacing:-.01em}
-.join .sub{font-size:1.04rem; color:rgba(255,255,255,.76); margin-bottom:1.6rem; max-width:44ch}
-.jf{display:grid; gap:.8rem; grid-template-columns:1fr 1fr}
-.jf label{display:flex; flex-direction:column; gap:.32rem; font-size:.84rem; color:var(--sand); font-weight:600}
+.join h2{font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:.4rem; letter-spacing:-.01em}
+.join .sub{font-size:.92rem; line-height:1.6; color:rgba(255,255,255,.72); margin-bottom:1.1rem; max-width:50ch}
+.jf{display:grid; gap:.55rem; grid-template-columns:1fr 1fr 1fr}
+.jf label{display:flex; flex-direction:column; gap:.22rem; font-size:.74rem; color:var(--sand); font-weight:600}
 .jf .wide{grid-column:1/-1}
 .jf input, .jf select, .jf textarea{
-  font-family:var(--body); font-size:1rem; color:#fff;
+  font-family:var(--body); font-size:.92rem; color:#fff;
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22);
-  border-radius:12px; padding:.7rem .85rem; width:100%;
+  border-radius:9px; padding:.46rem .65rem; width:100%;
 }
-.jf textarea{resize:vertical; min-height:4.5rem}
+.jf textarea{resize:vertical; min-height:2.6rem}
 .jf input::placeholder, .jf textarea::placeholder{color:rgba(255,255,255,.4)}
 .jf select option{color:#1F355E}
 .jf input:focus, .jf select:focus, .jf textarea:focus{outline:2px solid var(--sand); outline-offset:1px}
 .jf button{
-  grid-column:1/-1; font-family:var(--display); font-size:1.05rem; font-weight:700;
+  grid-column:1/-1; justify-self:start; font-family:var(--display);
+  font-size:.95rem; font-weight:700;
   background:var(--sand); color:var(--navy-deep); border:0; border-radius:999px;
-  padding:.85rem 1.4rem; cursor:pointer; margin-top:.3rem;
+  padding:.58rem 1.7rem; cursor:pointer; margin-top:.35rem;
 }
 .jf button:hover{background:#E8DEC8}
 .jf button:disabled{opacity:.6; cursor:default}
-.join .note{font-size:.84rem; color:rgba(255,255,255,.55); margin-top:.9rem}
-.join .done{display:none; font-size:1.1rem; line-height:1.7; color:#fff}
+.join .note{font-size:.76rem; color:rgba(255,255,255,.5); margin-top:.7rem}
+.join .done{display:none; font-size:1rem; line-height:1.7; color:#fff}
 .join.sent .jf, .join.sent .sub{display:none}
 .join.sent .done{display:block}
-@media(max-width:560px){ .jf{grid-template-columns:1fr} .join{padding:1.8rem 1.4rem 2rem} }
+@media(max-width:620px){ .jf{grid-template-columns:1fr 1fr} }
+@media(max-width:460px){ .jf{grid-template-columns:1fr} .join{padding:1.3rem 1.15rem 1.4rem} }
 
 /* סיום */
 .cityline{margin-top:3rem; line-height:0}
@@ -524,7 +526,7 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         נחזור אליכם, נספר על התוכניות ונזמין אתכם לבקר אצלנו.
       </p>
       <form class="jf" id="joinForm">
-        <label class="wide">שם מלא
+        <label>שם מלא
           <input name="name" required autocomplete="name" placeholder="שם ההורה">
         </label>
         <label>טלפון
