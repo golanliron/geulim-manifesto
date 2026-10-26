@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="מה קורה בגאולים, ספטמבר ואוקטובר תשפ״ז. מה עשינו יחד בבית ספר גאולים בשכונת בקעה.">
+<meta name="description" content="מה קורה בגאולים, ספטמבר ואוקטובר תשפ״ז. חודשיים של פעילות בבית ספר גאולים בשכונת בקעה.">
 <meta property="og:title" content="מה קורה בגאולים · ניוזלטר קהילת גאולים">
-<meta property="og:description" content="ספטמבר ואוקטובר תשפ״ז בבית ספר גאולים: פתחנו שנה, חגגנו, והתחלנו תוכניות חדשות.">
+<meta property="og:description" content="חודשיים של פעילות בבית ספר גאולים. בואו תראו מה כבר עשינו, ומה אנחנו מתכננים קדימה.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.geuli.co.il/newsletter/">
 <meta property="og:image" content="https://www.geuli.co.il/newsletter/photos/p04.jpg">
@@ -174,11 +174,48 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
   font-size:.83rem; letter-spacing:.1em; color:var(--sand)}
 
 /* רשימת תוכניות */
-.progs{margin-top:1rem; border-top:1px solid var(--rule)}
-.prog{display:flex; gap:1rem; padding:.82rem 0; border-bottom:1px solid var(--rule-soft); font-size:1rem}
-.prog b{font-weight:700; color:var(--ink); flex:none; width:9.5rem}
-.prog span{color:var(--ink-soft)}
-@media(max-width:480px){ .prog{flex-direction:column; gap:.1rem} .prog b{width:auto} }
+.progs{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem}
+.pill{
+  background:var(--paper-2); border:1px solid var(--sand);
+  border-radius:999px; padding:.5rem 1.15rem;
+  font-size:1rem; font-weight:600; color:var(--navy);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .pill{color:var(--ink); border-color:var(--rule)} }
+:root[data-theme="dark"] .pill{color:var(--ink); border-color:var(--rule)}
+
+
+/* ====== הרשמה ====== */
+.join{
+  margin:3.2rem 0 0;
+  background:radial-gradient(circle at 88% 10%, rgba(216,199,160,.18), transparent 45%), var(--navy);
+  color:#fff; border-radius:22px; padding:2.2rem 2rem 2.3rem;
+}
+.join h2{font-size:1.65rem; font-weight:800; color:#fff; margin-bottom:.6rem; letter-spacing:-.01em}
+.join .sub{font-size:1.04rem; color:rgba(255,255,255,.76); margin-bottom:1.6rem; max-width:44ch}
+.jf{display:grid; gap:.8rem; grid-template-columns:1fr 1fr}
+.jf label{display:flex; flex-direction:column; gap:.32rem; font-size:.84rem; color:var(--sand); font-weight:600}
+.jf .wide{grid-column:1/-1}
+.jf input, .jf select, .jf textarea{
+  font-family:var(--body); font-size:1rem; color:#fff;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22);
+  border-radius:12px; padding:.7rem .85rem; width:100%;
+}
+.jf textarea{resize:vertical; min-height:4.5rem}
+.jf input::placeholder, .jf textarea::placeholder{color:rgba(255,255,255,.4)}
+.jf select option{color:#1F355E}
+.jf input:focus, .jf select:focus, .jf textarea:focus{outline:2px solid var(--sand); outline-offset:1px}
+.jf button{
+  grid-column:1/-1; font-family:var(--display); font-size:1.05rem; font-weight:700;
+  background:var(--sand); color:var(--navy-deep); border:0; border-radius:999px;
+  padding:.85rem 1.4rem; cursor:pointer; margin-top:.3rem;
+}
+.jf button:hover{background:#E8DEC8}
+.jf button:disabled{opacity:.6; cursor:default}
+.join .note{font-size:.84rem; color:rgba(255,255,255,.55); margin-top:.9rem}
+.join .done{display:none; font-size:1.1rem; line-height:1.7; color:#fff}
+.join.sent .jf, .join.sent .sub{display:none}
+.join.sent .done{display:block}
+@media(max-width:560px){ .jf{grid-template-columns:1fr} .join{padding:1.8rem 1.4rem 2rem} }
 
 /* סיום */
 .cityline{margin-top:3rem; line-height:0}
@@ -203,9 +240,8 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
       <p class="kicker">ספטמבר ואוקטובר 2026 · גיליון א׳ תשפ״ז</p>
       <h1>מה קורה ב<em>גאולים</em></h1>
       <p class="head-lede">
-        בחודשיים הראשונים של השנה בבית ספר גאולים פתחנו שנה, חגגנו,
-        הקמנו קהילה שלוקחת אחריות, והתחלנו תוכניות שמחכות לילדים ולילדות
-        שלנו כל בוקר. זה מה שעשינו יחד.
+        חודשיים של פעילות בבית ספר גאולים. בואו תראו מה כבר עשינו,
+        ומה אנחנו מתכננים קדימה.
       </p>
     </div>
   </header>
@@ -462,19 +498,61 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
     <div class="part-label"><i></i><span>שגרת ההעשרה</span></div>
     <h2>התוכניות שנפתחו</h2>
     <div class="progs">
-      <div class="prog"><b>מרחב ליזמות</b><span>ד׳ עד ו׳ · חשיבה פיננסית, עיצוב גרפי בקנבה, אדריכלות בבינה מלאכותית, המצאות וממציאים, פודקאסטים, כתבים צעירים, גישור ופתרון בעיות</span></div>
-      <div class="prog"><b>מרכז מנהיגות</b><span>שכבה בוגרת · קוראים מנהיגות, שיתוף פעולה ODT, דיבייט, חזון והשראה, מנהיגות בתחום המדע</span></div>
-      <div class="prog"><b>תגבור אנגלית</b><span>ד׳ עד ו׳ · שנה שלישית. זאב ומיכל מלמדים בקבוצות קטנות במקביל לשיעור בכיתה</span></div>
-      <div class="prog"><b>יוניקורן</b><span>ה׳ ו-ו׳ · תכנות ומציאות מדומה, 15 תלמידים שנבחרו בקפידה</span></div>
-      <div class="prog"><b>רובוטיקה</b><span>ג׳, ונבחרת ד׳ עד ו׳ שתייצג אותנו בתחרות הארצית</span></div>
-      <div class="prog"><b>אתגרי חשיבה</b><span>ג׳ עד ו׳ · קבוצה נבחרת</span></div>
-      <div class="prog"><b>שיעורי לדינו</b><span>ג׳ ו-ד׳ · ברטה, גמלאית משרד החינוך, בשיתוף ועד העדה המערבית</span></div>
-      <div class="prog"><b>מקהלה</b><span>ג׳ עד ו׳ · ימי חמישי עם נועה זיסמן, נייצג את בית הספר בהופעות ובטקסים</span></div>
-      <div class="prog"><b>להקת בית הספר</b><span>תחרות, מופע התרמה לעמותה ומופע סוף שנה</span></div>
-      <div class="prog"><b>ספורט וגינון</b><span>נבחרות ספורט, גינון טיפולי ורכיבה אתגרית עם ארז</span></div>
-      <div class="prog"><b>הייטק</b><span>שכבה בוגרת · שיעור שבועי</span></div>
+      <span class="pill">מרחב ליזמות</span>
+      <span class="pill">מרכז מנהיגות</span>
+      <span class="pill">תגבור אנגלית</span>
+      <span class="pill">יוניקורן</span>
+      <span class="pill">רובוטיקה</span>
+      <span class="pill">אתגרי חשיבה</span>
+      <span class="pill">שיעורי לדינו</span>
+      <span class="pill">מקהלה</span>
+      <span class="pill">להקת בית הספר</span>
+      <span class="pill">נבחרות ספורט</span>
+      <span class="pill">גינון טיפולי</span>
+      <span class="pill">רכיבה אתגרית</span>
+      <span class="pill">הייטק</span>
+    </div>
     </div>
   </section>
+
+
+  <div class="pad">
+    <section class="join" id="join">
+      <h2>רוצים להכיר את גאולים?</h2>
+      <p class="sub">
+        הורים ששוקלים להירשם לבית הספר מוזמנים להשאיר פרטים.
+        נחזור אליכם, נספר על התוכניות ונזמין אתכם לבקר אצלנו.
+      </p>
+      <form class="jf" id="joinForm">
+        <label class="wide">שם מלא
+          <input name="name" required autocomplete="name" placeholder="שם ההורה">
+        </label>
+        <label>טלפון
+          <input name="phone" required inputmode="tel" autocomplete="tel" placeholder="050-0000000">
+        </label>
+        <label>אימייל
+          <input name="email" type="email" autocomplete="email" placeholder="לא חובה">
+        </label>
+        <label>כיתה לשנה הבאה
+          <select name="grade">
+            <option value="">בחרו</option>
+            <option>א׳</option><option>ב׳</option><option>ג׳</option>
+            <option>ד׳</option><option>ה׳</option><option>ו׳</option>
+            <option>עוד לא יודעים</option>
+          </select>
+        </label>
+        <label>שכונה
+          <input name="area" placeholder="בקעה, ארנונה, אחר">
+        </label>
+        <label class="wide">משהו שתרצו לשאול
+          <textarea name="notes" placeholder="לא חובה"></textarea>
+        </label>
+        <button type="submit">שלחו לי פרטים</button>
+      </form>
+      <p class="done">תודה רבה! קיבלנו את הפרטים ונחזור אליכם בקרוב.</p>
+      <p class="note">הפרטים נשמרים אצלנו בלבד ומשמשים ליצירת קשר.</p>
+    </section>
+  </div>
 
   <div class="cityline" aria-hidden="true"><img src="cityline.png" alt=""></div>
 
@@ -488,5 +566,28 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
     </p>
   </footer>
 </div>
+
+<script>
+(function(){
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbz_AzZmWCBi5tEEWr1rKgFxFCM7Sj2HmPRK-SkccuYKlC74A_BZM-67vLVNe6f-jWknXA/exec";
+  var f = document.getElementById('joinForm');
+  if(!f) return;
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var btn = f.querySelector('button');
+    btn.disabled = true; btn.textContent = 'שולח…';
+    var body = new URLSearchParams(new FormData(f)).toString();
+    var finish = function(){
+      document.getElementById('join').classList.add('sent');
+    };
+    if(!ENDPOINT){ finish(); return; }
+    fetch(ENDPOINT, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body: body
+    }).then(finish).catch(finish);
+  });
+})();
+</script>
 </body>
 </html>
