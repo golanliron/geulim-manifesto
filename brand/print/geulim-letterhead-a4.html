@@ -1,252 +1,276 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דף מכתבים בית ספר גאולים</title>
-    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
-    <link rel="stylesheet" href="../tokens/geuli-brand.css">
-    <style>
-        @page { size: A4; margin: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דף מכתבים בית ספר גאולים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4; margin:0; }
+*{ box-sizing:border-box; }
 
-        * { box-sizing: border-box; }
+:root{
+  --navy:#1F3A5F;
+  --navy-deep:#16294A;
+  --rust:#C4622D;
+  --olive:#7A8545;
+  --olive-2:#949E5C;
+  --sun:#F0C357;
+  --sand:#E3D5B4;
+  --sand-2:#D6C49C;
+  --paper:#FAF6EC;
+  --paper-2:#F4EDDC;
+  --water:#4A7398;
+  --ink:#1F3A5F;
+  --ink-soft:#5A6880;
+  --ink-mute:#8C96A6;
+}
 
-        body {
-            margin: 0;
-            font-family: var(--geuli-font-body);
-            background: #e9ecf1;
-            color: var(--geuli-text);
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
+body{
+  margin:0;
+  font-family:"Heebo",sans-serif;
+  background:#dcd9d0;
+  color:var(--ink);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
 
-        .page {
-            width: 210mm;
-            height: 297mm;
-            position: relative;
-            background: #ffffff;
-            overflow: hidden;
-            margin: 0 auto;
-        }
+.page{
+  width:210mm; height:297mm;
+  position:relative;
+  background:var(--paper);
+  overflow:hidden;
+  margin:0 auto;
+}
 
-        /* ראש הדף: לוגו בית הספר על רקע לבן נקי, פס זהב מתחת */
-        .top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10mm;
-            padding: 13mm 20mm 9mm;
-            background: #ffffff;
-            position: relative;
-            z-index: 2;
-        }
+/* ---------- פס הפסיפס העליון והתחתון ---------- */
+.strip{
+  position:absolute; right:0; left:0;
+  height:7mm;
+  display:flex;
+  z-index:4;
+}
+.strip.top{ top:0; }
+.strip.bottom{ bottom:0; }
+.strip i{
+  flex:1 1 auto;
+  margin:0 0.5mm;
+  border-radius:0.8mm;
+  display:block;
+}
 
-        .school-logo {
-            height: 26mm;
-            width: auto;
-            flex: 0 0 auto;
-        }
+/* ---------- ראש הדף ---------- */
+.head{
+  position:relative;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8mm;
+  padding:15mm 18mm 0;
+}
 
-        /* וורדמארק גאולי בצד השני של הראש */
-        .geuli-mark {
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 3.5mm;
-        }
+.school-logo{ height:24mm; width:auto; flex:0 0 auto; }
 
-        .geuli-symbol {
-            width: 13mm;
-            height: 13mm;
-            flex: 0 0 auto;
-        }
+.geuli-block{ text-align:left; }
 
-        .geuli-name {
-            font-family: var(--geuli-font-wordmark);
-            font-size: 20pt;
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: 0.04em;
-            color: var(--geuli-navy);
-            -webkit-text-stroke: 0.6px var(--geuli-gold);
-            paint-order: stroke fill;
-        }
+.geuli-name{
+  font-family:"Frank Ruhl Libre",serif;
+  font-size:23pt; font-weight:900;
+  line-height:1; letter-spacing:.02em;
+  color:var(--navy);
+  margin:0;
+}
 
-        .geuli-desc {
-            margin-top: 1.5mm;
-            font-size: 8pt;
-            color: var(--geuli-text-muted);
-            letter-spacing: 0.02em;
-            line-height: 1.4;
-            max-width: 46mm;
-        }
+/* הקו עם העלה, כמו בבאנר */
+.leaf-rule{
+  display:flex; align-items:center; gap:2mm;
+  margin:2.2mm 0 2mm;
+}
+.leaf-rule .ln{ height:0.4mm; width:16mm; background:var(--olive); opacity:.55; }
+.leaf-rule svg{ width:4.6mm; height:4.6mm; flex:0 0 auto; }
 
-        /* הפס המפריד: ניווי מלא עם מבטא זהב */
-        .rule {
-            height: 2.4mm;
-            background: var(--geuli-gradient-hero);
-            position: relative;
-            z-index: 2;
-        }
+.geuli-desc{
+  font-size:9.5pt; font-weight:700;
+  color:var(--navy); margin:0;
+}
+.geuli-tag{
+  font-size:8pt; color:var(--ink-mute);
+  letter-spacing:.06em; margin:1.2mm 0 0;
+}
 
-        .rule::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: -0.9mm;
-            left: 0;
-            height: 0.9mm;
-            background: var(--geuli-gold);
-            opacity: 0.9;
-        }
+/* ---------- גוף המכתב ---------- */
+.body-area{
+  position:relative; z-index:3;
+  padding:12mm 18mm 0;
+}
 
-        /* גוף המכתב */
-        .body-area {
-            position: relative;
-            z-index: 2;
-            padding: 14mm 20mm 0;
-            height: 206mm;
-        }
+.meta{
+  display:flex; justify-content:space-between;
+  font-size:9.5pt; color:var(--ink-soft);
+  padding-bottom:4mm;
+  border-bottom:0.4mm solid rgba(31,58,95,.12);
+  margin-bottom:11mm;
+}
+.fill{
+  display:inline-block; min-width:34mm;
+  border-bottom:0.35mm dotted var(--sand-2);
+}
 
-        .meta-line {
-            display: flex;
-            justify-content: space-between;
-            font-size: 9.5pt;
-            color: var(--geuli-text-muted);
-            letter-spacing: 0.02em;
-            margin-bottom: 10mm;
-        }
+.lines{ display:grid; gap:8.6mm; }
+.lines span{ display:block; height:0.25mm; background:rgba(31,58,95,.075); }
 
-        /* קווי כתיבה עדינים, נעלמים בהדפסה נקייה */
-        .lines {
-            display: grid;
-            gap: 9.1mm;
-        }
+/* ---------- הנוף: גבעות, עצים, גשר פסיפס ---------- */
+.scene{
+  position:absolute;
+  right:0; left:0; bottom:21mm;
+  height:44mm;
+  z-index:2;
+  opacity:1;
+}
+.scene svg{ width:100%; height:100%; display:block; }
 
-        .lines span {
-            display: block;
-            height: 0.25mm;
-            background: rgba(27, 42, 74, 0.07);
-        }
+/* ---------- כותרת תחתונה ---------- */
+.footer{
+  position:absolute; right:0; left:0; bottom:7mm;
+  z-index:3;
+  background:var(--water);
+  color:#fff;
+  padding:4.5mm 18mm;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8mm;
+  font-size:9pt;
+  min-height:16mm;
+}
+.footer .contact{ display:flex; align-items:center; gap:4mm; flex-wrap:wrap; }
+.footer .contact span{ white-space:nowrap; }
+.footer .sep{ opacity:.55; }
+.footer .site{ font-weight:700; letter-spacing:.02em; white-space:nowrap; }
+.footer .fill{ border-bottom-color:rgba(255,255,255,.6); }
 
-        /* קישוטי מותג */
-        .corner {
-            position: absolute;
-            width: 34mm;
-            height: 18mm;
-            border: 0.55mm solid rgba(201,165,76,0.22);
-            border-bottom: none;
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            top: 10mm;
-            left: 62mm;
-            z-index: 1;
-        }
-
-        .watermark {
-            position: absolute;
-            left: 50%;
-            top: 52%;
-            transform: translate(-50%, -50%);
-            width: 92mm;
-            opacity: 0.035;
-            z-index: 0;
-        }
-
-        /* כותרת תחתונה */
-        .footer {
-            position: absolute;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            min-height: 22mm;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10mm;
-            padding: 6mm 20mm;
-            background: var(--geuli-navy-deep);
-            border-top: 1mm solid rgba(201,165,76,0.85);
-            color: rgba(255,255,255,0.8);
-            font-size: 9.5pt;
-            z-index: 2;
-        }
-
-        .footer-contact {
-            display: flex;
-            align-items: center;
-            gap: 5mm;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact span {
-            white-space: nowrap;
-        }
-
-        .dot {
-            color: var(--geuli-gold);
-            opacity: 0.8;
-        }
-
-        .footer-values {
-            color: var(--geuli-gold);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
-
-        /* מילוי שצריך להחליף */
-        .fill {
-            border-bottom: 0.4mm dashed rgba(201,165,76,0.85);
-            padding-bottom: 0.4mm;
-        }
-
-        @media print {
-            body { background: #ffffff; }
-        }
-    </style>
+@media print{ body{ background:#fff; } }
+</style>
 </head>
 <body>
-    <main class="page">
-        <header class="top">
-            <img class="school-logo" src="../assets/logo/geulim-navon-poster-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
+<main class="page">
 
-            <div class="geuli-mark">
-                <img class="geuli-symbol" src="../assets/logo/geuli-symbol.svg" alt="">
-                <div>
-                    <div class="geuli-name">גְּאוּלִי</div>
-                    <div class="geuli-desc">קהילת ההורים והצוות החינוכי</div>
-                </div>
-            </div>
-        </header>
+  <div class="strip top" id="stripTop" aria-hidden="true"></div>
 
-        <div class="rule" aria-hidden="true"></div>
+  <header class="head">
+    <img class="school-logo" src="../assets/logo/geulim-navon-poster-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
 
-        <img class="watermark" src="../assets/logo/geulim-navon-poster-transparent.png" alt="">
+    <div class="geuli-block">
+      <p class="geuli-name">גְּאוּלִי</p>
+      <div class="leaf-rule" aria-hidden="true">
+        <i class="ln"></i>
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 21V11" stroke="#7A8545" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 14C9 13 5 11 5 7c4 1 7 3 7 7z" fill="#7A8545"/>
+          <path d="M12 13c3-1 7-3 7-7-4 1-7 3-7 7z" fill="#949E5C"/>
+        </svg>
+        <i class="ln"></i>
+      </div>
+      <p class="geuli-desc">קהילת ההורים של בית ספר גאולים</p>
+      <p class="geuli-tag">מקום · אנשים · משמעות</p>
+    </div>
+  </header>
 
-        <section class="body-area">
-            <div class="meta-line">
-                <span>לכבוד: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
-                <span>תאריך: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
-            </div>
+  <section class="body-area">
+    <div class="meta">
+      <span>לכבוד: <i class="fill"></i></span>
+      <span>תאריך: <i class="fill" style="min-width:26mm"></i></span>
+    </div>
+    <div class="lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </section>
 
-            <div class="lines" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
-        </section>
+  <!-- הנוף: גבעות, עצים וגשר הפסיפס -->
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 800 202" preserveAspectRatio="none">
+      <!-- גבעות שנוגעות בקו המים (הפוטר) -->
+      <path d="M-10 210 L-10 168 C70 128 170 126 258 170 L268 210 Z" fill="#7A8545"/>
+      <path d="M810 210 L810 168 C730 128 630 126 542 170 L532 210 Z" fill="#7A8545"/>
+      <!-- עצים -->
+      <g fill="#6E7A3E">
+        <rect x="92" y="140" width="3" height="26"/>
+        <ellipse cx="93.5" cy="130" rx="12.5" ry="21"/>
+        <rect x="142" y="146" width="2.6" height="20"/>
+        <ellipse cx="143" cy="138" rx="9" ry="15.5"/>
+        <rect x="700" y="141" width="3" height="26"/>
+        <ellipse cx="701.5" cy="131" rx="12" ry="20"/>
+        <rect x="652" y="147" width="2.6" height="19"/>
+        <ellipse cx="653" cy="139" rx="8.5" ry="14.5"/>
+      </g>
+      <g fill="#4A7398">
+        <rect x="178" y="150" width="2.4" height="17"/>
+        <ellipse cx="179" cy="142" rx="7" ry="13.5"/>
+      </g>
+      <!-- גשר הפסיפס -->
+      <g id="bridge"></g>
+    </svg>
+  </div>
 
-        <footer class="footer">
-            <div class="footer-contact">
-                <span>בית ספר גאולים ע&quot;ש יצחק נבון</span>
-                <span class="dot">·</span>
-                <span>כתובת: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
-                <span class="dot">·</span>
-                <span>מזכירות: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
-            </div>
-            <div class="footer-values">geuli.co.il</div>
-        </footer>
-    </main>
+  <footer class="footer">
+    <div class="contact">
+      <span>בית ספר גאולים ע&quot;ש יצחק נבון</span>
+      <span class="sep">·</span>
+      <span>כתובת: <i class="fill" style="min-width:30mm"></i></span>
+      <span class="sep">·</span>
+      <span>מזכירות: <i class="fill" style="min-width:24mm"></i></span>
+    </div>
+    <div class="site">geuli.co.il</div>
+  </footer>
+</main>
+
+<script>
+var COLS = ['#1F3A5F','#E3D5B4','#7A8545','#F0C357','#C4622D','#D6C49C','#4A7398'];
+
+/* פסי הפסיפס למעלה ולמטה */
+(function(){
+  var top = document.getElementById('stripTop');
+  for(var i=0;i<46;i++){
+    var b=document.createElement('i');
+    b.style.background = COLS[(i*3+1)%COLS.length];
+    top.appendChild(b);
+  }
+  var bot=document.createElement('div');
+  bot.className='strip bottom';
+  for(var j=0;j<46;j++){
+    var c=document.createElement('i');
+    c.style.background = COLS[(j*3+4)%COLS.length];
+    bot.appendChild(c);
+  }
+  document.querySelector('.page').appendChild(bot);
+})();
+
+/* גשר הפסיפס: שתי שורות אבנים על חצי מעגל */
+(function(){
+  var g=document.getElementById('bridge');
+  var NS='http://www.w3.org/2000/svg';
+  var cx=400, cy=172;
+  var rings=[[104,18,21],[130,21,22]];
+  rings.forEach(function(cfg,ring){
+    var R=cfg[0], n=cfg[1], w=cfg[2];
+    for(var i=0;i<n;i++){
+      var a = Math.PI * (i/(n-1)) + Math.PI;
+      var x = cx + R*Math.cos(a), y = cy + R*Math.sin(a);
+      var r = document.createElementNS(NS,'rect');
+      r.setAttribute('x',(-w/2).toFixed(1));
+      r.setAttribute('y',(-w/2).toFixed(1));
+      r.setAttribute('width',(w*0.78).toFixed(1));
+      r.setAttribute('height',(w*0.78).toFixed(1));
+      r.setAttribute('rx','2.6');
+      r.setAttribute('fill',COLS[(i+ring*3)%COLS.length]);
+      r.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+(a*180/Math.PI+90).toFixed(1)+')');
+      g.appendChild(r);
+    }
+  });
+})();
+</script>
 </body>
 </html>
