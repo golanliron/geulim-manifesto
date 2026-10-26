@@ -48,11 +48,12 @@ body{
 /* ---------- קשת הפסיפס בפינה ---------- */
 .arch{
   position:absolute;
-  top:-30mm; left:-30mm;
-  width:88mm; height:88mm;
+  top:0; left:0;
+  width:92mm;
   z-index:1;
+  line-height:0;
 }
-.arch svg{ width:100%; height:100%; display:block; }
+.arch img{ width:100%; height:auto; display:block; }
 
 /* ---------- ראש הדף ---------- */
 .head{
@@ -64,26 +65,8 @@ body{
 }
 .school-logo{ height:36mm; width:auto; }
 
-/* ---------- גוף המכתב ---------- */
-.body-area{
-  position:relative; z-index:3;
-  padding:12mm 18mm 0;
-}
-
-.meta{
-  display:flex; justify-content:space-between;
-  font-size:9.5pt; color:var(--ink-soft);
-  padding-bottom:4mm;
-  border-bottom:0.4mm solid rgba(31,53,94,.12);
-  margin-bottom:11mm;
-}
-.fill{
-  display:inline-block; min-width:34mm;
-  border-bottom:0.35mm dotted var(--sand-2);
-}
-
-.lines{ display:grid; gap:8.6mm; }
-.lines span{ display:block; height:0.25mm; background:rgba(31,53,94,.075); }
+/* ---------- גוף המכתב (ריק, למילוי) ---------- */
+.body-area{ position:relative; z-index:3; }
 
 /* ---------- איור הרחוב ---------- */
 .cityline{
@@ -116,25 +99,14 @@ body{
 <main class="page">
 
   <div class="arch" aria-hidden="true">
-    <svg viewBox="0 0 400 400" fill="none"><g id="archTiles"></g></svg>
+    <img src="../assets/logo/geulim-arch-transparent.png" alt="">
   </div>
 
   <header class="head">
     <img class="school-logo" src="../assets/logo/geulim-logo-slogan-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
   </header>
 
-  <section class="body-area">
-    <div class="meta">
-      <span>לכבוד: <i class="fill"></i></span>
-      <span>תאריך: <i class="fill" style="min-width:26mm"></i></span>
-    </div>
-    <div class="lines" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span>
-    </div>
-  </section>
+  <section class="body-area"></section>
 
   <!-- איור הרחוב של גאולי (בקעה) -->
   <div class="cityline" aria-hidden="true">
@@ -147,33 +119,6 @@ body{
   </footer>
 </main>
 
-<script>
-var COLS = ['#1F355E','#D8C7A0','#8A9746','#4A7398','#C4622D','#E8DEC8','#2B4470'];
 
-/* קשת הפסיפס בפינה הימנית העליונה, שתי שורות אבנים */
-(function(){
-  var g=document.getElementById('archTiles');
-  var NS='http://www.w3.org/2000/svg';
-  var cx=340, cy=60;                 /* מרכז הקשת מחוץ לפינה */
-  var rings=[[250,15,26],[292,17,27]];
-  rings.forEach(function(cfg,ring){
-    var R=cfg[0], n=cfg[1], w=cfg[2];
-    for(var i=0;i<n;i++){
-      var a0=(Math.PI/2)*(i/(n-1)) + Math.PI/2;   /* משמאל כלפי מטה */
-      var x=cx+R*Math.cos(a0), y=cy+R*Math.sin(a0);
-      var r=document.createElementNS(NS,'rect');
-      r.setAttribute('x',(-w/2).toFixed(1));
-      r.setAttribute('y',(-w/2).toFixed(1));
-      r.setAttribute('width',(w*0.80).toFixed(1));
-      r.setAttribute('height',(w*0.80).toFixed(1));
-      r.setAttribute('rx','3');
-      r.setAttribute('fill',COLS[(i+ring*3)%COLS.length]);
-      r.setAttribute('opacity',(0.80+((i*7)%13)/70).toFixed(2));
-      r.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+(a0*180/Math.PI+90).toFixed(1)+')');
-      g.appendChild(r);
-    }
-  });
-})();
-</script>
 </body>
 </html>
