@@ -174,15 +174,34 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
   font-size:.83rem; letter-spacing:.1em; color:var(--sand)}
 
 /* רשימת תוכניות */
-.progs{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem}
-.pill{
-  background:var(--paper-2); border:1px solid var(--sand);
-  border-radius:999px; padding:.5rem 1.15rem;
-  font-size:1rem; font-weight:600; color:var(--navy);
+.progs{
+  display:grid; gap:.7rem; margin-top:1.5rem;
+  grid-template-columns:repeat(auto-fill,minmax(9.8rem,1fr));
 }
-@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .pill{color:var(--ink); border-color:var(--rule)} }
-:root[data-theme="dark"] .pill{color:var(--ink); border-color:var(--rule)}
-
+.prog{
+  display:flex; align-items:center; gap:.7rem;
+  background:var(--paper-2);
+  border:1px solid var(--rule-soft);
+  border-radius:14px; padding:.75rem .85rem;
+  transition:border-color .18s, transform .18s;
+}
+.prog:hover{border-color:var(--sand); transform:translateY(-1px)}
+.prog i{
+  flex:none; width:34px; height:34px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.65);
+  box-shadow:inset 0 0 0 1px var(--rule-soft);
+  color:var(--olive-dk);
+}
+.prog:nth-child(3n+2) i{color:var(--navy)}
+.prog:nth-child(3n+3) i{color:var(--rust)}
+.prog b{font-size:.95rem; font-weight:700; color:var(--navy); line-height:1.35}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .prog b{color:var(--ink)}
+  :root:not([data-theme="light"]) .prog i{background:rgba(255,255,255,.07)}
+}
+:root[data-theme="dark"] .prog b{color:var(--ink)}
+:root[data-theme="dark"] .prog i{background:rgba(255,255,255,.07)}
 
 /* ====== הרשמה ====== */
 .join{
@@ -272,9 +291,9 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <figcaption>שולחן אחד ארוך, שסביבו כל בית הספר בחולצות לבנות</figcaption>
       </figure>
       <p>
-        שולחן אחד, ארוך, שסביבו כל בית הספר. תקיעת שופר, סימני החג, שירה
-        וריקוד. ואז, במקום לקבל את הסימנים מוכנים, הילדים והילדות הביאו
-        סימנים משלהם. כל אחד בחר חפץ פשוט מהעולם שלו והפך אותו לברכה:
+        שולחן אחד ארוך, וסביבו כל בית הספר. אבל את הסימנים הילדים לא
+        קיבלו מוכנים, הם הביאו משלהם: כל אחד לקח חפץ מהעולם שלו והפך
+        אותו לברכה.
       </p>
       <ul>
         <li><strong>מרשמלו</strong> · שתהיה לנו שנה גמישה ומתוקה</li>
@@ -284,8 +303,8 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <li><strong>מראה</strong> · שנדע להתבונן על עצמנו ולזהות את החוזקות</li>
       </ul>
       <p>
-        יש משהו בילד שמסתכל על מרשמלו ורואה בו גמישות, או על מראה ורואה
-        בה חוזקות. זו בדיוק השפה שאנחנו רוצים שתהיה כאן השנה.
+        ילד שרואה במרשמלו גמישות ובמראה חוזקות, כבר יודע להסתכל אחרת.
+        זו השפה שאנחנו רוצים כאן השנה.
       </p>
       <figure class="duo">
         <img src="photos/p06.jpg" alt="תלמידות מחזיקות לב מנייר ושיבולים">
@@ -333,8 +352,7 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
       <ul>
         <li><strong>דמי ועד שוויוניים.</strong> כל הורה, כולל ילדי החינוך המיוחד, משלם 150 ₪ בלבד לקופה שכבתית אחת. מי שגבה מעל לסכום התבקש להשיב את הפער.</li>
         <li><strong>קבוצות עשייה במקום ועדים.</strong> במשך שנים מספר מועט של הורים נשא את דגל המעורבות. המודל החדש נותן מקום לכל אחת ואחד.</li>
-        <li><strong>דמי השכלול.</strong> מול נתוני כל בתי הספר בעיר, דרישת התשלום של גאולים היא מהנמוכות בירושלים.</li>
-      </ul>
+        </ul>
     </article>
   </section>
 
@@ -354,10 +372,9 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <figcaption>לוח הכלניות של שכבה ה׳, מוטיב הצמיחה וההתחדשות</figcaption>
       </figure>
       <p>
-        בחרנו לציין את היום ביום שני, היום היחיד שבו כל מחנכי הכיתות נמצאים
-        בבית הספר: שיח כזה יכולים להוביל רק מי שמכירים את הילדים הכי טוב.
-        בכיתות א׳ עד ד׳ עסקו בנושא באופן עקיף, ובשכבה הבוגרת ישירות.
-      </p>
+        ציינו את היום ביום שני, היום היחיד שבו כל המחנכות נמצאות בבית
+        הספר. שיח כזה יכול להוביל רק מי שמכיר את הילדים מקרוב, ולכן כל
+        שכבה פגשה את היום בשפה שלה.</p>
       <ul>
         <li><strong>א׳ ב׳</strong> · ערבות הדדית, היכולת לעזור והצורך להיעזר</li>
         <li><strong>ג׳</strong> · תיבת חיבוקים שכבתית עם מילים מצמיחות</li>
@@ -390,10 +407,10 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <img src="photos/p18.jpg" alt="פינת הישיבה במטבח החדש">
       </figure>
       <p>
-        מטבח הוא לא רק חדר נוסף. הוא אחד המקומות הבודדים שבהם למידה נמדדת
-        במשהו שאפשר להריח, לחלק ולאכול יחד. ילד שמכין בצק לומד מדידה,
-        סבלנות וחלוקת תפקידים בלי שאיש יקרא לזה שיעור, וילדה שמוציאה חלה
-        מהתנור מחזיקה בידיים הוכחה שהיא מסוגלת.
+        מטבח הוא לא עוד חדר. הוא מרחב שבו הילדים לומדים דברים שקשה
+        ללמד בכיתה: לקחת אחריות על משימה, לחלק תפקידים, לעבוד בצוות
+        ולארגן את העבודה מההתחלה ועד הסוף. התוצאה לא נמדדת בציון אלא
+        במשהו שהם הכינו בעצמם ומחלקים לכולם.
       </p>
       <p>
         לכן שיעורי אפייה ובישול יהיו חלק מהשגרה שלנו, ולא פעילות של ימי
@@ -406,15 +423,20 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
     </article>
 
     <article class="story">
-      <h3>אוספים בקבוקים, ותורמים <time>12.10</time></h3>
+      <h3>קיימות ומחזור בגאולים <time>12.10</time></h3>
       <figure class="duo">
         <img src="photos/p20.jpg" alt="תלמיד מכניס שקית בקבוקים למתקן האיסוף">
         <img src="photos/p21.jpg" alt="תלמידים ליד מתקן איסוף הבקבוקים">
       </figure>
       <p>
-        הוצב מתקן חדש לאיסוף בקבוקים בסמוך לבית הספר. הבקבוקים יומרו לכסף,
-        וכל הכסף ייתרם למשפחות נצרכות בקהילה. כך נלמד את ילדינו שמנהיגות
-        מתחילה במעשים קטנים, ושאחריות לסביבה ואחריות חברתית הולכות יד ביד.
+        השנה נכנסנו לתחום הקיימות והמחזור. הוצב מתקן לאיסוף בקבוקים
+        בסמוך לבית הספר, והילדים הם אלה שמביאים, ממיינים ואוספים.
+      </p>
+      <p>
+        הבקבוקים שייאספו יומרו לכסף, וכל הכסף ייתרם למשפחות נצרכות
+        בקהילה. כך מתחבר המעגל: מה שנחשב פסולת הופך למשאב, והמשאב חוזר
+        אל הקהילה. הילדים לומדים שאחריות לסביבה ואחריות חברתית הן אותו
+        דבר, ושמנהיגות מתחילה במעשים קטנים.
       </p>
       <p class="small">תודה לסימה כהן היקרה, אמא של מיכאל מכיתה ד׳, שדאגה לנו למתקן.</p>
     </article>
@@ -441,9 +463,9 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <img src="photos/p24.jpg" alt="מגרש הלגו הגדול עם מבנים שהילדים בנו">
       </figure>
       <p>
-        תלמידי כיתה ה1 סייעו לנו להקים את חדר הלגו: אלפי חלקים לשם משחק
-        ואתגר. החדר נבנה בשיתוף הילדים והילדות, והוא נועד להיות גם מרחב
-        נשימה למי שזקוק לו במהלך היום.
+        תלמידי כיתה ה1 הקימו את חדר הלגו: אלפי חלקים לשם משחק ואתגר.
+        הם תכננו, סידרו ובנו אותו בעצמם, והחדר נועד להיות גם מרחב נשימה
+        למי שזקוק לו במהלך היום.
       </p>
     </article>
 
@@ -454,14 +476,19 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
         <figcaption>הנבחרים והנבחרות מקבלים את התעודות מול כל בית הספר</figcaption>
       </figure>
       <p>
-        קיימנו בחירות בכל הכיתות, וחברי ועדת הקלפי מכיתה ו1 הובילו את
-        התהליך בצורה בוגרת ואחראית. ההנהגה כוללת נציגים מכיתות ד׳ עד ו׳,
-        והם נפגשים עם אביב, מובילת ההנהגה, בכל שבוע.
+        דמוקרטיה לא לומדים רק בשיעור אזרחות. קיימנו בחירות אמיתיות בכל
+        הכיתות, עם ועדת קלפי של תלמידי ו1 שהובילה את התהליך בצורה בוגרת
+        ואחראית: הם ניהלו את ההצבעה, ספרו את הקולות והכריזו על התוצאות.
+      </p>
+      <p>
+        הילדים התנסו בבחירה, בהצגת מועמדות ובלקיחת אחריות על נציגות של
+        חבריהם. ההנהגה כוללת נציגים מכיתות ד׳ עד ו׳, והם נפגשים עם אביב,
+        מובילת ההנהגה, בכל שבוע.
       </p>
     </article>
 
     <article class="story">
-      <h3>מסיבת שעון החורף <time>22.10</time></h3>
+      <h3>מסיבת שעון החורף של קהילת גאולים <time>22.10</time></h3>
       <figure class="bleed">
         <img src="photos/p27.jpg" alt="חצר בית הספר מלאה במשפחות באירוע שעון החורף">
         <figcaption>החצר התמלאה במשפחות מכל השכונה, בהובלת קהילת ההורים</figcaption>
@@ -498,21 +525,21 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
   <!-- ====== תוכניות ====== -->
   <section class="part pad">
     <div class="part-label"><i></i><span>שגרת ההעשרה</span></div>
-    <h2>התוכניות שנפתחו</h2>
+    <h2>תוכניות נוספות בגאולים</h2>
     <div class="progs">
-      <span class="pill">מרחב ליזמות</span>
-      <span class="pill">מרכז מנהיגות</span>
-      <span class="pill">תגבור אנגלית</span>
-      <span class="pill">יוניקורן</span>
-      <span class="pill">רובוטיקה</span>
-      <span class="pill">אתגרי חשיבה</span>
-      <span class="pill">שיעורי לדינו</span>
-      <span class="pill">מקהלה</span>
-      <span class="pill">להקת בית הספר</span>
-      <span class="pill">נבחרות ספורט</span>
-      <span class="pill">גינון טיפולי</span>
-      <span class="pill">רכיבה אתגרית</span>
-      <span class="pill">הייטק</span>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.3.3.5.7.5 1.1h6c0-.4.2-.8.5-1.1A6 6 0 0 0 12 3z"/></svg></i><b>מרחב ליזמות</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V9l7-5 7 5v11"/><path d="M10 20v-5h4v5"/></svg></i><b>מרכז מנהיגות</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-1.5H4z"/><path d="M20 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-1.5h7z"/></svg></i><b>תגבור אנגלית</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></i><b>יוניקורן</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M9 13h.01M15 13h.01M9 16h6"/></svg></i><b>רובוטיקה</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.2 2.4c-.5.2-.7.6-.7 1.1v.5"/><path d="M12 17h.01"/></svg></i><b>אתגרי חשיבה</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg></i><b>שיעורי לדינו</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/></svg></i><b>מקהלה</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19V6l8-2v11"/><circle cx="9" cy="19" r="2"/><circle cx="17" cy="15" r="2"/><path d="M4 8h4M4 12h3"/></svg></i><b>להקת בית הספר</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/><path d="M12 14v3M9 20h6M10 17h4"/></svg></i><b>נבחרות ספורט</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13c0-4 3-7 8-7 0 4-3 7-8 7z"/><path d="M12 15c0-3-2.5-5.5-7-5.5 0 3 2.5 5.5 7 5.5z"/></svg></i><b>גינון טיפולי</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17 10 7h4l4.5 10M9 7h6"/></svg></i><b>רכיבה אתגרית</b></div>
+      <div class="prog"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6M13 4l-2 16"/></svg></i><b>הייטק</b></div>
     </div>
   </section>
 
