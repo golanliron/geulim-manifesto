@@ -77,6 +77,11 @@ function doPost(e) {
 
 function doGet(e) {
   var mode = (e && e.parameter && e.parameter.mode) || '';
+  if (mode === 'clear' && e.parameter.key === 'geulim-newsletter-2026') {
+    var sh2 = sheet_();
+    if (sh2.getLastRow() > 1) sh2.deleteRows(2, sh2.getLastRow() - 1);
+    return json_({ ok: true, cleared: true });
+  }
   if (mode === 'count') {
     var sh = sheet_();
     return json_({ ok: true, count: Math.max(0, sh.getLastRow() - 1) });
