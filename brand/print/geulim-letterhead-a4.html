@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף מכתבים בית ספר גאולים</title>
+    <link rel="stylesheet" href="../fonts/geuli-fonts.css">
+    <link rel="stylesheet" href="../tokens/geuli-brand.css">
+    <style>
+        @page { size: A4; margin: 0; }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--geuli-font-body);
+            background: #e9ecf1;
+            color: var(--geuli-text);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            background: #ffffff;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        /* ראש הדף: לוגו בית הספר על רקע לבן נקי, פס זהב מתחת */
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10mm;
+            padding: 13mm 20mm 9mm;
+            background: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .school-logo {
+            height: 26mm;
+            width: auto;
+            flex: 0 0 auto;
+        }
+
+        /* וורדמארק גאולי בצד השני של הראש */
+        .geuli-mark {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 3.5mm;
+        }
+
+        .geuli-symbol {
+            width: 13mm;
+            height: 13mm;
+            flex: 0 0 auto;
+        }
+
+        .geuli-name {
+            font-family: var(--geuli-font-wordmark);
+            font-size: 20pt;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: var(--geuli-navy);
+            -webkit-text-stroke: 0.6px var(--geuli-gold);
+            paint-order: stroke fill;
+        }
+
+        .geuli-desc {
+            margin-top: 1.5mm;
+            font-size: 8pt;
+            color: var(--geuli-text-muted);
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+            max-width: 46mm;
+        }
+
+        /* הפס המפריד: ניווי מלא עם מבטא זהב */
+        .rule {
+            height: 2.4mm;
+            background: var(--geuli-gradient-hero);
+            position: relative;
+            z-index: 2;
+        }
+
+        .rule::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -0.9mm;
+            left: 0;
+            height: 0.9mm;
+            background: var(--geuli-gold);
+            opacity: 0.9;
+        }
+
+        /* גוף המכתב */
+        .body-area {
+            position: relative;
+            z-index: 2;
+            padding: 14mm 20mm 0;
+            height: 206mm;
+        }
+
+        .meta-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9.5pt;
+            color: var(--geuli-text-muted);
+            letter-spacing: 0.02em;
+            margin-bottom: 10mm;
+        }
+
+        /* קווי כתיבה עדינים, נעלמים בהדפסה נקייה */
+        .lines {
+            display: grid;
+            gap: 9.1mm;
+        }
+
+        .lines span {
+            display: block;
+            height: 0.25mm;
+            background: rgba(27, 42, 74, 0.07);
+        }
+
+        /* קישוטי מותג */
+        .corner {
+            position: absolute;
+            width: 34mm;
+            height: 18mm;
+            border: 0.55mm solid rgba(201,165,76,0.22);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            top: 10mm;
+            left: 62mm;
+            z-index: 1;
+        }
+
+        .watermark {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 92mm;
+            opacity: 0.035;
+            z-index: 0;
+        }
+
+        /* כותרת תחתונה */
+        .footer {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            min-height: 22mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10mm;
+            padding: 6mm 20mm;
+            background: var(--geuli-navy-deep);
+            border-top: 1mm solid rgba(201,165,76,0.85);
+            color: rgba(255,255,255,0.8);
+            font-size: 9.5pt;
+            z-index: 2;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact span {
+            white-space: nowrap;
+        }
+
+        .dot {
+            color: var(--geuli-gold);
+            opacity: 0.8;
+        }
+
+        .footer-values {
+            color: var(--geuli-gold);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* מילוי שצריך להחליף */
+        .fill {
+            border-bottom: 0.4mm dashed rgba(201,165,76,0.85);
+            padding-bottom: 0.4mm;
+        }
+
+        @media print {
+            body { background: #ffffff; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="top">
+            <img class="school-logo" src="../assets/logo/geulim-navon-poster-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
+
+            <div class="geuli-mark">
+                <img class="geuli-symbol" src="../assets/logo/geuli-symbol.svg" alt="">
+                <div>
+                    <div class="geuli-name">גְּאוּלִי</div>
+                    <div class="geuli-desc">קהילת ההורים והצוות החינוכי</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="rule" aria-hidden="true"></div>
+
+        <img class="watermark" src="../assets/logo/geulim-navon-poster-transparent.png" alt="">
+
+        <section class="body-area">
+            <div class="meta-line">
+                <span>לכבוד: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                <span>תאריך: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+            </div>
+
+            <div class="lines" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-contact">
+                <span>בית ספר גאולים ע&quot;ש יצחק נבון</span>
+                <span class="dot">·</span>
+                <span>כתובת: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                <span class="dot">·</span>
+                <span>מזכירות: <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+            </div>
+            <div class="footer-values">geuli.co.il</div>
+        </footer>
+    </main>
+</body>
+</html>
