@@ -45,61 +45,24 @@ body{
   margin:0 auto;
 }
 
-/* ---------- פס הפסיפס העליון והתחתון ---------- */
-.strip{
-  position:absolute; right:0; left:0;
-  height:5mm;
-  display:flex;
-  z-index:4;
+/* ---------- קשת הפסיפס בפינה ---------- */
+.arch{
+  position:absolute;
+  top:-30mm; left:-30mm;
+  width:88mm; height:88mm;
+  z-index:1;
 }
-.strip.top{ top:0; }
-.strip.bottom{ bottom:0; }
-.strip i{
-  flex:1 1 auto;
-  margin:0 0.5mm;
-  border-radius:0.8mm;
-  display:block;
-}
+.arch svg{ width:100%; height:100%; display:block; }
 
 /* ---------- ראש הדף ---------- */
 .head{
   position:relative;
   z-index:3;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8mm;
-  padding:15mm 18mm 0;
+  justify-content:flex-start;
+  padding:13mm 18mm 0;
 }
-
-.school-logo{ height:24mm; width:auto; flex:0 0 auto; }
-
-.geuli-block{ text-align:left; }
-
-.geuli-name{
-  font-family:"Noto Serif Hebrew","Frank Ruhl Libre",serif;
-  font-size:23pt; font-weight:900;
-  line-height:1; letter-spacing:.02em;
-  color:var(--navy);
-  margin:0;
-}
-
-/* הקו עם העלה, כמו בבאנר */
-.leaf-rule{
-  display:flex; align-items:center; gap:2mm;
-  margin:2.2mm 0 2mm;
-}
-.leaf-rule .ln{ height:0.4mm; width:16mm; background:var(--olive); opacity:.55; }
-.leaf-rule svg{ width:4.6mm; height:4.6mm; flex:0 0 auto; }
-
-.geuli-desc{
-  font-size:9.5pt; font-weight:700;
-  color:var(--navy); margin:0;
-}
-.geuli-tag{
-  font-size:8pt; color:var(--ink-mute);
-  letter-spacing:.06em; margin:1.2mm 0 0;
-}
+.school-logo{ height:36mm; width:auto; }
 
 /* ---------- גוף המכתב ---------- */
 .body-area{
@@ -137,22 +100,14 @@ body{
 
 /* ---------- כותרת תחתונה ---------- */
 .footer{
-  position:absolute; right:0; left:0; bottom:11mm;
+  position:absolute; right:0; left:0; bottom:9mm;
   z-index:3;
-  background:transparent;
-  color:var(--ink-soft);
-  border-top:0.4mm solid rgba(138,151,70,.42);
-  padding:3.5mm 18mm 0;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:8mm;
-  font-size:9pt;
-  min-height:10mm;
+  text-align:center;
+  color:var(--navy);
+  font-size:9.5pt;
+  line-height:1.75;
 }
-.footer .contact{ display:flex; align-items:center; gap:4mm; flex-wrap:wrap; }
-.footer .contact span{ white-space:nowrap; }
-.footer .sep{ color:var(--olive); opacity:.8; }
-.footer .site{ font-weight:700; letter-spacing:.02em; white-space:nowrap; color:var(--olive); }
-.footer .fill{ border-bottom-color:var(--sand-2); }
+.footer .line2{ direction:rtl; unicode-bidi:plaintext; }
 
 @media print{ body{ background:#fff; } }
 </style>
@@ -160,25 +115,12 @@ body{
 <body>
 <main class="page">
 
-  <div class="strip top" id="stripTop" aria-hidden="true"></div>
+  <div class="arch" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none"><g id="archTiles"></g></svg>
+  </div>
 
   <header class="head">
-    <img class="school-logo" src="../assets/logo/geulim-navon-poster-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
-
-    <div class="geuli-block">
-      <p class="geuli-name">גְּאוּלִי</p>
-      <div class="leaf-rule" aria-hidden="true">
-        <i class="ln"></i>
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 21V11" stroke="#7A8545" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M12 14C9 13 5 11 5 7c4 1 7 3 7 7z" fill="#7A8545"/>
-          <path d="M12 13c3-1 7-3 7-7-4 1-7 3-7 7z" fill="#949E5C"/>
-        </svg>
-        <i class="ln"></i>
-      </div>
-      <p class="geuli-desc">קהילת ההורים של בית ספר גאולים</p>
-      <p class="geuli-tag">מקום · אנשים · משמעות</p>
-    </div>
+    <img class="school-logo" src="../assets/logo/geulim-logo-slogan-transparent.png" alt="בית הספר גאולים ע&quot;ש יצחק נבון">
   </header>
 
   <section class="body-area">
@@ -200,38 +142,38 @@ body{
   </div>
 
   <footer class="footer">
-    <div class="contact">
-      <span>בית ספר גאולים ע&quot;ש יצחק נבון</span>
-      <span class="sep">·</span>
-      <span>כתובת: <i class="fill" style="min-width:30mm"></i></span>
-      <span class="sep">·</span>
-      <span>מזכירות: <i class="fill" style="min-width:24mm"></i></span>
-    </div>
-    <div class="site">geuli.co.il</div>
+    <div class="line1">בית הספר הממלכתי גאולים &nbsp;|&nbsp; רחוב קיבוץ גלויות 4 ירושלים &nbsp;|&nbsp; 93625</div>
+    <div class="line2">טל: 02-6733879 &nbsp;|&nbsp; פקס: 02-6738639 &nbsp;|&nbsp; geulim.jerusalem@gmail.com</div>
   </footer>
 </main>
 
 <script>
-var COLS = ['#1F3A5F','#E3D5B4','#7A8545','#F0C357','#C4622D','#D6C49C','#4A7398'];
+var COLS = ['#1F355E','#D8C7A0','#8A9746','#4A7398','#C4622D','#E8DEC8','#2B4470'];
 
-/* פסי הפסיפס למעלה ולמטה */
+/* קשת הפסיפס בפינה הימנית העליונה, שתי שורות אבנים */
 (function(){
-  var top = document.getElementById('stripTop');
-  for(var i=0;i<46;i++){
-    var b=document.createElement('i');
-    b.style.background = COLS[(i*3+1)%COLS.length];
-    top.appendChild(b);
-  }
-  var bot=document.createElement('div');
-  bot.className='strip bottom';
-  for(var j=0;j<46;j++){
-    var c=document.createElement('i');
-    c.style.background = COLS[(j*3+4)%COLS.length];
-    bot.appendChild(c);
-  }
-  document.querySelector('.page').appendChild(bot);
+  var g=document.getElementById('archTiles');
+  var NS='http://www.w3.org/2000/svg';
+  var cx=340, cy=60;                 /* מרכז הקשת מחוץ לפינה */
+  var rings=[[250,15,26],[292,17,27]];
+  rings.forEach(function(cfg,ring){
+    var R=cfg[0], n=cfg[1], w=cfg[2];
+    for(var i=0;i<n;i++){
+      var a0=(Math.PI/2)*(i/(n-1)) + Math.PI/2;   /* משמאל כלפי מטה */
+      var x=cx+R*Math.cos(a0), y=cy+R*Math.sin(a0);
+      var r=document.createElementNS(NS,'rect');
+      r.setAttribute('x',(-w/2).toFixed(1));
+      r.setAttribute('y',(-w/2).toFixed(1));
+      r.setAttribute('width',(w*0.80).toFixed(1));
+      r.setAttribute('height',(w*0.80).toFixed(1));
+      r.setAttribute('rx','3');
+      r.setAttribute('fill',COLS[(i+ring*3)%COLS.length]);
+      r.setAttribute('opacity',(0.80+((i*7)%13)/70).toFixed(2));
+      r.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+(a0*180/Math.PI+90).toFixed(1)+')');
+      g.appendChild(r);
+    }
+  });
 })();
-
 </script>
 </body>
 </html>
