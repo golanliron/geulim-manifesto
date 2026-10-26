@@ -53,7 +53,7 @@
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--ground); color:var(--ink);
-  font-family:var(--body); line-height:1.8;
+  font-family:var(--body); font-size:17.5px; line-height:1.85;
   direction:rtl; text-align:right; -webkit-font-smoothing:antialiased;
   padding:0;
 }
@@ -65,10 +65,10 @@ a{color:var(--water)}
 
 /* ====== הדף ====== */
 .sheet{
-  max-width:40rem; margin:0 auto; background:var(--paper);
+  max-width:46rem; margin:0 auto; background:var(--paper);
   box-shadow:0 0 0 1px var(--rule), 0 20px 60px -30px rgba(20,36,63,.4);
 }
-.pad{padding:0 2.25rem}
+.pad{padding:0 2.75rem}
 @media(max-width:560px){ .pad{padding:0 1.35rem} }
 
 /* ====== כותרת ====== */
@@ -88,7 +88,7 @@ a{color:var(--water)}
 .head-inner{position:relative; z-index:2; padding-top:1.75rem}
 .head-logo{height:92px; width:auto; margin-right:auto; margin-left:0}
 .kicker{
-  font-size:.7rem; letter-spacing:.2em; font-weight:700;
+  font-size:.76rem; letter-spacing:.2em; font-weight:700;
   color:var(--olive-dk); margin:1.6rem 0 .7rem;
 }
 .head h1{
@@ -98,7 +98,7 @@ a{color:var(--water)}
 .head h1 em{font-style:normal; color:var(--rust)}
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .head h1{color:var(--ink)} }
 :root[data-theme="dark"] .head h1{color:var(--ink)}
-.head-lede{font-size:1.12rem; font-weight:400; color:var(--ink-soft); line-height:1.72}
+.head-lede{font-size:1.2rem; font-weight:400; color:var(--ink-soft); line-height:1.72}
 .tiles{display:flex; height:6px}
 .tiles span{flex:1}
 .tiles span:nth-child(1){background:var(--t1)} .tiles span:nth-child(2){background:var(--t2)}
@@ -122,41 +122,41 @@ a{color:var(--water)}
   background-repeat:no-repeat;
 }
 .part-label span{
-  font-size:.72rem; letter-spacing:.14em; font-weight:800; color:var(--olive-dk); white-space:nowrap;
+  font-size:.78rem; letter-spacing:.14em; font-weight:800; color:var(--olive-dk); white-space:nowrap;
 }
-.part h2{font-size:1.7rem; font-weight:800; color:var(--navy); letter-spacing:-.005em; margin-bottom:.7rem}
+.part h2{font-size:1.95rem; font-weight:800; color:var(--navy); letter-spacing:-.005em; margin-bottom:.7rem}
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .part h2{color:var(--ink)} }
 :root[data-theme="dark"] .part h2{color:var(--ink)}
-.part-intro{color:var(--ink-soft); font-size:1.03rem; line-height:1.8}
+.part-intro{color:var(--ink-soft); font-size:1.12rem; line-height:1.8}
 
 /* ====== סיפור ====== */
 .story{padding-top:2.4rem}
 .story h3{
-  font-size:1.18rem; font-weight:700; margin-bottom:.5rem;
+  font-size:1.3rem; font-weight:700; margin-bottom:.5rem;
   display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
 }
 .story h3 time{
-  font-family:var(--body); font-size:.72rem; font-weight:700; letter-spacing:.08em;
+  font-family:var(--body); font-size:.78rem; font-weight:700; letter-spacing:.08em;
   color:var(--rust); background:var(--paper-2); padding:.2rem .7rem; border-radius:999px;
   font-variant-numeric:tabular-nums; flex:none;
 }
-.story p{font-size:.97rem; color:var(--ink-soft); margin-bottom:.75rem}
+.story p{font-size:1.04rem; color:var(--ink-soft); margin-bottom:.75rem}
 .story p:last-child{margin-bottom:0}
-.story .small{font-size:.87rem; color:var(--ink-mute)}
+.story .small{font-size:.95rem; color:var(--ink-mute)}
 .story strong{color:var(--ink); font-weight:700}
-.story ul{margin:.1rem 0 .75rem; padding-inline-start:1.2rem; font-size:.95rem; color:var(--ink-soft)}
+.story ul{margin:.1rem 0 .75rem; padding-inline-start:1.2rem; font-size:1.02rem; color:var(--ink-soft)}
 .story li{margin-bottom:.3rem}
 .story li::marker{color:var(--olive)}
 
 /* תמונות */
 figure{margin:0 0 1rem}
-figure img{width:100%; height:auto; border-radius:18px; max-height:26rem; object-fit:cover; object-position:center 38%}
-figcaption{font-size:.78rem; color:var(--ink-mute); padding-top:.45rem; line-height:1.5}
+figure img{width:100%; height:auto; border-radius:18px; max-height:30rem; object-fit:cover; object-position:center 38%}
+figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-height:1.5}
 .duo{display:grid; grid-template-columns:1fr 1fr; gap:.6rem}
 .duo img{height:100%; object-fit:cover; aspect-ratio:3/4; border-radius:18px}
 .trio{display:grid; grid-template-columns:1fr 1fr 1fr; gap:.4rem}
 .trio img{height:100%; object-fit:cover; aspect-ratio:3/4}
-.bleed{margin-inline:-2.25rem}
+.bleed{margin-inline:-2.75rem}
 @media(max-width:560px){ .bleed{margin-inline:-1.35rem} }
 .bleed img{border-radius:0}
 .bleed figcaption{border-radius:0}
@@ -169,24 +169,24 @@ figcaption{font-size:.78rem; color:var(--ink-mute); padding-top:.45rem; line-hei
 }
 .quote::before{content:""; position:absolute; inset-inline-start:0; inset-block:0; width:5px;
   background:linear-gradient(180deg,var(--t3),var(--t4),var(--t8))}
-.quote p{font-size:1.1rem; font-weight:400; line-height:1.72; color:#fff; margin:0}
+.quote p{font-size:1.2rem; font-weight:400; line-height:1.72; color:#fff; margin:0}
 .quote cite{display:block; margin-top:.85rem; font-style:normal; font-family:var(--body);
-  font-size:.76rem; letter-spacing:.1em; color:var(--sand)}
+  font-size:.83rem; letter-spacing:.1em; color:var(--sand)}
 
 /* רשימת תוכניות */
 .progs{margin-top:1rem; border-top:1px solid var(--rule)}
-.prog{display:flex; gap:.9rem; padding:.72rem 0; border-bottom:1px solid var(--rule-soft); font-size:.92rem}
-.prog b{font-weight:700; color:var(--ink); flex:none; width:8.5rem}
+.prog{display:flex; gap:1rem; padding:.82rem 0; border-bottom:1px solid var(--rule-soft); font-size:1rem}
+.prog b{font-weight:700; color:var(--ink); flex:none; width:9.5rem}
 .prog span{color:var(--ink-soft)}
 @media(max-width:480px){ .prog{flex-direction:column; gap:.1rem} .prog b{width:auto} }
 
 /* סיום */
 .cityline{margin-top:3rem; line-height:0}
 .cityline img{width:100%}
-.foot{background:var(--navy); color:rgba(255,255,255,.72); padding:2rem 2.25rem 2.25rem; text-align:center}
+.foot{background:var(--navy); color:rgba(255,255,255,.72); padding:2.3rem 2.75rem 2.6rem; text-align:center}
 @media(max-width:560px){ .foot{padding-inline:1.35rem} }
 .foot .mark{font-family:var(--wordmark); font-weight:900; font-size:1.45rem; color:#fff; display:block}
-.foot .slog{font-size:.72rem; letter-spacing:.18em; color:var(--sand); margin-top:.25rem; display:block}
+.foot .slog{font-size:.78rem; letter-spacing:.18em; color:var(--sand); margin-top:.25rem; display:block}
 .foot p{font-size:.8rem; line-height:1.7; margin-top:1.2rem; color:rgba(255,255,255,.58)}
 .foot a{color:var(--sand)}
 </style>
