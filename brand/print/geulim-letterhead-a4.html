@@ -6,26 +6,26 @@
 <title>דף מכתבים בית ספר גאולים</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap" rel="stylesheet">
 <style>
 @page{ size:A4; margin:0; }
 *{ box-sizing:border-box; }
 
 :root{
-  --navy:#1F3A5F;
-  --navy-deep:#16294A;
+  --navy:#1F355E;
+  --navy-deep:#14243F;
   --rust:#C4622D;
-  --olive:#7A8545;
+  --olive:#8A9746;
   --olive-2:#949E5C;
   --sun:#F0C357;
-  --sand:#E3D5B4;
-  --sand-2:#D6C49C;
-  --paper:#FAF6EC;
+  --sand:#D8C7A0;
+  --sand-2:#C9B88C;
+  --paper:#F8F6F1;
   --paper-2:#F4EDDC;
   --water:#4A7398;
-  --ink:#1F3A5F;
-  --ink-soft:#5A6880;
-  --ink-mute:#8C96A6;
+  --ink:#1F355E;
+  --ink-soft:#69707C;
+  --ink-mute:#9297A1;
 }
 
 body{
@@ -48,7 +48,7 @@ body{
 /* ---------- פס הפסיפס העליון והתחתון ---------- */
 .strip{
   position:absolute; right:0; left:0;
-  height:7mm;
+  height:5mm;
   display:flex;
   z-index:4;
 }
@@ -77,7 +77,7 @@ body{
 .geuli-block{ text-align:left; }
 
 .geuli-name{
-  font-family:"Frank Ruhl Libre",serif;
+  font-family:"Noto Serif Hebrew","Frank Ruhl Libre",serif;
   font-size:23pt; font-weight:900;
   line-height:1; letter-spacing:.02em;
   color:var(--navy);
@@ -111,7 +111,7 @@ body{
   display:flex; justify-content:space-between;
   font-size:9.5pt; color:var(--ink-soft);
   padding-bottom:4mm;
-  border-bottom:0.4mm solid rgba(31,58,95,.12);
+  border-bottom:0.4mm solid rgba(31,53,94,.12);
   margin-bottom:11mm;
 }
 .fill{
@@ -120,35 +120,39 @@ body{
 }
 
 .lines{ display:grid; gap:8.6mm; }
-.lines span{ display:block; height:0.25mm; background:rgba(31,58,95,.075); }
+.lines span{ display:block; height:0.25mm; background:rgba(31,53,94,.075); }
 
-/* ---------- הנוף: גבעות, עצים, גשר פסיפס ---------- */
-.scene{
+/* ---------- איור הרחוב ---------- */
+.cityline{
   position:absolute;
-  right:0; left:0; bottom:21mm;
-  height:44mm;
+  right:0; left:0; bottom:22mm;
   z-index:2;
-  opacity:1;
+  line-height:0;
 }
-.scene svg{ width:100%; height:100%; display:block; }
+.cityline img{
+  width:100%;
+  height:auto;
+  display:block;
+}
 
 /* ---------- כותרת תחתונה ---------- */
 .footer{
-  position:absolute; right:0; left:0; bottom:7mm;
+  position:absolute; right:0; left:0; bottom:11mm;
   z-index:3;
-  background:var(--water);
-  color:#fff;
-  padding:4.5mm 18mm;
+  background:transparent;
+  color:var(--ink-soft);
+  border-top:0.4mm solid rgba(138,151,70,.42);
+  padding:3.5mm 18mm 0;
   display:flex; align-items:center; justify-content:space-between;
   gap:8mm;
   font-size:9pt;
-  min-height:16mm;
+  min-height:10mm;
 }
 .footer .contact{ display:flex; align-items:center; gap:4mm; flex-wrap:wrap; }
 .footer .contact span{ white-space:nowrap; }
-.footer .sep{ opacity:.55; }
-.footer .site{ font-weight:700; letter-spacing:.02em; white-space:nowrap; }
-.footer .fill{ border-bottom-color:rgba(255,255,255,.6); }
+.footer .sep{ color:var(--olive); opacity:.8; }
+.footer .site{ font-weight:700; letter-spacing:.02em; white-space:nowrap; color:var(--olive); }
+.footer .fill{ border-bottom-color:var(--sand-2); }
 
 @media print{ body{ background:#fff; } }
 </style>
@@ -185,34 +189,14 @@ body{
     <div class="lines" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
   </section>
 
-  <!-- הנוף: גבעות, עצים וגשר הפסיפס -->
-  <div class="scene" aria-hidden="true">
-    <svg viewBox="0 0 800 202" preserveAspectRatio="none">
-      <!-- גבעות שנוגעות בקו המים (הפוטר) -->
-      <path d="M-10 210 L-10 168 C70 128 170 126 258 170 L268 210 Z" fill="#7A8545"/>
-      <path d="M810 210 L810 168 C730 128 630 126 542 170 L532 210 Z" fill="#7A8545"/>
-      <!-- עצים -->
-      <g fill="#6E7A3E">
-        <rect x="92" y="140" width="3" height="26"/>
-        <ellipse cx="93.5" cy="130" rx="12.5" ry="21"/>
-        <rect x="142" y="146" width="2.6" height="20"/>
-        <ellipse cx="143" cy="138" rx="9" ry="15.5"/>
-        <rect x="700" y="141" width="3" height="26"/>
-        <ellipse cx="701.5" cy="131" rx="12" ry="20"/>
-        <rect x="652" y="147" width="2.6" height="19"/>
-        <ellipse cx="653" cy="139" rx="8.5" ry="14.5"/>
-      </g>
-      <g fill="#4A7398">
-        <rect x="178" y="150" width="2.4" height="17"/>
-        <ellipse cx="179" cy="142" rx="7" ry="13.5"/>
-      </g>
-      <!-- גשר הפסיפס -->
-      <g id="bridge"></g>
-    </svg>
+  <!-- איור הרחוב של גאולי (בקעה) -->
+  <div class="cityline" aria-hidden="true">
+    <img src="../cityline-transparent.png" alt="">
   </div>
 
   <footer class="footer">
@@ -248,29 +232,6 @@ var COLS = ['#1F3A5F','#E3D5B4','#7A8545','#F0C357','#C4622D','#D6C49C','#4A7398
   document.querySelector('.page').appendChild(bot);
 })();
 
-/* גשר הפסיפס: שתי שורות אבנים על חצי מעגל */
-(function(){
-  var g=document.getElementById('bridge');
-  var NS='http://www.w3.org/2000/svg';
-  var cx=400, cy=172;
-  var rings=[[104,18,21],[130,21,22]];
-  rings.forEach(function(cfg,ring){
-    var R=cfg[0], n=cfg[1], w=cfg[2];
-    for(var i=0;i<n;i++){
-      var a = Math.PI * (i/(n-1)) + Math.PI;
-      var x = cx + R*Math.cos(a), y = cy + R*Math.sin(a);
-      var r = document.createElementNS(NS,'rect');
-      r.setAttribute('x',(-w/2).toFixed(1));
-      r.setAttribute('y',(-w/2).toFixed(1));
-      r.setAttribute('width',(w*0.78).toFixed(1));
-      r.setAttribute('height',(w*0.78).toFixed(1));
-      r.setAttribute('rx','2.6');
-      r.setAttribute('fill',COLS[(i+ring*3)%COLS.length]);
-      r.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+(a*180/Math.PI+90).toFixed(1)+')');
-      g.appendChild(r);
-    }
-  });
-})();
 </script>
 </body>
 </html>
