@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Community magazine of Geulim School in Baka, Jerusalem. First issue, 5787.">
+<meta property="og:title" content="Some Things Aren’t Taught in a Classroom · Geulim Magazine">
+<meta property="og:description" content="A Lego room children built, a kitchen where they learn more than cooking, and elections run by students.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.geuli.co.il/newsletter/index-en.html">
+<meta property="og:image" content="https://www.geuli.co.il/newsletter/photos/p26.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="he" href="https://www.geuli.co.il/newsletter/index.html">
+<link rel="icon" href="../brand/assets/logo/geulim-school-logo-navon.png">
+<title>Some Things Aren’t Taught in a Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Rubik:wght@400;500;600;700;800;900&family=Noto+Serif+Hebrew:wght@700;900&display=swap">
+<style>
+:root{
+  --navy:#1F355E; --navy-deep:#14243F;
+  --olive:#8A9746; --olive-dk:#73813B;
+  --sand:#D8C7A0; --sand-lt:#E8DEC8;
+  --rust:#C4622D; --water:#4A7398;
+  --t1:#00365A; --t2:#1F4068; --t3:#90B4C6; --t4:#8A9746;
+  --t5:#7E7E36; --t6:#D8B47E; --t7:#EAC6A2; --t8:#C4622D;
+
+  --ground:#EDE8DE;           /* מחוץ ל"דף" */
+  --paper:#FBF9F4;            /* הדף עצמו */
+  --paper-2:#F4EDDC;
+  --ink:#1F355E; --ink-soft:#5B6475; --ink-mute:#8E8878;
+  --rule:rgba(31,53,94,.13); --rule-soft:rgba(31,53,94,.07);
+
+  --display:"Rubik","Assistant",system-ui,sans-serif;
+  --wordmark:"Noto Serif Hebrew","Rubik",serif;
+  --body:"Assistant","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0B1322; --paper:#152338; --paper-2:#1C2D47;
+    --ink:#F0EADC; --ink-soft:#BAC2D0; --ink-mute:#8C94A4;
+    --olive:#A3B058; --olive-dk:#8A9746; --sand:#D8C7A0; --sand-lt:#C2B894;
+    --rust:#DD8354; --water:#84AACA;
+    --rule:rgba(240,234,220,.15); --rule-soft:rgba(240,234,220,.08);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0B1322; --paper:#152338; --paper-2:#1C2D47;
+  --ink:#F0EADC; --ink-soft:#BAC2D0; --ink-mute:#8C94A4;
+  --olive:#A3B058; --olive-dk:#8A9746; --rust:#DD8354; --water:#84AACA;
+  --rule:rgba(240,234,220,.15); --rule-soft:rgba(240,234,220,.08);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--body); font-size:17.5px; line-height:1.85;
+  direction:ltr; text-align:left; -webkit-font-smoothing:antialiased;
+  padding:0;
+}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; line-height:1.3}
+p{margin:0}
+img{max-width:100%; display:block}
+a{color:var(--water)}
+:focus-visible{outline:2px solid var(--olive); outline-offset:3px}
+
+/* ====== הדף ====== */
+.sheet{
+  max-width:46rem; margin:0 auto; background:var(--paper);
+  box-shadow:0 0 0 1px var(--rule), 0 20px 60px -30px rgba(20,36,63,.4);
+}
+.pad{padding:0 2.75rem}
+@media(max-width:560px){ .pad{padding:0 1.35rem} }
+
+/* ====== כותרת ====== */
+.head{
+  position:relative; overflow:hidden; padding-bottom:2.9rem;
+  background:
+    radial-gradient(circle at 15% 38%, rgba(216,199,160,.30), transparent 26%),
+    radial-gradient(circle at 86% 24%, rgba(138,151,70,.14), transparent 25%),
+    linear-gradient(180deg,#FFFFFF 0%, var(--paper-2) 100%);
+}
+.head::before{
+  content:""; position:absolute; top:90px; left:9%;
+  width:150px; height:150px; pointer-events:none; opacity:.6;
+  background:radial-gradient(circle, rgba(216,199,160,.46) 0 3px, transparent 3.5px) 0 0 / 24px 24px;
+}
+.head-arch{position:absolute; top:0; left:0; width:9.5rem; opacity:.95; pointer-events:none}
+.head-inner{position:relative; z-index:2; padding-top:1.75rem}
+.head-logo{height:92px; width:auto; margin-right:auto; margin-left:0}
+.kicker{
+  font-size:.76rem; letter-spacing:.2em; font-weight:700;
+  color:var(--olive-dk); margin:1.6rem 0 .7rem;
+}
+.head h1{
+  font-size:clamp(2.1rem,7.5vw,2.9rem); font-weight:900; color:var(--navy);
+  letter-spacing:-.01em; margin-bottom:.9rem;
+}
+.head h1 em{font-style:normal; color:var(--olive-dk)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .head h1{color:var(--ink)} }
+:root[data-theme="dark"] .head h1{color:var(--ink)}
+.head-sub{
+  font-family:var(--display); font-size:1.08rem; font-weight:500;
+  color:var(--olive-dk); margin-bottom:.85rem; line-height:1.5;
+}
+.head-lede{font-size:1.2rem; font-weight:400; color:var(--ink-soft); line-height:1.72}
+.tiles{display:flex; height:6px}
+.tiles span{flex:1}
+.tiles span:nth-child(1){background:var(--t1)} .tiles span:nth-child(2){background:var(--t2)}
+.tiles span:nth-child(3){background:var(--t3)} .tiles span:nth-child(4){background:var(--t4)}
+.tiles span:nth-child(5){background:var(--t5)} .tiles span:nth-child(6){background:var(--t6)}
+.tiles span:nth-child(7){background:var(--t7)} .tiles span:nth-child(8){background:var(--t8)}
+
+/* ====== פרק ====== */
+.part{padding-top:2.75rem}
+.tiles + .part{padding-top:2.4rem}
+.part-label{
+  display:flex; align-items:center; gap:.65rem; margin-bottom:.6rem;
+}
+/* שלוש הנקודות של גאולי: ניווי, זית, חול */
+.part-label i{
+  display:block; width:48px; height:8px; flex:none;
+  background:
+    radial-gradient(circle at 4px 4px, var(--navy) 3.5px, transparent 4px),
+    radial-gradient(circle at 24px 4px, var(--olive) 3.5px, transparent 4px),
+    radial-gradient(circle at 44px 4px, var(--sand) 3.5px, transparent 4px);
+  background-repeat:no-repeat;
+}
+.part-label span{
+  font-size:.78rem; letter-spacing:.14em; font-weight:800; color:var(--olive-dk); white-space:nowrap;
+}
+.part h2{font-size:1.95rem; font-weight:800; color:var(--navy); letter-spacing:-.005em; margin-bottom:.7rem}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .part h2{color:var(--ink)} }
+:root[data-theme="dark"] .part h2{color:var(--ink)}
+.part-intro{color:var(--ink-soft); font-size:1.12rem; line-height:1.8}
+
+/* ====== סיפור ====== */
+.story{padding-top:2.4rem}
+.story h3{
+  font-size:1.3rem; font-weight:700; margin-bottom:.5rem;
+  display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
+}
+.story h3 time{
+  font-family:var(--body); font-size:.78rem; font-weight:700; letter-spacing:.08em;
+  color:var(--rust); background:var(--paper-2); padding:.2rem .7rem; border-radius:999px;
+  font-variant-numeric:tabular-nums; flex:none;
+}
+.story p{font-size:1.04rem; color:var(--ink-soft); margin-bottom:.75rem}
+.story p:last-child{margin-bottom:0}
+.story .small{font-size:.95rem; color:var(--ink-mute)}
+.story strong{color:var(--ink); font-weight:700}
+.story ul{margin:.1rem 0 .75rem; padding-inline-start:1.2rem; font-size:1.02rem; color:var(--ink-soft)}
+.story li{margin-bottom:.3rem}
+.story li::marker{color:var(--olive)}
+
+/* תמונות */
+figure{margin:0 0 1rem}
+figure img{width:100%; height:auto; border-radius:18px; max-height:30rem; object-fit:cover; object-position:center 38%}
+figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-height:1.5}
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:.6rem}
+.duo img{height:100%; object-fit:cover; aspect-ratio:3/4; border-radius:18px}
+.trio{display:grid; grid-template-columns:1fr 1fr 1fr; gap:.4rem}
+.trio img{height:100%; object-fit:cover; aspect-ratio:3/4}
+.bleed{margin-inline:-2.75rem}
+@media(max-width:560px){ .bleed{margin-inline:-1.35rem} }
+.bleed img{border-radius:0}
+.bleed figcaption{border-radius:0}
+.bleed figcaption{padding-inline:1.35rem}
+
+/* ציטוט */
+.quote{
+  background:radial-gradient(circle at 85% 12%, rgba(216,199,160,.16), transparent 42%), var(--navy); color:#fff; padding:1.9rem 1.8rem;
+  margin:2rem 0 0; position:relative; border-radius:22px;
+}
+.quote::before{content:""; position:absolute; inset-inline-start:0; inset-block:0; width:5px;
+  background:linear-gradient(180deg,var(--t3),var(--t4),var(--t8))}
+.quote p{font-size:1.2rem; font-weight:400; line-height:1.72; color:#fff; margin:0}
+.quote cite{display:block; margin-top:.85rem; font-style:normal; font-family:var(--body);
+  font-size:.83rem; letter-spacing:.1em; color:var(--sand)}
+
+/* רשימת תוכניות */
+.progs{
+  display:grid; gap:.7rem; margin-top:1.5rem;
+  grid-template-columns:repeat(auto-fill,minmax(9.8rem,1fr));
+}
+.prog{
+  display:flex; align-items:center; gap:.7rem;
+  background:var(--paper-2);
+  border:1px solid var(--rule-soft);
+  border-radius:14px; padding:.75rem .85rem;
+  transition:border-color .18s, transform .18s;
+}
+.prog:hover{border-color:var(--sand); transform:translateY(-1px)}
+.prog i{
+  flex:none; width:34px; height:34px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.65);
+  box-shadow:inset 0 0 0 1px var(--rule-soft);
+  color:var(--olive-dk);
+}
+.prog:nth-child(3n+2) i{color:var(--navy)}
+.prog:nth-child(3n+3) i{color:var(--rust)}
+.prog b{font-size:.95rem; font-weight:700; color:var(--navy); line-height:1.35}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .prog b{color:var(--ink)}
+  :root:not([data-theme="light"]) .prog i{background:rgba(255,255,255,.07)}
+}
+:root[data-theme="dark"] .prog b{color:var(--ink)}
+:root[data-theme="dark"] .prog i{background:rgba(255,255,255,.07)}
+
+/* ====== הרשמה ====== */
+.join{
+  margin:2.6rem 0 0;
+  background:radial-gradient(circle at 88% 10%, rgba(216,199,160,.18), transparent 45%), var(--navy);
+  color:#fff; border-radius:18px; padding:1.5rem 1.5rem 1.6rem;
+}
+.join h2{font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:.4rem; letter-spacing:-.01em}
+.join .sub{font-size:.92rem; line-height:1.6; color:rgba(255,255,255,.72); margin-bottom:1.1rem; max-width:50ch}
+.jf{display:grid; gap:.55rem; grid-template-columns:1fr 1fr 1fr}
+.jf label{display:flex; flex-direction:column; gap:.22rem; text-align:left; font-size:.74rem; color:var(--sand); font-weight:600}
+.jf .wide{grid-column:1/-1}
+.jf input, .jf select, .jf textarea{
+  font-family:var(--body); font-size:.92rem; color:#fff;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22);
+  border-radius:9px; padding:.46rem .65rem; width:100%;
+}
+.jf textarea{resize:vertical; min-height:2.6rem}
+.jf input::placeholder, .jf textarea::placeholder{color:rgba(255,255,255,.4)}
+.jf select option{color:#1F355E}
+.jf input:focus, .jf select:focus, .jf textarea:focus{outline:2px solid var(--sand); outline-offset:1px}
+.jf button{
+  grid-column:1/-1; justify-self:start; font-family:var(--display);
+  font-size:.95rem; font-weight:700;
+  background:var(--sand); color:var(--navy-deep); border:0; border-radius:999px;
+  padding:.58rem 1.7rem; cursor:pointer; margin-top:.35rem;
+}
+.jf button:hover{background:#E8DEC8}
+.jf button:disabled{opacity:.6; cursor:default}
+.join .note{font-size:.76rem; color:rgba(255,255,255,.5); margin-top:.7rem}
+.join .done{display:none; font-size:1rem; line-height:1.7; color:#fff}
+.join.sent .jf, .join.sent .sub{display:none}
+.join.sent .done{display:block}
+@media(max-width:620px){ .jf{grid-template-columns:1fr 1fr} }
+@media(max-width:460px){ .jf{grid-template-columns:1fr} .join{padding:1.3rem 1.15rem 1.4rem} }
+
+/* סיום */
+.cityline{margin-top:3rem; line-height:0}
+.cityline img{width:100%}
+.foot{background:var(--navy); color:rgba(255,255,255,.72); padding:2.3rem 2.75rem 2.6rem; text-align:center}
+@media(max-width:560px){ .foot{padding-inline:1.35rem} }
+.foot .mark{font-family:var(--display); font-weight:800; font-size:1.3rem; letter-spacing:-.01em; color:#fff; display:block}
+.foot .slog{font-size:.78rem; letter-spacing:.18em; color:var(--sand); margin-top:.25rem; display:block}
+.foot p{font-size:.8rem; line-height:1.7; margin-top:1.2rem; color:rgba(255,255,255,.58)}
+.foot a{color:var(--sand)}
+
+/* ====== מגזין: פרקים ממוספרים ====== */
+.chap{padding-top:3.2rem}
+.chap-no{
+  display:flex; align-items:center; gap:.8rem; margin-bottom:.55rem;
+}
+.chap-no b{
+  font-family:var(--display); font-weight:900; font-size:2.2rem;
+  color:var(--sand); line-height:1; font-variant-numeric:tabular-nums;
+}
+.chap-no i{
+  display:block; width:48px; height:8px; flex:none;
+  background:
+    radial-gradient(circle at 4px 4px, var(--navy) 3.5px, transparent 4px),
+    radial-gradient(circle at 24px 4px, var(--olive) 3.5px, transparent 4px),
+    radial-gradient(circle at 44px 4px, var(--sand) 3.5px, transparent 4px);
+  background-repeat:no-repeat;
+}
+.chap h2{
+  font-size:clamp(1.6rem,4.4vw,2.05rem); font-weight:800; color:var(--navy);
+  letter-spacing:-.01em; margin-bottom:1.1rem;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .chap h2{color:var(--ink)} }
+:root[data-theme="dark"] .chap h2{color:var(--ink)}
+
+/* כותרת משנה של כתבה, לרוב שאלה */
+.story h4{
+  font-family:var(--display); font-size:1.22rem; font-weight:700;
+  color:var(--navy); line-height:1.4; margin-bottom:.55rem;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .story h4{color:var(--ink)} }
+:root[data-theme="dark"] .story h4{color:var(--ink)}
+.story .hook{
+  font-family:var(--display); font-size:1.1rem; color:var(--olive-dk);
+  font-weight:500; margin-bottom:.8rem; line-height:1.6;
+}
+.story em.note{
+  display:block; font-style:normal; font-size:.93rem; color:var(--ink-mute);
+  background:var(--paper-2); border-radius:12px; padding:.75rem 1rem; margin-top:.9rem;
+}
+/* קבוצות תוכניות */
+.groups{display:grid; gap:.85rem; margin:1.2rem 0 .4rem}
+.group{
+  background:var(--paper-2); border-radius:14px; padding:.9rem 1.1rem;
+  border:1px solid var(--rule-soft);
+}
+.group b{display:block; font-family:var(--display); font-size:1rem; color:var(--navy); margin-bottom:.2rem}
+.group span{font-size:.98rem; color:var(--ink-soft)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .group b{color:var(--ink)} }
+:root[data-theme="dark"] .group b{color:var(--ink)}
+/* קו מפריד בין פרקים */
+.chap-rule{height:1px; background:var(--rule); margin-top:3rem}
+
+/* ====== מעבר שפה ====== */
+.langbar{
+  position:absolute; top:1.3rem; right:1.7rem; left:auto; z-index:5;
+  display:flex; gap:.3rem;
+}
+.langbar a{
+  font-family:var(--body); font-size:.76rem; font-weight:700; letter-spacing:.06em;
+  color:var(--navy); background:rgba(255,255,255,.72);
+  border:1px solid var(--sand); border-radius:999px;
+  padding:.3rem .75rem; text-decoration:none;
+}
+.langbar a[aria-current]{background:var(--navy); color:#fff; border-color:var(--navy)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .langbar a{color:var(--ink); background:rgba(255,255,255,.08); border-color:var(--rule)}
+  :root:not([data-theme="light"]) .langbar a[aria-current]{background:var(--sand); color:var(--navy-deep)}
+}
+:root[data-theme="dark"] .langbar a{color:var(--ink); background:rgba(255,255,255,.08); border-color:var(--rule)}
+:root[data-theme="dark"] .langbar a[aria-current]{background:var(--sand); color:var(--navy-deep)}
+@media(max-width:560px){ .langbar{top:.9rem; right:1.1rem} }
+</style>
+</head>
+<body>
+
+
+<div class="sheet">
+
+  <!-- ====== Cover ====== -->
+  <header class="head">
+    <div class="langbar">
+      <a href="index.html">עב</a>
+      <a href="index-en.html" aria-current="page">EN</a>
+    </div>
+    <img class="head-arch" src="arch.png" alt="">
+    <div class="pad head-inner">
+      <img class="head-logo" src="logo.png" alt="Geulim School, named after Yitzhak Navon">
+      <p class="kicker">Community Magazine · First Issue 5787 · September–October 2026</p>
+      <h1>Some things aren't taught <em>in a classroom</em></h1>
+      <p class="head-sub">At Geulim, they're learned every single day</p>
+      <p class="head-lede">
+        A Lego room that children built themselves. A kitchen where they
+        learn far more than cooking. Elections run by students, an olive
+        harvest in the park, and a schoolyard that turns into a meeting
+        place for the whole neighbourhood.
+      </p>
+    </div>
+  </header>
+  <div class="tiles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <div class="pad">
+    <figure class="bleed" style="margin-top:0">
+      <img src="photos/p26.jpg" alt="Third and fourth graders harvesting olives in Lifshitz Park">
+      <figcaption>Grades 3 and 4 at the olive harvest in Lifshitz Park, close to the school</figcaption>
+    </figure>
+    <p class="part-intro" style="margin-top:.4rem">
+      Quite a lot happened at Geulim over the past two months. Some of it
+      big, some of it small, but almost all of it shares something: children
+      who don't just take part but also create, a staff that believes in a
+      different kind of learning, and parents who choose to be part of what
+      happens here.
+    </p>
+    <p class="part-intro" style="margin-top:.9rem"><strong>So what is actually going on at Geulim?</strong></p>
+    <div class="chap-rule"></div>
+  </div>
+
+  <!-- ====== 01 ====== -->
+  <section class="chap pad">
+    <div class="chap-no"><i></i><b>01</b></div>
+    <h2>Children get things done here</h2>
+
+    <article class="story" style="padding-top:.6rem">
+      <h4>Who needs grown-ups when you have Grade 5?</h4>
+      <p class="hook">Thousands of Lego pieces, one room, and a group of children who decided to turn an idea into reality.</p>
+      <figure class="duo">
+        <img src="photos/p23.jpg" alt="The Lego room with a board and trays of pieces">
+        <img src="photos/p24.jpg" alt="The large Lego field with structures the children built">
+      </figure>
+      <p>
+        The students of 5A planned, organised and built a new Lego room at
+        the school themselves. They thought about the space, sorted the
+        pieces and prepared a place where children can build, create, play
+        and take on challenges.
+      </p>
+      <p>
+        But the room has another purpose too. It is meant to be somewhere
+        you can go when you need a little quiet, time to yourself, or a
+        break from the noise.
+      </p>
+      <p>
+        Sometimes the best way to teach children responsibility is simply to
+        give them responsibility.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>Democracy doesn't stay inside the textbook</h4>
+      <p class="hook">What do elections look like when children run them?</p>
+      <figure class="bleed">
+        <img src="photos/hanhagat-talmidim.jpg" alt="Newly elected student council members holding certificates in front of the school">
+        <figcaption>The elected students receive their certificates in front of the whole school</figcaption>
+      </figure>
+      <p>
+        At Geulim the answer is simple: a ballot committee made up of 6A
+        students, an orderly vote, a count of the ballots and an
+        announcement of the results.
+      </p>
+      <p>
+        Students in grades 4 to 6 chose their representatives to the student
+        council, with the entire process led by children. The elected
+        representatives meet every week with Aviv, who leads the council,
+        and begin to learn what it means to represent others.
+      </p>
+      <p>
+        Because democracy is not only the right to vote. It is also the
+        ability to listen, to make decisions and to carry responsibility.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>Small bottles. Big idea.</h4>
+      <p class="hook">What connects an empty bottle, sustainability, and helping families in the community?</p>
+      <figure class="duo">
+        <img src="photos/p20.jpg" alt="A student putting a bag of bottles into the collection bin">
+        <img src="photos/p21.jpg" alt="Students beside the bottle collection bin">
+      </figure>
+      <p>
+        This year Geulim students began collecting bottles for recycling. A
+        collection bin was placed next to the school, and the children bring
+        the bottles, sort them and gather them. The money from the deposits
+        will go to families in need of support.
+      </p>
+      <p>
+        There is a whole lesson here that needs no blackboard and no
+        notebook. About consumption, the environment, giving, and the fact
+        that even a small action can do something good for someone else.
+      </p>
+      <p class="small">
+        Thank you to Sima Cohen, mother of Michael in Grade 4, who arranged
+        the collection bin for us.
+      </p>
+    </article>
+    <div class="chap-rule"></div>
+  </section>
+
+  <!-- ====== 02 ====== -->
+  <section class="chap pad">
+    <div class="chap-no"><i></i><b>02</b></div>
+    <h2>Who said learning only happens in class?</h2>
+
+    <article class="story" style="padding-top:.6rem">
+      <h4>Flour, water and a little independence</h4>
+      <p class="hook">Some lessons end in a notebook. Others end in a loaf of challah.</p>
+      <figure class="duo">
+        <img src="photos/p17.jpg" alt="The school's new kitchen">
+        <img src="photos/p18.jpg" alt="The seating corner in the new kitchen">
+      </figure>
+      <p>
+        Geulim's new kitchen opened in October, and on the very first day
+        the younger children baked a cake and the older ones made challah.
+        But the story is not what came out of the oven.
+      </p>
+      <p>
+        In a kitchen you have to plan, read instructions, measure, divide
+        tasks, work together, deal with mistakes and clean up after
+        yourself. These are skills that show up in almost every area of life.
+      </p>
+      <p>
+        That is why the new kitchen isn't reserved for special occasions.
+        Baking and cooking lessons will be part of the school routine. And
+        sometimes, at the end of the lesson, you also get to eat what you
+        learned.
+      </p>
+      <em class="note">
+        Do you have dairy or parve kitchen utensils you no longer use? We
+        would be glad to receive them at the school office.
+      </em>
+    </article>
+
+    <article class="story">
+      <h4>A classroom without walls</h4>
+      <figure>
+        <img src="photos/p25.jpg" alt="Students around an olive tree in the park">
+        <figcaption>The trees, the olives and the open space all became part of the learning</figcaption>
+      </figure>
+      <p>
+        In October, students in grades 3 and 4 went out to Lifshitz Park,
+        near the school, for an olive harvest. The trees, the olives, the
+        season and the open space all became part of the learning.
+      </p>
+      <p>
+        This year two of the school's homeroom teachers are taking part in
+        professional training on outdoor learning, as part of expanding the
+        ways to learn outside the classroom.
+      </p>
+      <p>
+        Because sometimes you have to step outside the school to discover
+        how much there is to learn right next to it.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>And you can learn in completely different ways</h4>
+      <p class="hook">
+        Not every child is interested in the same things, and not everyone
+        discovers their strengths in the same place.
+      </p>
+      <p>
+        At Geulim you can find children exploring robotics and high tech,
+        children finding their voice in the choir or the school band, and
+        others who connect through sport, languages, thinking and creating.
+      </p>
+      <div class="groups">
+        <div class="group">
+          <b>To think, explore and create</b>
+          <span>Robotics · High tech · Unicorn · Thinking challenges · Entrepreneurship space</span>
+        </div>
+        <div class="group">
+          <b>To find a voice and lead</b>
+          <span>Leadership centre · Choir · School band · Ladino lessons</span>
+        </div>
+        <div class="group">
+          <b>To learn through movement and doing</b>
+          <span>Sports teams · Adventure cycling · Therapeutic gardening</span>
+        </div>
+        <div class="group">
+          <b>To open more doors to learning</b>
+          <span>English support groups</span>
+        </div>
+      </div>
+      <p>
+        This variety matters, because sometimes a child needs to encounter
+        one new field in order to discover something new about themselves.
+      </p>
+    </article>
+    <div class="chap-rule"></div>
+  </section>
+
+  <!-- ====== 03 ====== -->
+  <section class="chap pad">
+    <div class="chap-no"><i></i><b>03</b></div>
+    <h2>A community with meaning</h2>
+
+    <article class="story" style="padding-top:.6rem">
+      <h4>This is how you welcome a new family</h4>
+      <figure class="bleed">
+        <img src="photos/ptiha.jpg" alt="Parents holding a canopy of prayer shawls above the first graders at the opening ceremony">
+        <figcaption>On the first day of school, parents hold a canopy of prayer shawls above the Grade 1 students</figcaption>
+      </figure>
+      <p>
+        On the first day of school, parents stood and held a canopy of
+        prayer shawls above the Grade 1 students. The children walked in
+        beneath it, and the senior citizens' choir of the community centre
+        sang with us at the opening ceremony.
+      </p>
+      <p>
+        It was a small, lovely moment that says something big about Geulim.
+        On their very first day at school, the children did not only meet a
+        new classroom and a new teacher. They met a whole circle of people
+        who came for them.
+      </p>
+      <p><strong>Welcome to the new families of Geulim.</strong></p>
+    </article>
+
+    <article class="story">
+      <h4>A school for a whole neighbourhood</h4>
+      <p class="hook">What does it take to create a good afternoon in a schoolyard?</p>
+      <figure class="bleed">
+        <img src="photos/p27.jpg" alt="The schoolyard full of families at the winter clock party">
+        <figcaption>The yard filled with families from Baka, Arnona and the surrounding area</figcaption>
+      </figure>
+      <p>
+        A few craft tables, krembo, children, families, a winter show, and
+        plenty of parents willing to take part.
+      </p>
+      <p>
+        On 22 October we said goodbye to summer at the Geulim community
+        winter clock party. There were crafts, surprises and a winter show
+        by the actress and creator Shani Weisman. But the loveliest thing of
+        all was the people who came: not only families from the school, but
+        also families from Baka, from Arnona and from the surrounding area.
+      </p>
+      <figure>
+        <img src="photos/p28.jpg" alt="Children making crafts around a table at the event">
+      </figure>
+      <p>
+        Because a neighbourhood school can be far more than the place you
+        send your children in the morning. It can be a place where
+        neighbours meet, where families get to know one another, and where a
+        community begins to form.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>A growing and influential parents' council</h4>
+      <figure class="duo">
+        <img src="photos/p13.jpg" alt="The parents' council of Geulim School">
+        <img src="photos/p09.jpg" alt="Thank you letters left for the teaching staff">
+      </figure>
+      <p>
+        At the start of the year we asked Geulim parents to tell us what
+        they are good at, what they know how to do and in which areas they
+        could contribute. Not because the school lacks professionals, but
+        because there is so much knowledge, experience and ability already
+        present among us. At the first parents' meeting, on 8 September, we
+        began mapping those strengths.
+      </p>
+      <p>
+        The parents' council also expanded this year, with additional
+        parents from every grade and from special education. Avia
+        Cohen Kosher was elected for a second year as chair of the parents'
+        council.
+      </p>
+      <p>
+        At the same time we are promoting an approach built on action
+        groups, so that parental involvement does not rest on a small number
+        of parents but allows anyone who wishes to take part, even in
+        something small.
+      </p>
+      <p>
+        And at the beginning of the year a surprise was waiting for the
+        teaching staff: personal thank you letters prepared by the parents
+        and left in the staff room. Because partnership also begins with
+        knowing how to say thank you.
+      </p>
+    </article>
+    <div class="chap-rule"></div>
+  </section>
+
+  <!-- ====== 04 ====== -->
+  <section class="chap pad">
+    <div class="chap-no"><i></i><b>04</b></div>
+    <h2>Things worth talking about</h2>
+
+    <article class="story" style="padding-top:.6rem">
+      <h4>What can a marshmallow teach us about the new year?</h4>
+      <figure class="bleed">
+        <img src="photos/p04.jpg" alt="A long table set with Rosh Hashanah symbols, students dressed in white">
+        <figcaption>All of Geulim's students around one long table at the school Rosh Hashanah seder</figcaption>
+      </figure>
+      <p>
+        At the school Rosh Hashanah seder, all of Geulim's students sat
+        around one long table, dressed in white. But this year the symbols
+        of the holiday were not only apples, honey and pomegranate. The
+        children were asked to bring objects from their own world and turn
+        them into a blessing for the new year.
+      </p>
+      <p>And so a few ideas were born that we might not have thought of ourselves:</p>
+      <ul>
+        <li><strong>A marshmallow</strong> · that we have a flexible and sweet year</li>
+        <li><strong>A magnet</strong> · that we draw good things towards us</li>
+        <li><strong>A plate</strong> · that we have success (a play on the Hebrew words)</li>
+        <li><strong>A rope</strong> · that we know how to tie good bonds of friendship</li>
+        <li><strong>A mirror</strong> · that we know how to look at ourselves and recognise our strengths</li>
+      </ul>
+      <figure class="duo">
+        <img src="photos/p06.jpg" alt="Students holding a paper heart and wheat stalks">
+        <img src="photos/p07.jpg" alt="Students presenting the holiday symbols they prepared">
+      </figure>
+      <p>
+        It was an original way to talk about wishes, values and new
+        beginnings, and above all to let the children bring their own
+        thoughts to the holiday table.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>Memory that grows</h4>
+      <p class="hook">
+        How do you speak with children of different ages about difficult
+        events, about loss and about remembrance?
+      </p>
+      <figure>
+        <img src="photos/p15.jpg" alt="Two students presenting the anemone boards they made">
+        <figcaption>The anemone as a symbol of growth and renewal, in Grade 5's work</figcaption>
+      </figure>
+      <p>
+        On 5 October the school devoted a day to age appropriate discussion
+        and activity, led by the homeroom teachers who know the children
+        closely. Each grade worked on a different theme:
+      </p>
+      <ul>
+        <li><strong>Grades 1 and 2</strong> · mutual responsibility, the ability to help others and the option of asking for help</li>
+        <li><strong>Grade 3</strong> · a grade wide box of hugs filled with encouraging words</li>
+        <li><strong>Grade 4</strong> · appreciation and thanks to the security forces</li>
+        <li><strong>Grade 5</strong> · the anemone as a symbol of growth and renewal</li>
+        <li><strong>Grade 6</strong> · the strengths of Israeli society</li>
+      </ul>
+      <figure class="duo">
+        <img src="photos/p29.jpg" alt="A school wide gathering in the hall">
+        <img src="photos/p16.jpg" alt="Students presenting the work they created">
+      </figure>
+      <p>
+        Students in grades 3 to 6 gathered at the end of the day for a
+        shared assembly, for singing and for a prayer for the wellbeing of
+        the country.
+      </p>
+      <p>
+        The choice was to let the children meet the subject in different
+        ways, with sensitivity to their age and to their needs.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>Not everyone in the classroom feels seen</h4>
+      <p>
+        At Geulim the week opens with a school wide gathering and a shared
+        viewing of a short film, which leads into a conversation. During the
+        month of Cheshvan we addressed, among other things, two subjects
+        that touch the lives of children and adults alike.
+      </p>
+      <p>
+        <strong>Invisible people:</strong> do we notice the person next to
+        us? The one nobody always talks to, the one who isn't always seen?
+      </p>
+      <p>
+        <strong>Peer pressure:</strong> what happens when everyone is doing
+        something we are not comfortable with? How do we choose differently?
+      </p>
+      <p>
+        These are not questions with a single correct answer. But it matters
+        that they have a place in the conversation. Social education does
+        not only happen when there is a problem to solve. It also happens
+        when time is set aside to talk about life itself.
+      </p>
+    </article>
+
+    <article class="story">
+      <h4>Tradition meeting place</h4>
+      <figure>
+        <img src="photos/slichot.jpg" alt="Students forming an arch of hands on Jerusalem steps during the Slichot tour">
+        <figcaption>An arch of hands on Jerusalem steps, during the Slichot tour of grades 1 and 2</figcaption>
+      </figure>
+      <p>
+        Ahead of the High Holy Days, students in grades 1 and 2, together
+        with the teaching staff and parents, went on a Slichot tour in
+        Jerusalem. They encountered the city during a special time of year,
+        through walking together and getting to know both the place and the
+        traditions of the season.
+      </p>
+      <p>
+        And ahead of the new month of Cheshvan, shared meals were held in
+        the classrooms, with the children in some of them preparing the food
+        themselves, including baking bread. Another way of connecting
+        tradition, learning and shared life.
+      </p>
+      <figure>
+        <img src="photos/p22.jpg" alt="Students around a long table at a shared meal">
+      </figure>
+    </article>
+    <div class="chap-rule"></div>
+  </section>
+
+  <!-- ====== 05 ====== -->
+  <section class="chap pad">
+    <div class="chap-no"><i></i><b>05</b></div>
+    <h2>What comes next?</h2>
+
+    <article class="story" style="padding-top:.6rem">
+      <h4>The genuinely good things are built over time</h4>
+      <p>
+        The first two months were full of beginnings, but what is
+        interesting is what happens after them.
+      </p>
+      <p>
+        The Lego room is becoming part of school life. The kitchen is
+        entering the learning routine. The student council meets every week.
+        Outdoor learning continues to develop, the parent action groups are
+        starting to operate, and the various programmes let more children
+        find a place to express themselves.
+      </p>
+      <p>
+        Not everything has to be a big event. Sometimes the change is found
+        precisely in the things that happen every day.
+      </p>
+      <p>
+        And that is what we want to keep building at Geulim: a school with
+        room for initiative, for responsibility, for curiosity, for meeting
+        one another and for different ways to learn and to grow.
+      </p>
+    </article>
+  </section>
+
+  <!-- ====== Sign up ====== -->
+  <div class="pad">
+    <section class="join" id="join">
+      <h2>Looking for a school for next year?</h2>
+      <p class="sub">
+        If you live in Baka, in Arnona or nearby, we would be glad for you
+        to get to know Geulim. Come and see the spaces, meet the staff, hear
+        about the programmes and discover what life looks like at our
+        school. Leave your details and we will get back to you to arrange a
+        visit.
+      </p>
+      <form class="jf" id="joinForm">
+        <label>Full name
+          <input name="name" required autocomplete="name" placeholder="Parent's name">
+        </label>
+        <label>Phone
+          <input name="phone" required inputmode="tel" autocomplete="tel" placeholder="050-0000000">
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" placeholder="Optional">
+        </label>
+        <label>Grade next year
+          <select name="grade">
+            <option value="">Choose</option>
+            <option>א׳</option><option>ב׳</option><option>ג׳</option>
+            <option>ד׳</option><option>ה׳</option><option>ו׳</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label>Neighbourhood
+          <input name="area" placeholder="Baka, Arnona, other">
+        </label>
+        <label class="wide">Anything you'd like to ask
+          <textarea name="notes" placeholder="Optional"></textarea>
+        </label>
+        <button type="submit">Send my details</button>
+      </form>
+      <p class="done">Thank you! We have received your details and will be in touch soon.</p>
+      <p class="note">Your details are kept by us alone and used only to get in touch.</p>
+    </section>
+  </div>
+
+  <div class="cityline" aria-hidden="true"><img src="cityline.png" alt=""></div>
+
+  <footer class="foot">
+    <span class="mark">Geulim School</span>
+    <span class="slog">Place · People · Meaning</span>
+    <p>
+      3 Gad Street, Baka, Jerusalem ·
+      <a href="https://www.geuli.co.il">geuli.co.il</a><br>
+      The Geulim parents' community · All initiatives and updates on the site and in the community groups
+    </p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbz_AzZmWCBi5tEEWr1rKgFxFCM7Sj2HmPRK-SkccuYKlC74A_BZM-67vLVNe6f-jWknXA/exec";
+  var f = document.getElementById('joinForm');
+  if(!f) return;
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var btn = f.querySelector('button');
+    btn.disabled = true; btn.textContent = 'שולח…';
+    var body = new URLSearchParams(new FormData(f)).toString();
+    var finish = function(){
+      document.getElementById('join').classList.add('sent');
+    };
+    if(!ENDPOINT){ finish(); return; }
+    fetch(ENDPOINT, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body: body
+    }).then(finish).catch(finish);
+  });
+})();
+</script>
+</body>
+</html>

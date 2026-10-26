@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="מגזין קהילתי של בית ספר גאולים בשכונת בקעה, ירושלים. גיליון ראשון תשפ״ז.">
 <meta property="og:title" content="יש דברים שלא לומדים בכיתה · מגזין גאולים">
-<meta property="og:description" content="חדר לגו שילדים הקימו, מטבח שבו לומדים יותר מבישול, ובחירות שתלמידים מנהלים. מה קורה בבית ספר גאולים.">
+<meta property="og:description" content="חדר לגו שילדים הקימו, מטבח שבו לומדים יותר מבישול, ובחירות שתלמידים מנהלים.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.geuli.co.il/newsletter/">
+<meta property="og:url" content="https://www.geuli.co.il/newsletter/index.html">
 <meta property="og:image" content="https://www.geuli.co.il/newsletter/photos/p26.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://www.geuli.co.il/newsletter/index-en.html">
 <link rel="icon" href="../brand/assets/logo/geulim-school-logo-navon.png">
 <title>יש דברים שלא לומדים בכיתה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -303,6 +304,25 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
 :root[data-theme="dark"] .group b{color:var(--ink)}
 /* קו מפריד בין פרקים */
 .chap-rule{height:1px; background:var(--rule); margin-top:3rem}
+/* ====== מעבר שפה ====== */
+.langbar{
+  position:absolute; top:1.3rem; right:1.7rem; left:auto; z-index:5;
+  display:flex; gap:.3rem;
+}
+.langbar a{
+  font-family:var(--body); font-size:.76rem; font-weight:700; letter-spacing:.06em;
+  color:var(--navy); background:rgba(255,255,255,.72);
+  border:1px solid var(--sand); border-radius:999px;
+  padding:.3rem .75rem; text-decoration:none;
+}
+.langbar a[aria-current]{background:var(--navy); color:#fff; border-color:var(--navy)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .langbar a{color:var(--ink); background:rgba(255,255,255,.08); border-color:var(--rule)}
+  :root:not([data-theme="light"]) .langbar a[aria-current]{background:var(--sand); color:var(--navy-deep)}
+}
+:root[data-theme="dark"] .langbar a{color:var(--ink); background:rgba(255,255,255,.08); border-color:var(--rule)}
+:root[data-theme="dark"] .langbar a[aria-current]{background:var(--sand); color:var(--navy-deep)}
+@media(max-width:560px){ .langbar{top:.9rem; right:1.1rem} }
 </style>
 </head>
 <body>
@@ -311,6 +331,10 @@ figcaption{font-size:.87rem; color:var(--ink-mute); padding-top:.45rem; line-hei
 
   <!-- ====== שער ====== -->
   <header class="head">
+    <div class="langbar">
+      <a href="index.html" aria-current="page">עב</a>
+      <a href="index-en.html">EN</a>
+    </div>
     <img class="head-arch" src="arch.png" alt="">
     <div class="pad head-inner">
       <img class="head-logo" src="logo.png" alt="בית הספר גאולים ע״ש יצחק נבון">
