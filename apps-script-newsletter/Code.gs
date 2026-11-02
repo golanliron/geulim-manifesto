@@ -11,6 +11,8 @@ var SHEET_ID = '1K1qeMNkeI6-xcFjzHQOSB-L-BUDugtNs0lCeTjqy7II';
 
 var SHEET_NAME = 'מתעניינים';
 var NOTIFY_EMAIL = 'golanliron1@gmail.com';
+// נמענים נוספים להתראה על מתעניין חדש. מופרדים בפסיק.
+var NOTIFY_ALSO = 'geulim.jerusalem@gmail.com';
 
 var HEADERS = [
   'תאריך',
@@ -109,12 +111,16 @@ function notify_(row) {
         '</div>' +
       '</div>';
 
+    var recipients = [NOTIFY_EMAIL, NOTIFY_ALSO]
+      .filter(function (a) { return a && String(a).trim(); })
+      .join(',');
+
     MailApp.sendEmail({
-      to: NOTIFY_EMAIL,
+      to: recipients,
       subject: 'מתעניין חדש בגאולים: ' + row.name,
       htmlBody: html,
       replyTo: row.email || undefined,
-      name: 'ניוזלטר גאולים'
+      name: 'בית ספר גאולים'
     });
   } catch (err) {
     // כישלון במייל לא יפיל את שמירת השורה
